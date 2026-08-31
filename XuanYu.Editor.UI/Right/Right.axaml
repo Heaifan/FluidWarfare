@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             x:Class="XuanYu.Editor.UI.Right"
+             x:DataType="local:UiVm">
+  <Grid>
+    <local:EditorRightTabs IsVisible="{Binding !IsEditMode}"/>
+    <Grid IsVisible="{Binding IsEditMode}" RowDefinitions="3*,Auto,2*">
+      <local:EditorRightTabs Grid.Row="0"/>
+      <GridSplitter Grid.Row="1" Height="4" Background="{StaticResource Color.Border.Default}" HorizontalAlignment="Stretch" VerticalAlignment="Center" ResizeDirection="Rows"/>
+      <local:EditorLayerDock Grid.Row="2"/>
+    </Grid>
+  </Grid>
+</UserControl>

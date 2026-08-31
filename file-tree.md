@@ -1,0 +1,1327 @@
+# 玄域引擎文件树（按当前正式工作树重建）
+
+- `XYUI/README.md` - XYUI 实现工作区说明。
+- `XYUI/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - XYUI Foundation 可引用项目。
+- `XYUI/src/XYUI.Avalonia/README.md` - Avalonia 实现层使用说明。
+- `XYUI/src/XYUI.Avalonia/Foundation/XYDensity.cs` - XYUI 密度契约。
+- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeResources.cs` - Light/Dark 主题资源工厂。
+- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeVariant.cs` - XYUI 主题变体契约。
+- `XYUI/src/XYUI.Avalonia/Foundation/XYTokens.cs` - Foundation 颜色与尺寸 Token。
+- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.axaml` - XYUI 主题资源与基础样式。
+- `XYUI/src/XYUI.Avalonia/Themes/XYUIControls.axaml` - Controls Core 状态、尺寸与 Density 样式。
+- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.cs` - XYUI Avalonia 主题入口。
+- `XYUI/src/XYUI.Avalonia/Controls/XYButton.cs` - XYUI 主按钮。
+- `XYUI/src/XYUI.Avalonia/Controls/XYIconButton.cs` - XYUI 图标按钮。
+- `XYUI/src/XYUI.Avalonia/Controls/XYToggleButton.cs` - XYUI 切换按钮。
+- `XYUI/src/XYUI.Avalonia/Controls/XYTextField.cs` - XYUI 文本输入框。
+- `XYUI/src/XYUI.Avalonia/Controls/XYNumberField.cs` - XYUI 数值输入框。
+- `XYUI/src/XYUI.Avalonia/Controls/XYCheckBox.cs` - XYUI 复选框。
+- `XYUI/src/XYUI.Avalonia/Controls/XYRadioButton.cs` - XYUI 单选框。
+- `XYUI/src/XYUI.Avalonia/Controls/XYToggleSwitch.cs` - XYUI 开关。
+- `XYUI/src/XYUI.Avalonia/Controls/XYComboBox.cs` - XYUI 下拉选择框。
+- `XYUI/src/XYUI.Avalonia/Controls/XYSlider.cs` - XYUI 滑杆。
+- `XYUI/src/XYUI.Avalonia/Controls/XYBadge.cs` - XYUI 徽标。
+- `XYUI/src/XYUI.Avalonia/Controls/XYTag.cs` - XYUI 标签。
+- `XYUI/src/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - Gallery 应用项目。
+- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml` - Gallery 应用资源声明。
+- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml.cs` - Gallery 生命周期入口。
+- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml` - Foundation Gallery 页面。
+- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml.cs` - Gallery 主窗口代码后置。
+- `XYUI/src/XYUI.Avalonia.Gallery/Program.cs` - Gallery 桌面启动入口。
+- `XYUI/scripts/gallery-visible-smoke.ps1` - Gallery Desktop 可见窗口烟测。
+- `XYUI/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - XYUI Foundation 测试项目。
+- `XYUI/tests/XYUI.Avalonia.Tests/FoundationTokenTests.cs` - Foundation Token 契约测试。
+- `XYUI/tests/XYUI.Avalonia.Tests/GalleryRuntimeTests.cs` - Gallery 主题与主窗口 Headless 启动契约测试。
+- `XYUI/tests/XYUI.Avalonia.Tests/ControlsContractTests.cs` - Controls Core 类型与样式类契约测试。
+- `XYUI/tests/XYUI.Avalonia.Tests/AssemblyInfo.cs` - XYUI Avalonia 测试程序集串行化配置。
+
+> 由正式开发工作树的 `git ls-files` 与本轮预提交文件清单重建；每个文件一行职责。
+
+- `.gitattributes` — 项目资源或工程文件。
+- `.gitignore` — 项目资源或工程文件。
+- `AGENTS.md` — 项目治理、设计、里程碑或知识文档。
+- `changelog.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/architecture/ENGINE_ARCHITECTURE.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/architecture/world-a-r0-coordinate-contract.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/archive/changelog/changelog-2026-05.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/archive/changelog/changelog-2026-06.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/archive/changelog/changelog-2026-07.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/CODE_CONSTITUTION.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/dev-rules.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/docs-index.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/debts/arch-ui-spec-debts.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/debts/arch-world-debts.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/dev-rules-understanding.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/diagnostic-safety.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/NAMING_RULES.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/naming-XuanYu-Engine.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/ui-spec.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/governance/版本号规范与历史映射.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/architecture.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/data.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/engineering.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/incidents.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/input.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/knowledge-index.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/lessons.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/performance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/README.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/rendering.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/ui.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/ui/viewport-ui-control-development-guide.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/R1-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/R3-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R1-workspace-contract.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R2-workspace-switch.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-mode-shell.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/EDITOR-A/XYUI-backlog.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/LAYER-A/LAYER-A-R1-layer-shell.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/MAP-A-CLOSE-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/MAP-A-strategic-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/map-contract.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/R3-backlog.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/R3-C2-closure.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/viewport-overlay-development-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` — Region 顶点吸附真机 IPO 验收清单与门禁证据。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` — Region 顶点到顶点吸附范围、数据流与验收边界。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C-plan.md` — Region 顶点到边吸附的 C1/C2/C3 冻结范围与阶段状态。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C3-acceptance.md` — Region Snap 综合真机验收记录与 PASS 证据。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D-plan.md` — Road Vertex Editing D1/D2/D3 冻结范围与阶段边界。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-acceptance.md` — Road Vertex Selection 真机 IPO 验收模板与门禁证据。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-F1-acceptance.md` — Road Draw → Select 状态切换定向复验清单。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D2-acceptance.md` — Road Vertex Drag 真机 IPO 验收清单。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-plan.md` — 通用几何编辑、局部候选与吸附的一次性实现计划。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-acceptance.md` — 通用几何编辑与吸附一次综合真机验收清单。
+- `docs/knowledge/decisions/generic-geometry-editing-contract.md` — 通用几何编辑、吸附、局部查询与拓扑边界决策。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-contract.md` — E1 Geometry Capability Contract 定义。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-mapping-gap-report.md` — E1 Region/Road 映射、数据链与 Gap Report。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-E2-decision.md` — E1 对 E2 的抽取范围与禁止越界决策。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation.md` — Point / Map Marker 下一阶段范围与边界。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation-acceptance.md` — Point / Map Marker 八项真机 IPO 验收清单。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-closeout.md` — R2 Geometry Editing Foundation 收口、证据与最终边界。
+- `docs/knowledge/decisions/map-data-r2-closeout-and-point-foundation.md` — R2 收口与 Point Consumer 下一阶段决策。
+- `docs/knowledge/decisions/map-data-r3-point-consumer.md` — Point / Map Marker 通用几何 Consumer 决策。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-carryover.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F1-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` — 架构或界面结构矢量图。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/ui/ARCH-UI-SPEC-R1-D3_主窗口外壳与顶层页签.svg` — 架构或界面结构矢量图。
+- `docs/ui/ARCH-UI-SPEC-R1-D4_工作面板治理.svg` — 架构或界面结构矢量图。
+- `docs/ui/ARCH-UI-SPEC-R1-D4-F1_单行属性行修复.svg` — 架构或界面结构矢量图。
+- `docs/ui/ARCH-UI-SPEC-R1-D5_控件状态与弹窗通知治理.svg` — 架构或界面结构矢量图。
+- `docs/ui/玄域引擎_UI规范_1.0.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/ui/玄域引擎_UI真机基线清单.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/ui/玄域引擎_旧UI审计矩阵.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/玄域引擎_AI开发宪法.md` — 项目治理、设计、里程碑或知识文档。
+- `file-tree.md` — 项目文件职责树本身。
+- `NuGet.Config` — 项目构建或数据配置。
+- `run.bat` — 编辑器启动脚本。
+- `samples/world-c-r1-ten-triangles.xyscene` — 项目资源或工程文件。
+- `scripts/arch-a-guard.ps1` — 项目验证或维护脚本。
+- `scripts/arch-a-guard-editor.ps1` — 项目验证或维护脚本。
+- `scripts/arch-a-guard-render.ps1` — 项目验证或维护脚本。
+- `scripts/arch-a-guard-warcore.ps1` — 项目验证或维护脚本。
+- `scripts/arch-a-guard-world.ps1` — 项目验证或维护脚本。
+- `scripts/generate-ui-tokens.py` — 项目资源或工程文件。
+- `XuanYu.Core.Tests/Camera/CameraBasisTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraFarRecoveryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationRollTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationSequenceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationStressTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.Safety.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/CameraOrthographicNavigationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Camera/FarProjectionSafetyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/CoreSmokeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/EditorTool/EditorTransformCapturePolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoDragConstraintTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutG1Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutPlaneTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutVulkanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoScreenSizeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/RotateGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Drag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.DragSafety.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.R5R1.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/History/EditorHistoryOwnerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/History/EditorHistoryRedoTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/History/TransformHistoryIntegrationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/History/TransformHistoryRedoIntegrationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Picking/ViewportPickingServiceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Camera/StandardViewResolverTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Diagnostics/RenderLogNoiseContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/CubeRenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/FrameExecutionPolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/RenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Rotation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Selection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportAssistDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportChromeContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportScaleIndicatorContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridFrameStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridShaderContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Grid/ScaleIndicatorMetricTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Grid/ViewportMetricScaleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/LatestRenderProjectionQueueTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapRegionDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapRenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceGeometryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceLayerVisibilityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceKeyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceUpdatePolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoDipContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoInputIsolationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.Facing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoOverlayContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Overlay/ScaleIndicatorGlyphLiteTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/Overlay/ViewportOverlayLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/StaticModels/RegionModelTransformContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/StaticModels/StaticModelDepthRegressionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Render/StaticModels/StaticModelRenderContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/CameraOrthographicTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/CameraStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/DefaultEditorCameraTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/SpaceAssert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/ViewportStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/ViewProjectionStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/WorldRayFactoryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Space/WorldRayTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Spatial/RayAabbIntersectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Spatial/SpatialBoundsTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/Spatial/SpatialTestData.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core.Tests/XuanYu.Core.Tests.csproj` — 项目构建或数据配置。
+- `XuanYu.Core/.gitkeep` — 项目资源或工程文件。
+- `XuanYu.Core/Diagnostics/CoreSelfTest.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Common/ScreenPoint.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoAxis.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.Axes.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Hit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Plane.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoPlane.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoScreenSize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Move/MoveGizmoSegment.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoAxis.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.Math.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoLayout.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoRing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoScreenRadius.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoAxis.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoDrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoHitTester.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoLayout.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoScreenSize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/History/EditorHistoryOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/History/TransformHistoryEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Identity/EntityId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Logging/EngineLogEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Logging/EngineLogLevel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Map/MapSurfaceKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Map/MapSurfaceSampler.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Map/MapTerrainVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Math/Vector3d.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Math/YawRotation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Picking/ViewportPickingRequest.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Picking/ViewportPickingResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Picking/ViewportPickingService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Properties/AssemblyInfo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Results/EngineError.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Results/EngineResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Scene/CommittedTransform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Scene/ISceneRenderSnapshotSource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Scene/SceneEntitySnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Scene/SceneRenderSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Scene/SceneTransformCommitResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/CameraState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/DefaultEditorCamera.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/ProjectionMode.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/ViewportState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/ViewProjectionState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/ViewProjectionState.Projection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/WorldRay.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Space/WorldRayFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/RayAabbHit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/RayAabbIntersection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialAabb.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialBounds.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialQueryCategory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialQueryResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialQueryStats.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialRayAabb.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialRaycastHit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialRaycastResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialRaycastStats.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Spatial/SpatialRayQuery.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Time/SimulationTime.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Time/TimeStep.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Transform/PreviewTransform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/Transform/TransformStartSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Core/XuanYu.Core.csproj` — 项目构建或数据配置。
+- `XuanYu.Editor.App/EditorCompositionRoot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.App/Program.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.App/XuanYu.Editor.App.csproj` — 项目构建或数据配置。
+- `XuanYu.Editor.UI/Accessibility/UiAutomationNamer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Accessibility/UiDpiContract.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Accessibility/UiMotionPreference.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/app.manifest` — 项目资源或工程文件。
+- `XuanYu.Editor.UI/Bootstrap/App.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Bootstrap/App.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Bootstrap/Program.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Design/UiStyles.D4F1.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiStyles.D5.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokenManifest.json` — 项目构建或数据配置。
+- `XuanYu.Editor.UI/Design/UiTokens.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Colors.Components.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Colors.Core.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Controls.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Fonts.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Icons.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Motion.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Design/UiTokens.Spacing.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Dialogs/IEditorDialogService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Dialogs/NullEditorDialogService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorInteractionChangedResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorInteractionCommand.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorInteractionPointerSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorInteractionSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorSelectionCommand.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorSelectionSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorStateChangedResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Interaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Tool.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorToolChangedResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorToolCommand.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorToolId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorToolSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorToolText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/EditorState/EditorTransformCapturePolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/Foot.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Foot/Foot.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/Foot.States.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Foot/LogAutoScrollPolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Follow.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Layout.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Foot/NotificationBar.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Foot/NotificationBar.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Icons/EditorIcons.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Left/Left.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/Left.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Left/Left.EntityCommands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Left/Left.Styles.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Left/RegionPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/RegionPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Left/RoadPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Left/RoadPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Main/Main.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Main/Main.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/NativeHostResizeCoalescer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/NativeHostResizeSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/NativeHostSurfaceContract.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/RelayCommand.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.Drag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/DatasetPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/DatasetPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/EditableFormLayoutModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/InspectorPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/InspectorPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/LayerPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/LayerPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/LayerPanel.DragDrop.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/LayerPanel.Rename.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/LayerPanel.States.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/MapEditorLayoutModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/MapFormPanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/MapFormPanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/MapIdDisplayFormat.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/MapPagePanel.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/MapPagePanel.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/Right.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Right/Right.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripController.AllTabs.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripController.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripController.Hint.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripController.Visible.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Root/UiRoot.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Top/Top.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Top/Top.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Top/Top.States.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/TreeGuide.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/TreeGuideSegment.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Ui.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.HitTest.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.Layout.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerMessage.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerRoutePolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaCamera.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaPointer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Bridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.CameraPointer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Dpi.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Gizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.LayoutSync.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Log.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.NavGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Picking.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.Cancel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.Input.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/ViewportNativeHostRoute.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/CameraSessionMode.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/CameraSessionSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/StandardViewResolver.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.Draft.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraDolly.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraNavigation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.FarProjectionDiagnostic.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.ScaleIndicator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.ViewGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/History/UiVm.EntityCommands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/History/UiVm.History.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/History/UiVm.History.Entities.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Inspector/InspectorFieldRow.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.Inspector.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.Parse.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Layer/EditorLayerProviderAdapter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Layer/UiVm.LayerContext.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/DebugText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorDisplayText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogBuffer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogBus.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogCategory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogClipboardText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilterQuery.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogLevel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogNoiseFilter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogRepeatKey.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogSource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogSummary.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/LogEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/SampleLogEntries.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/UiText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.Refresh.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.State.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapDatasetRow.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapDatasetTypePresentation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.Rename.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapRegionRenderProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapRenderSnapshotProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Finalize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Road.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayTriangulation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.Danger.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDanger.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Commands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingBootstrap.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingTarget.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Inspector.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.LayerBridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Logging.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Name.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RegionPresentation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadBootstrap.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadPresentation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Routing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Selection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.Format.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Display.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.Rules.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapHistory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDiagnostics.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerInspector.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerSelection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapManifest.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapRender.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapWorld.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Commit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.DraftHistory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Input.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Logging.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Commit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.History.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Logging.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadTool.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Mode/UiVm.Mode.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/D2StaticModelDemo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/SceneHistoryEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/SceneRenderProjectionAdapter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/StaticModelRenderAdapter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.DocumentStatus.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.RenderProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.Scene.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.New.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentLog.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentMapRef.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentSave.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.StaticModelImport.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.WorldProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.Picking.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.Selection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionTrace.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionValidity.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.ViewportSelection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Selection/ViewportPickingLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoLogging.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoScreenSize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/Rotate/UiVm.RotateGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/Scale/UiVm.ScaleGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InputGuards.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.Interaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionCancel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionPointer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.Tool.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.ViewportAssist.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Tree/UiVm.TreeCommands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/UiVm.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/UiVm.NativeHostLifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/UiVm.RightPanel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Workspace/UiVm.RegionAuthoring.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Vm/Workspace/UiVm.Workspace.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/DialogFocusTrap.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.Accessibility.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Win/UiWin.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Danger.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Input.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.Dialogs.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.EntityShortcuts.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.MapCommands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.SceneCommands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.Shortcuts.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Win/UiWin.UnsavedDialog.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml` — Avalonia 界面布局与资源。
+- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.UI/XuanYu.Editor.UI.csproj` — 项目构建或数据配置。
+- `XuanYu.Editor.Win/MainForm.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor.Win/XuanYu.Editor.Win.csproj` — 项目构建或数据配置。
+- `XuanYu.Editor/Assets/Catalog/SceneStaticModelCatalog.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/HostedSceneAsset.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/ModelAssetRuntimeState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlan.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlanner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingError.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/SceneAssetPathPolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Activate.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Complete.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Rollback.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Identity/AssetId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GlbContainer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GlbImportService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GltfAccessorReader.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GltfCoordinatePolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GltfJsonAccess.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GltfNodeTransform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/GltfStaticModelImporter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/Import/Gltf/ImportStop.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/SceneStaticModelBinding.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelAuthoringService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelColor.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelData.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportCodes.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportWarning.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelPrimitive.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Assets/StaticModels/StaticModelVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraBasis.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraFarProjectionDiagnostic.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraFrameResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraNavigation.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraNavigation.Far.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/CameraNavigation.Try.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/EditorCameraFraming.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/EditorCameraFraming.Draft.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/EditorCameraFraming.MapOrthographic.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/EditorCameraFraming.Orthographic.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Camera/OrthographicViewFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Layering/EditorLayerItem.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Layering/IEditorLayerProvider.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/DatasetLayerState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetDescriptor.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetDocument.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentJson.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentSerializer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetFeatureBinding.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetIdGenerator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetLayerIdProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetPathPolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegionBinding.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Commands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.FeatureQuery.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.LayerStates.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Query.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.RegionTransaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Rename.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Transaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Unregister.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetRuntimeProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDatasetStorageService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocument.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocumentAggregateBridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocumentJson.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocumentOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocumentResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapDocumentValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapEnvironmentDefinition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapJsonMapper.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapJsonSerializer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifest.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestJson.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestMapper.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestSerializer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestStorageService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapManifestValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapRegionDatasetCodec.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapRegionDatasetFeature.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapRoadDatasetCodec.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapRoadDatasetFeature.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapStorageService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapWorkingStorage.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapDocument/MapWorkingStorage.Promotion.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditEvents.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditReason.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.ActiveLayer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Commands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Commit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Document.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Geometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.History.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Layers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Regions.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.RegionSpatialIndex.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/MapEditSession.Roads.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.RuntimeProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapEditSession.Selection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapGeometryEditTypes.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapGeometryHitTester.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/GeometryCapability.cs` — 通用几何类型与编辑/吸附能力标志。
+- `XuanYu.Editor/MapEditing/GeometryFeatureAdapter.cs` — 通用几何 Feature 适配器数据合同。
+- `XuanYu.Editor/MapEditing/GeometryFeatureAdapters.cs` — Region/Road 到通用几何能力的映射。
+- `XuanYu.Editor/MapEditing/GeometryFeatureKey.cs` — 通用几何 Feature 身份键。
+- `XuanYu.Editor/MapEditing/GeometrySnapArbitration.cs` — Vertex/Segment 候选仲裁与稳定决胜。
+- `XuanYu.Editor/MapEditing/GeometrySnapPipeline.cs` — 通用局部吸附解析与锁定流水线。
+- `XuanYu.Editor/MapEditing/GeometrySnapPolicy.cs` — 几何来源、目标与自身排除策略。
+- `XuanYu.Editor/MapEditing/GeometrySnapQuery.cs` — 通用 Vertex/Segment 候选构造。
+- `XuanYu.Editor/MapEditing/GeometrySnapTypes.cs` — 通用吸附结果、候选与运行时状态。
+- `XuanYu.Editor/MapEditing/GeometrySpatialIndex.cs` — Region/Road 通用局部空间索引。
+- `XuanYu.Editor/MapEditing/MapGeometryHitTester.Marker.cs` — Map Marker 单点命中与可编辑性判断。
+- `XuanYu.Editor/MapDocument/MapMarkerDatasetCodec.cs` — Map Marker Dataset point Feature 序列化、读取与校验。
+- `XuanYu.Editor/MapDocument/MapMarkerDatasetFeature.cs` — Map Marker Dataset Feature 读取模型。
+- `XuanYu.World/Map/MapMarker.cs` — Map Marker Point 领域模型。
+- `XuanYu.World/Map/MapMarkerId.cs` — Map Marker 稳定 Feature ID。
+- `XuanYu.World/Map/MapMarkerValidator.cs` — Map Marker 坐标、身份与图层领域校验。
+- `XuanYu.Editor/MapEditing/MapHistoryEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapSelection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapSelectionKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/MapSurfacePicker.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/RegionDrawingState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapGeometry.cs` — Region 顶点到边吸附的纯几何投影与零长度边安全处理。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapRegion.cs` — Region 顶点到边吸附的候选区域几何容器。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapResolver.cs` — Region 顶点到边吸附的 Vertex 优先、Edge 决胜与自身排除算法。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapResult.cs` — Region 顶点到边吸附的纯算法结果合同。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapSettings.cs` — Region 顶点到边吸附的进入/释放半径合同。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapVertex.cs` — Region 顶点到边吸附的世界点与屏幕点候选。
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapLockResolver.cs` — C2 Edge Segment 锁定、12px 释放与沿边重投影。
+- `XuanYu.Editor/MapEditing/RegionSpatialBounds.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialIndex.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialNode.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialQueryResult.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialQueryWalker.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialTreeBalancer.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSpatialTreeEditor.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.Editor/MapEditing/RegionVertexSnapResolver.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.Editor/MapEditing/RegionVertexSnapResult.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.Editor/MapEditing/RegionVertexSnapSettings.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.Editor/MapEditing/RegionVertexSnapState.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.Editor/MapEditing/RegionSnapKind.cs` — Region 吸附结果的 None、Vertex、Edge 类型标识。
+- `XuanYu.Editor/MapEditing/RegionSnapPipeline.cs` — C2 Region 吸附统一仲裁与 F3-A 局部查询接线。
+- `XuanYu.Editor/MapEditing/RegionSnapQuery.cs` — C2 12px 局部查询范围与候选 Region 投影构建。
+- `XuanYu.Editor/MapEditing/RegionSnapState.cs` — C2 None、Vertex、Edge 吸附目标锁定状态。
+- `XuanYu.Editor/MapEditing/RoadDrawingState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Mode/EditorModeId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Mode/EditorModeManager.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Mode/EditorModeTransition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/MapReference.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentAsset.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentEntity.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentJson.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentLoadTransaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentMapper.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentSaveTransaction.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentSession.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.MapReference.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneDocumentWorldBridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneLoadCandidate.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneSaveOutcome.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/SceneDocument/SceneStorageService.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Transform/TransformSession.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Transform/TransformSession.Rotate.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Transform/TransformSession.Scale.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceDefinition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceDefinitions.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceManager.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceTool.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/EditorWorkspaceTransition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/Workspace/RegionAuthoringMode.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Editor/XuanYu.Editor.csproj` — 项目构建或数据配置。
+- `XuanYu.Engine.slnx` — 项目构建或数据配置。
+- `XuanYu.Render.Abstractions/EditorViewPlaneGridKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/EditorViewportAssistState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/FrameExecutionPolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/INativeHostSurfaceBridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/INativeHostSurfaceBridgeFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/IRenderProjectionSource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/LatestRenderProjectionQueue.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapBoundsGeometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapRenderSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapSurfaceGeometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapSurfaceResourceKey.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdatePolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdateText.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/NativeHostHandleSnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/NativeHostLifecycleLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/NativeHostLifecycleProbe.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/NativeHostLifecycleState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/NativeHostSurfaceHandle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ReferenceGridFrameState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ReferenceGridScale.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderCameraProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderDrawPlan.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderDrawPlan.Typed.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderEntityProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderEntityType.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderProjectionResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderStaticModelKey.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderStaticModelPrimitive.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderStaticModelResource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderStaticModelTransform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderStaticModelVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderVectorOverlayKey.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderVectorOverlayPrimitive.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderVectorOverlayResource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/RenderVectorOverlayVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ScaleIndicatorGlyphLite.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ScaleIndicatorMetric.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ScaleIndicatorOverlayProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ViewportMetricScale.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ViewportOverlayAnchor.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/ViewportOverlayLayoutResolver.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj` — 项目构建或数据配置。
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeDeviceAttachStep.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgePhysicalDeviceAttachStep.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeRenderSessionAttachStep.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeSwapchainAttachStep.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.Physical.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceInfo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelector.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Device/VulkanQueueFamilySelection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Diagnostic/VulkanResizeTracer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Frag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineVert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridVert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoVert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ScaleIndicatorFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Vert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ViewPlaneGridFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldAxesFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldOriginFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldReferenceGridFrag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Depth.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Fullscreen.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Grid.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.GridLine.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Sky.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.StaticModelInput.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanPipelineLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanScenePushConstants.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Pipeline/VulkanShaderModuleOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Commands.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Lifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Matrix.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PipelineBind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PushConstants.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Resources.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Trace.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.VectorOverlayPipeline.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.Grid.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.GridScale.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.NavGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ScaleIndicator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ViewPlaneGrid.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.WorldAxes.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Map/VulkanClearFrameOwner.MapSurface.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Frame.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Lifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Draw.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawAssist.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawGizmo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Scene.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticBounds.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelBuffer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelCache.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelFailureTracker.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelLog.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelResource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanClearFrameOwner.DrawVectorOverlay.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayBufferReusePolicy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayCache.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayResource.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayVertex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Render/VulkanDepthAttachment.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/GridPipelineSet.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Lifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Recover.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Resize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.VectorOverlay.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.vert` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid.vert` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.vert` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_scale_indicator.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_view_plane_grid.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_world_axes.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_world_origin.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/editor_world_reference_grid.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/scene.frag` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Shaders/scene.vert` — 项目资源或工程文件。
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainCapabilities.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.Accessors.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanApiProbe.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanBridgeLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanDeviceInfo.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanInstanceCreateInfoBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanInstanceExtensions.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanInstanceLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanInstanceOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanInstanceResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Attach.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Lifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Resize.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Scene.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridgeFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanProbeLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanProbeResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanSurfaceLogFormatter.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanSurfaceOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/VulkanSurfaceResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj` — 项目构建或数据配置。
+- `XuanYu.WarCore.Tests/Identity/MilitaryIdentityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore.Tests/State/SoldierStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore.Tests/WarCoreDependencyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj` — 项目构建或数据配置。
+- `XuanYu.WarCore/Identity/FactionId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/Identity/MilitaryIdentity.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/Identity/OrganizationId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/Identity/UnitId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/Identity/UnitKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/State/SoldierState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.WarCore/XuanYu.WarCore.csproj` — 项目构建或数据配置。
+- `XuanYu.World.Tests/Assets/AssetContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/AssetDialogTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/GlbFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/GlbImportTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/GlbMultiPrimitiveFactory.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingCompleteTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingPlannerRejectTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingPlannerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingRollbackTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingSaveAsTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingTestEnv.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/HostingTransactionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/LoadStructureErrorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/LoadTransactionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/SaveAsTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/SaveTransactionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/ScenePersistenceEnv.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/SchemaCompatibilityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelAuthoringServiceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelBaseVertexTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelCatalogTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelFailureTrackerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelProjectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Assets/StaticModelValidatorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraC2DraftFramingTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraDocumentTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraFramingOccupancyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraFramingTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.Focus.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Camera/UiViewGizmoTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Logging/FootAxamlTailContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Logging/LogAutoScrollPolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Logging/LogListAutoScrollControllerContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Logging/UiMapLogChineseTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Logging/UiRootLogRowContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Behavior.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.History.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiLayerStateFeedbackTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiLayerVisualContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiLogSummaryPriorityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiLogSummaryTimingTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapCommandRoutingTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1AcceptanceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF2Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3ContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetLayerR3Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapPersistenceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionLayerF3Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionRuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolActivationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolInvalidTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapEditorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapHistoryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapInitialProjectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerDeleteLockRecoveryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerDragTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerLockLogTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.Behavior.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapLayoutContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapManifestIdentityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/Editing/UiMapManifestNavigationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapBoundsTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapCoordinateValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetDocumentTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetLayerStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetRegistryF1FailureTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetRegistryF2Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetRegistryFailureTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetRegistryLifecycleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDatasetStorageContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDefaultMapTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDefinitionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDocumentAggregateBridgeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDocumentOwnerChainTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapDocumentOwnerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapEnvironmentValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapIdTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapJsonRoundTripTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapJsonStrictnessTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerRulesTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerStackTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerStackTests.Drag.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerStackTests.Order.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerTests.Base.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapLayerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapManifestCreationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapManifestSerializationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapManifestStorageTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapManifestValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionDatasetContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionDatasetRuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionDraftTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionTests.Geometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionTests.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRegionTests.Strictness.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapRoadDatasetContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapSizeValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapStorageFailureTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapStorageTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapSurfaceSamplerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapSurfaceValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/MapWorkingStorageTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/SceneMapReferenceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/WorldMapStateOwnerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Map/WorldMapStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapCoordinateContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionCommandTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionCreationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionDirtyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionGeometryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionHistoryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionMapPropertiesTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionRegionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionSelectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionThreadTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapEditSessionValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapGeometryHitTesterTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapPickingRoundTripTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapRenderSnapshotProjectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/MapSurfacePickerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/RegionDrawingF3HistoryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/RegionDrawingStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapGeometryTests.cs` — Region 顶点到边吸附的线段最近点几何测试。
+- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapResolverTests.cs` — Region 顶点到边吸附的优先级、排除与稳定决胜测试。
+- `XuanYu.World.Tests/MapEditing/GenericGeometryCapabilityTests.cs` — 通用几何能力、身份策略与局部候选测试。
+- `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` — Road 到 Region/Road Vertex/Segment 集成测试。
+- `XuanYu.World.Tests/MapEditing/PointFeatureFoundationTests.cs` — Point/Map Marker 能力、身份、Undo/Redo 与 Dataset codec 测试。
+- `XuanYu.World.Tests/UiRuntime/MapMarkerPlacementTests.cs` — Map Marker 放置、自动回选择与 Save/Reload 测试。
+- `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` — Marker 到 Region/Road/Marker 的通用吸附集成测试。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.MarkerBootstrap.cs` — 地图标记 Dataset 初始化与放置工具入口。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapMarkerPlacement.cs` — 地图标记地面放置与自动回选择。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Points.cs` — 通用几何点集合与身份解析。
+- `XuanYu.Editor.UI/Left/MarkerPanel.axaml` — 地图标记最小放置面板。
+- `XuanYu.Editor.UI/Left/MarkerPanel.axaml.cs` — 地图标记放置面板事件接线。
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineContractTests.cs` — C2 现有提交路径、局部查询与无新增索引合同测试。
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineLockTests.cs` — C2 Edge 锁定、迟滞、沿边重投影与 Vertex 升级测试。
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTestFixture.cs` — C2 吸附管线投影与地图测试夹具。
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTests.cs` — C2 Vertex/Edge 优先级与局部查询测试。
+- `XuanYu.World.Tests/MapEditing/RegionSnapStateTests.cs` — C2 吸附状态目标类型与清理测试。
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexLifecycleTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexScaleTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapIntegrationContractTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverBoundaryTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapScaleTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapStateTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
+- `XuanYu.World.Tests/Mode/EditorModeManagerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Mode/EditorModeUiCompositionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Mode/EditorModeUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/RegionDrawingTestVm.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Render/VulkanPresentLoopContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Render/VulkanPresentModeSelectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Render/WorldGridIndependenceContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/CommandSmokeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/EditorEnvironmentTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/EntityBoundsSemanticsTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/EntityRegistryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/EntityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/FinalSceneTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/GlobalWorldTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneConsumptionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneDocumentPersistenceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.Opening.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.SaveFeedback.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneIsolationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneMultiEntityGateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneSelectionReentryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/SceneSingleAuthorityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/UiHistoryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Scene/UiHistoryTests.InlineRename.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Selection/FinalSelectionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Selection/SelectionToolStateUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.Selection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SceneStateOwnerSpatialTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialIndexEditLifecycleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerLifecycleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerRevisionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialIndexRebuildTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialIndexScaleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialQueryGovernanceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialQueryOracle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialQueryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialQueryTests.Geometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialRaycastNearestTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialRaycastRevisionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialRaycastScaleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialRayQueryLifecycleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialRayQueryTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Spatial/SpatialTestData.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Plane.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Region.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Session.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.DragState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Preview.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.ToolSwitch.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleGizmoGlobalModeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.AxisUniform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Helpers.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.History.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Pointer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Target.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.Input.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.Inspector.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/TransformSessionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Transform/ViewportAssistTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Tree/UiHierarchyConnectorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeLayoutTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeStateTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayAnchorContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayDepthPolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayV1Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ActivationRuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1BTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1CStabilityTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1FullRuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RenderContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ResizeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RuntimeRedTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF2PolygonTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/RegionPointerSafetyF2Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/ScaleIndicatorVisibilityRuntimeTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/UiHeadlessFixture.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiRuntime/UiTestAppBuilder.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD3DebtClearedTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4DebtClearedTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4F1ButtonContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4F1LayoutModelTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4F1TextOverflowContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4F1TypographyContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4InspectorContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4LayerContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4LayoutModelTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD4MapEditorContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5ButtonContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionBehaviorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionNotifyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionStructureTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5DangerFlowTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5DialogAndLogContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5FormContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5InputValidationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5MapStatusTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5NotificationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogBehaviorTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedFlowTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD6AccessibilityContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD6DpiContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD6LogPerformanceTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiD6MotionContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml1.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml2.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Cs.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Typography.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassF2Tests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiF3LayerRowContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiLayerDeleteDialogContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.CsRules.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Icon.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Inline.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Structure.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTokenRefTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiTokenManifestGraphTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiTokenManifestTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripContractTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelHintAndListTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Viewport/NativePointerRoutePolicyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceManagerTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiCompositionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/Workspace/RegionAuthoringHierarchyTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionInvariantTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.Activity.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.PartitionStrategy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionUiTests.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World.Tests/XuanYu.World.Tests.csproj` — 项目构建或数据配置。
+- `XuanYu.World/EntityRegistry.Authoring.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/EntityRegistry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/EntityRegistry.Replace.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/GlobalWorld.Authoring.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/GlobalWorld.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/GlobalWorld.Query.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/GlobalWorld.Snapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/GridWorldPartitionStrategy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/IWorldPartitionStrategy.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapBounds.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapCoordinateContract.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapDefaultDefinition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapDefinition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapDefinitionValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapGeometry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayer.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayerId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayerKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayerRules.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayerStack.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapLayerValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegion.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegionDraft.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegionId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegionIntersection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegionKind.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRegionValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRoad.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRoadDraft.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRoadId.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapRoadValidator.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapSurfaceDefinition.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/MapValidationResult.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/WorldMapState.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Map/WorldMapStateOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/RegionKey.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneSpatialBoundsProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneStateOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneStateOwner.Lifecycle.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneStateOwner.Seeding.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneStateOwner.StaticModel.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneStateOwner.Transform.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Scene/SceneWorldProjection.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.Insert.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.Node.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.Query.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.Refit.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/DynamicAabbTree.Remove.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/ISpatialIndex.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/SpatialIndexOwner.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/Spatial/SpatialRaycastResolver.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldEntityActivity.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldEntityName.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldEntitySnapshot.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldEntityType.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldPartitionEntry.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldPartitionMembership.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/WorldQuery.cs` — C# 类型、服务或测试实现。
+- `XuanYu.World/XuanYu.World.csproj` — 项目构建或数据配置。

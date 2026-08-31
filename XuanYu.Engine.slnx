@@ -1,0 +1,17 @@
+<Solution>
+  <Project Path="XuanYu.Core/XuanYu.Core.csproj" />
+  <Project Path="XuanYu.Core.Tests/XuanYu.Core.Tests.csproj" />
+  <Project Path="XuanYu.WarCore/XuanYu.WarCore.csproj" />
+  <Project Path="XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj" />
+  <Project Path="XuanYu.World/XuanYu.World.csproj" />
+  <Project Path="XuanYu.World.Tests/XuanYu.World.Tests.csproj" />
+  <Project Path="XuanYu.Editor/XuanYu.Editor.csproj" />
+  <Project Path="XuanYu.Editor.App/XuanYu.Editor.App.csproj" />
+  <Project Path="XuanYu.Editor.UI/XuanYu.Editor.UI.csproj" />
+  <Project Path="XuanYu.Editor.Win/XuanYu.Editor.Win.csproj" />
+  <Project Path="XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj" />
+  <Project Path="XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj" />
+  <Project Path="XYUI/src/XYUI.Avalonia/XYUI.Avalonia.csproj" />
+  <Project Path="XYUI/src/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj" />
+  <Project Path="XYUI/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj" />
+</Solution>

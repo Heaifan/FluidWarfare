@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             x:Class="XuanYu.Editor.UI.MapEditorPanel"
+             x:DataType="local:UiVm">
+  <UserControl.Styles>
+    <!-- ARCH-UI-SPEC-R1-D4（W45/W46/W49）：二级页签 Token 化——字号 14、强调档 32、圆角 6、Padding 10,4 -->
+    <Style Selector="TabItem.layerSubTab"><Setter Property="FontSize" Value="{StaticResource Font.Section.Size}"/><Setter Property="MinHeight" Value="{StaticResource Control.Height.Emphasized}"/><Setter Property="Padding" Value="10,4"/><Setter Property="Margin" Value="0,0,4,0"/><Setter Property="CornerRadius" Value="{StaticResource Radius.Standard}"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Secondary}"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+    <Style Selector="TabItem.layerSubTab:selected"><Setter Property="Foreground" Value="{StaticResource Color.Accent}"/><Setter Property="FontWeight" Value="{StaticResource Font.Weight.SemiBold}"/><Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/><Setter Property="BorderBrush" Value="{StaticResource Color.Accent}"/><Setter Property="BorderThickness" Value="0,0,0,2"/></Style>
+  </UserControl.Styles>
+  <!-- MAP-DOC-A-R1：地图工作区内容导航；通用图层栏由右侧编辑 Dock 承载。 -->
+  <TabControl Margin="0,4,0,0">
+    <TabItem Classes="layerSubTab" Header="地图基础">
+      <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <local:MapPagePanel/>
+      </ScrollViewer>
+    </TabItem>
+    <TabItem Classes="layerSubTab" Header="地图环境">
+      <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="10" Margin="0,6,0,0">
+          <StackPanel Spacing="4">
+            <TextBlock Text="地图环境" Classes="uiSection"/>
+            <TextBlock Text="天空预设 / 天顶颜色 / 地平线颜色 / 太阳方向 / 太阳强度 / 环境光强度编辑将在 D5 后续补齐。" Classes="muted" TextWrapping="Wrap"/>
+          </StackPanel>
+        </StackPanel>
+      </ScrollViewer>
+    </TabItem>
+    <TabItem Classes="layerSubTab" Header="数据集">
+      <!-- DatasetEmptyState 由 DatasetPanel 投影；数据集页不改造图层栏。 -->
+      <local:DatasetPanel/>
+    </TabItem>
+  </TabControl>
+</UserControl>

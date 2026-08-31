@@ -1,0 +1,64 @@
+namespace XuanYu.Render.Vulkan;
+
+// VK3-C1/C2-R1：NativeHost → Instance+Surface 桥接中文生命周期日志格式器。纯文本，无副作用。
+public static class VulkanBridgeLogFormatter
+{
+    public static string Attached(nint hwnd) =>
+        $"【VulkanBridge】附加成功：Instance + Surface 已创建；窗口句柄：0x{hwnd:X}";
+
+    public static string Resized(int width, int height) =>
+        $"【VulkanBridge】尺寸变化已接收：不重建 Surface；宽度：{width}；高度：{height}";
+
+    public static string ResizedSkipped(int width, int height) =>
+        $"【VulkanBridge】收到尺寸变化但尚未 Attach，不处理 Surface；宽度：{width}；高度：{height}";
+
+    public static string Detached() =>
+        "【VulkanBridge】分离完成：Surface + Instance 已释放";
+
+    public static string SurfaceDisposed() =>
+        "【VulkanBridge】Surface 已释放";
+
+    public static string InstanceDisposed() =>
+        "【VulkanBridge】Instance 已销毁";
+
+    public static string DetachedSkipped() =>
+        "【VulkanBridge】跳过分离：尚未 Attach";
+
+    public static string AttachFailed(string reason) =>
+        $"【VulkanBridge】附加失败：{reason}；已回滚可释放资源";
+
+    public static string ResizeFailed() =>
+        "【VulkanBridge】Resize 失败：Bridge 已进入失效路径并尝试释放";
+
+    public static string DetachBlocked() =>
+        "【VulkanBridge】分离受阻：Present 泵未确认停止，已禁止继续释放底层 Vulkan 资源";
+
+    public static string SessionFailed(string reason) =>
+        $"【VulkanBridge】RenderSession 已失效，拒绝继续按正常状态处理：{reason}";
+
+    public static void Emit(Action<string>? log, string message)
+    {
+        var display = Display(message);
+        log?.Invoke(display);
+        Console.WriteLine($"{DateTime.Now:HH:mm:ss} {display}");
+    }
+
+    static string Display(string message)
+    {
+        var text = message
+            .Replace("【VulkanBridge】", "", StringComparison.Ordinal)
+            .Replace("【VulkanDevice】", "", StringComparison.Ordinal)
+            .Replace("【VulkanSwapchain】", "", StringComparison.Ordinal)
+            .Replace("【VulkanClearFrame】", "", StringComparison.Ordinal)
+            .Replace("【VulkanRenderSession】", "", StringComparison.Ordinal)
+            .Replace("【VulkanInstance】", "", StringComparison.Ordinal)
+            .Replace("【VulkanSurface】", "", StringComparison.Ordinal)
+            .Replace("LogicalDevice", "逻辑设备", StringComparison.Ordinal)
+            .Replace("PhysicalDevice", "物理设备", StringComparison.Ordinal)
+            .Replace("Graphics", "图形", StringComparison.Ordinal)
+            .Replace("Present", "呈现", StringComparison.Ordinal)
+            .Replace("Queue", "队列", StringComparison.Ordinal)
+            .Replace("Instance", "实例", StringComparison.Ordinal);
+        return text.TrimStart();
+    }
+}

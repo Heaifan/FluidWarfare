@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             x:Class="XuanYu.Editor.UI.MapPagePanel"
+             x:DataType="local:UiVm">
+  <UserControl.Styles>
+    <!-- ARCH-UI-SPEC-R1-D4/D4-F1：只读资产摘要标签列 72（组件级例外 72~80）；值统一单行省略 -->
+    <Style Selector="Border.groupSeparator">
+      <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Default}"/>
+      <Setter Property="BorderThickness" Value="0,0,0,1"/>
+      <Setter Property="Margin" Value="0,2,0,6"/>
+    </Style>
+    <Style Selector="Grid.summaryRow">
+      <Setter Property="MinHeight" Value="24"/>
+      <Setter Property="Margin" Value="0,3"/>
+    </Style>
+    <Style Selector="Button.copyBtn">
+      <Setter Property="MinHeight" Value="24"/>
+      <Setter Property="MinWidth" Value="0"/>
+      <Setter Property="Padding" Value="6,2"/>
+      <Setter Property="Margin" Value="0"/>
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel x:Name="Root" Spacing="12" Margin="0,6,0,0">
+    <!-- 地图资产：只读紧凑摘要（72 标签列；始终单行双列，D4-F1 不随宽度上下拆行） -->
+    <StackPanel x:Name="SummaryGroup" Spacing="2">
+      <TextBlock Text="地图资产" Classes="uiSection"/>
+      <Border Classes="groupSeparator"/>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="名称" Classes="uiLabel"/>
+        <TextBlock Grid.Column="1" Text="{Binding MapName}" Classes="uiValue" ToolTip.Tip="{Binding MapName}"/>
+      </Grid>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="路径" Classes="uiLabel"/>
+        <TextBlock Grid.Column="1" Text="{Binding MapPathDisplay}" Classes="uiValue" ToolTip.Tip="{Binding MapPath}"/>
+      </Grid>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="ID" Classes="uiLabel"/>
+        <Grid Grid.Column="1" ColumnDefinitions="*,Auto" ColumnSpacing="6">
+          <TextBlock Text="{Binding MapIdDisplay}" Classes="uiValue" TextWrapping="NoWrap"
+                     TextTrimming="CharacterEllipsis" MaxLines="1" ToolTip.Tip="{Binding MapIdText}"/>
+          <Button Grid.Column="1" Classes="copyBtn" Content="复制" Click="CopyMapId_Click" ToolTip.Tip="复制完整 MapId" AutomationProperties.Name="复制完整 MapId"/>
+        </Grid>
+      </Grid>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="坐标系" Classes="uiLabel"/>
+        <TextBlock Grid.Column="1" Text="{Binding MapManifestCoordinateSystemText}" Classes="uiValue"/>
+      </Grid>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="尺寸" Classes="uiLabel"/>
+        <TextBlock Grid.Column="1" Text="{Binding MapSizeText}" Classes="uiValue" ToolTip.Tip="{Binding MapSizeText}"/>
+      </Grid>
+      <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
+        <TextBlock Text="状态" Classes="uiLabel"/>
+        <TextBlock Grid.Column="1" Text="{Binding MapStatusText}" Classes="uiValue" ToolTip.Tip="{Binding MapStatusText}"/>
+      </Grid>
+    </StackPanel>
+
+    <local:MapFormPanel/>
+
+    <!-- 地图资产操作按钮组（纠偏 v2）：真正的 2×2 等宽网格，按钮水平拉伸 -->
+    <UniformGrid Columns="2" ColumnSpacing="6" RowSpacing="6">
+      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="新建地图"
+              Command="{Binding RunCommand}" CommandParameter="新建地图" AutomationProperties.Name="新建地图"/>
+      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="打开地图"
+              Command="{Binding RunCommand}" CommandParameter="打开地图" AutomationProperties.Name="打开地图"/>
+      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="保存地图"
+              Command="{Binding RunCommand}" CommandParameter="保存地图" AutomationProperties.Name="保存地图"/>
+      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="聚焦地图"
+              Command="{Binding RunCommand}" CommandParameter="聚焦地图" AutomationProperties.Name="聚焦地图"/>
+    </UniformGrid>
+  </StackPanel>
+</UserControl>

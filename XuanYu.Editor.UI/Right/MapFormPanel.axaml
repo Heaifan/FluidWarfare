@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             x:Class="XuanYu.Editor.UI.MapFormPanel"
+             x:DataType="local:UiVm">
+  <UserControl.Styles>
+    <Style Selector="Border.groupSeparator">
+      <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Default}"/>
+      <Setter Property="BorderThickness" Value="0,0,0,1"/>
+      <Setter Property="Margin" Value="0,2,0,6"/>
+    </Style>
+  </UserControl.Styles>
+
+  <StackPanel x:Name="Root" Spacing="2">
+    <TextBlock Text="地图属性" Classes="uiSection"/>
+    <Border Classes="groupSeparator"/>
+    <!-- EditableFormRow 标准模式（内容宽 ≥360）：标签列 96 / 左标签右输入。
+         D5 纠偏：每个输入框只绑定自身字段错误（MapWidthError/MapDepthError/MapBaseHeightError）；
+         失焦触发单字段校验；FirstInvalidField 变化自动聚焦第一处错误。 -->
+    <Grid x:Name="PropsWide" ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="4">
+      <TextBlock Text="宽度（米）" Classes="uiLabel"/>
+      <TextBox x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
+               Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图宽度"/>
+      <TextBlock Grid.Row="1" Text="深度（米）" Classes="uiLabel"/>
+      <TextBox x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
+               Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图深度"/>
+      <TextBlock Grid.Row="2" Text="基础高度（米）" Classes="uiLabel"/>
+      <TextBox x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
+               Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus" AutomationProperties.Name="基础高度"/>
+      <TextBlock Grid.Row="3" Text="地表类型" Classes="uiLabel"/>
+      <TextBlock Grid.Row="3" Grid.Column="1" Text="Flat（只读）" Classes="uiValue"/>
+    </Grid>
+    <!-- EditableFormRow 窄模式（内容宽 <360）：整组标签在上、输入控件在下 -->
+    <StackPanel x:Name="PropsNarrow" Spacing="6" IsVisible="False">
+      <StackPanel Spacing="2">
+        <TextBlock Text="宽度（米）" Classes="uiLabel"/>
+        <TextBox x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}"
+                 Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图宽度"/>
+      </StackPanel>
+      <StackPanel Spacing="2">
+        <TextBlock Text="深度（米）" Classes="uiLabel"/>
+        <TextBox x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}"
+                 Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图深度"/>
+      </StackPanel>
+      <StackPanel Spacing="2">
+        <TextBlock Text="基础高度（米）" Classes="uiLabel"/>
+        <TextBox x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}"
+                 Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus" AutomationProperties.Name="基础高度"/>
+      </StackPanel>
+      <StackPanel Spacing="2">
+        <TextBlock Text="地表类型" Classes="uiLabel"/>
+        <TextBlock Text="Flat（只读）" Classes="uiValue"/>
+      </StackPanel>
+    </StackPanel>
+    <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
+    <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
+          ColumnSpacing="6" RowSpacing="6" Margin="0,6,0,0">
+      <Button Classes="uiTextButton" Grid.ColumnSpan="2" Content="应用修改"
+              Command="{Binding RunCommand}" CommandParameter="应用地图属性" AutomationProperties.Name="应用地图属性"/>
+      <Button Classes="uiTextButton" Grid.Row="1" Content="撤销地图修改"
+              Command="{Binding RunCommand}" CommandParameter="撤销地图修改" IsEnabled="{Binding CanUndo}" AutomationProperties.Name="撤销地图修改"/>
+      <Button Classes="uiTextButton" Grid.Row="1" Grid.Column="1" Content="重做地图修改"
+              Command="{Binding RunCommand}" CommandParameter="重做地图修改" IsEnabled="{Binding CanRedo}" AutomationProperties.Name="重做地图修改"/>
+    </Grid>
+    <!-- 表单错误反馈（D5：非仅颜色——图标 + 文字 + 输入框错误边框；FormErrorSummary 汇总行） -->
+    <StackPanel Orientation="Horizontal" Spacing="6" IsVisible="{Binding IsMapFormError}">
+      <PathIcon Data="{StaticResource ErrorIcon}" Width="14" Height="14"
+                Foreground="{StaticResource Color.Error}" VerticalAlignment="Center"/>
+      <TextBlock Text="{Binding FormErrorSummary}" Classes="uiMultiline"
+                 Foreground="{StaticResource Color.Error}" VerticalAlignment="Center"/>
+    </StackPanel>
+  </StackPanel>
+</UserControl>
