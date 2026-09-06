@@ -8,7 +8,7 @@
   - 3.24 NavigationDrawer：Runtime 触发器文案与对齐优化；Gallery 移除 redundant 代码关闭按钮，将 Live Example 与 Composition 包装于 640×270/250 DIP 真实视口容器，展示抽屉展开时遮罩覆盖整个视口而不仅是局部侧栏，清晰展现 Light Dismiss 与 Esc 键收起体验。
   - 测试：更新 `XYUI3FinalNavigationTests` 中 3.23 的容器高度、安全区计算、Icon Well 结构判定及 48×48 主操作悬浮与命中区域断言，全量测试 2209/2209 PASS。
 - 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 562/562，全量合计 2209/2209 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
-- Hash：`d70974a8`（XYUI-3 Final Visual Fix 主提交）。
+- Hash：`05e42ecb`（XYUI-3 Final Visual Fix 主提交）。
 - 状态：`TECHNICAL PASS · READY FOR USER FINAL VISUAL REVIEW`；未提前宣称 `FINAL CLOSEOUT` 或 `STATUS FROZEN`，等待人工真机最终视觉验收。
 
 ## v0.2.28.77-rz · XYUI-3 Round 4 User Review Fix 技术收口（2026-09-06 20:33:30 +08:00）
