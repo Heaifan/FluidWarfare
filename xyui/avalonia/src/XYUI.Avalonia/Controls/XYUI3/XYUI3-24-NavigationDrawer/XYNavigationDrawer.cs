@@ -18,7 +18,7 @@ public sealed class XYNavigationDrawer : Border
 {
     readonly Popup _popup = new() { Placement = PlacementMode.Center, IsLightDismissEnabled = true }; readonly Border _backdrop = new() { Classes = { "xyui-navigation-drawer-backdrop" }, HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch };
     readonly Grid _overlay = new(); readonly Control _content;
-    public XYNavigationState NavigationState { get; } public XYNavigationDrawerState DrawerState { get; } public XYNavigationDrawerVariant Variant { get; } public Popup DrawerPopup => _popup; public Border Backdrop => _backdrop; public XYButton OpenTrigger { get; } = new() { Content = "导航", Variant = XyuiButtonVariant.Secondary, Classes = { "xyui-navigation-drawer-trigger" } };
+    public XYNavigationState NavigationState { get; } public XYNavigationDrawerState DrawerState { get; } public XYNavigationDrawerVariant Variant { get; } public Popup DrawerPopup => _popup; public Border Backdrop => _backdrop; public XYButton OpenTrigger { get; } = new() { Content = "☰ 导航", Variant = XyuiButtonVariant.Secondary, Classes = { "xyui-navigation-drawer-trigger" }, HorizontalAlignment = HorizontalAlignment.Left };
     public bool IsOpen => DrawerState.IsOpen; public double DrawerWidth { get; set; } = 280; public event EventHandler? Closed;
     public XYNavigationDrawer(XYNavigationState navigationState, XYNavigationDrawerVariant variant = XYNavigationDrawerVariant.FullSidebar, XYNavigationDrawerState? drawerState = null)
     {

@@ -1,5 +1,16 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Final Visual Fix · 3.23 & 3.24 对齐移动端视觉语义技术收口（2026-09-06 20:53:00 +08:00）
+
+- 目标：专项解决 3.23 BottomNavigation 与 3.24 NavigationDrawer 最终视觉语义对齐；3.23 移除大面积整槽高亮背景与过大突起，重构为标准 64 DIP 紧凑高度、36×28 DIP 药丸型选中背景井（Selected Icon Well）、48×48 DIP 悬浮 16 DIP 圆形主操作；3.24 移除多余“代码关闭”按钮并补齐视口级真实模态遮罩宿主容器；3.19～3.22 保持冻结不动。
+- 变化：
+  - 3.23 BottomNavigation：Runtime 容器默认高度调整为 64 DIP（安全区叠加为 64 + SafeAreaBottom）；`XYBottomDestination` 选中态由整槽背景改为仅图标所在的药丸型 `IconWell`（36×28 DIP，`selected-well` 浅色强调背景），维持槽位宽 72 DIP 稳定与文本居中；中央主操作微调为 48×48 DIP、上浮 16 DIP，文字置于主按钮下方，命中区域精确覆盖整个圆形按钮；Gallery 移除底层实现黑话，直边与全面屏对比直接量化展示。
+  - 3.24 NavigationDrawer：Runtime 触发器文案与对齐优化；Gallery 移除 redundant 代码关闭按钮，将 Live Example 与 Composition 包装于 640×270/250 DIP 真实视口容器，展示抽屉展开时遮罩覆盖整个视口而不仅是局部侧栏，清晰展现 Light Dismiss 与 Esc 键收起体验。
+  - 测试：更新 `XYUI3FinalNavigationTests` 中 3.23 的容器高度、安全区计算、Icon Well 结构判定及 48×48 主操作悬浮与命中区域断言，全量测试 2209/2209 PASS。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 562/562，全量合计 2209/2209 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：`d70974a8`（XYUI-3 Final Visual Fix 主提交）。
+- 状态：`TECHNICAL PASS · READY FOR USER FINAL VISUAL REVIEW`；未提前宣称 `FINAL CLOSEOUT` 或 `STATUS FROZEN`，等待人工真机最终视觉验收。
+
 ## v0.2.28.77-rz · XYUI-3 Round 4 User Review Fix 技术收口（2026-09-06 20:33:30 +08:00）
 
 - 目标：专项解决真机复核抓出的 4 项体验与状态缺陷（3.19 组合条目重叠与窄宽截断、3.20 统一列对齐与 Icon/Disabled 实例证明、3.23 SafeAreaBottom 对比与 54×54 上浮主操作全域点击判定、3.24 真模态抽屉遮罩/Light Dismiss/Esc 键/焦点归还）。
