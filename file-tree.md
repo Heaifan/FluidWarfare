@@ -1388,7 +1388,8 @@
    │  ├─ XYUI3/  # 记录 XYUI-3 Runtime 轮次审计与交付证据。
    │  │  ├─ XYUI3-Round1-runtime-audit.md  # 记录 3.01～3.06 Runtime、测试与合流边界。
    │  │  ├─ XYUI3-Round2-runtime-audit.md  # 记录 3.07～3.12 Runtime、Contract 与最终门禁证据。
-   │  │  └─ XYUI3-Round3-runtime-audit.md  # 记录 3.13～3.18 Runtime、测试与合流边界。
+   │  │  ├─ XYUI3-Round3-runtime-audit.md  # 记录 3.13～3.18 Runtime、测试与合流边界。
+   │  │  └─ XYUI3-Round4-runtime-audit.md  # 记录 3.19～3.24 Runtime、测试与最终合流证据。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ conflict-matrix.md  # 记录对应主题的当前有效说明。
    │  │  ├─ reconciliation.md  # 记录对应主题的当前有效说明。
@@ -1609,6 +1610,12 @@
     │  │     ├─ XYUI3DocumentationCatalog.ToolGroup.cs  # 提供 XYUI-3-16 Gallery 文档内容。
     │  │     ├─ XYUI3DocumentationCatalog.CommandBar.cs  # 提供 XYUI-3-17 Gallery 文档内容。
     │  │     ├─ XYUI3DocumentationCatalog.CommandPalette.cs  # 提供 XYUI-3-18 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.BackForwardNavigation.cs  # 提供 XYUI-3-19 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.WorkspaceSwitcher.cs  # 提供 XYUI-3-20 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.ViewSwitcher.cs  # 提供 XYUI-3-21 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.TableOfContents.cs  # 提供 XYUI-3-22 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.BottomNavigation.cs  # 提供 XYUI-3-23 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.NavigationDrawer.cs  # 提供 XYUI-3-24 Gallery 文档内容。
    │  │     ├─ XYUI3GalleryCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3GalleryCatalog.Navigation.cs  # 提供紧凑导航四组件的真实 Gallery Preview。
    │  │     ├─ XYUI3GalleryCatalog.Final.cs  # 提供 XYUI-3-21~24 最终导航组件真实预览。
@@ -1630,6 +1637,12 @@
     │  │     ├─ XYUI3LiveExamplesFactory.ToolGroup.cs  # 提供 XYUI-3-16 Gallery Live Example。
     │  │     ├─ XYUI3LiveExamplesFactory.CommandBar.cs  # 提供 XYUI-3-17 Gallery Live Example。
     │  │     ├─ XYUI3LiveExamplesFactory.CommandPalette.cs  # 提供 XYUI-3-18 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.BackForwardNavigation.cs  # 提供 XYUI-3-19 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.WorkspaceSwitcher.cs  # 提供 XYUI-3-20 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.ViewSwitcher.cs  # 提供 XYUI-3-21 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.TableOfContents.cs  # 提供 XYUI-3-22 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.BottomNavigation.cs  # 提供 XYUI-3-23 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.NavigationDrawer.cs  # 提供 XYUI-3-24 Gallery Live Example。
     │  │     └─ XYUI3LiveExamplesFactory.cs  # XYUI-3 01～06 Live Example 分发门面。
    │  ├─ src/  # 组织该模块下的正式文件。
    │  │  └─ XYUI.Avalonia/  # 组织该模块下的正式文件。
@@ -2135,6 +2148,7 @@
    │  │     ├─ XYUI3ViewSwitcherTests.cs  # 验证 21 的单一 Surface、分段尺寸、选中态、请求提交、More 与 Popup 生命周期。
    │  │     ├─ XYUI3TableOfContentsTests.cs  # 验证 22 的文本优先层级、Guide、Compact 路径、状态提交与 Popup 生命周期。
    │  │     ├─ XYUI3FinalNavigationTests.cs  # 验证 21~24 状态提交、层级限制、主操作隔离、抽屉生命周期与 Gallery。
+   │  │     ├─ XYUI3Round4GalleryContractTests.cs  # 验证 XYUI-3 Round 4 文档元数据、真实 QuickStart 与 Live 实例契约。
    │  │     ├─ XYUI3CompactNavigationStructureTests.cs  # 验证紧凑导航复用、单底边、垂直居中及交互状态机。
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。
     │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
@@ -2211,7 +2225,8 @@
    │  │  ├─ XYUI-3.mapping.json  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3-01-06-runtime-contract.md  # 提供 3.01～3.06 Runtime 公共 API 与状态合同。
    │  │  ├─ XYUI-3-07-12-runtime-contract.md  # 提供 3.07～3.12 Runtime 公共 API 与状态合同。
-   │  │  └─ XYUI-3-13-18-runtime-contract.md  # 提供 3.13～3.18 Runtime 公共 API 与状态合同。
+   │  │  ├─ XYUI-3-13-18-runtime-contract.md  # 提供 3.13～3.18 Runtime 公共 API 与状态合同。
+   │  │  └─ XYUI-3-19-24-runtime-contract.md  # 提供 3.19～3.24 Runtime 公共 API 与状态合同。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-4.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-4.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。

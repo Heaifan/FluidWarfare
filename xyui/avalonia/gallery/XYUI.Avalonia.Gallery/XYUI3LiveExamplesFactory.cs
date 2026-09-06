@@ -26,6 +26,12 @@ public static partial class XYUI3LiveExamplesFactory
         "XYUI-3-3.16" => CreateToolGroupLiveExamples(),
         "XYUI-3-3.17" => CreateCommandBarLiveExamples(),
         "XYUI-3-3.18" => CreateCommandPaletteLiveExamples(),
+        "XYUI-3-3.19" => CreateBackForwardNavigationLiveExamples(),
+        "XYUI-3-3.20" => CreateWorkspaceSwitcherLiveExamples(),
+        "XYUI-3-3.21" => CreateViewSwitcherLiveExamples(),
+        "XYUI-3-3.22" => CreateTableOfContentsLiveExamples(),
+        "XYUI-3-3.23" => CreateBottomNavigationLiveExamples(),
+        "XYUI-3-3.24" => CreateNavigationDrawerLiveExamples(),
         _ => null
     };
 
@@ -49,6 +55,12 @@ public static partial class XYUI3LiveExamplesFactory
         "XYUI-3-3.16" => CreateToolGroupComposition(),
         "XYUI-3-3.17" => CreateCommandBarComposition(),
         "XYUI-3-3.18" => CreateCommandPaletteComposition(),
+        "XYUI-3-3.19" => CreateBackForwardNavigationComposition(),
+        "XYUI-3-3.20" => CreateWorkspaceSwitcherComposition(),
+        "XYUI-3-3.21" => CreateViewSwitcherComposition(),
+        "XYUI-3-3.22" => CreateTableOfContentsComposition(),
+        "XYUI-3-3.23" => CreateBottomNavigationComposition(),
+        "XYUI-3-3.24" => CreateNavigationDrawerComposition(),
         _ => null
     };
 

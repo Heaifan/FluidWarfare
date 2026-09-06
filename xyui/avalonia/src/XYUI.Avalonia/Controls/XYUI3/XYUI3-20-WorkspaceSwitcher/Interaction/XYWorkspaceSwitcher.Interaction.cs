@@ -18,7 +18,7 @@ public sealed partial class XYWorkspaceSwitcher
     }
     XYMenuItem WorkspaceItem(XYWorkspaceItem workspace)
     {
-        var item = new XYMenuItem { Label = workspace.Label, IsSelected = workspace.Id == State.CurrentWorkspaceId, Classes = { "xyui-workspace-item" } };
+        var item = new XYMenuItem { Label = workspace.Label, Icon = workspace.Icon, IsEnabled = workspace.IsEnabled, IsSelected = workspace.Id == State.CurrentWorkspaceId, Classes = { "xyui-workspace-item" } };
         item.SelectionRequested += (_, _) => SelectWorkspace(workspace.Id); return item;
     }
     XYMenuItem ManageItem()
@@ -28,13 +28,13 @@ public sealed partial class XYWorkspaceSwitcher
     }
     public void SelectWorkspace(string id)
     {
-        var item = Workspaces.FirstOrDefault(x => x.Id == id || x.Label == id); if (item is null) return;
+        var item = Workspaces.FirstOrDefault(x => x.Id == id || x.Label == id); if (item is null || !item.IsEnabled) return;
         if (WorkspaceChangeRequested is null) { CommitWorkspace(item.Id); return; }
         var request = new XYWorkspaceChangeRequest(item); WorkspaceChangeRequested.Invoke(this, request); if (request.IsAccepted) CommitWorkspace(item.Id);
     }
     public void CommitWorkspace(string id)
     {
-        var item = Workspaces.FirstOrDefault(x => x.Id == id); if (item is null) return; State.Commit(item.Id); Refresh(); ClosePopup(); WorkspaceChanged?.Invoke(this, item.Id);
+        var item = Workspaces.FirstOrDefault(x => x.Id == id); if (item is null || !item.IsEnabled) return; State.Commit(item.Id); Refresh(); ClosePopup(); WorkspaceChanged?.Invoke(this, item.Id);
     }
     public void Open()
     {

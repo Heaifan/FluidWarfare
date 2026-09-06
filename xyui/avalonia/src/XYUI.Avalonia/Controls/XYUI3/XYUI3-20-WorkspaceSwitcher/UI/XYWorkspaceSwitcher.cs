@@ -7,7 +7,7 @@ using XYUI.Avalonia.Vector;
 
 namespace XYUI.Avalonia.Controls;
 
-public sealed record XYWorkspaceItem(string Id, string Label);
+public sealed record XYWorkspaceItem(string Id = "", string Label = "", bool IsEnabled = true, XyuiVectorIcon? Icon = null);
 
 public sealed class XYWorkspaceState
 {

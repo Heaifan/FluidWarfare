@@ -45,4 +45,32 @@ public sealed class XYUI3WorkspaceSwitcherTests : IClassFixture<XyuiHeadlessFixt
     {
         XyuiBatchTestHost.Prepare(); var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("map-edit"), Items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); switcher.WorkspaceMenu.RaiseEvent(new KeyEventArgs { RoutedEvent = InputElement.KeyDownEvent, Key = Key.Escape }); Assert.False(switcher.WorkspacePopup.IsOpen); switcher.Open(); window.Close(); Assert.False(switcher.WorkspacePopup.IsOpen);
     });
+
+    [Fact] public void DisabledWorkspace_CannotSwitch() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var items = new[] { new XYWorkspaceItem("a", "可用"), new XYWorkspaceItem("b", "禁用", IsEnabled: false) };
+        var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("a"), items); switcher.SelectWorkspace("b"); Assert.Equal("a", switcher.State.CurrentWorkspaceId);
+    });
+
+    [Fact] public void DisabledWorkspace_DoesNotRaiseRequest() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var items = new[] { new XYWorkspaceItem("a", "可用"), new XYWorkspaceItem("b", "禁用", IsEnabled: false) };
+        var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("a"), items); var raised = false; switcher.WorkspaceChangeRequested += (_, _) => raised = true; switcher.SelectWorkspace("b"); Assert.False(raised);
+    });
+
+    [Fact] public void WorkspaceIcon_IsRenderedWhenProvided() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var items = new[] { new XYWorkspaceItem("a", "带图标", Icon: XYUI.Avalonia.Vector.XyuiVectorIcon.Locate) };
+        var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("a"), items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs();
+        var row = switcher.WorkspaceMenu.Items.OfType<XYMenuItem>().Single(x => x.Label == "带图标");
+        Assert.Contains(row.GetVisualDescendants().OfType<XYIcon>(), x => x.Icon == XYUI.Avalonia.Vector.XyuiVectorIcon.Locate); window.Close();
+    });
+
+    [Fact] public void WorkspaceWithoutIcon_RemainsValid() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var items = new[] { new XYWorkspaceItem("a", "无图标", Icon: null) };
+        var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("a"), items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs();
+        var row = switcher.WorkspaceMenu.Items.OfType<XYMenuItem>().Single(x => x.Label == "无图标");
+        Assert.DoesNotContain(row.GetVisualDescendants().OfType<XYIcon>(), x => x.Classes.Contains("xyui-menu-icon")); window.Close();
+    });
 }

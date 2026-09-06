@@ -10,7 +10,22 @@ internal sealed class XYMenuItemVisual : Grid
 {
     public XYMenuItemVisual(XYMenuItem item)
     {
-        if (item.Classes.Contains("xyui-workspace-item")) { ColumnDefinitions = new ColumnDefinitions("*,24"); Children.Add(Label(item)); Children.Add(Check(item)); Grid.SetColumn(Children[1], 1); return; }
+        if (item.Classes.Contains("xyui-workspace-item"))
+        {
+            if (item.Icon is not null)
+            {
+                ColumnDefinitions = new ColumnDefinitions("24,*,24");
+                Children.Add(Leading(item)); Children.Add(Label(item)); Children.Add(Check(item));
+                Grid.SetColumn(Children[1], 1); Grid.SetColumn(Children[2], 2);
+            }
+            else
+            {
+                ColumnDefinitions = new ColumnDefinitions("*,24");
+                Children.Add(Label(item)); Children.Add(Check(item));
+                Grid.SetColumn(Children[1], 1);
+            }
+            return;
+        }
         ColumnDefinitions = new ColumnDefinitions("24,*,Auto,24");
         Children.Add(Leading(item)); Children.Add(Label(item)); Children.Add(Shortcut(item)); Children.Add(Chevron(item));
         Grid.SetColumn(Children[1], 1); Grid.SetColumn(Children[2], 2); Grid.SetColumn(Children[3], 3);

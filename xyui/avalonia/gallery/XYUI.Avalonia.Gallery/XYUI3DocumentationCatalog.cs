@@ -28,8 +28,14 @@ public static partial class XYUI3DocumentationCatalog
         if (entry.SourceItemId == "XYUI-3-3.16") return BuildToolGroupDoc(entry.SourceItemId, type);
         if (entry.SourceItemId == "XYUI-3-3.17") return BuildCommandBarDoc(entry.SourceItemId, type);
         if (entry.SourceItemId == "XYUI-3-3.18") return BuildCommandPaletteDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.19") return BuildBackForwardNavigationDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.20") return BuildWorkspaceSwitcherDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.21") return BuildViewSwitcherDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.22") return BuildTableOfContentsDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.23") return BuildBottomNavigationDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.24") return BuildNavigationDrawerDoc(entry.SourceItemId, type);
         var details = Details(entry.SourceItemId);
-        var acceptance = entry.SourceItemId is "XYUI-3-3.19" or "XYUI-3-3.20" ? "UI + INTERACTION IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE · AWAITING USER INTERACTION ACCEPTANCE" : "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE";
+        var acceptance = "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE";
         return new(entry.SourceItemId, entry.Title.Split('/').Last().Trim(), type, details.Overview, details.WhenToUse,
             () => XYUI3GalleryCatalog.CreatePreview(entry.SourceItemId), details.Usages, details.Variants, details.States,
             Properties(entry.SourceItemId), entry.ApiRefs.Select(x => new XYUIDocToken(x, "Canonical", "Foundation token reference")).ToArray(), type)
