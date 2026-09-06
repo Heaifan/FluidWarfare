@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Headless;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
@@ -73,7 +74,7 @@ public sealed class XYUI3FinalNavigationTests : IClassFixture<XyuiHeadlessFixtur
         var host = new Canvas { Width = 500, Height = 300, Children = { nav } }; Canvas.SetLeft(nav, 50); Canvas.SetTop(nav, 100);
         var window = XyuiBatchTestHost.Show(host); Dispatcher.UIThread.RunJobs();
         var upperPt = primary.TranslatePoint(new Point(24, 6), window)!.Value; var navTop = nav.TranslatePoint(new Point(0, 0), window)!.Value.Y;
-        Assert.True(upperPt.Y < navTop); var hitVisual = window.InputHitTest(upperPt); Assert.True(hitVisual is Visual visual && (ReferenceEquals(visual, primary) || visual.GetVisualAncestors().Contains(primary))); primary.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Assert.Equal(1, hit); Assert.Equal("a", nav.CurrentDestinationId); window.Close();
+        Assert.True(upperPt.Y < navTop); var hitVisual = window.InputHitTest(upperPt); Assert.True(hitVisual is Visual visual && (ReferenceEquals(visual, primary) || visual.GetVisualAncestors().Contains(primary))); window.MouseMove(upperPt); window.MouseDown(upperPt, MouseButton.Left); window.MouseUp(upperPt, MouseButton.Left); Dispatcher.UIThread.RunJobs(); Assert.Equal(1, hit); Assert.Equal("a", nav.CurrentDestinationId); window.Close();
     });
     [Fact] public void BackForward_truncates_without_squishing_actions() => _fx.Run(() => { XyuiBatchTestHost.Prepare(); var nav = new XYBackForwardNavigation { Width = 140 }; nav.Navigate("VERY_LONG_PATH_NAME_THAT_EXCEEDS_NORMAL_BOUNDS_AND_SHOULD_TRUNCATE"); var window = XyuiBatchTestHost.Show(nav); Dispatcher.UIThread.RunJobs(); Assert.Equal(28, nav.BackButton.Bounds.Width, 1); Assert.Equal(28, nav.ForwardButton.Bounds.Width, 1); Assert.False(nav.CanGoBack); Assert.False(nav.CanGoForward); window.Close(); });
     [Fact] public void Gallery_registers_all_final_components()
