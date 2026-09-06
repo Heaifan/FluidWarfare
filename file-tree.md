@@ -1375,6 +1375,7 @@
 └─ xyui/  # 集中 XYUI 规范、实现、审计与 Gallery。
    ├─ audit/  # 组织该模块下的正式文件。
    │  ├─ cross-audit.md  # 记录对应主题的当前有效说明。
+   │  ├─ GALLERY-UNIFY-01-layout-audit.md  # XYUI-1/2/3 Gallery 共享布局基础设施审计。
    │  ├─ XYUI0/  # 组织该模块下的正式文件。
    │  │  ├─ decision-classification.json  # 保存对应模块的结构化数据。
    │  │  ├─ decision-classification.md  # 记录对应主题的当前有效说明。
@@ -1422,6 +1423,11 @@
    │  │     ├─ TypographyViewModel.cs  # Typography 规范页数据模型（x:DataType 编译绑定）。
    │  │     ├─ Views/  # 组织该模块下的正式文件。
    │  │     │  ├─ CatalogView.axaml  # 提供 Gallery 对应页面、数据或运行时预览。
+   │  │     │  ├─ GalleryDoDontRow.cs  # Gallery 共享 Do / Don't 响应式行。
+   │  │     │  ├─ GalleryDocumentShell.cs  # Gallery 共享文档滚动壳与 Universal Shell。
+   │  │     │  ├─ GalleryKeyValueRow.cs  # Gallery 共享键值、规则与状态响应式行。
+   │  │     │  ├─ GalleryTokenRow.cs  # Gallery 共享 Token 三列响应式行。
+   │  │     │  ├─ GalleryVariantRow.cs  # Gallery 共享变体状态响应式行。
    │  │     │  ├─ CatalogView.axaml.cs  # 提供 Gallery 对应页面、数据或运行时预览。
    │  │     │  ├─ ComponentSamplesView.axaml  # 提供 Gallery 对应页面、数据或运行时预览。
    │  │     │  ├─ ComponentSamplesView.axaml.cs  # 提供 Gallery 对应页面、数据或运行时预览。
@@ -2045,6 +2051,7 @@
    │  │     ├─ Phase1CShortcutHintRuntimeTests.cs  # XYUI-1-18 ShortcutHint 分离键帽结构、Foundation 几何、禁用态与双主题合同。
    │  │     ├─ ControlSurfaceTests.cs  # 验证对应模块的自动化行为与回归合同。
    │  │     ├─ GalleryInteractionContractTests.cs  # 验证对应模块的自动化行为与回归合同。
+   │  │     ├─ GalleryLayoutArchitectureTests.cs  # 验证 Gallery 共享布局所有权与响应式合同。
    │  │     ├─ GallerySmokeTests.cs  # App 资源、窗口标题、色板覆盖 Headless 冒烟。
    │  │     ├─ GalleryThemeConstructionTests.cs  # Gallery Light/Dark 主题构造与切换资源一致性测试。
    │  │     ├─ InteractionCombinationTests.cs  # 验证对应模块的自动化行为与回归合同。
@@ -2182,6 +2189,7 @@
    │  └─ XYUI8/  # 组织该模块下的正式文件。
    │     └─ XYUI-8.md  # 保存对应 XYUI 规范的原始源文本。
    ├─ specs/  # 组织该模块下的正式文件。
+   │  ├─ GALLERY-UNIFY-01-shared-gallery-layout-contract.md  # XYUI-1/2/3 Gallery 共享布局契约。
    │  ├─ XYUI1/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-1.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-1.gaps.json  # 保存对应模块的结构化数据。

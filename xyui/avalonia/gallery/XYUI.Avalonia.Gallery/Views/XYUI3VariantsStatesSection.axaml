@@ -1,5 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="using:XYUI.Avalonia.Gallery.Views"
              xmlns:g="using:XYUI.Avalonia.Gallery"
              x:Class="XYUI.Avalonia.Gallery.Views.XYUI3VariantsStatesSection"
              x:DataType="g:XYUI1ComponentDocument">
@@ -15,11 +16,11 @@
           <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="g:XYUIDocVariant">
               <Border Classes="xyui-surface-panel" Padding="10,6" Margin="0,2" CornerRadius="4">
-                <Grid ColumnDefinitions="180,*,*" ColumnSpacing="12">
+                <views:GalleryVariantRow>
                   <TextBlock Text="{Binding Name}" Classes="xyui-text-code" FontWeight="SemiBold" TextWrapping="Wrap" VerticalAlignment="Center" />
-                  <TextBlock Grid.Column="1" Text="{Binding Description}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Center" />
-                  <TextBlock Grid.Column="2" Text="{Binding Usage}" Classes="xyui-text-caption" TextWrapping="Wrap" VerticalAlignment="Center" />
-                </Grid>
+                  <TextBlock Text="{Binding Description}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Center" />
+                  <TextBlock Text="{Binding Usage}" Classes="xyui-text-caption" TextWrapping="Wrap" VerticalAlignment="Center" />
+                </views:GalleryVariantRow>
               </Border>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
@@ -31,10 +32,10 @@
           <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="g:XYUIDocState">
               <Border Classes="xyui-surface-panel" Padding="10,6" Margin="0,2" CornerRadius="4">
-                <Grid ColumnDefinitions="180,*" ColumnSpacing="12">
+                <views:GalleryStateRow>
                   <TextBlock Text="{Binding Name}" Classes="xyui-text-code" FontWeight="SemiBold" TextWrapping="Wrap" VerticalAlignment="Center" />
-                  <TextBlock Grid.Column="1" Text="{Binding Description}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Center" />
-                </Grid>
+                  <TextBlock Text="{Binding Description}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Center" />
+                </views:GalleryStateRow>
               </Border>
             </DataTemplate>
           </ItemsControl.ItemTemplate>

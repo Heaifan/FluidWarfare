@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · Gallery Layout Unification 技术收口（2026-09-06 17:42:51 +08:00）
+
+- 目标：统一 XYUI-1 / XYUI-2 / XYUI-3 Gallery 文档布局基础设施，不修改 Runtime、Public API 或 3.19+。
+- 变化：新增共享 `GalleryDocumentShell` 与 Rule / Variant / State / Do-Dont / Token / Key-Value 行组件；迁移 XYUI-1、XYUI-2 共享文档模板及 XYUI-3 文档区；新增布局架构测试、布局审计与共享契约。
+- 验证：Gallery 构建与根 solution 构建均 0 警告 / 0 错误；新增架构测试 4/4；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 536/536，全量合计 2183/2183 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 3 Visual / Interaction Fix 技术收口（2026-09-06 17:05:08 +08:00）
 
 - 目标：修复 3.13 Pagination 稳定槽位、3.16 ToolGroup 局部选择与 Compact 传播、3.17 CommandBar 标签渲染、3.18 CommandPalette 空结果与 Disabled 交互，并收口 3.12 Warning 状态与 Gallery Presentation 合流。

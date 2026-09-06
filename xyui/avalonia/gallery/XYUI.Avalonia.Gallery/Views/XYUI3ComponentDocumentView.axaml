@@ -4,7 +4,7 @@
              xmlns:g="using:XYUI.Avalonia.Gallery"
              x:Class="XYUI.Avalonia.Gallery.Views.XYUI3ComponentDocumentView"
              x:DataType="g:XYUI1ComponentDocument">
-  <ScrollViewer x:Name="DocScrollViewer" HorizontalScrollBarVisibility="Disabled">
+  <views:GalleryDocumentShell x:Name="DocScrollViewer">
     <StackPanel Margin="24" Spacing="14">
       <views:XYUI3HeaderSection />
       <views:XYUI3QuickStartSection />
@@ -19,16 +19,16 @@
           <ItemsControl ItemsSource="{Binding Tokens}">
             <ItemsControl.ItemTemplate>
               <DataTemplate x:DataType="g:XYUIDocToken">
-                <Grid ColumnDefinitions="200,140,*" Margin="0,2">
+                <views:GalleryTokenRow Margin="0,2">
                   <TextBlock Text="{Binding Name}" Classes="xyui-text-code" Foreground="{DynamicResource XY.Brush.Accent.Strong}" VerticalAlignment="Center" />
-                  <TextBlock Grid.Column="1" Text="{Binding Value}" Classes="xyui-text-label" VerticalAlignment="Center" />
-                  <TextBlock Grid.Column="2" Text="{Binding Description}" Classes="xyui-text-caption" VerticalAlignment="Center" />
-                </Grid>
+                  <TextBlock Text="{Binding Value}" Classes="xyui-text-label" VerticalAlignment="Center" />
+                  <TextBlock Text="{Binding Description}" Classes="xyui-text-caption" VerticalAlignment="Center" />
+                </views:GalleryTokenRow>
               </DataTemplate>
             </ItemsControl.ItemTemplate>
           </ItemsControl>
         </StackPanel>
       </Border>
     </StackPanel>
-  </ScrollViewer>
+  </views:GalleryDocumentShell>
 </UserControl>

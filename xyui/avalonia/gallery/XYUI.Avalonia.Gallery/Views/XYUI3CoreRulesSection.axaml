@@ -14,10 +14,10 @@
         <ItemsControl.ItemTemplate>
           <DataTemplate x:DataType="g:XYUIDocRule">
             <Border Classes="xyui-surface-panel" Padding="12,8" Margin="0,3" CornerRadius="4">
-              <views:XYUI3RuleRow>
+              <views:GalleryRuleRow>
                 <TextBlock Text="{Binding Title}" Classes="xyui-text-label" FontWeight="SemiBold" TextWrapping="Wrap" VerticalAlignment="Top" />
                 <TextBlock Text="{Binding Content}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Top" />
-              </views:XYUI3RuleRow>
+              </views:GalleryRuleRow>
             </Border>
           </DataTemplate>
         </ItemsControl.ItemTemplate>
