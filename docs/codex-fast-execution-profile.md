@@ -164,14 +164,13 @@ Implementation Complete
 
 ## 六、双 Agent 合流
 
-Codex 与 Gemini 不得同时向同一个未提交工作区写入。优先使用独立 worktree，并从同一个确认过的 Base HEAD 开始。
+允许 Codex 与 Gemini 共享 Canonical Working Tree，但必须满足：
 
-如果暂时不能隔离 worktree，至少满足：
-
-```text
-一方先完成并 commit
-→ 另一方再进入最终门禁
-```
+1. Runtime / Presentation 严格所有权隔离。
+2. 禁止处理另一 Agent 的未提交文件。
+3. 施工阶段只跑各自局部门禁。
+4. Full Integration Gate 只在双方 `HANDOFF READY` 后运行。
+5. 另一 Agent 施工中的失败不得进入本 Agent 调试链。
 
 完整集成测试必须等待：
 
@@ -180,7 +179,7 @@ PRESENTATION IMPLEMENTED
 HANDOFF READY
 ```
 
-如果失败文件属于另一 Agent 的 Ownership：
+如果失败文件属于另一 Agent 的 Ownership，或发生在另一 Agent 仍施工中的文件：
 
 ```text
 指出文件

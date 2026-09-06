@@ -1,5 +1,11 @@
 # changelog
 
+## v0.2.28.77-rz · Fast Execution Profile 双 Agent 工作树规则修订（2026-09-06 10:30:00 +08:00）
+
+- 变化：删除“禁止共享 Dirty Working Tree”的独立 worktree 强制条款，改为允许共享 Canonical Working Tree，并明确 Runtime / Presentation 所有权隔离、未提交文件不可越权处理、施工期局部门禁、双方 HANDOFF READY 后才运行 Full Integration Gate，以及隔离另一 Agent 施工失败。
+- 验证：文档变更已完成；`git diff --check` 待提交前执行。
+- 状态：`PROFILE REVISED`。
+
 ## v0.2.28.77-rz · Codex Fast Execution Profile 执行规范沉淀（2026-09-06 10:23:53 +08:00）
 
 - 目标：将用户提供的 CODEX FAST EXECUTION PROFILE 转化为仓库内可执行的 Runtime 任务流程。
