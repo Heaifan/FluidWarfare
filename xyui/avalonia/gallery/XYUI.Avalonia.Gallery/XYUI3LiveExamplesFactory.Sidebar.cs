@@ -85,7 +85,7 @@ public static partial class XYUI3LiveExamplesFactory
         panel.Children.Add(host);
         panel.Children.Add(new TextBlock
         {
-            Text = "响应式演进说明：当窗口宽度进一步压缩至窄屏时，Sidebar 平滑降级为 NavigationRail (54 DIP)；但 3.07 NavigationRail 的独立完整交互留待下一轮开发，此处严守职责边界。",
+            Text = "响应式演进说明：Sidebar 折叠态正式复用 XYNavigationRail (64 DIP) 作为适配形态；3.07 的独立组件文档、完整能力展示与独立人工验收留到 Round 2。",
             Classes = { "xyui-text-caption" },
             TextWrapping = global::Avalonia.Media.TextWrapping.Wrap
         });

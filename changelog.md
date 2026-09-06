@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 1 Fix 技术收口（2026-09-06 13:04:36 +08:00）
+
+- 目标：收口 3.03 ContextMenu、3.05 NavigationMenu、3.06 Sidebar 的视觉复核回归与 Public XAML Consumer Contract。
+- 变化：修复 Sidebar 折叠 `NavigationRail` 的真实 Icon 显示，保持 Selected 状态并恢复用户宽度；Gallery Quick Start 对齐 XAML-first Contract；补齐真实 Badge / Status 示例，移除过时 GAP，统一 Canonical Rail Width 为 64 DIP；不扩展 Public API，不修改 XYUI-2，不开发 3.07+。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 502/502，全量合计 2149/2149 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL RE-REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 1 Final Integration 技术收口（2026-09-06 10:40:17 +08:00）
 
 - 目标：合流 Gemini 01～06 Gallery Contract Fix，完成 XYUI-3 Round 1 Final Integration。

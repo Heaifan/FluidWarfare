@@ -46,4 +46,40 @@ public sealed class XYUI3Round1RuntimeTests : IClassFixture<XyuiHeadlessFixture>
         var state = new XYNavigationState([new("home", "首页", XyuiVectorIcon.Locate)]); var sidebar = new XYSidebar { NavigationState = state, ContextRegion = new Border { Classes = { "context" } }, StickyFooter = new Border { Classes = { "footer" } } };
         sidebar.SetUserSidebarWidth(310); sidebar.Collapse(); Assert.Equal(XYSidebar.CollapsedWidth, sidebar.Width); sidebar.Expand(); Assert.Equal(310, sidebar.Width); Assert.Same(state, sidebar.NavigationState); Assert.Contains(sidebar.GetVisualDescendants(), x => x.Classes.Contains("context")); Assert.Contains(sidebar.GetVisualDescendants(), x => x.Classes.Contains("footer"));
     });
+
+    [Fact] public void Sidebar_Collapse_UsesNavigationRail() => _fx.Run(() =>
+    {
+        var sidebar = new XYSidebar { PrimaryItems = [new XYNavigationItem { Id = "map", Label = "地图", Icon = XyuiVectorIcon.Locate }] }; sidebar.Collapse();
+        Assert.Single(sidebar.GetVisualDescendants().OfType<XYNavigationRail>());
+    });
+
+    [Fact] public void Sidebar_CollapsedRail_PreservesPrimaryIcons() => _fx.Run(() =>
+    {
+        var sidebar = new XYSidebar { PrimaryItems = [new XYNavigationItem { Id = "map", Label = "地图", Icon = XyuiVectorIcon.Locate }, new XYNavigationItem { Id = "data", Label = "数据", Icon = XyuiVectorIcon.Code }] }; sidebar.Collapse(); var rail = sidebar.GetVisualDescendants().OfType<XYNavigationRail>().Single();
+        Assert.All(rail.Items, item => Assert.Contains(item.GetVisualDescendants(), x => x is XYIcon));
+    });
+
+    [Fact] public void Sidebar_CollapsedRail_PreservesSelectedDestination() => _fx.Run(() =>
+    {
+        var state = new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate), new("data", "数据", XyuiVectorIcon.Code)], "data"); var sidebar = new XYSidebar { NavigationState = state }; sidebar.Collapse(); var rail = sidebar.GetVisualDescendants().OfType<XYNavigationRail>().Single();
+        Assert.True(rail.Items.Single(x => x.Id == "data").IsSelected);
+    });
+
+    [Fact] public void Sidebar_Expand_RestoresExpandedStateAndWidth() => _fx.Run(() =>
+    {
+        var sidebar = new XYSidebar { PrimaryItems = [new XYNavigationItem { Id = "map", Label = "地图", Icon = XyuiVectorIcon.Locate }] }; sidebar.SetUserSidebarWidth(310); sidebar.Collapse(); sidebar.Expand();
+        Assert.False(sidebar.IsCollapsed); Assert.Equal(310, sidebar.Width); Assert.DoesNotContain(sidebar.GetVisualDescendants(), x => x is XYNavigationRail);
+    });
+
+    [Fact] public void NavigationMenu_Badge_ReachesNavigationItem() => _fx.Run(() =>
+    {
+        var menu = new XYNavigationMenu(new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate, "3", XyuiStatusState.Warning)])); var item = menu.Items.Single();
+        Assert.Equal("3", item.GetVisualDescendants().OfType<XYStatusBadge>().Single().Text);
+    });
+
+    [Fact] public void NavigationMenu_Status_ReachesBadge() => _fx.Run(() =>
+    {
+        var menu = new XYNavigationMenu(new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate, "3", XyuiStatusState.Success)])); var badge = menu.Items.Single().GetVisualDescendants().OfType<XYStatusBadge>().Single();
+        Assert.Equal(XyuiStatusState.Success, badge.State);
+    });
 }

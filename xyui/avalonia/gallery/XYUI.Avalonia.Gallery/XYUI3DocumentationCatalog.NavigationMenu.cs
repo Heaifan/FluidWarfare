@@ -8,8 +8,8 @@ public static partial class XYUI3DocumentationCatalog
         "用于编辑器主模块（地图、环境、数据、资源、脚本、设置）切换；选中态长期保持，支持分组标题与细分隔线。",
         () => XYUI3GalleryCatalog.CreatePreview(id),
         ["<c:XYNavigationMenu NavigationState=\"{Binding State}\" />"],
-        [new("Compact 导航型", "32 DIP 紧凑导航项，左侧 3 DIP Accent Bar，20 DIP 分组标题", "Vertical Layout")],
-        [new("Default", "透明底色，文字与图标正常呈现"), new("Hover", "轻微悬浮背景变化"), new("Selected", "浅色 Selected 背景 + 左侧 3 DIP Accent Bar + Accent 图标/文字"), new("Disabled", "图标与文字对比度衰减，不可导航")],
+        [new("Compact 导航型", "32 DIP 紧凑导航项，左侧 3 DIP Accent Bar，20 DIP 分组标题", "Vertical Layout"), new("Badge 徽标型", "右侧展示状态或计数徽标 (消费真实 Badge / Status)", "XYStatusBadge 适配")],
+        [new("Default", "透明底色，文字与图标正常呈现"), new("Hover", "轻微悬浮背景变化"), new("Selected", "浅色 Selected 背景 + 左侧 3 DIP Accent Bar + Accent 图标/文字"), new("With Badge", "展示计数 (如资源 12) 或状态 (如调试 Warning)，Selected 态下文字与徽标均清晰可读"), new("Disabled", "图标与文字对比度衰减，不可导航")],
         Properties(id),
         [new("XY.Surface.Selected", "Selected", "选中态浅蓝背景"), new("XY.Brush.Accent.Default", "Accent", "左侧选中状态指示条"), new("XY.Border.Color.Subtle", "Subtle", "分组间细分隔线")],
         type)
@@ -17,12 +17,16 @@ public static partial class XYUI3DocumentationCatalog
         CanonicalIdentity = "3.05 · NavigationMenu / 导航菜单",
         Category = "XYUI-3 · 导航与切换",
         Acceptance = "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE",
-        KnownGap = "XYNavigationItem 尚缺 Badge / Status 属性 (待 Codex 补齐)",
         QuickStartXaml = """
-var state = new XYNavigationState(entries, selectedId: "map");
-var navMenu = new XYNavigationMenu(state);
-// 或使用声明式分组：
-// XYNavigationMenu.Group("工作区", item1, item2);
+<c:XYNavigationMenu NavigationState="{Binding NavigationState}"
+                    Width="246" />
+
+<!-- 导航项消费 (支持 Badge 与 Status) -->
+<c:XYNavigationItem Id="resources"
+                    Label="引擎资源"
+                    Icon="Browse"
+                    Badge="12"
+                    Status="Info" />
 """,
         CoreRules =
         [

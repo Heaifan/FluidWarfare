@@ -13,8 +13,8 @@ public static partial class XYUI3LiveExamplesFactory
         {
             new XYNavigationEntry("map", "地图编辑", XyuiVectorIcon.Locate),
             new XYNavigationEntry("environment", "环境配置", XyuiVectorIcon.Eye),
-            new XYNavigationEntry("dataset", "数据集管理", XyuiVectorIcon.Code),
-            new XYNavigationEntry("resources", "引擎资源", XyuiVectorIcon.Browse),
+            new XYNavigationEntry("resources", "引擎资源", XyuiVectorIcon.Browse, Badge: "12", Status: XyuiStatusState.Neutral),
+            new XYNavigationEntry("debug", "调试诊断", XyuiVectorIcon.Section, Badge: "Warning", Status: XyuiStatusState.Warning),
             new XYNavigationEntry("scripts", "逻辑脚本", XyuiVectorIcon.Code),
             new XYNavigationEntry("settings", "首选项", XyuiVectorIcon.Section)
         };
@@ -48,7 +48,7 @@ public static partial class XYUI3LiveExamplesFactory
         var right = new StackPanel { Spacing = 8, Width = 320, Children = { statusText, activeArea } };
 
         var split = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 16, Children = { left, right } };
-        return WrapCard(split, "导航菜单 · 真实 XYNavigationState 驱动目的地切换");
+        return WrapCard(split, "导航菜单 · 真实 XYNavigationState 驱动目的地切换 (含 Badge/Status)");
     }
 
     static Control CreateNavigationMenuComposition()
@@ -59,8 +59,10 @@ public static partial class XYUI3LiveExamplesFactory
             Children =
             {
                 new TextBlock { Text = "1. NavigationMenu (导航)", Classes = { "xyui-text-label" } },
-                new TextBlock { Text = "长期保持选中态，左侧 Accent Bar，表达当前所在功能区。", Classes = { "xyui-text-caption" }, TextWrapping = global::Avalonia.Media.TextWrapping.Wrap },
-                new XYNavigationItem { Label = "地图", Icon = XyuiVectorIcon.Locate, IsSelected = true }
+                new TextBlock { Text = "长期保持选中态，支持消费 Badge / Status 状态。", Classes = { "xyui-text-caption" }, TextWrapping = global::Avalonia.Media.TextWrapping.Wrap },
+                new XYNavigationItem { Label = "地图", Icon = XyuiVectorIcon.Locate, IsSelected = true },
+                new XYNavigationItem { Label = "资源", Icon = XyuiVectorIcon.Browse, Badge = "12" },
+                new XYNavigationItem { Label = "调试", Icon = XyuiVectorIcon.Section, Badge = "Warning", Status = XyuiStatusState.Warning }
             }
         };
 

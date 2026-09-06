@@ -18,18 +18,16 @@ public static partial class XYUI3DocumentationCatalog
         Category = "XYUI-3 · 导航与切换",
         Acceptance = "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE",
         QuickStartXaml = """
-var contextMenu = new XYContextMenu
-{
-    ContextType = "ENTITY",
-    ContextName = "Infantry_023",
-    Menu = new XYMenu(
-        new XYMenuItem { Label = "定位实体", Icon = XyuiVectorIcon.Locate },
-        new XYMenuItem { Label = "编辑组件" },
-        XYMenu.Separator(),
-        new XYMenuItem { Label = "删除实体", IsDestructive = true }
-    )
-};
-contextMenu.AttachTo(targetElement);
+<c:XYContextMenu ContextType="ENTITY" ContextName="Infantry_023">
+    <c:XYContextMenu.Menu>
+        <c:XYMenu>
+            <c:XYMenuItem Label="定位实体" Icon="Locate" />
+            <c:XYMenuItem Label="编辑组件" />
+            <c:XYMenu.Separator />
+            <c:XYMenuItem Label="删除实体" IsDestructive="True" />
+        </c:XYMenu>
+    </c:XYContextMenu.Menu>
+</c:XYContextMenu>
 """,
         CoreRules =
         [

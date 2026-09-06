@@ -26,6 +26,7 @@
 - Events/commands: `Open(Control)`, `Open()`, `Close`。
 - States: closed/open, target-bound, light-dismiss, focus restore。
 - Composition: uses the same `XYMenu` infrastructure; target context is the actual `Control`, not a Gallery-only label.
+- XAML Consumer Path: declare `<XYContextMenu ContextType="ENTITY" ContextName="{Binding Name}" Menu="{Binding ContextMenu}" />`; the host binds a real `XYMenu` and invokes public `AttachTo`/`Open` for the actual target.
 
 ## 3.04 SubMenu
 
@@ -42,6 +43,7 @@
 - Events/commands: `NavigationRequested`, `SelectionChanged`, item `Invoked`; `SelectDestination`。
 - States/variants: selected, disabled, focus, grouped, badge/status capability。
 - Composition: all destination truth lives in shared `XYNavigationState`; `NavigationRequested` can reject before commit.
+- XAML Consumer Path: declare `<XYNavigationMenu NavigationState="{Binding NavigationState}" />`; the bound public state supplies destinations, icons, badge/status and selection.
 
 ## 3.06 Sidebar
 
@@ -51,6 +53,7 @@
 - States: expanded, collapsed, resizing, current destination, context region, sticky footer。
 - Composition: expanded = primary navigation + context region + sticky footer; collapsed = `XYNavigationRail` projection. Existing `XYNavigationRail` remains the shared state bridge for later 3.07 work; 3.07 is not implemented here.
 - Invariant: resize persists `UserSidebarWidth`; collapse uses `CollapsedWidth`; expand restores the user width.
+- XAML Consumer Path: declare `<XYSidebar PrimaryItems="{Binding PrimaryItems}" NavigationState="{Binding NavigationState}" ContextRegion="{Binding ContextRegion}" StickyFooter="{Binding StickyFooter}" />`; property setters trigger Runtime rebuilds, so consumers do not call `Build()`.
 
 ## Known limitations
 
