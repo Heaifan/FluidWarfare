@@ -33,7 +33,7 @@ public sealed partial class XYPagination : Border
         FirstButton.IsEnabled = PreviousButton.IsEnabled = CurrentPage > 1; NextButton.IsEnabled = LastButton.IsEnabled = CurrentPage < TotalPages;
         FirstButton.Click += (_, _) => First(); PreviousButton.Click += (_, _) => Previous(); NextButton.Click += (_, _) => Next(); LastButton.Click += (_, _) => Last();
         var panel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6, VerticalAlignment = VerticalAlignment.Center };
-        panel.Children.Add(FirstButton); panel.Children.Add(PreviousButton); var buttons = new List<XYIconButton>(); foreach (var page in VisiblePages()) { if (page is null) panel.Children.Add(new TextBlock { Text = "…", Classes = { "xyui-pagination-ellipsis" }, VerticalAlignment = VerticalAlignment.Center }); else { var button = PageButton(page.Value); buttons.Add(button); panel.Children.Add(button); } } PageButtons = buttons; panel.Children.Add(NextButton); panel.Children.Add(LastButton);
+        panel.Children.Add(FirstButton); panel.Children.Add(PreviousButton); var buttons = new List<XYIconButton>(); foreach (var page in VisiblePages()) { if (page is null) panel.Children.Add(EllipsisSlot()); else { var button = PageButton(page.Value, PageSlotWidth()); buttons.Add(button); panel.Children.Add(button); } } PageButtons = buttons; panel.Children.Add(NextButton); panel.Children.Add(LastButton);
         panel.Children.Add(new XYSeparator { Variant = XyuiSeparatorVariant.VerticalSplit, Height = 24, Margin = new Thickness(8, 0) });
         panel.Children.Add(new TextBlock { Text = "跳至", VerticalAlignment = VerticalAlignment.Center });
         JumpInput = new XYNumberField { Width = 52, Height = 34, Minimum = 1, Maximum = TotalPages, DecimalPlaces = 0, Value = CurrentPage };
@@ -43,9 +43,13 @@ public sealed partial class XYPagination : Border
     IEnumerable<int?> VisiblePages()
     {
         if (TotalPages <= 7) { foreach (var page in Enumerable.Range(1, TotalPages)) yield return page; yield break; }
-        yield return 1; var start = Math.Max(2, CurrentPage - 1); var end = Math.Min(TotalPages - 1, CurrentPage + 1); if (start > 2) yield return null; for (var page = start; page <= end; page++) yield return page; if (end < TotalPages - 1) yield return null; yield return TotalPages;
+        if (CurrentPage <= 3) { foreach (var page in new int?[] { 1, 2, 3, 4, 5, null, TotalPages }) yield return page; yield break; }
+        if (CurrentPage >= TotalPages - 2) { foreach (var page in new int?[] { 1, null, TotalPages - 4, TotalPages - 3, TotalPages - 2, TotalPages - 1, TotalPages }) yield return page; yield break; }
+        foreach (var page in new int?[] { 1, null, CurrentPage - 1, CurrentPage, CurrentPage + 1, null, TotalPages }) yield return page;
     }
-    XYIconButton PageButton(int page) { var b = new XYIconButton { Content = new TextBlock { Text = page.ToString(), HorizontalAlignment = HorizontalAlignment.Center }, Width = 38, Height = 34, IsSelected = page == CurrentPage, Classes = { "xyui-pagination-page" } }; b.Classes.Set("xyui-pagination-current", page == CurrentPage); b.Click += (_, _) => GoTo(page); return b; }
+    double PageSlotWidth() => Math.Max(38, 20 + TotalPages.ToString().Length * 10);
+    XYIconButton PageButton(int page, double width) { var b = new XYIconButton { Content = new TextBlock { Text = page.ToString(), HorizontalAlignment = HorizontalAlignment.Center }, Width = width, Height = 34, IsSelected = page == CurrentPage, Classes = { "xyui-pagination-page" } }; b.Classes.Set("xyui-pagination-current", page == CurrentPage); b.Click += (_, _) => GoTo(page); return b; }
+    Control EllipsisSlot() => new Border { Width = PageSlotWidth(), Height = 34, Child = new TextBlock { Text = "…", Classes = { "xyui-pagination-ellipsis" }, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center } };
     static XYIconButton Action(XyuiVectorIcon icon, string @class) => new() { Content = new XYIcon { Icon = icon, Size = XyuiIconSize.Small }, Width = 34, Height = 34, Classes = { "xyui-pagination-action", @class } };
     void OnKeyDown(object? sender, KeyEventArgs e) { if (e.Key == Key.Left) Previous(); else if (e.Key == Key.Right) Next(); else if (e.Key == Key.Home) First(); else if (e.Key == Key.End) Last(); else return; e.Handled = true; }
 }

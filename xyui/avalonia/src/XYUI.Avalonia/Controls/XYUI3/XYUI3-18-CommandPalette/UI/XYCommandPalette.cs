@@ -54,7 +54,7 @@ public sealed partial class XYCommandPalette : Border
     public XYCommandPalette(IEnumerable<XYPaletteCommand> commands, IEnumerable<XYPaletteCommand>? recentItems = null)
     {
         foreach (var command in commands) Items.Add(command); foreach (var command in recentItems ?? Items) RecentItems.Add(command); Items.CollectionChanged += (_, _) => Refresh(); Classes.Add("xyui-command-palette"); KeyDown += OnPaletteKeyDown;
-        ScopeMenu = CreateScopeMenu(); SearchBox.FilterContent = ScopeMenu; SearchBox.TextChanged += (_, _) => Refresh(); SearchBox.AddHandler(InputElement.KeyDownEvent, OnKeyDown, RoutingStrategies.Bubble, true); SearchBox.FilterRequested += OnFilterRequested;
+        ScopeMenu = CreateScopeMenu(); SearchBox.FilterContent = ScopeMenu; SearchBox.TextChanged += (_, _) => Refresh(); SearchBox.PropertyChanged += (_, e) => { if (e.Property == TextBox.TextProperty) Refresh(); }; SearchBox.AddHandler(InputElement.KeyDownEvent, OnKeyDown, RoutingStrategies.Bubble, true); SearchBox.FilterRequested += OnFilterRequested;
         _popup.Closed += (_, _) => Close(); Child = BuildSurface(); Refresh();
     }
 }

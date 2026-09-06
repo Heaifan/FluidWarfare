@@ -8,13 +8,20 @@ public static partial class XYUI3LiveExamplesFactory
 {
     static Control CreatePaginationLiveExamples()
     {
-        var pagination = new XYPagination { CurrentPage = 3, TotalPages = 20, TotalItems = 400, ShowTotalItems = true };
-        var statusText = new TextBlock { Text = "当前活动页: 第 3 页 · 邻近页 [2, 3, 4] · 首尾按钮正常可用", Classes = { "xyui-text-caption" } };
-        pagination.PageChanged += (_, p) => statusText.Text = $"当前活动页: 第 {p} 页 · 邻近页 [{p - 1}, {p}, {p + 1}] · 上一页: {(p > 1 ? "可用" : "禁用")}, 下一页: {(p < 20 ? "可用" : "禁用")}";
-        pagination.InvalidPageRequested += (_, p) => statusText.Text = $"越界页码已拦截: {p} (合法区间 1 ~ 20)";
+        var pageFirst = new XYPagination { CurrentPage = 1, TotalPages = 24, TotalItems = 480, ShowTotalItems = true };
+        var pageMid = new XYPagination { CurrentPage = 12, TotalPages = 24, TotalItems = 480, ShowTotalItems = true };
+        var pageLast = new XYPagination { CurrentPage = 24, TotalPages = 24, TotalItems = 480, ShowTotalItems = true };
 
-        var firstPage = new XYPagination { CurrentPage = 1, TotalPages = 10, TotalItems = 100, ShowTotalItems = false };
-        var lastPage = new XYPagination { CurrentPage = 10, TotalPages = 10, TotalItems = 100, ShowTotalItems = false };
+        var interactive = new XYPagination { CurrentPage = 12, TotalPages = 24, TotalItems = 480, ShowTotalItems = true };
+        var statusText = new TextBlock { Text = "当前活动页: 第 12 页 · 槽位固定 · 翻页时整体尺寸与操作键位绝对稳定", Classes = { "xyui-text-caption" } };
+        interactive.PageChanged += (_, p) => statusText.Text = $"当前活动页: 第 {p} 页 / 24 · 首/上一页: {(p > 1 ? "可用" : "禁用")}, 下/末页: {(p < 24 ? "可用" : "禁用")}";
+
+        var btn1 = new XYButton { Content = "切至第 1 页 (首页边界)", Variant = XyuiButtonVariant.Secondary };
+        btn1.Click += (_, _) => interactive.GoTo(1);
+        var btn12 = new XYButton { Content = "切至第 12 页 (居中展开)", Variant = XyuiButtonVariant.Secondary };
+        btn12.Click += (_, _) => interactive.GoTo(12);
+        var btn24 = new XYButton { Content = "切至第 24 页 (末页边界)", Variant = XyuiButtonVariant.Secondary };
+        btn24.Click += (_, _) => interactive.GoTo(24);
 
         var footer = new XYPaginationFooter(totalItems: 640, totalPages: 26);
 
@@ -23,16 +30,16 @@ public static partial class XYUI3LiveExamplesFactory
             Spacing = 12,
             Children =
             {
-                new TextBlock { Text = "交互式邻近页跳转与跳页输入 (支持点击与输入 Enter):", Classes = { "xyui-text-label" } },
-                pagination,
-                statusText,
-                new TextBlock { Text = "边界禁用状态对比 (首页 Prev 禁用 / 末页 Next 禁用):", Classes = { "xyui-text-label" } },
-                new StackPanel { Orientation = Orientation.Horizontal, Spacing = 20, Children = { firstPage, lastPage } },
+                new TextBlock { Text = "槽位稳定性真实对比 (首页 1 / 中页 12 / 末页 24 宽度统一，Next/Jump 无抖动):", Classes = { "xyui-text-label" } },
+                pageFirst, pageMid, pageLast,
+                new TextBlock { Text = "交互式动态切页 (点击按钮验证连续切页时操作按钮不位移):", Classes = { "xyui-text-label" } },
+                interactive, statusText,
+                new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8, Children = { btn1, btn12, btn24 } },
                 new TextBlock { Text = "标准数据页脚 XYPaginationFooter (含每页条数 25/50/100 联动):", Classes = { "xyui-text-label" } },
                 footer
             }
         };
-        return WrapCard(col, "高密度分页与数据页脚 · 34 DIP 等高同轴对齐");
+        return WrapCard(col, "高密度分页与数据页脚 · 槽位固定、零抖动与 34 DIP 等高对齐");
     }
 
     static Control CreatePaginationComposition()

@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:g="using:XYUI.Avalonia.Gallery"
+             xmlns:views="using:XYUI.Avalonia.Gallery.Views"
              x:Class="XYUI.Avalonia.Gallery.Views.XYUI3CoreRulesSection"
              x:DataType="g:XYUI1ComponentDocument">
   <Border Classes="xyui-surface-panel" Padding="16,14" CornerRadius="6" IsVisible="{Binding HasCoreRules}">
@@ -13,10 +14,10 @@
         <ItemsControl.ItemTemplate>
           <DataTemplate x:DataType="g:XYUIDocRule">
             <Border Classes="xyui-surface-panel" Padding="12,8" Margin="0,3" CornerRadius="4">
-              <Grid ColumnDefinitions="140,*">
-                <TextBlock Text="{Binding Title}" Classes="xyui-text-label" FontWeight="SemiBold" VerticalAlignment="Center" />
-                <TextBlock Grid.Column="1" Text="{Binding Content}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Center" />
-              </Grid>
+              <views:XYUI3RuleRow>
+                <TextBlock Text="{Binding Title}" Classes="xyui-text-label" FontWeight="SemiBold" TextWrapping="Wrap" VerticalAlignment="Top" />
+                <TextBlock Text="{Binding Content}" Classes="xyui-text-body" TextWrapping="Wrap" VerticalAlignment="Top" />
+              </views:XYUI3RuleRow>
             </Border>
           </DataTemplate>
         </ItemsControl.ItemTemplate>

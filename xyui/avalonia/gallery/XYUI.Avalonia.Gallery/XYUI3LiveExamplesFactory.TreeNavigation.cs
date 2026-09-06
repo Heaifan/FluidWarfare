@@ -11,7 +11,7 @@ public static partial class XYUI3LiveExamplesFactory
     {
         var mapRoot = new XYTreeNode { Label = "地图系统", Icon = XyuiVectorIcon.Locate, IsExpanded = true };
         var nodeBase = new XYTreeNode { Label = "基础要素", IsSelected = true, Icon = XyuiVectorIcon.Section };
-        var nodeEnv = new XYTreeNode { Label = "环境配置", Icon = XyuiVectorIcon.Eye, IsExpanded = true, Status = XyuiStatusState.Warning };
+        var nodeEnv = new XYTreeNode { Label = "环境配置", Icon = XyuiVectorIcon.Eye, IsExpanded = true, Badge = "警告", Status = XyuiStatusState.Warning };
         var nodeTerrain = new XYTreeNode { Label = "地形高度图", Icon = XyuiVectorIcon.Section };
         var nodeClimate = new XYTreeNode { Label = "气候与光照", Icon = XyuiVectorIcon.Section, IsEnabled = false };
         nodeEnv.Children.Add(nodeTerrain);
@@ -24,7 +24,7 @@ public static partial class XYUI3LiveExamplesFactory
         var tree = new XYTreeNavigation(mapRoot, dataRoot) { Width = 280 };
 
         var statusText = new TextBlock { Text = "当前选中：基础要素 (层级深度由 Children 自动推导)", Classes = { "xyui-text-caption" } };
-        var eventLog = new TextBlock { Text = "操作指南：气候与光照已禁用 (Disabled)；环境配置带 Warning 状态；数据集合带 12 计数徽标；点击展开箭头切换。", Classes = { "xyui-text-caption" } };
+        var eventLog = new TextBlock { Text = "操作指南：气候与光照已禁用 (Disabled)；环境配置呈现清晰 Warning 徽标 (警告)；数据集合带 12 计数徽标。", Classes = { "xyui-text-caption" } };
 
         tree.SelectionChanged += (_, node) => statusText.Text = $"当前选中：{node.Label} (层级深度: {node.Depth}, Badge: {node.Badge ?? "无"}, Status: {node.Status})";
 

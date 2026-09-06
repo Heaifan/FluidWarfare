@@ -36,7 +36,7 @@ public sealed class XYCommandItem : XYButton
         base.OnPropertyChanged(e);
         if (e.Property == IsSelectedProperty) Classes.Set("xyui-command-selected", e.GetNewValue<bool>());
     }
-    void SyncVisual() { base.Icon = _icon; Content = new TextBlock { Text = Label, Classes = { "xyui-command-label" } }; Classes.Set("xyui-command-primary", Role == XYCommandRole.Primary); Classes.Set("xyui-command-danger", Role == XYCommandRole.Danger); Classes.Set("xyui-command-normal", Role == XYCommandRole.Normal); }
+    void SyncVisual() { base.Icon = null; Content = _icon is null ? new TextBlock { Text = Label, Classes = { "xyui-command-label" } } : new StackPanel { Orientation = Orientation.Horizontal, Spacing = 5, Children = { new XYIcon { Icon = _icon.Value, Size = XyuiIconSize.Small }, new TextBlock { Text = Label, Classes = { "xyui-command-label" } } } }; Classes.Set("xyui-command-primary", Role == XYCommandRole.Primary); Classes.Set("xyui-command-danger", Role == XYCommandRole.Danger); Classes.Set("xyui-command-normal", Role == XYCommandRole.Normal); }
 }
 
 public sealed class XYCommandBar : Border

@@ -9,7 +9,7 @@ public static partial class XYUI3DocumentationCatalog
         () => XYUI3GalleryCatalog.CreatePreview(id),
         ["<c:XYCommandPalette Width=\"440\" />"],
         [new("Compact Desktop", "440 DIP 紧凑宽度，34 DIP 检索框，左右双栏结构", "Standard Palette"), new("Full Width", "600 DIP 宽幅面板，适合深层资产与路径检索", "Deep Hierarchy")],
-        [new("Recent", "输入框为空时展示最近使用命令"), new("Filtered", "输入关键字即时计算并高亮匹配结果"), new("Focused", "键盘上下键选中项高亮，并驱动右侧详情更新")],
+        [new("Recent", "输入框为空时展示最近使用命令"), new("Filtered", "输入关键字即时计算并高亮匹配结果"), new("Focused", "键盘上下键选中项高亮，并驱动右侧详情更新"), new("No Results", "检索无匹配时展示正式空状态与提示"), new("Disabled Command", "命令因依赖未就绪处于禁用态，可见但不可执行")],
         Properties(id),
         [new("XY.Surface.Panel", "Panel", "命令面板底色"), new("XY.Brush.Accent.Default", "Accent", "键盘选中行标记"), new("XY.Border.Color.Subtle", "Subtle", "结果与详情分隔线")],
         type)

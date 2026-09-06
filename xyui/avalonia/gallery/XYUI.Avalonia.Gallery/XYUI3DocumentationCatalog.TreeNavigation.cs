@@ -22,7 +22,7 @@ public static partial class XYUI3DocumentationCatalog
     <c:XYTreeNode Label="地图系统" Icon="Locate" IsExpanded="True">
         <c:XYTreeNode.Children>
             <c:XYTreeNode Label="基础要素" IsSelected="True" />
-            <c:XYTreeNode Label="环境配置" Icon="Eye" Status="Warning" IsExpanded="True">
+            <c:XYTreeNode Label="环境配置" Icon="Eye" Badge="警告" Status="Warning" IsExpanded="True">
                 <c:XYTreeNode.Children>
                     <c:XYTreeNode Label="地形高度图" />
                     <c:XYTreeNode Label="气候与光照" IsEnabled="False" />

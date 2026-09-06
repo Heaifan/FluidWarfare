@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 3 Visual / Interaction Fix 技术收口（2026-09-06 17:05:08 +08:00）
+
+- 目标：修复 3.13 Pagination 稳定槽位、3.16 ToolGroup 局部选择与 Compact 传播、3.17 CommandBar 标签渲染、3.18 CommandPalette 空结果与 Disabled 交互，并收口 3.12 Warning 状态与 Gallery Presentation 合流。
+- 变化：Pagination 固定七槽位与按最大页码宽度布局；ToolGroup 保持组内选择事实并继承 Toolbar Compact；CommandBar 直接渲染真实 Label；CommandPalette 程序化搜索可靠刷新；Gemini Gallery 完成对应规则区、状态区与示例调整；新增 7 项 Round 3 Fix 回归测试。
+- 验证：根 solution 构建 0 警告 / 0 错误；XYUI Gallery 构建 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 532/532，全量合计 2179/2179 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL RE-REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 3 · 3.13～3.18 Runtime 技术收口（2026-09-06 16:05:39 +08:00）
 
 - 目标：完成 Pagination、Steps、Toolbar、ToolGroup、CommandBar、CommandPalette Runtime，并收口 3.12 Warning/Disabled visual carry-over。

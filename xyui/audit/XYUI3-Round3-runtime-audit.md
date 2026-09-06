@@ -23,3 +23,9 @@ Runtime changes are confined to XYUI-3 controls and their tests. Gallery changes
 - Full test projects: Core 339/339, WarCore 22/22, World 1286/1286, XYUI 525/525; total 2172/2172 PASS.
 - Root solution and XYUI Gallery builds: 0 warnings / 0 errors; ARCH-A including 5+100 PASS; `git diff --check` PASS.
 - The D drive SDK path was unavailable; the verified local SDK at `E:\MyApp\sdk-dotnet\dotnet.exe` executed the gates.
+
+## Visual / Interaction Fix Evidence
+
+- Pagination fixed-slot regression, ToolGroup local selection and compact propagation, CommandBar label rendering, CommandPalette empty/disabled interaction, and Tree Warning badge chain: 7/7 PASS; combined Round 3 regression selection: 37/37 PASS.
+- Final full test projects: Core 339/339, WarCore 22/22, World 1286/1286, XYUI 532/532; total 2179/2179 PASS.
+- Root solution and XYUI Gallery builds: 0 warnings / 0 errors; ARCH-A including 5+100 PASS; `git diff --check` PASS. Gallery changes remained Presentation-owned and Runtime changes remained Codex-owned.
