@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
+using Avalonia.Metadata;
 using XYUI.Avalonia.Vector;
 
 namespace XYUI.Avalonia.Controls;
@@ -16,7 +17,11 @@ public sealed partial class XYTabBar : Border
     public XYIconButton NewButton { get; }
     public Popup OverflowPopup => _overflowPopup;
     public double HorizontalOffset => _viewport.Offset.X;
+    [Content] public IList<XYTab> Items => Tabs.Items;
+    public string? SelectedTabId { get => Tabs.SelectedTabId; set => Tabs.SelectedTabId = value; }
+    public event EventHandler<XYTab>? SelectionChanged;
 
+    public XYTabBar() : this(Array.Empty<XYTab>()) { }
     public XYTabBar(params XYTab[] tabs)
     {
         Classes.Add("xyui-tab-bar");
@@ -25,7 +30,7 @@ public sealed partial class XYTabBar : Border
         NextButton = Action(XyuiVectorIcon.ChevronRight, "xyui-tab-bar-next");
         OverflowButton = Action(XyuiVectorIcon.MoreHorizontal, "xyui-tab-bar-overflow");
         NewButton = Action(XyuiVectorIcon.Add, "xyui-tab-bar-new");
-        _viewport = Viewport(); Child = Build(); InitializeInteraction();
+        _viewport = Viewport(); Child = Build(); Tabs.SelectionChanged += (_, tab) => SelectionChanged?.Invoke(this, tab); InitializeInteraction();
     }
 
     Grid Build()

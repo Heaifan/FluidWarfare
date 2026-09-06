@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 2 Runtime 技术收口（2026-09-06 14:48:25 +08:00）
+
+- 目标：完成 3.07 NavigationRail、3.08 Tabs、3.09 TabBar、3.10 DockTabs、3.11 Breadcrumb、3.12 TreeNavigation 的最小 XAML-first Public API、Canonical State 与 Runtime Interaction。
+- 变化：NavigationRail 共享 `XYNavigationState` 并补齐声明式 Items、Context、Footer、键盘与 Disabled；Tabs Family 统一 `SelectedTabId` / `ActiveTabId`、稳定 Modified/Close 布局、声明式集合、真实滚动/溢出/新增/关闭/重排/拖拽；Breadcrumb 增加真实 NavigationRequested；TreeNavigation 以 `Children` 推导层级并支持 Disabled、Badge、Status。未修改 Round 1 3.01～3.06，未开发 3.13+，未扩展 Dock Manager。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；XYUI 512/512、Core 339/339、WarCore 22/22、World 1286/1286，全量合计 2159/2159 PASS；Round 2 定向测试 34/34 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 1 Fix 技术收口（2026-09-06 13:04:36 +08:00）
 
 - 目标：收口 3.03 ContextMenu、3.05 NavigationMenu、3.06 Sidebar 的视觉复核回归与 Public XAML Consumer Contract。

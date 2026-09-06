@@ -15,7 +15,7 @@ public static class XyuiCompactNavigationTokens
     public const double SidebarMinWidth = 190;
     public const double SidebarMaxWidth = 360;
     public const double SidebarCollapsedWidth = 64;
-    public const double NavigationRailWidth = 54;
+    public const double NavigationRailWidth = 64;
     public const double SidebarHeaderHeight = 48;
     public const double SidebarFooterHeight = 48;
     public const double TabBarHeight = 38;

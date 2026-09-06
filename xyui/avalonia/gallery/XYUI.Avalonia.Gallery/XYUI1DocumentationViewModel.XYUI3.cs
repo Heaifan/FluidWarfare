@@ -16,7 +16,7 @@ public sealed partial class XYUI1DocumentationViewModel
             _selectedXYUI3 = value; _selectedItem = null!; _selectedXYUI2 = null; _selectedFoundation = null;
             if (value?.Document is not null)
             {
-                SelectedDocument = value.Id is "XYUI-3-3.01" or "XYUI-3-3.02" or "XYUI-3-3.03" or "XYUI-3-3.04" or "XYUI-3-3.05" or "XYUI-3-3.06"
+                SelectedDocument = value.Document.HasLiveExamples
                     ? new Views.XYUI3ComponentDocumentView { DataContext = value.Document }
                     : new Views.XYUI1ComponentDocumentView { DataContext = value.Document };
             }

@@ -14,14 +14,14 @@ public sealed partial class XYTreeNode
 
     public void ToggleExpansion()
     {
-        if (!HasChildren) return; IsExpanded = !IsExpanded; ExpansionChanged?.Invoke(this, EventArgs.Empty);
+        if (!HasChildren || !IsEnabled) return; IsExpanded = !IsExpanded; ExpansionChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void Select() => SelectionRequested?.Invoke(this, EventArgs.Empty);
 
     void OnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (!e.GetCurrentPoint(this).Properties.IsLeftButtonPressed) return;
+        if (!IsEnabled || !e.GetCurrentPoint(this).Properties.IsLeftButtonPressed) return;
         FocusRequested?.Invoke(this, EventArgs.Empty); var chevronEdge = Depth * XyuiCompactNavigationTokens.TreeIndent + 19;
         if (HasChildren && e.GetPosition(this).X <= chevronEdge) ToggleExpansion(); else Select();
         e.Handled = true;
@@ -29,9 +29,10 @@ public sealed partial class XYTreeNode
 
     void OnKeyDown(object? sender, KeyEventArgs e)
     {
+        if (!IsEnabled) return;
         if (e.Key == Key.Enter) ActivationRequested?.Invoke(this, EventArgs.Empty);
         else if (e.Key == Key.Space) SelectionRequested?.Invoke(this, EventArgs.Empty);
-        else if (e.Key is Key.Up or Key.Down or Key.Left or Key.Right) NavigationRequested?.Invoke(this, e.Key);
+        else if (e.Key is Key.Up or Key.Down or Key.Left or Key.Right or Key.Home or Key.End) NavigationRequested?.Invoke(this, e.Key);
         else return;
         e.Handled = true;
     }

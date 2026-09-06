@@ -8,6 +8,7 @@ public sealed partial class XYBreadcrumb
     int _focusedIndex;
     public event EventHandler<XYBreadcrumbItem>? CurrentChanged;
     public event EventHandler<XYBreadcrumbItem>? DropdownRequested;
+    public event EventHandler<XYBreadcrumbItem>? NavigationRequested;
 
     void Attach(XYBreadcrumbItem item)
     {
@@ -42,8 +43,8 @@ public sealed partial class XYBreadcrumb
 
     public void Navigate(XYBreadcrumbItem item)
     {
-        if (!Items.Contains(item) || item.IsCollapsed) return;
+        if (!Items.Contains(item) || item.IsCollapsed || item.IsCurrent) return;
         foreach (var candidate in Items) candidate.IsCurrent = ReferenceEquals(candidate, item);
-        CurrentChanged?.Invoke(this, item);
+        NavigationRequested?.Invoke(this, item); CurrentChanged?.Invoke(this, item);
     }
 }

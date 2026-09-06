@@ -1,5 +1,7 @@
 namespace XYUI.Avalonia.Controls;
 
+public sealed record XYDockHandoffRequest(string TabId, int FromIndex, int ToIndex);
+
 public sealed partial class XYDockTabs
 {
     public event EventHandler<XYDockTab>? TabClosed;
@@ -18,16 +20,16 @@ public sealed partial class XYDockTabs
 
     void OnCloseRequested(object? sender, EventArgs e)
     {
-        var item = _items.FirstOrDefault(x => ReferenceEquals(x.Tab, sender));
+        var item = Items.FirstOrDefault(x => ReferenceEquals(x.Tab, sender));
         if (item is not null) Close(item);
     }
 
     void OnDropRequested(object? sender, double x)
     {
         if (sender is not XYDockTab item) return;
-        var target = _items.Count - 1; var edge = 0d;
-        for (var index = 0; index < _items.Count; index++)
-        { edge += _items[index].Bounds.Width; if (x < edge) { target = index; break; } }
+        var target = Items.Count - 1; var edge = 0d;
+        for (var index = 0; index < Items.Count; index++)
+        { edge += Items[index].Bounds.Width; if (x < edge) { target = index; break; } }
         ClearIndicators(); Move(item, target);
     }
 
@@ -40,30 +42,33 @@ public sealed partial class XYDockTabs
     XYDockTab? HitTarget(double x, out bool after)
     {
         after = false; var edge = 0d;
-        foreach (var item in _items) { var midpoint = edge + item.Bounds.Width / 2; if (x <= edge + item.Bounds.Width) { after = x > midpoint; return item; } edge += item.Bounds.Width; }
-        return _items.LastOrDefault();
+        foreach (var item in Items) { var midpoint = edge + item.Bounds.Width / 2; if (x <= edge + item.Bounds.Width) { after = x > midpoint; return item; } edge += item.Bounds.Width; }
+        return Items.LastOrDefault();
     }
-    void ClearIndicators() { foreach (var item in _items) item.SetDropIndicator(false); }
+    void ClearIndicators() { foreach (var item in Items) item.SetDropIndicator(false); }
 
     public void Select(XYTab tab)
     {
-        if (!_items.Any(x => ReferenceEquals(x.Tab, tab))) return;
-        foreach (var item in _items) item.Tab.IsSelected = ReferenceEquals(item.Tab, tab);
+        var item = Items.FirstOrDefault(x => ReferenceEquals(x.Tab, tab)); if (item is null || !tab.IsEnabled) return;
+        var changed = _activeTabId != tab.Id; _activeTabId = tab.Id;
+        foreach (var candidate in Items) candidate.Tab.IsSelected = ReferenceEquals(candidate, item);
+        if (changed) SelectionChanged?.Invoke(this, item);
     }
 
     public void Close(XYDockTab item)
     {
-        var index = _items.IndexOf(item); if (index < 0) return; var selected = item.Tab.IsSelected;
-        _items.RemoveAt(index); Detach(item);
-        if (selected && _items.Count > 0) Select(_items[Math.Min(index, _items.Count - 1)].Tab);
-        Build(); TabClosed?.Invoke(this, item);
+        var index = Items.IndexOf(item); if (index < 0) return; var selected = item.Tab.IsSelected;
+        Detach(item); Items.RemoveAt(index);
+        if (selected && Items.Count > 0) Select(Items[Math.Min(index, Items.Count - 1)].Tab); else if (selected) _activeTabId = null;
+        TabClosed?.Invoke(this, item);
     }
+    public void Select(string? id) { if (id is not null) Select(Items.FirstOrDefault(x => x.Tab.Id == id)?.Tab!); }
 
     public void Move(XYDockTab item, int targetIndex)
     {
-        var source = _items.IndexOf(item); if (source < 0) return;
-        targetIndex = Math.Clamp(targetIndex, 0, _items.Count - 1); if (source == targetIndex) return;
-        _items.RemoveAt(source); _items.Insert(targetIndex, item); Build(); OrderChanged?.Invoke(this, EventArgs.Empty);
+        var source = Items.IndexOf(item); if (source < 0) return;
+        targetIndex = Math.Clamp(targetIndex, 0, Items.Count - 1); if (source == targetIndex) return;
+        Items.Move(source, targetIndex); OrderChanged?.Invoke(this, EventArgs.Empty); DockHandoffRequested?.Invoke(this, new(item.Tab.Id, source, targetIndex));
     }
 
     void Detach(XYDockTab item)

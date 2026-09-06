@@ -11,6 +11,7 @@ public sealed partial class XYTabBar
 
     void InitializeInteraction()
     {
+        Focusable = true; KeyDown += OnKeyDown;
         PreviousButton.Click += (_, _) => ScrollBy(-ScrollStep);
         NextButton.Click += (_, _) => ScrollBy(ScrollStep);
         OverflowButton.Click += (_, _) => ToggleOverflow();
@@ -22,6 +23,14 @@ public sealed partial class XYTabBar
         Tabs.SelectionChanged += (_, tab) => EnsureVisible(tab);
         AttachedToVisualTree += (_, _) => RefreshScrollState();
         DetachedFromVisualTree += (_, _) => CloseOverflow();
+    }
+
+    void OnKeyDown(object? sender, KeyEventArgs e)
+    {
+        if (e.Key is not (Key.Left or Key.Right or Key.Home or Key.End)) return;
+        var items = Tabs.Items.Where(x => x.IsEnabled).ToArray(); if (items.Length == 0) return;
+        var index = Array.IndexOf(items, Tabs.SelectedItem); var target = e.Key == Key.Home ? items[0] : e.Key == Key.End ? items[^1] : items[Math.Clamp(index + (e.Key == Key.Right ? 1 : -1), 0, items.Length - 1)];
+        Tabs.Select(target); target.Focus(); e.Handled = true;
     }
 
     public void ScrollBy(double delta)

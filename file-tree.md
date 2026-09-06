@@ -1384,7 +1384,8 @@
    │  ├─ XYUI1/  # 组织该模块下的正式文件。
    │  │  └─ R5-F4-fidelity-matrix.md  # 记录对应主题的当前规范、计划或审计事实。
    │  ├─ XYUI3/  # 记录 XYUI-3 Runtime 轮次审计与交付证据。
-   │  │  └─ XYUI3-Round1-runtime-audit.md  # 记录 3.01～3.06 Runtime、测试与合流边界。
+   │  │  ├─ XYUI3-Round1-runtime-audit.md  # 记录 3.01～3.06 Runtime、测试与合流边界。
+   │  │  └─ XYUI3-Round2-runtime-audit.md  # 记录 3.07～3.12 Runtime、Contract 与最终门禁证据。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ conflict-matrix.md  # 记录对应主题的当前有效说明。
    │  │  ├─ reconciliation.md  # 记录对应主题的当前有效说明。
@@ -1578,6 +1579,12 @@
    │  │     ├─ XYUI2GalleryCatalog.Inputs.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI2GalleryCatalog.Properties.cs  # Number、Vector、Enum、Reference Property 的中文真实场景样例工厂。
    │  │     ├─ XYUI2GalleryCatalog.SearchPassword.cs  # 实现对应模块的 C# 职责。
+   │  │     ├─ XYUI3DocumentationCatalog.Breadcrumb.cs  # 提供 XYUI-3-11 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.DockTabs.cs  # 提供 XYUI-3-10 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.NavigationRail.cs  # 提供 XYUI-3-07 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.TabBar.cs  # 提供 XYUI-3-09 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.Tabs.cs  # 提供 XYUI-3-08 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.TreeNavigation.cs  # 提供 XYUI-3-12 Gallery 文档内容。
    │  │     ├─ XYUI3DocumentationCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3DocumentationCatalog.Api.cs  # 提供 XYUI-3-23 基础用法与完整 API 文档。
    │  │     ├─ XYUI3DocumentationCatalog.ContextMenu.cs  # 提供 XYUI-3-03 Gallery 文档内容。
@@ -1589,12 +1596,18 @@
    │  │     ├─ XYUI3GalleryCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3GalleryCatalog.Navigation.cs  # 提供紧凑导航四组件的真实 Gallery Preview。
    │  │     ├─ XYUI3GalleryCatalog.Final.cs  # 提供 XYUI-3-21~24 最终导航组件真实预览。
+   │  │     ├─ XYUI3LiveExamplesFactory.Breadcrumb.cs  # 提供 XYUI-3-11 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.DockTabs.cs  # 提供 XYUI-3-10 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.ContextMenu.cs  # 提供 XYUI-3-03 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.Menu.cs  # 提供 XYUI-3-02 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.MenuBar.cs  # 提供 XYUI-3-01 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.NavigationMenu.cs  # 提供 XYUI-3-05 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.NavigationRail.cs  # 提供 XYUI-3-07 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.Sidebar.cs  # 提供 XYUI-3-06 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.SubMenu.cs  # 提供 XYUI-3-04 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.TabBar.cs  # 提供 XYUI-3-09 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.Tabs.cs  # 提供 XYUI-3-08 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.TreeNavigation.cs  # 提供 XYUI-3-12 Gallery Live Example。
    │  │     └─ XYUI3LiveExamplesFactory.cs  # XYUI-3 01～06 Live Example 分发门面。
    │  ├─ src/  # 组织该模块下的正式文件。
    │  │  └─ XYUI.Avalonia/  # 组织该模块下的正式文件。
@@ -2101,6 +2114,7 @@
    │  │     ├─ XYUI3CompactNavigationStructureTests.cs  # 验证紧凑导航复用、单底边、垂直居中及交互状态机。
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
+   │  │     ├─ XYUI3Round2RuntimeTests.cs  # 验证 XYUI-3 3.07～3.12 Runtime 公共 API、状态与交互。
    │  │     ├─ XYUI3StructureTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XyuiBatchTestHost.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUICompositionReuseTests.cs  # 验证 XYIconLabel 等组件复用公开 XYUI 控件而非重复绘制。
@@ -2166,7 +2180,8 @@
    │  │  ├─ XYUI-3.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3.mapping.json  # 保存对应 XYUI 规范的规范化数据与映射。
-   │  │  └─ XYUI-3-01-06-runtime-contract.md  # 提供 3.01～3.06 Runtime 公共 API 与状态合同。
+   │  │  ├─ XYUI-3-01-06-runtime-contract.md  # 提供 3.01～3.06 Runtime 公共 API 与状态合同。
+   │  │  └─ XYUI-3-07-12-runtime-contract.md  # 提供 3.07～3.12 Runtime 公共 API 与状态合同。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-4.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-4.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。
