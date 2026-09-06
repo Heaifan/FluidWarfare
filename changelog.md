@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · Codex Fast Execution Profile 执行规范沉淀（2026-09-06 10:23:53 +08:00）
+
+- 目标：将用户提供的 CODEX FAST EXECUTION PROFILE 转化为仓库内可执行的 Runtime 任务流程。
+- 变化：新增 `docs/codex-fast-execution-profile.md`，固化最多 3 个目标包、一次性审计、Contract First、批量实现、定向失败修复、最终门禁、双 Agent 合流、一次性文档同步与 STOP 规则。
+- 验证：文档内容已完整读取并总结；本轮仅文档与文件树变更，未运行代码 Build/Test；`git diff --check` 待提交前执行。
+- 状态：`DOCUMENTED · READY FOR FUTURE FAST EXECUTION`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 1 · 3.01～3.06 Runtime 提交与合流审计（2026-09-06 10:08:00 +08:00）
 
 - 目标：完成 MenuBar、Menu、ContextMenu、SubMenu、NavigationMenu、Sidebar 六个控件的共享 Runtime、交互、状态与公共 Contract。

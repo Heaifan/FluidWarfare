@@ -19,6 +19,7 @@
 │  │     └─ changelog-2026-07.md  # 2026-07 changelog 月度归档
 │  ├─ CODE_CONSTITUTION.md  # 代码与架构硬规则
 │  ├─ dev-rules.md  # 开发硬规则执行手册（接手红线清单）
+│  ├─ codex-fast-execution-profile.md  # Codex Runtime 任务的快速审计、实现、验证与收口流程。
 │  ├─ docs-index.md  # docs 目录分类索引（哪类文档在哪里）
 │  ├─ governance/  # 组织该模块下的正式文件。
 │  │  ├─ 版本号规范与历史映射.md  # 版本格式与历史编号映射
