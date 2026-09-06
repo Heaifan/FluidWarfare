@@ -6,9 +6,12 @@ namespace XYUI.Avalonia.Gallery.Views;
 
 public class GalleryDocumentShell : ScrollViewer
 {
+    protected override Type StyleKeyOverride => typeof(ScrollViewer);
+
     public GalleryDocumentShell()
     {
         HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
+        VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
     }
 
     public void ScrollTo(double y)

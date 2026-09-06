@@ -6,7 +6,7 @@ using XYUI.Avalonia.Gallery.Views;
 namespace XYUI.Avalonia.Tests;
 
 [Collection("XyuiHeadless")]
-public sealed class GalleryLayoutArchitectureTests : IClassFixture<XyuiHeadlessFixture>
+public sealed partial class GalleryLayoutArchitectureTests : IClassFixture<XyuiHeadlessFixture>
 {
     readonly XyuiHeadlessFixture _fx;
     public GalleryLayoutArchitectureTests(XyuiHeadlessFixture fx) => _fx = fx;

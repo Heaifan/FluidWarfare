@@ -3,7 +3,7 @@ namespace XYUI.Avalonia.Gallery;
 public sealed partial class XYUI1DocumentationViewModel
 {
     public IReadOnlyList<XYUI1NavigationItem> XYUI3Items { get; private set; } = [];
-    public string XYUI3CountText => $"{XYUI3Items.Count}/{XYUI3Items.Count}";
+    public string XYUI3CountText => $"{XYUI3Items.Count(x => x.Document is not null)}/{XYUI3Items.Count(x => x.Document is not null)}";
     bool _isX3 = true;
     public bool IsXYUI3Expanded { get => _isX3; set { if (_isX3 == value) return; _isX3 = value; PropertyChanged?.Invoke(this, new(nameof(IsXYUI3Expanded))); } }
     XYUI1NavigationItem? _selectedXYUI3;
@@ -14,11 +14,13 @@ public sealed partial class XYUI1DocumentationViewModel
         {
             if (value == _selectedXYUI3) return;
             _selectedXYUI3 = value; _selectedItem = null!; _selectedXYUI2 = null; _selectedFoundation = null;
-            if (value?.Document is not null)
+            if (value is not null)
             {
-                SelectedDocument = value.Document.HasLiveExamples
-                    ? new Views.XYUI3ComponentDocumentView { DataContext = value.Document }
-                    : new Views.XYUI1ComponentDocumentView { DataContext = value.Document };
+                SelectedDocument = value.Document is null
+                    ? new Views.XYUI3ModuleOverviewView { DataContext = this }
+                    : (value.Document.HasLiveExamples
+                        ? new Views.XYUI3ComponentDocumentView { DataContext = value.Document }
+                        : new Views.XYUI1ComponentDocumentView { DataContext = value.Document });
             }
             PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI3Item))); PropertyChanged?.Invoke(this, new(nameof(SelectedItem)));
             PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI2Item))); PropertyChanged?.Invoke(this, new(nameof(SelectedFoundation)));
@@ -27,9 +29,11 @@ public sealed partial class XYUI1DocumentationViewModel
     }
     internal void BootstrapXYUI3()
     {
-        XYUI3Items = XYUI3DocumentationCatalog.Build().Select(x => new XYUI1NavigationItem(x.Id, x.ChineseName, x.EnglishName, x)).ToArray();
+        var items = XYUI3DocumentationCatalog.Build().Select(x => new XYUI1NavigationItem(x.Id, x.ChineseName, x.EnglishName, x)).ToArray();
+        var overview = new XYUI1NavigationItem("XYUI-3", "模块概览", "Navigation & Switching", null);
+        XYUI3Items = new[] { overview }.Concat(items).ToArray();
         // 遵循 Catalog 契约：默认落点跟随当前清单末项（3.24）。
-        SelectedXYUI3Item = XYUI3Items.LastOrDefault();
+        SelectedXYUI3Item = items.LastOrDefault();
     }
     internal void SelectXYUI3(string id)
     {

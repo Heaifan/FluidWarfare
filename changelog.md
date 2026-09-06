@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · GALLERY-UNIFY-02 Shell & Module Navigation Recovery 技术收口（2026-09-06 18:33:02 +08:00）
+
+- 目标：恢复共享 Gallery 文档壳的可感知纵向滚动合同，并补齐 XYUI-3 模块概览首项；不修改 Runtime、组件视觉或 3.19+。
+- 变化：`GalleryDocumentShell` 显式启用纵向滚动反馈；XYUI-3 接入 `XYUI3ModuleOverviewView`、Overview 路由与首项模型；新增 8 项 Shell / Module Navigation 结构守卫及本轮审计/契约文档。
+- 验证：Gallery 构建与根 solution 构建均 0 警告 / 0 错误；相关结构测试 12/12；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 544/544，全量合计 2191/2191 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER SHELL SMOKE REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`INFRASTRUCTURE CLOSED` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · Gallery Layout Unification 技术收口（2026-09-06 17:42:51 +08:00）
 
 - 目标：统一 XYUI-1 / XYUI-2 / XYUI-3 Gallery 文档布局基础设施，不修改 Runtime、Public API 或 3.19+。
