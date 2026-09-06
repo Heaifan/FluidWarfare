@@ -14,10 +14,12 @@
 
 ## 证据边界
 
-- 源码编译：E 盘本机 SDK `E:\MyApp\sdk-dotnet\dotnet.exe`，0 warning / 0 error。
+- 源码与 `XYUI.Avalonia.slnx` 编译：E 盘本机 SDK `E:\MyApp\sdk-dotnet\dotnet.exe`，0 warning / 0 error。
 - 定向 Runtime/Interaction/Structure 测试：26 passed / 0 failed / 0 skipped。
+- ARCH-A（含 5+100）：PASS；`git diff --check`：PASS。
+- 全量测试当前有 1 项既有 Gallery 导航断言失败：Gemini 未提交 ViewModel 固定默认 3.01，而测试要求跟随 Catalog 最后一项 3.24；该 Gallery 冲突已通知 Gemini，未由 Runtime 侧越权改写。
 - `D:\MyApp\sdk-dotnet\dotnet.exe` 在本机不存在；按仓库现有本机回退约定使用 E 盘 SDK。正式门禁仍需记录实际执行结果。
-- 本文件不宣称用户视觉验收；Gallery 并行变化由 Gemini 负责。
+- 本文件不宣称 Technical Pass 或用户视觉验收；Gallery 并行变化由 Gemini 负责。
 
 ## 留待用户
 

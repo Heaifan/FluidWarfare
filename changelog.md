@@ -1,5 +1,14 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 1 · 3.01～3.06 Runtime 提交与合流审计（2026-09-06 10:08:00 +08:00）
+
+- 目标：完成 MenuBar、Menu、ContextMenu、SubMenu、NavigationMenu、Sidebar 六个控件的共享 Runtime、交互、状态与公共 Contract。
+- 变化：统一 Menu Infrastructure；补齐 Checked/Radio/Disabled/Separator/SubMenu、键盘与焦点恢复、真实 Context Target、共享 `XYNavigationState`、Sidebar Context Region/Sticky Footer/宽度恢复；新增 Runtime 测试、Runtime Contract 与审计文档。未修改 XYUI-2，未实现 3.07+，保留 Gemini Gallery 未提交改动。
+- 验证：`XYUI.Avalonia.slnx` 构建 0 警告 / 0 错误；定向 Runtime/Interaction/Structure 测试 26/26 PASS；`scripts/arch-a-guard.ps1` PASS；`git diff --check` PASS。完整测试另有 1 项既有 Gallery 导航断言失败：Gemini 未提交 ViewModel 默认 3.01 与既有测试要求 Catalog 最新 3.24 不一致，已通知 Gemini，未越权修改 Gallery。
+- Hash：`a29896f1`（Runtime 实现、测试、Contract、审计提交，已推送）。
+- 状态：`RUNTIME COMMIT PUSHED · FULL REPOSITORY GATE BLOCKED BY PARALLEL GALLERY CONTRACT · USER VISUAL REVIEW PENDING`。
+- 遗留：等待 Gemini 修复或确认 Gallery 默认入口契约后，重跑全量测试与最终合流门禁。
+
 ## v0.2.28.77-rz · XYUI-2 · ColorPicker RGB/RGBA 语义修补与最终冻结（2026-09-06 01:17:40 +08:00）
 
 - 目标：完成 `XYColorPicker` RGB/RGBA Popup 语义收口，冻结 XYUI-2 24/24。
