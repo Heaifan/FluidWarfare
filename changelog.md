@@ -1,5 +1,18 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 4 User Review Fix 技术收口（2026-09-06 20:33:30 +08:00）
+
+- 目标：专项解决真机复核抓出的 4 项体验与状态缺陷（3.19 组合条目重叠与窄宽截断、3.20 统一列对齐与 Icon/Disabled 实例证明、3.23 SafeAreaBottom 对比与 54×54 上浮主操作全域点击判定、3.24 真模态抽屉遮罩/Light Dismiss/Esc 键/焦点归还）。
+- 变化：
+  - 3.19 BackForwardNavigation：修复 LiveExamples 中 Grid.SetColumn 附加至内部 TextBlock 导致父级 Border 落在 Column 0 与导航重叠的展示缺陷；Runtime 容器显式设为 `MinWidth = 0`，确保极窄宽度下路径截断而不挤压后退/前进按钮。
+  - 3.20 WorkspaceSwitcher：`XYMenuItemVisual` 统一采用固定列宽 `ColumnDefinitions("24,*,24")`，消除有无 Icon 时的文本偏移；Gallery Preview、Live Example 丰富 Icon 与 IsEnabled=false 验证示例并增加禁用点击拦截反馈。
+  - 3.23 BottomNavigation：Runtime 容器 `ClipToBounds = false`，中央 54×54 主操作使用负 Margin 浮出，确保悬浮上半部命中判定完整生效；Gallery 新增直边 (SafeArea=0, H=66) 与全面屏手势区 (SafeArea=24, H=90) 对比卡片。
+  - 3.24 NavigationDrawer：Runtime 实装真模态浮层体系（全屏半透明遮罩 `#80000000` + 侧边栏抽屉表面 + Light Dismiss + Esc 键响应 + 焦点归还至触发器）；双向联动 `NavigationState`；Gallery 包装 `xyui-navigation-drawer-host` 容器呈现局部模态视口。
+  - 测试：新增/强化 3.19/3.20/3.23/3.24 定向回归，包含 `Drawer_backdrop_pointer_closes_real_overlay`、`Bottom_navigation_safe_area_and_primary_hit_target_are_explicit` 等，全量测试 2208/2208 PASS。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 561/561，全量合计 2208/2208 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：`456c66fae9356aff4e60f8260823ee14e7c14488`（Round 4 Review Fix 提交）。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL RE-REVIEW`；未宣称 `FINAL CLOSEOUT` 或 `STATUS FROZEN`，等待人工真机复核。
+
 ## v0.2.28.77-rz · XYUI-3 Round 4 · 3.19～3.24 Runtime & Presentation 技术收口（2026-09-06 19:53:20 +08:00）
 
 - 目标：完成 3.19 BackForwardNavigation、3.20 WorkspaceSwitcher、3.21 ViewSwitcher、3.22 TableOfContents、3.23 BottomNavigation、3.24 NavigationDrawer 完整 Runtime 与 Presentation 交付；落实批准的 3.20 `XYWorkspaceItem.IsEnabled` 与可选 `Icon` 最小 Public API 扩展；保持 24/24 组件全量闭环与共享 Gallery Shell 架构。

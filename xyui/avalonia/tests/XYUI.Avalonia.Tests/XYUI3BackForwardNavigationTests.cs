@@ -52,4 +52,9 @@ public sealed class XYUI3BackForwardNavigationTests : IClassFixture<XyuiHeadless
     {
         XyuiBatchTestHost.Prepare(); var nav = new XYBackForwardNavigation(); nav.Navigate("roads / 道路编辑 / 广东省 / 广州市 / 超长位置"); var window = XyuiBatchTestHost.Show(nav); var location = nav.GetVisualDescendants().OfType<TextBlock>().Single(x => x.Classes.Contains("xyui-location-text")); Assert.Equal(TextTrimming.CharacterEllipsis, location.TextTrimming); Assert.True(nav.Bounds.Width >= 200); Assert.Equal(28, nav.BackButton.Bounds.Width); Assert.Equal(28, nav.ForwardButton.Bounds.Width); window.Close();
     });
+
+    [Fact] public void Narrow_surface_keeps_actions_fixed_and_location_shrinks() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var nav = new XYBackForwardNavigation { Width = 112 }; nav.Navigate("道路编辑 / 核心要塞段 / 超长路径"); var window = XyuiBatchTestHost.Show(nav); Dispatcher.UIThread.RunJobs(); var location = nav.GetVisualDescendants().OfType<TextBlock>().Single(x => x.Classes.Contains("xyui-location-text")); Assert.Equal(TextTrimming.CharacterEllipsis, location.TextTrimming); Assert.True(nav.BackButton.Bounds.Right <= nav.ForwardButton.Bounds.Left); Assert.True(nav.ForwardButton.Bounds.Right <= nav.Bounds.Width + 1); window.Close();
+    });
 }

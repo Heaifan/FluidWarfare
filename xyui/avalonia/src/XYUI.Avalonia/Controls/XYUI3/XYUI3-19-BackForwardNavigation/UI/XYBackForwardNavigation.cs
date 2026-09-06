@@ -25,11 +25,11 @@ public sealed partial class XYBackForwardNavigation : Border
     public XYBackForwardNavigation() { Classes.Add("xyui-back-forward"); BackButton.Click += (_, _) => Back(); ForwardButton.Click += (_, _) => Forward(); BackButton.PointerPressed += OnBackPointerPressed; ForwardButton.PointerPressed += OnForwardPointerPressed; Child = Build(); Sync(); }
     Control Build()
     {
-        var inner = new Grid { Height = 34, ColumnDefinitions = new ColumnDefinitions("28,28,1,Auto"), ColumnSpacing = 4, VerticalAlignment = VerticalAlignment.Center };
+        var inner = new Grid { Height = 34, ColumnDefinitions = new ColumnDefinitions("28,28,1,*"), ColumnSpacing = 4, VerticalAlignment = VerticalAlignment.Center };
         BackButton.Width = 28; BackButton.Height = 28; BackButton.VerticalAlignment = VerticalAlignment.Center; ForwardButton.Width = 28; ForwardButton.Height = 28; ForwardButton.VerticalAlignment = VerticalAlignment.Center;
         Grid.SetColumn(BackButton, 0); Grid.SetColumn(ForwardButton, 1); inner.Children.Add(BackButton); inner.Children.Add(ForwardButton);
         var divider = new Border { Width = 1, Height = 20, VerticalAlignment = VerticalAlignment.Center, Classes = { "xyui-back-forward-divider" } }; Grid.SetColumn(divider, 2); inner.Children.Add(divider);
-        var location = new StackPanel { Margin = new Thickness(8, 0, 8, 0), VerticalAlignment = VerticalAlignment.Center, MinWidth = 130, MaxWidth = 240 }; location.Children.Add(new TextBlock { Text = "当前位置", Classes = { "xyui-location-title" } }); location.Children.Add(_location); Grid.SetColumn(location, 3); inner.Children.Add(location);
+        var location = new StackPanel { Margin = new Thickness(8, 0, 8, 0), VerticalAlignment = VerticalAlignment.Center, MinWidth = 0, MaxWidth = 240 }; location.Children.Add(new TextBlock { Text = "当前位置", Classes = { "xyui-location-title" } }); location.Children.Add(_location); Grid.SetColumn(location, 3); inner.Children.Add(location);
         return new Border { Height = 34, Classes = { "xyui-back-forward-surface" }, Child = inner };
     }
     public void Navigate(string location) { if (_index >= 0 && _history[_index] == location) return; if (_index < _history.Count - 1) _history.RemoveRange(_index + 1, _history.Count - _index - 1); _history.Add(location); _index++; Sync(); LocationChanged?.Invoke(this, location); }

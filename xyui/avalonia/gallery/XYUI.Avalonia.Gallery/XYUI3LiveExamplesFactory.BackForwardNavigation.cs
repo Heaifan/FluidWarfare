@@ -48,6 +48,7 @@ public static partial class XYUI3LiveExamplesFactory
         var tool1 = new XYButton { Content = "重置视角", Variant = XyuiButtonVariant.Secondary };
         var tool2 = new XYButton { Content = "全屏查看", Variant = XyuiButtonVariant.Secondary };
 
+        var titleBorder = new Border { Child = title, Margin = new(16, 0) };
         var topBar = new Grid
         {
             ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"),
@@ -55,11 +56,11 @@ public static partial class XYUI3LiveExamplesFactory
             Children =
             {
                 nav,
-                new Border { Child = title, Margin = new(16, 0) },
+                titleBorder,
                 new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6, Children = { tool1, tool2 } }
             }
         };
-        Grid.SetColumn(title, 1);
+        Grid.SetColumn(titleBorder, 1);
         Grid.SetColumn((StackPanel)topBar.Children[2], 2);
 
         var viewportMock = new Border

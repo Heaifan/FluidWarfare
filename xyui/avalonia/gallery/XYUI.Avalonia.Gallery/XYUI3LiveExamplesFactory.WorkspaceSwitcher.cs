@@ -37,6 +37,8 @@ public static partial class XYUI3LiveExamplesFactory
         btnWar.Click += (_, _) => switcher.SelectWorkspace("war-sim");
         var btnData = new XYButton { Content = "切至地图数据", Variant = XyuiButtonVariant.Secondary };
         btnData.Click += (_, _) => switcher.SelectWorkspace("map-data");
+        var btnDisabled = new XYButton { Content = "切至禁用项 (拦截)", Variant = XyuiButtonVariant.Secondary };
+        btnDisabled.Click += (_, _) => { switcher.SelectWorkspace("debug-analysis"); feedback.Text = $"尝试切换至禁用项: 状态保持在 [{switcher.CurrentWorkspace}] (拦截生效)"; };
         var btnOpen = new XYButton { Content = "展开下拉菜单", Variant = XyuiButtonVariant.Secondary };
         btnOpen.Click += (_, _) => switcher.Open();
 
@@ -48,7 +50,7 @@ public static partial class XYUI3LiveExamplesFactory
                 new TextBlock { Text = "顶栏工作区切换器 (点击触发器展开同宽菜单，当前项带右侧勾选):", Classes = { "xyui-text-label" } },
                 switcher,
                 feedback,
-                new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8, Children = { btnWar, btnData, btnOpen } }
+                new StackPanel { Orientation = Orientation.Horizontal, Spacing = 8, Children = { btnWar, btnData, btnDisabled, btnOpen } }
             }
         };
         return WrapCard(col, "应用级工作区环境切换 · Request-Commit 事务机制与同宽下拉");
@@ -58,9 +60,10 @@ public static partial class XYUI3LiveExamplesFactory
     {
         var items = new[]
         {
-            new XYWorkspaceItem("world-edit", "World Editor"),
-            new XYWorkspaceItem("map-data", "Map Data"),
-            new XYWorkspaceItem("war-sim", "War Simulation")
+            new XYWorkspaceItem("world-edit", "World Editor", Icon: XYUI.Avalonia.Vector.XyuiVectorIcon.Locate),
+            new XYWorkspaceItem("map-data", "Map Data", Icon: XYUI.Avalonia.Vector.XyuiVectorIcon.Code),
+            new XYWorkspaceItem("war-sim", "War Simulation", Icon: XYUI.Avalonia.Vector.XyuiVectorIcon.Eye),
+            new XYWorkspaceItem("debug-analysis", "Debug Analysis (Disabled)", IsEnabled: false, Icon: XYUI.Avalonia.Vector.XyuiVectorIcon.Section)
         };
         var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("world-edit"), items) { Width = 200 };
         switcher.WorkspaceChangeRequested += (_, req) => req.Accept();

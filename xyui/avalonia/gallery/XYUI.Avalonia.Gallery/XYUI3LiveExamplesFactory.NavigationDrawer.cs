@@ -28,6 +28,7 @@ public static partial class XYUI3LiveExamplesFactory
         var col = new StackPanel
         {
             Spacing = 12,
+            Classes = { "xyui-navigation-drawer-host" },
             Children =
             {
                 new TextBlock { Text = "模态抽屉导航 (包含半透明遮罩、Esc 键监听、失焦退出与全功能 Sidebar 结构):", Classes = { "xyui-text-label" } },
@@ -41,11 +42,7 @@ public static partial class XYUI3LiveExamplesFactory
 
     static Control CreateNavigationDrawerComposition()
     {
-        var state = new XYNavigationState([
-            new("map", "地图", XyuiVectorIcon.Locate),
-            new("data", "数据", XyuiVectorIcon.Code),
-            new("settings", "设置", XyuiVectorIcon.Section)
-        ], "map");
+        var state = new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate), new("data", "数据", XyuiVectorIcon.Code), new("settings", "设置", XyuiVectorIcon.Section)], "map");
         var drawer = new XYNavigationDrawer(state);
 
         var burger = new XYButton { Content = "☰ 导航", Variant = XyuiButtonVariant.Secondary };
@@ -55,15 +52,18 @@ public static partial class XYUI3LiveExamplesFactory
         {
             ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"),
             Height = 36,
-            Children = { burger, new TextBlock { Text = "窄屏编辑器视口 (宽度受限时收拢侧栏为抽屉)", VerticalAlignment = VerticalAlignment.Center, Classes = { "xyui-text-caption" }, Margin = new(12, 0) } }
+            Children = { burger, new TextBlock { Text = "窄屏编辑器视口 (呼出抽屉时半透明遮罩覆盖视口)", VerticalAlignment = VerticalAlignment.Center, Classes = { "xyui-text-caption" }, Margin = new(12, 0) } }
         };
         Grid.SetColumn((TextBlock)topBar.Children[1], 1);
 
-        var panel = new StackPanel
+        var canvasMock = new Border { Classes = { "xyui-surface-panel-alt" }, Height = 140, CornerRadius = new(4), Child = new TextBlock { Text = "【视口工作区】\n展开抽屉时此处被半透明遮罩覆盖，点击遮罩或按 Esc 键即可收起。", HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, Classes = { "xyui-text-caption" } } };
+
+        var mockViewport = new Border
         {
-            Spacing = 8,
-            Children = { topBar, drawer, new TextBlock { Text = "说明: 点击汉堡按钮呼出抽屉，点击空白遮罩或按 Esc 即关闭，保持窄屏下视口最大化。", Classes = { "xyui-text-caption" } } }
+            Classes = { "xyui-navigation-drawer-host" },
+            Width = 460,
+            Child = new StackPanel { Spacing = 8, Children = { topBar, drawer, canvasMock } }
         };
-        return WrapCard(panel, "窄屏视口汉堡菜单与抽屉协同 · 响应式导航收拢形态");
+        return WrapCard(mockViewport, "窄屏视口汉堡菜单与抽屉协同 · 响应式模态遮罩收拢形态");
     }
 }
