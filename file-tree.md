@@ -72,82 +72,81 @@
 - `docs/milestones/closed/MAP-A/R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
 - `docs/milestones/closed/MAP-DATA-A/R1-closeout.md` — 项目治理、设计、里程碑或知识文档。
 - `docs/milestones/closed/MAP-DOC-A/R3-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R1-workspace-contract.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R2-workspace-switch.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-mode-shell.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/EDITOR-A/EDITOR-A-R1-workspace-contract.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/EDITOR-A/editor-a-r1-workspace-contract.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/EDITOR-A/EDITOR-A-R2-workspace-switch.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/EDITOR-A/editor-a-r2-workspace-switch.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/EDITOR-A/EDITOR-A-R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/EDITOR-A/EDITOR-A-R3-mode-shell.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/EDITOR-A/editor-a-r3-mode-shell.svg` — 架构或界面结构矢量图。
 - `docs/milestones/current/EDITOR-A/XYUI-backlog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/LAYER-A/LAYER-A-R1-layer-shell.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/MAP-A-CLOSE-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/MAP-A-strategic-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/LAYER-A/LAYER-A-R1-layer-shell.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/MAP-A-CLOSE-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/MAP-A-strategic-closeout.md` — 项目治理、设计、里程碑或知识文档。
 - `docs/milestones/current/MAP-A/map-contract.md` — 项目治理、设计、里程碑或知识文档。
 - `docs/milestones/current/MAP-A/R3-backlog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/R3-C2-closure.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/viewport-overlay-development-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` — Region 顶点吸附真机 IPO 验收清单与门禁证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` — Region 顶点到顶点吸附范围、数据流与验收边界。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C-plan.md` — Region 顶点到边吸附的 C1/C2/C3 冻结范围与阶段状态。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C3-acceptance.md` — Region Snap 综合真机验收记录与 PASS 证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D-plan.md` — Road Vertex Editing D1/D2/D3 冻结范围与阶段边界。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-acceptance.md` — Road Vertex Selection 真机 IPO 验收模板与门禁证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-F1-acceptance.md` — Road Draw → Select 状态切换定向复验清单。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D2-acceptance.md` — Road Vertex Drag 真机 IPO 验收清单。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-plan.md` — 通用几何编辑、局部候选与吸附的一次性实现计划。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-acceptance.md` — 通用几何编辑与吸附一次综合真机验收清单。
+- `docs/milestones/closed/MAP-A/R3-C2-closure.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/viewport-overlay-development-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-A/viewport-overlay-roadmap.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F1-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` — Region 顶点吸附真机 IPO 验收清单。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` — Region 顶点到顶点吸附范围、数据流与验收边界。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-C-plan.md` — Region 顶点到边吸附的 C1/C2/C3 冻结范围与范围约束。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-C3-acceptance.md` — Region Snap 综合真机验收记录。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-D-plan.md` — Road Vertex Editing D1/D2/D3 冻结范围与范围边界。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-acceptance.md` — Road Vertex Selection 真机 IPO 验收模板。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-F1-acceptance.md` — Road Draw → Select 状态切换定向复验清单。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-D2-acceptance.md` — Road Vertex Drag 真机 IPO 验收清单。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-E-plan.md` — 通用几何编辑、局部候选与吸附的一次性实现计划。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-E-acceptance.md` — 通用几何编辑与吸附一次综合真机验收清单。
 - `docs/knowledge/decisions/generic-geometry-editing-contract.md` — 通用几何编辑、吸附、局部查询与拓扑边界决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-contract.md` — E1 Geometry Capability Contract 定义。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-mapping-gap-report.md` — E1 Region/Road 映射、数据链与 Gap Report。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-E2-decision.md` — E1 对 E2 的抽取范围与禁止越界决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation.md` — Point / Map Marker 下一阶段范围与边界。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-contract.md` — E1 Geometry Capability Contract 定义。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-mapping-gap-report.md` — E1 Region/Road 映射、数据链与 Gap Report。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-E2-decision.md` — E1 对 E2 的抽取范围与禁止越界决策。
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation.md` — Point / Map Marker 范围与边界。
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation-acceptance.md` — Point / Map Marker 八项真机 IPO 验收清单。
 - `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-closeout.md` — R2 Geometry Editing Foundation 收口、证据与最终边界。
-- `docs/knowledge/decisions/map-data-r2-closeout-and-point-foundation.md` — R2 收口与 Point Consumer 下一阶段决策。
-- `docs/knowledge/decisions/map-data-r3-point-consumer.md` — Point / Map Marker 通用几何 Consumer 决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-carryover.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F1-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/knowledge/decisions/map-data-r2-closeout-and-point-foundation.md` — R2 收口与 Point Consumer 决策。
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R1-F1-carryover.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R1-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F1-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F2-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F3-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-F4-root-cause.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` — 架构或界面结构矢量图。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
+- `docs/milestones/closed/MAP-DOC-A/MAP-DOC-A-R3-plan.md` — 项目治理、设计、里程碑或知识文档。
 - `docs/ui/ARCH-UI-SPEC-R1-D3_主窗口外壳与顶层页签.svg` — 架构或界面结构矢量图。
 - `docs/ui/ARCH-UI-SPEC-R1-D4_工作面板治理.svg` — 架构或界面结构矢量图。
 - `docs/ui/ARCH-UI-SPEC-R1-D4-F1_单行属性行修复.svg` — 架构或界面结构矢量图。
@@ -1325,3 +1324,11 @@
 - `XuanYu.World/WorldPartitionMembership.cs` — C# 类型、服务或测试实现。
 - `XuanYu.World/WorldQuery.cs` — C# 类型、服务或测试实现。
 - `XuanYu.World/XuanYu.World.csproj` — 项目构建或数据配置。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Bindings.cs` — 地图几何编辑数据绑定与通知更新。
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapRoadSelection.cs` — 道路几何选择与交互状态管理。
+- `XuanYu.World.Tests/UiRuntime/RoadDrawingSelectionF1Tests.Helpers.cs` — 道路绘制与选择测试辅助方法。
+- `XuanYu.World.Tests/UiRuntime/RoadDrawingSelectionF1Tests.cs` — 道路绘制与选择交互契约测试。
+- `XuanYu.World.Tests/UiRuntime/RoadVertexDragD2Tests.cs` — 道路已有控制点拖动与更新契约测试。
+- `XuanYu.World.Tests/UiRuntime/RoadVertexSelectionD1Tests.Helpers.cs` — 道路控制点选择测试辅助方法。
+- `XuanYu.World.Tests/UiRuntime/RoadVertexSelectionD1Tests.cs` — 道路控制点命中与选择契约测试。
+- `docs/archive/changelog/changelog-2026-08.md` — 2026 年 8 月 changelog 历史归档。

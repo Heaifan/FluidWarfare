@@ -1,7 +1,7 @@
 # 玄域引擎知识索引
 
-> 索引整理时间：2026-08-11 00:03（UTC+08:00）
-> 状态：V3 正式入库，共 22 条 Knowledge、4 条 Lesson。
+> 索引整理时间：2026-09-06 00:00（UTC+08:00）
+> 状态：V3 正式入库，共 23 条 Knowledge、1 条 Decision、4 条 Lesson。
 > 使用方法：AI 接到任务后先按标签/分类定位相关 ID，再读取对应主题文件全文；不要默认把全部知识无差别塞入实现上下文。
 
 | ID | 类型 | 分类 | 标题 | 优先级 | 证据 | 首次关键证据 | 状态 |
@@ -31,7 +31,7 @@
 | K-DATA-003 | Knowledge | Data | 异步危险确认必须捕获稳定对象身份并在确认后重新验证 | P0 | E1 | MAP-DATA-A-R2-F2-F2-F1 · 2026-08-12 · 3d53de0 | Active |
 | K-ASSET-001 | Knowledge | Data | 数据归一化/Bake 后必须同步归一化相关元数据 | P0 | E2 | v0.2.21.23-fix · 2026-08-02 12:45:00 · a9c1ec6 | Active |
 | K-ASSET-002 | Knowledge | Data | 确定性资源创建失败必须按 Key+Revision 负缓存 | P1 | E2 | v0.2.21.23-fix · 2026-08-02 12:45:00 · a9c1ec6 | Active |
-| K-PERF-001 | Knowledge | Performance | Preview 高频路径与 Commit 重路径必须分离 | P0 | E2 | v0.1.8.7-fix · 2026-06-25 00:18 · 26f2006 | Active |
+| K-PERF-001 | Knowledge | Performance | Preview 高频路径与 Commit 重路径必须分离 | P0 | E2 | v0.1.8.7-fix · 2026-06-25 00:18 · 26f2006 | Active (AUTOMATION CANDIDATE) |
 | K-GEO-001 | Knowledge | Architecture | 可编辑几何能力契约与 Snap/Topology 边界 | P0 | E1 | MAP-DATA-A-R2-F3-E1 · 2026-08-13 · 本轮提交 | Active |
 | K-GEO-002 | Decision | Architecture | R2 收口并以 Point Consumer 作为下一验证形态 | P0 | R2 | MAP-DATA-A-R2-CLOSEOUT · 2026-08-13 · 6a3d5b8 | Active |
 
@@ -43,6 +43,6 @@
 - `input.md`：K-INP-001、K-INP-002
 - `ui.md`：K-UI-001
 - `data.md`：K-DATA-001、K-DATA-002、K-DATA-003、K-ASSET-001、K-ASSET-002
-- `performance.md`：K-PERF-001
+- `performance.md`：K-PERF-001（注：当前登记为 AUTOMATION CANDIDATE，待后续转化为无分配契约门禁）
 - `incidents.md`：上述知识的代表性事故记录与映射
 - `lessons.md`：L-ARCH-001、L-REN-001、L-REN-002、L-VAL-001 及后续可复用的停止条件与错误前提复盘

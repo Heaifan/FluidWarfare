@@ -1,6 +1,6 @@
 # EDITOR-A-R3-F1 · User Acceptance Closeout
 
-**状态**：ACCEPTED · P0 USER ACCEPTANCE RECORDED
+**状态**：CLOSED · ACCEPTED · P0 USER ACCEPTANCE RECORDED
 
 **分支**：`feat/EDITOR-A-workspace`
 

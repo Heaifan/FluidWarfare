@@ -1,4 +1,5 @@
-﻿$ErrorActionPreference = "Stop"
+﻿# ARCH-A Gate Guard
+$ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
@@ -24,16 +25,43 @@ function Get-OutputType([string]$path) {
     if ($match.Success) { return $match.Groups[1].Value }
     return ""
 }
+function Test-ExcludedSourcePath([string]$path) {
+    $normalized = $path.Replace('\', '/')
+    return $normalized -match '(^|/)(bin|obj|generated|third-party|third_party|vendor)(/|$)'
+}
+
 function Get-SourceFiles([string]$dir) {
     @($(git ls-files "$dir/*") + $(git ls-files --others --exclude-standard "$dir/*")) |
-        Where-Object { $_ -match '\.(cs|axaml|js)$' -and (Test-Path $_) } |
+        Where-Object { $_ -match '\.(cs|axaml|js)$' -and -not (Test-ExcludedSourcePath $_) -and (Test-Path $_) } |
         ForEach-Object { Get-Item -LiteralPath $_ }
 }
-function Get-TrackedHandwrittenFiles {
-    # 5+100 检查范围与宪法第十三条一致：.cs / .axaml / .js（ps1 不在红线内，SHR-2026-08-D2）
+
+function Get-SolutionProjectDirs {
+    $slnxPath = Join-Path $root "XuanYu.Engine.slnx"
+    if (-not (Test-Path $slnxPath)) { return @() }
+    [xml]$slnxXml = Get-Content -LiteralPath $slnxPath -Raw -Encoding utf8
+    @($slnxXml.Solution.Project) | ForEach-Object {
+        $projRel = $_.Path.Replace('\', '/')
+        (Split-Path $projRel -Parent).Replace('\', '/')
+    } | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+}
+
+function Get-ScopedHandwrittenFiles {
+    # 5+100 检查范围与宪法第十三条一致：仅限 XuanYu.Engine.slnx 纳管项目的 .cs / .axaml / .js
+    $projectDirs = Get-SolutionProjectDirs
     $tracked = git ls-files
     $untracked = git ls-files --others --exclude-standard
-    @($tracked) + @($untracked) | Where-Object { $_ -match '\.(cs|axaml|js)$' -and (Test-Path $_) } | ForEach-Object { Get-Item -LiteralPath $_ }
+    @($tracked) + @($untracked) |
+        Where-Object {
+            if ($_ -notmatch '\.(cs|axaml|js)$' -or (Test-ExcludedSourcePath $_) -or -not (Test-Path $_)) { return $false }
+            $norm = $_.Replace('\', '/')
+            foreach ($dir in $projectDirs) {
+                if ($norm.StartsWith($dir + '/') -or $norm -eq $dir) { return $true }
+            }
+            return $false
+        } |
+        Sort-Object -Unique |
+        ForEach-Object { Get-Item -LiteralPath $_ }
 }
 
 # 5+100 行数统计（SHR-2026-08-D2）：逻辑物理行数。
@@ -131,7 +159,7 @@ else {
 . "$PSScriptRoot/arch-a-guard-render.ps1"
 . "$PSScriptRoot/arch-a-guard-warcore.ps1"
 
-foreach ($file in Get-TrackedHandwrittenFiles) {
+foreach ($file in Get-ScopedHandwrittenFiles) {
     $lines = Get-PhysicalLineCount $file.FullName
     if ($lines -gt 100) { Add-Failure "5+100 exceeded: $lines lines $($file.FullName)" }
 }

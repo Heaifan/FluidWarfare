@@ -1,6 +1,6 @@
 # LAYER-A-R1 · 通用图层栏与编辑职责分离
 
-**状态**：IMPLEMENTED · AUTOMATED GATES PASS · READY FOR USER ACCEPTANCE
+**状态**：SUPERSEDED · 已被 MAP-DOC-A / MAP-DATA-A 架构体系接管替代
 
 **分支**：`feat/LAYER-A-layer-shell`
 

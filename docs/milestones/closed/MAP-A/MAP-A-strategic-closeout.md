@@ -1,6 +1,6 @@
 # MAP-A 战略收口与 EDITOR-A 迁移裁定
 
-**状态**：IMPLEMENTED · AUTOMATED GATES PASS · MAP-A REMOTE VERIFIED
+**状态**：CLOSED · STRATEGIC TERMINATION / SUPERSEDED PATH
 
 **范围**：本文件只记录 MAP-A 的战略收口、知识沉淀审计和向 EDITOR-A 的迁移边界；不实现 Region Drawing、Workspace UI、Schema、Renderer 或 Picking 修改。
 
