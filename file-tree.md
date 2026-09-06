@@ -2016,8 +2016,8 @@
    │  │     │  └─ XYTableOfContents.cs  # 提供层级/紧凑变体与共享章节状态。
    │  │     ├─ XYUI3-23-BottomNavigation/  # 实现移动端底部目的地导航。
    │  │     │  └─ XYBottomNavigation.cs  # 提供等宽目的地槽与独立 Primary Action。
-   │  │     └─ XYUI3-24-NavigationDrawer/  # 实现响应式临时导航抽屉。
-   │  │        └─ XYNavigationDrawer.cs  # 提供共享导航状态、遮罩、Esc 与卸载关闭。
+   │  │     └─ XYUI3-24-NavigationDrawer/  # 实现局部 Viewport 内的临时导航抽屉。
+   │  │        └─ XYNavigationDrawer.cs  # 提供 Host Bounds 约束的本地遮罩、共享状态、Esc 与焦点归还。
    │  │     ├─ Foundation/  # 组织该模块下的正式文件。
    │  │     │  ├─ XyuiColorToken.cs  # Canonical 颜色 token 记录（id + Light/Dark 成对解析与 Color 转换）。
    │  │     │  ├─ XyuiColorTokens.Accent.cs  # XY.Accent.*/Tool/Button/Tag 6 色。
@@ -2147,7 +2147,7 @@
    │  │     ├─ XYUI3WorkspaceSwitcherTests.cs  # 验证 20 的同宽菜单、整行项、共享 State、请求提交与生命周期。
    │  │     ├─ XYUI3ViewSwitcherTests.cs  # 验证 21 的单一 Surface、分段尺寸、选中态、请求提交、More 与 Popup 生命周期。
    │  │     ├─ XYUI3TableOfContentsTests.cs  # 验证 22 的文本优先层级、Guide、Compact 路径、状态提交与 Popup 生命周期。
-   │  │     ├─ XYUI3FinalNavigationTests.cs  # 验证 21~24 状态提交、层级限制、主操作隔离、抽屉生命周期与 Gallery。
+   │  │     ├─ XYUI3FinalNavigationTests.cs  # 验证 21~24 状态提交、3.23 几何命中、3.24 Host 几何/生命周期与 Gallery。
    │  │     ├─ XYUI3Round4GalleryContractTests.cs  # 验证 XYUI-3 Round 4 文档元数据、真实 QuickStart 与 Live 实例契约。
    │  │     ├─ XYUI3CompactNavigationStructureTests.cs  # 验证紧凑导航复用、单底边、垂直居中及交互状态机。
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。

@@ -1,5 +1,16 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 FINAL FIX C · Local Modal Host 与 Geometry Guards（2026-09-06 21:17:25 +08:00）
+
+- 目标：冻结 3.24 的局部 Modal Host 合约并补齐 3.23 实际几何命中回归；3.19～3.22、Gallery Presentation 与 Public API 保持不变。
+- 变化：
+  - 3.24 `XYNavigationDrawer` 仅解析带 `xyui-navigation-drawer-host` 的真实局部 Host，Overlay/Backdrop/Drawer Surface 在 Host 内按 Host Bounds 布局；移除 `VisualRoot`/Window/TopLevel 回退，Host 缺失或不可用时安全保持关闭。
+  - 3.24 保留既有 `Open`、`Close`、Esc、Light Dismiss、Focus Restore 与 `NavigationState` 同步；测试覆盖 640×270 Host、280×270 Drawer、Backdrop 命中范围、Host 外部不拦截、生命周期与无 Host 路径。
+  - 3.23 新增真实窗口 Pointer HitTest：主操作上浮区域仍可命中并触发 `PrimaryActionRequested`；未改变 Runtime 视觉结构。
+- 验证：`XYUI.Avalonia.csproj` build 0 警告 / 0 错误；3.23/3.24 及相关 Gallery 定向测试 30/30 PASS；`git diff --check` PASS；5+100 文件行数审查通过（Runtime 100 行、定向测试 82 行）。
+- Hash：待本轮提交。
+- 遗留：等待 Gemini Presentation 消费本地 Runtime；随后仍需用户真机验收，当前不宣称 `CLOSED` 或 `FINAL CLOSEOUT`。
+
 ## v0.2.28.77-rz · XYUI-3 Final Visual Fix · 3.23 & 3.24 对齐移动端视觉语义技术收口（2026-09-06 20:53:00 +08:00）
 
 - 目标：专项解决 3.23 BottomNavigation 与 3.24 NavigationDrawer 最终视觉语义对齐；3.23 移除大面积整槽高亮背景与过大突起，重构为标准 64 DIP 紧凑高度、36×28 DIP 药丸型选中背景井（Selected Icon Well）、48×48 DIP 悬浮 16 DIP 圆形主操作；3.24 移除多余“代码关闭”按钮并补齐视口级真实模态遮罩宿主容器；3.19～3.22 保持冻结不动。
