@@ -8,7 +8,7 @@
   - 3.24 保留既有 `Open`、`Close`、Esc、Light Dismiss、Focus Restore 与 `NavigationState` 同步；测试覆盖 640×270 Host、280×270 Drawer、Backdrop 命中范围、Host 外部不拦截、生命周期与无 Host 路径。
   - 3.23 新增真实窗口 Pointer HitTest：主操作上浮区域仍可命中并触发 `PrimaryActionRequested`；未改变 Runtime 视觉结构。
 - 验证：`XYUI.Avalonia.csproj` build 0 警告 / 0 错误；3.23/3.24 及相关 Gallery 定向测试 30/30 PASS；`git diff --check` PASS；5+100 文件行数审查通过（Runtime 100 行、定向测试 82 行）。
-- Hash：待本轮提交。
+- Hash：`c875455a`（Runtime / Geometry Tests 主提交）。
 - 遗留：等待 Gemini Presentation 消费本地 Runtime；随后仍需用户真机验收，当前不宣称 `CLOSED` 或 `FINAL CLOSEOUT`。
 
 ## v0.2.28.77-rz · XYUI-3 Final Visual Fix · 3.23 & 3.24 对齐移动端视觉语义技术收口（2026-09-06 20:53:00 +08:00）
