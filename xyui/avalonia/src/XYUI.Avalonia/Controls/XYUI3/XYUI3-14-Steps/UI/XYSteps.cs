@@ -2,6 +2,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Metadata;
+using System.Collections.ObjectModel;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -10,21 +12,31 @@ public sealed class XYSteps : Border
 {
     public static readonly StyledProperty<XYStepsOrientation> OrientationProperty = AvaloniaProperty.Register<XYSteps, XYStepsOrientation>(nameof(Orientation), XYStepsOrientation.Horizontal);
     public static readonly StyledProperty<bool> IsAdaptiveProperty = AvaloniaProperty.Register<XYSteps, bool>(nameof(IsAdaptive));
+    public static readonly StyledProperty<bool> IsClickableProperty = AvaloniaProperty.Register<XYSteps, bool>(nameof(IsClickable), true);
     readonly Canvas _cells = new(); readonly Canvas _track = new(); readonly Grid _root = new(); readonly List<Border> _connectors = new(); bool _vertical;
     public XYStepsOrientation Orientation { get => GetValue(OrientationProperty); set => SetValue(OrientationProperty, value); }
     public bool IsAdaptive { get => GetValue(IsAdaptiveProperty); set => SetValue(IsAdaptiveProperty, value); }
-    public IReadOnlyList<XYStepNode> Items { get; }
+    public bool IsClickable { get => GetValue(IsClickableProperty); set => SetValue(IsClickableProperty, value); }
+    [Content] public ObservableCollection<XYStepNode> Items { get; } = [];
+    public int CurrentStepIndex { get { var current = Items.Select((item, index) => (item, index)).FirstOrDefault(x => x.item.State == XYStepState.Current); return current.item is null ? -1 : current.index; } }
+    public event EventHandler<XYStepNode>? StepRequested;
+    public event EventHandler<XYStepNode>? StepChanged;
+    public XYSteps() : this(Array.Empty<XYStepNode>()) { }
     public XYSteps(params XYStepNode[] items)
     {
-        Items = items; Classes.Add("xyui-steps"); _root.Children.Add(_track); _root.Children.Add(_cells); Child = _root; LayoutUpdated += (_, _) => UpdateConnectors(); Build();
+        foreach (var item in items) Items.Add(item); Items.CollectionChanged += (_, _) => Build(true); Classes.Add("xyui-steps"); _root.Children.Add(_track); _root.Children.Add(_cells); Child = _root; LayoutUpdated += (_, _) => UpdateConnectors(); Build(true);
+        foreach (var item in Items) Attach(item);
     }
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e) { base.OnPropertyChanged(e); if (e.Property == OrientationProperty || e.Property == IsAdaptiveProperty) Build(); }
-    void Build()
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e) { base.OnPropertyChanged(e); if (e.Property == OrientationProperty || e.Property == IsAdaptiveProperty || e.Property == IsClickableProperty) Build(true); }
+    void Attach(XYStepNode item) { item.NavigationRequested -= OnStepRequested; item.NavigationRequested += OnStepRequested; item.StateChanged -= OnStepChanged; item.StateChanged += OnStepChanged; if (!IsClickable) item.IsClickable = false; }
+    void OnStepRequested(object? sender, EventArgs e) { if (sender is XYStepNode node) StepRequested?.Invoke(this, node); }
+    void OnStepChanged(object? sender, EventArgs e) { if (sender is XYStepNode node) StepChanged?.Invoke(this, node); UpdateConnectors(); }
+    void Build(bool force = false)
     {
         var vertical = Orientation == XYStepsOrientation.Vertical || (IsAdaptive && Bounds.Width > 0 && Bounds.Width < 520);
-        if (_cells.Children.Count > 0 && vertical == _vertical) return;
+        if (!force && _cells.Children.Count > 0 && vertical == _vertical) return;
         _vertical = vertical; _cells.Children.Clear(); _track.Children.Clear(); _connectors.Clear(); _root.Height = vertical ? 326 : 112;
-        if (vertical) BuildVertical(); else BuildHorizontal(); UpdateConnectors();
+        foreach (var item in Items) Attach(item); if (vertical) BuildVertical(); else BuildHorizontal(); UpdateConnectors();
     }
     void BuildHorizontal()
     {

@@ -12,6 +12,7 @@ public sealed partial class XYCommandPalette
         var content = new Grid { RowDefinitions = new RowDefinitions("Auto,*"), RowSpacing = 8 };
         Grid.SetRow(SearchBox, 0); content.Children.Add(SearchBox);
         _results.HorizontalAlignment = HorizontalAlignment.Stretch; _results.Spacing = 0;
+        _emptyState.Text = "无匹配命令"; _emptyState.Classes.Add("xyui-palette-empty"); _emptyState.VerticalAlignment = VerticalAlignment.Center; _emptyState.HorizontalAlignment = HorizontalAlignment.Center;
         _resultsViewport.Content = _results; _resultsViewport.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden; _resultsViewport.VerticalScrollBarVisibility = ScrollBarVisibility.Auto; _resultsViewport.MinHeight = 120;
         var body = new Grid { ColumnDefinitions = new ColumnDefinitions("*,Auto,*"), ColumnSpacing = 10 };
         Grid.SetColumn(_resultsViewport, 0); body.Children.Add(_resultsViewport);

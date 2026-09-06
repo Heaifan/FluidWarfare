@@ -1385,7 +1385,8 @@
    │  │  └─ R5-F4-fidelity-matrix.md  # 记录对应主题的当前规范、计划或审计事实。
    │  ├─ XYUI3/  # 记录 XYUI-3 Runtime 轮次审计与交付证据。
    │  │  ├─ XYUI3-Round1-runtime-audit.md  # 记录 3.01～3.06 Runtime、测试与合流边界。
-   │  │  └─ XYUI3-Round2-runtime-audit.md  # 记录 3.07～3.12 Runtime、Contract 与最终门禁证据。
+   │  │  ├─ XYUI3-Round2-runtime-audit.md  # 记录 3.07～3.12 Runtime、Contract 与最终门禁证据。
+   │  │  └─ XYUI3-Round3-runtime-audit.md  # 记录 3.13～3.18 Runtime、测试与合流边界。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ conflict-matrix.md  # 记录对应主题的当前有效说明。
    │  │  ├─ reconciliation.md  # 记录对应主题的当前有效说明。
@@ -1591,8 +1592,14 @@
    │  │     ├─ XYUI3DocumentationCatalog.Menu.cs  # 提供 XYUI-3-02 Gallery 文档内容。
    │  │     ├─ XYUI3DocumentationCatalog.MenuBar.cs  # 提供 XYUI-3-01 Gallery 文档内容。
    │  │     ├─ XYUI3DocumentationCatalog.NavigationMenu.cs  # 提供 XYUI-3-05 Gallery 文档内容。
-   │  │     ├─ XYUI3DocumentationCatalog.Sidebar.cs  # 提供 XYUI-3-06 Gallery 文档内容。
-   │  │     ├─ XYUI3DocumentationCatalog.SubMenu.cs  # 提供 XYUI-3-04 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.Sidebar.cs  # 提供 XYUI-3-06 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.SubMenu.cs  # 提供 XYUI-3-04 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.Pagination.cs  # 提供 XYUI-3-13 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.Steps.cs  # 提供 XYUI-3-14 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.Toolbar.cs  # 提供 XYUI-3-15 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.ToolGroup.cs  # 提供 XYUI-3-16 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.CommandBar.cs  # 提供 XYUI-3-17 Gallery 文档内容。
+    │  │     ├─ XYUI3DocumentationCatalog.CommandPalette.cs  # 提供 XYUI-3-18 Gallery 文档内容。
    │  │     ├─ XYUI3GalleryCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3GalleryCatalog.Navigation.cs  # 提供紧凑导航四组件的真实 Gallery Preview。
    │  │     ├─ XYUI3GalleryCatalog.Final.cs  # 提供 XYUI-3-21~24 最终导航组件真实预览。
@@ -1605,10 +1612,16 @@
    │  │     ├─ XYUI3LiveExamplesFactory.NavigationRail.cs  # 提供 XYUI-3-07 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.Sidebar.cs  # 提供 XYUI-3-06 Gallery Live Example。
    │  │     ├─ XYUI3LiveExamplesFactory.SubMenu.cs  # 提供 XYUI-3-04 Gallery Live Example。
-   │  │     ├─ XYUI3LiveExamplesFactory.TabBar.cs  # 提供 XYUI-3-09 Gallery Live Example。
-   │  │     ├─ XYUI3LiveExamplesFactory.Tabs.cs  # 提供 XYUI-3-08 Gallery Live Example。
-   │  │     ├─ XYUI3LiveExamplesFactory.TreeNavigation.cs  # 提供 XYUI-3-12 Gallery Live Example。
-   │  │     └─ XYUI3LiveExamplesFactory.cs  # XYUI-3 01～06 Live Example 分发门面。
+    │  │     ├─ XYUI3LiveExamplesFactory.TabBar.cs  # 提供 XYUI-3-09 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.Tabs.cs  # 提供 XYUI-3-08 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.TreeNavigation.cs  # 提供 XYUI-3-12 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.Pagination.cs  # 提供 XYUI-3-13 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.Steps.cs  # 提供 XYUI-3-14 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.Toolbar.cs  # 提供 XYUI-3-15 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.ToolGroup.cs  # 提供 XYUI-3-16 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.CommandBar.cs  # 提供 XYUI-3-17 Gallery Live Example。
+    │  │     ├─ XYUI3LiveExamplesFactory.CommandPalette.cs  # 提供 XYUI-3-18 Gallery Live Example。
+    │  │     └─ XYUI3LiveExamplesFactory.cs  # XYUI-3 01～06 Live Example 分发门面。
    │  ├─ src/  # 组织该模块下的正式文件。
    │  │  └─ XYUI.Avalonia/  # 组织该模块下的正式文件。
    │  │     ├─ Catalog/  # 组织该模块下的正式文件。
@@ -2113,8 +2126,9 @@
    │  │     ├─ XYUI3FinalNavigationTests.cs  # 验证 21~24 状态提交、层级限制、主操作隔离、抽屉生命周期与 Gallery。
    │  │     ├─ XYUI3CompactNavigationStructureTests.cs  # 验证紧凑导航复用、单底边、垂直居中及交互状态机。
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。
-   │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
-   │  │     ├─ XYUI3Round2RuntimeTests.cs  # 验证 XYUI-3 3.07～3.12 Runtime 公共 API、状态与交互。
+    │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
+    │  │     ├─ XYUI3Round2RuntimeTests.cs  # 验证 XYUI-3 3.07～3.12 Runtime 公共 API、状态与交互。
+    │  │     ├─ XYUI3Round3RuntimeTests.cs  # 验证 XYUI-3 3.13～3.18 Runtime 与 3.12 状态视觉回归。
    │  │     ├─ XYUI3TreeNavigationContractTests.cs  # 验证 3.12 Nested Children、层级派生、状态视觉与选择保留。
    │  │     ├─ XYUI3StructureTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XyuiBatchTestHost.cs  # 实现对应模块的 C# 职责。
@@ -2182,7 +2196,8 @@
    │  │  ├─ XYUI-3.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3.mapping.json  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3-01-06-runtime-contract.md  # 提供 3.01～3.06 Runtime 公共 API 与状态合同。
-   │  │  └─ XYUI-3-07-12-runtime-contract.md  # 提供 3.07～3.12 Runtime 公共 API 与状态合同。
+   │  │  ├─ XYUI-3-07-12-runtime-contract.md  # 提供 3.07～3.12 Runtime 公共 API 与状态合同。
+   │  │  └─ XYUI-3-13-18-runtime-contract.md  # 提供 3.13～3.18 Runtime 公共 API 与状态合同。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-4.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-4.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。

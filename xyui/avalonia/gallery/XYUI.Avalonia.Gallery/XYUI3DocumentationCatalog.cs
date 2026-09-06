@@ -22,8 +22,14 @@ public static partial class XYUI3DocumentationCatalog
         if (entry.SourceItemId == "XYUI-3-3.10") return BuildDockTabsDoc(entry.SourceItemId, type);
         if (entry.SourceItemId == "XYUI-3-3.11") return BuildBreadcrumbDoc(entry.SourceItemId, type);
         if (entry.SourceItemId == "XYUI-3-3.12") return BuildTreeNavigationDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.13") return BuildPaginationDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.14") return BuildStepsDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.15") return BuildToolbarDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.16") return BuildToolGroupDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.17") return BuildCommandBarDoc(entry.SourceItemId, type);
+        if (entry.SourceItemId == "XYUI-3-3.18") return BuildCommandPaletteDoc(entry.SourceItemId, type);
         var details = Details(entry.SourceItemId);
-        var acceptance = entry.SourceItemId is "XYUI-3-3.09" or "XYUI-3-3.10" or "XYUI-3-3.11" or "XYUI-3-3.12" or "XYUI-3-3.17" or "XYUI-3-3.18" or "XYUI-3-3.19" or "XYUI-3-3.20" ? "UI + INTERACTION IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE · AWAITING USER INTERACTION ACCEPTANCE" : "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE";
+        var acceptance = entry.SourceItemId is "XYUI-3-3.19" or "XYUI-3-3.20" ? "UI + INTERACTION IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE · AWAITING USER INTERACTION ACCEPTANCE" : "UI IMPLEMENTED · AWAITING USER VISUAL ACCEPTANCE";
         return new(entry.SourceItemId, entry.Title.Split('/').Last().Trim(), type, details.Overview, details.WhenToUse,
             () => XYUI3GalleryCatalog.CreatePreview(entry.SourceItemId), details.Usages, details.Variants, details.States,
             Properties(entry.SourceItemId), entry.ApiRefs.Select(x => new XYUIDocToken(x, "Canonical", "Foundation token reference")).ToArray(), type)

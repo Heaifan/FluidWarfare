@@ -11,11 +11,14 @@ public sealed class XYStepNode : Border
 {
     public static readonly StyledProperty<XYStepState> StateProperty = AvaloniaProperty.Register<XYStepNode, XYStepState>(nameof(State), XYStepState.Pending);
     public static readonly StyledProperty<bool> CanNavigateProperty = AvaloniaProperty.Register<XYStepNode, bool>(nameof(CanNavigate), true);
-    readonly Grid _layout = new(); readonly TextBlock _label = new(); bool _vertical;
-    public Border Marker { get; } = new(); public string Label { get; }
+    readonly Grid _layout = new(); readonly TextBlock _label = new(); bool _vertical; string _labelText = "";
+    public Border Marker { get; } = new(); public string Label { get => _labelText; set { _labelText = value; _label.Text = value; } }
     public XYStepState State { get => GetValue(StateProperty); set => SetValue(StateProperty, value); }
     public bool CanNavigate { get => GetValue(CanNavigateProperty); set => SetValue(CanNavigateProperty, value); }
+    public bool IsClickable { get => CanNavigate; set => CanNavigate = value; }
     public event EventHandler? NavigationRequested;
+    public event EventHandler? StateChanged;
+    public XYStepNode() : this("", XYStepState.Pending) { }
     public XYStepNode(string label, XYStepState state)
     {
         Label = label; State = state; Classes.Add("xyui-step-node"); _label.Text = label; _label.VerticalAlignment = VerticalAlignment.Center;
@@ -39,7 +42,7 @@ public sealed class XYStepNode : Border
         _layout.Children.Add(Marker); _layout.Children.Add(_label);
         ApplyState();
     }
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e) { base.OnPropertyChanged(e); if (e.Property == StateProperty || e.Property == CanNavigateProperty) ApplyState(); }
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e) { base.OnPropertyChanged(e); if (e.Property == StateProperty || e.Property == CanNavigateProperty) { ApplyState(); if (e.Property == StateProperty) StateChanged?.Invoke(this, EventArgs.Empty); } }
     void ApplyState()
     {
         Classes.Set("xyui-step-disabled", !CanNavigate); var size = State == XYStepState.Current ? 34 : State == XYStepState.Pending ? 30 : 32; Marker.Width = size; Marker.Height = size; Marker.CornerRadius = new CornerRadius(size / 2d); if (_vertical) Marker.Margin = new Thickness(42 - size / 2d, 0, 0, 0);

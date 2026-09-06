@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 3 · 3.13～3.18 Runtime 技术收口（2026-09-06 16:05:39 +08:00）
+
+- 目标：完成 Pagination、Steps、Toolbar、ToolGroup、CommandBar、CommandPalette Runtime，并收口 3.12 Warning/Disabled visual carry-over。
+- 变化：补齐 XAML-first 集合与公共 API、分页边界/键盘、步骤状态事件、Toolbar Toggle/Dropdown/Overflow、ToolGroup 重建、CommandBar 分层命令与 CommandPalette 单一 `XYPaletteCommand` 模型；新增 Round 3 Runtime Contract、Audit 与 5 项定向测试；保留 Gallery Presentation 变更。
+- 验证：根 solution 构建 0 警告 / 0 错误；XYUI Gallery 构建 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 525/525，全量合计 2172/2172 PASS；Round 3 定向回归 22/22 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 2 · 3.12 TreeNavigation Hotfix（2026-09-06 15:27:57 +08:00）
 
 - 目标：修复 3.12 Gallery 与 Nested Children Runtime Contract 不一致的问题，保持 3.07～3.11、Round 1 与 Runtime 实现不变。

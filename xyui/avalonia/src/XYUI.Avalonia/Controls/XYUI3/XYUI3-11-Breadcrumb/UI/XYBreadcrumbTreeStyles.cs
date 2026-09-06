@@ -29,6 +29,7 @@ public static partial class XyuiComponentStyles
         var selectedText = new Style(x => x.OfType<XYTreeNode>().Class("xyui-tree-selected").Descendant().OfType<TextBlock>().Class("xyui-tree-label")); Brush(selectedText, TextBlock.ForegroundProperty, "XY.Brush.Accent.Strong"); selectedText.Setters.Add(new Setter(TextBlock.FontWeightProperty, FontWeight.Medium)); styles.Add(selectedText);
         var treeIcon = new Style(x => x.OfType<XYIcon>().Class("xyui-tree-icon")); Brush(treeIcon, XYIcon.StrokeProperty, "XY.Brush.Text.Secondary"); styles.Add(treeIcon);
         var treeSelectedIcon = new Style(x => x.OfType<XYTreeNode>().Class("xyui-tree-selected").Descendant().OfType<XYIcon>().Class("xyui-tree-icon")); Brush(treeSelectedIcon, XYIcon.StrokeProperty, "XY.Brush.Accent.Default"); styles.Add(treeSelectedIcon);
+        var disabled = new Style(x => x.OfType<XYTreeNode>().Class("xyui-tree-disabled")); disabled.Setters.Add(new Setter(Control.OpacityProperty, 0.48)); styles.Add(disabled);
         var guide = new Style(x => x.OfType<Border>().Class("xyui-tree-guide")); Brush(guide, Border.BackgroundProperty, "XY.Brush.Border.Color.Subtle"); styles.Add(guide);
     }
 }
