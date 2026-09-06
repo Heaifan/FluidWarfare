@@ -31,18 +31,21 @@ public static partial class XYUI3GalleryCatalog
         new XYBreadcrumbItem { Label = "行政区" },
         new XYBreadcrumbItem { Label = "广东省", IsCurrent = true, HasDropdown = true, DropdownOptions = ["广东省", "广西", "福建", "湖南"] }) { Width = 696 };
 
-    static Control TreeNavigationPreview() => new XYTreeNavigation(
-        Node("玄域项目", 0, XyuiVectorIcon.Section, children: true, expanded: true),
-        Node("地图", 1, XyuiVectorIcon.Locate, children: true, expanded: true, active: 1),
-        Node("数据集", 2, XyuiVectorIcon.Section, children: true, expanded: true, active: 2),
-        Node("行政区", 3, XyuiVectorIcon.Section, selected: true, active: 3),
-        Node("广东省", 3, XyuiVectorIcon.StatusDot, active: 2),
-        Node("资源", 1, XyuiVectorIcon.Browse, children: true),
-        Node("模型", 2, XyuiVectorIcon.Section), Node("材质", 2, XyuiVectorIcon.Section))
-    { Width = 392, Height = 404, Padding = new Thickness(12) };
-
-    static XYTreeNode Node(string label, int depth, XyuiVectorIcon icon, bool children = false, bool expanded = false, bool selected = false, int active = 0) =>
-        new() { Label = label, Depth = depth, Icon = icon, HasChildren = children, IsExpanded = expanded, IsSelected = selected, ActiveGuideDepth = active };
+    static Control TreeNavigationPreview()
+    {
+        var root = new XYTreeNode { Label = "玄域项目", Icon = XyuiVectorIcon.Section, IsExpanded = true };
+        var map = new XYTreeNode { Label = "地图", Icon = XyuiVectorIcon.Locate, IsExpanded = true, ActiveGuideDepth = 1 };
+        var data = new XYTreeNode { Label = "数据集", Icon = XyuiVectorIcon.Section, IsExpanded = true, ActiveGuideDepth = 2 };
+        data.Children.Add(new XYTreeNode { Label = "行政区", Icon = XyuiVectorIcon.Section, IsSelected = true, ActiveGuideDepth = 3 });
+        data.Children.Add(new XYTreeNode { Label = "广东省", Icon = XyuiVectorIcon.StatusDot, ActiveGuideDepth = 2 });
+        map.Children.Add(data);
+        var res = new XYTreeNode { Label = "资源", Icon = XyuiVectorIcon.Browse, IsExpanded = true };
+        res.Children.Add(new XYTreeNode { Label = "模型", Icon = XyuiVectorIcon.Section });
+        res.Children.Add(new XYTreeNode { Label = "材质", Icon = XyuiVectorIcon.Section });
+        root.Children.Add(map);
+        root.Children.Add(res);
+        return new XYTreeNavigation(root) { Width = 392, Height = 404, Padding = new Thickness(12) };
+    }
 
     static Control PaginationPreview() => new StackPanel { Spacing = 14, Children = { new XYPagination { CurrentPage = 3, TotalPages = 24, TotalItems = 468, ShowTotalItems = true }, new XYPagination { CurrentPage = 1, TotalPages = 24 }, new XYPaginationFooter() } };
     static Control StepsPreview() { var states = new[] { ("创建项目", XYStepState.Completed), ("地图设置", XYStepState.Completed), ("数据配置", XYStepState.Current), ("验证", XYStepState.Pending), ("完成", XYStepState.Pending) }; var horizontal = states.Select(x => new XYStepNode(x.Item1, x.Item2)).ToArray(); var vertical = states.Select(x => new XYStepNode(x.Item1, x.Item2)).ToArray(); return new StackPanel { Spacing = 20, Children = { new XYSteps(horizontal) { Width = 760 }, new XYSteps(vertical) { Orientation = XYStepsOrientation.Vertical, Width = 300 } } }; }

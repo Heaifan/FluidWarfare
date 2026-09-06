@@ -37,10 +37,10 @@ public sealed class XYUI3CompactNavigationStructureTests : IClassFixture<XyuiHea
     [Fact] public void TreeNavigation_has_compact_guides_and_selected_semantics() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var tree = Assert.IsType<XYTreeNavigation>(XYUI3GalleryCatalog.CreatePreview("XYUI-3-3.12"));
-        Assert.Equal(28, XyuiCompactNavigationTokens.TreeRowHeight); Assert.Contains(tree.GetVisualDescendants().OfType<XYIcon>(), x => x.Icon == XyuiVectorIcon.ChevronRight);
+        Assert.Equal(28, XyuiCompactNavigationTokens.TreeRowHeight); Assert.Contains(tree.GetVisualDescendants().OfType<XYIcon>(), x => x.Icon is XyuiVectorIcon.ChevronRight or XyuiVectorIcon.ChevronDown);
         Assert.Contains(tree.GetVisualDescendants().OfType<Border>(), x => x.Classes.Contains("xyui-tree-guide-default"));
         Assert.Contains(tree.GetVisualDescendants().OfType<Border>(), x => x.Classes.Contains("xyui-tree-guide-active"));
-        Assert.Single(tree.Items, x => x.IsSelected); Assert.Contains("xyui-tree-selected", tree.Items.Single(x => x.IsSelected).Classes);
+        Assert.Single(tree.VisibleItems, x => x.IsSelected); Assert.Contains("xyui-tree-selected", tree.VisibleItems.Single(x => x.IsSelected).Classes);
     });
 
     [Fact] public void TabBar_centers_labels_and_exposes_working_actions() => _fx.Run(() =>
@@ -74,6 +74,6 @@ public sealed class XYUI3CompactNavigationStructureTests : IClassFixture<XyuiHea
     {
         XyuiBatchTestHost.Prepare(); var tree = Assert.IsType<XYTreeNavigation>(XYUI3GalleryCatalog.CreatePreview("XYUI-3-3.12"));
         var root = tree.Items[0]; Assert.True(tree.VisibleItems.Count > 1); root.ToggleExpansion(); Assert.Single(tree.VisibleItems);
-        root.ToggleExpansion(); var target = tree.Items[1]; tree.Focus(target); Assert.Same(target, tree.FocusedNode); Assert.NotSame(target, tree.SelectedNode); tree.Select(target); Assert.Same(target, tree.SelectedNode);
+        root.ToggleExpansion(); var target = tree.VisibleItems[1]; tree.Focus(target); Assert.Same(target, tree.FocusedNode); Assert.NotSame(target, tree.SelectedNode); tree.Select(target); Assert.Same(target, tree.SelectedNode);
     });
 }

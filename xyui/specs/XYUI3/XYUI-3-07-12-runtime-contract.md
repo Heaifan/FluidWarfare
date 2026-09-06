@@ -7,7 +7,7 @@
 - NavigationRail consumes `XYNavigationState.CurrentDestinationId`; Sidebar and NavigationMenu remain the single navigation truth.
 - `XYTabs` owns `Items` and `SelectedTabId`; `XYTab.IsSelected` is synchronized presentation state.
 - `XYDockTabs` owns `ActiveTabId` and reuses `XYTab`; it exposes only same-bar close, reorder, drag and `DockHandoffRequested`.
-- Tree hierarchy is derived only from `XYTreeNode.Children`; no writable `Parent` property exists.
+- Tree hierarchy is derived only from `XYTreeNode.Children`; parent lookup traverses that collection and no writable `Parent` property exists.
 
 ## XAML consumer contract
 
@@ -28,4 +28,4 @@ Tabs Family reuses `XYTab`; DockTabs adds only the grip/drop/reorder shell. Navi
 
 - Pixel-level vertical alignment and final visual density remain user visual review items.
 - Dock handoff is an event boundary only; no Dock Manager, persistence or cross-window engine is implemented.
-- TreeNavigation keeps legacy flat `Depth` compatibility while nested `Children` is the canonical hierarchy for new consumers.
+- TreeNavigation keeps legacy flat `Depth`/`HasChildren` compatibility only; nested `Children` is the canonical hierarchy, and consumers must not author the derived layout values.

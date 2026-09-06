@@ -2115,6 +2115,7 @@
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
    │  │     ├─ XYUI3Round2RuntimeTests.cs  # 验证 XYUI-3 3.07～3.12 Runtime 公共 API、状态与交互。
+   │  │     ├─ XYUI3TreeNavigationContractTests.cs  # 验证 3.12 Nested Children、层级派生、状态视觉与选择保留。
    │  │     ├─ XYUI3StructureTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XyuiBatchTestHost.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUICompositionReuseTests.cs  # 验证 XYIconLabel 等组件复用公开 XYUI 控件而非重复绘制。

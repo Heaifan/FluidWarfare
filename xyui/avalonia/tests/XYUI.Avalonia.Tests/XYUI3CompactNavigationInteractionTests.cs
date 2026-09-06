@@ -29,7 +29,7 @@ public sealed class XYUI3CompactNavigationInteractionTests : IClassFixture<XyuiH
     [Fact] public void Tree_focus_and_selection_are_independent() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var tree = Assert.IsType<XYTreeNavigation>(XYUI3GalleryCatalog.CreatePreview("XYUI-3-3.12"));
-        var selected = tree.SelectedNode!; var focused = tree.Items[1]; tree.Focus(focused);
+        var selected = tree.SelectedNode!; var focused = tree.VisibleItems.First(x => !ReferenceEquals(x, selected)); tree.Focus(focused);
         Assert.Same(focused, tree.FocusedNode); Assert.Same(selected, tree.SelectedNode); tree.Select(focused); Assert.Same(focused, tree.SelectedNode);
     });
 }

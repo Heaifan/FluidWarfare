@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 2 · 3.12 TreeNavigation Hotfix（2026-09-06 15:27:57 +08:00）
+
+- 目标：修复 3.12 Gallery 与 Nested Children Runtime Contract 不一致的问题，保持 3.07～3.11、Round 1 与 Runtime 实现不变。
+- 变化：3.12 Quick Start / Live Example 改为真实嵌套 `Children`，补齐 Disabled、Badge、Status；更新 Gallery-coupled TreeNavigation 测试以验证嵌套可见节点、折叠选择保留与真实状态视觉链路；Runtime 文件未修改。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；3.12 相关定向测试 29/29、XYUI 520/520、Core 339/339、WarCore 22/22、World 1286/1286，全量合计 2167/2167 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · XYUI-3 Round 2 Runtime 技术收口（2026-09-06 14:48:25 +08:00）
 
 - 目标：完成 3.07 NavigationRail、3.08 Tabs、3.09 TabBar、3.10 DockTabs、3.11 Breadcrumb、3.12 TreeNavigation 的最小 XAML-first Public API、Canonical State 与 Runtime Interaction。

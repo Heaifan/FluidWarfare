@@ -9,39 +9,44 @@ public static partial class XYUI3LiveExamplesFactory
 {
     static Control CreateTreeNavigationLiveExamples()
     {
-        var node0 = new XYTreeNode { Label = "地图系统", Depth = 0, HasChildren = true, IsExpanded = true, Icon = XyuiVectorIcon.Locate };
-        var node1 = new XYTreeNode { Label = "基础要素", Depth = 1, IsSelected = true, Icon = XyuiVectorIcon.Section };
-        var node2 = new XYTreeNode { Label = "环境配置", Depth = 1, HasChildren = true, IsExpanded = true, Icon = XyuiVectorIcon.Eye };
-        var node3 = new XYTreeNode { Label = "地形高度图", Depth = 2, Icon = XyuiVectorIcon.Section };
-        var node4 = new XYTreeNode { Label = "气候与光照", Depth = 2, Icon = XyuiVectorIcon.Section };
-        var node5 = new XYTreeNode { Label = "数据集合", Depth = 0, HasChildren = false, Icon = XyuiVectorIcon.Code };
+        var mapRoot = new XYTreeNode { Label = "地图系统", Icon = XyuiVectorIcon.Locate, IsExpanded = true };
+        var nodeBase = new XYTreeNode { Label = "基础要素", IsSelected = true, Icon = XyuiVectorIcon.Section };
+        var nodeEnv = new XYTreeNode { Label = "环境配置", Icon = XyuiVectorIcon.Eye, IsExpanded = true, Status = XyuiStatusState.Warning };
+        var nodeTerrain = new XYTreeNode { Label = "地形高度图", Icon = XyuiVectorIcon.Section };
+        var nodeClimate = new XYTreeNode { Label = "气候与光照", Icon = XyuiVectorIcon.Section, IsEnabled = false };
+        nodeEnv.Children.Add(nodeTerrain);
+        nodeEnv.Children.Add(nodeClimate);
+        mapRoot.Children.Add(nodeBase);
+        mapRoot.Children.Add(nodeEnv);
 
-        var tree = new XYTreeNavigation(node0, node1, node2, node3, node4, node5) { Width = 260 };
+        var dataRoot = new XYTreeNode { Label = "数据集合", Icon = XyuiVectorIcon.Code, Badge = "12", Status = XyuiStatusState.Info };
 
-        var statusText = new TextBlock { Text = "当前选中：基础要素 (层级深度: 1)", Classes = { "xyui-text-caption" } };
-        var eventLog = new TextBlock { Text = "操作指南：点击展开/收起箭头切换子树；点击节点选中；支持键盘 Left/Right/Up/Down 导航。", Classes = { "xyui-text-caption" } };
+        var tree = new XYTreeNavigation(mapRoot, dataRoot) { Width = 280 };
 
-        tree.SelectionChanged += (_, node) => statusText.Text = $"当前选中：{node.Label} (层级深度: {node.Depth})";
+        var statusText = new TextBlock { Text = "当前选中：基础要素 (层级深度由 Children 自动推导)", Classes = { "xyui-text-caption" } };
+        var eventLog = new TextBlock { Text = "操作指南：气候与光照已禁用 (Disabled)；环境配置带 Warning 状态；数据集合带 12 计数徽标；点击展开箭头切换。", Classes = { "xyui-text-caption" } };
 
-        var infoPanel = new StackPanel { Spacing = 8, Width = 280, Children = { statusText, eventLog } };
+        tree.SelectionChanged += (_, node) => statusText.Text = $"当前选中：{node.Label} (层级深度: {node.Depth}, Badge: {node.Badge ?? "无"}, Status: {node.Status})";
+
+        var infoPanel = new StackPanel { Spacing = 8, Width = 300, Children = { statusText, eventLog } };
         var host = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 20, Children = { tree, infoPanel } };
-        return WrapCard(host, "高密度树状导航 · 真实折叠展开、引导线对齐与祖先高亮");
+        return WrapCard(host, "高密度树状导航 · 嵌套 Children 驱动、Disabled/Badge/Status 真实状态");
     }
 
     static Control CreateTreeNavigationComposition()
     {
         var col1 = new StackPanel
         {
-            Spacing = 6, Width = 240,
+            Spacing = 6, Width = 260,
             Children =
             {
                 new TextBlock { Text = "高密度树结构 (28 DIP 行高)", Classes = { "xyui-text-label" } },
-                new TextBlock { Text = "16 DIP 缩进，弱化引导线，左侧 Accent Bar，保持桌面引擎级高信息密度。", Classes = { "xyui-text-caption" }, TextWrapping = global::Avalonia.Media.TextWrapping.Wrap },
+                new TextBlock { Text = "16 DIP 缩进，弱化引导线，左侧 Accent Bar。层级来自 Children 嵌套关系，不从手写 Depth 构造。", Classes = { "xyui-text-caption" }, TextWrapping = global::Avalonia.Media.TextWrapping.Wrap },
                 new Border
                 {
                     Classes = { "xyui-surface-panel" },
                     Padding = new(8),
-                    Child = new TextBlock { Text = "├─ 场景根节点 (Depth 0)\n│  ├─ 静态几何体 (Depth 1)\n│  └─ 动态角色层 (Depth 1)", Classes = { "xyui-text-code" } }
+                    Child = new TextBlock { Text = "├─ 场景根节点 (Children 驱动)\n│  ├─ 静态几何体 (自动 Depth 1)\n│  └─ 动态角色层 (自动 Depth 1)", Classes = { "xyui-text-code" } }
                 }
             }
         };
