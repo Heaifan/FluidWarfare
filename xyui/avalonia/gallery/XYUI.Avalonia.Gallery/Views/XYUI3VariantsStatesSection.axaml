@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:g="using:XYUI.Avalonia.Gallery"
+             x:Class="XYUI.Avalonia.Gallery.Views.XYUI3VariantsStatesSection"
+             x:DataType="g:XYUI1ComponentDocument">
+  <Border Classes="xyui-surface-panel" Padding="16,14" CornerRadius="6">
+    <StackPanel Spacing="12">
+      <StackPanel Spacing="2">
+        <TextBlock Text="02 · VARIANTS &amp; STATES" Classes="xyui-text-section" FontWeight="Bold" />
+        <TextBlock Text="变体类型与交互状态矩阵" Classes="xyui-text-caption" />
+      </StackPanel>
+      <StackPanel Spacing="6" IsVisible="{Binding HasVariants}">
+        <TextBlock Text="变体解剖 (Variants)" Classes="xyui-text-label" FontWeight="SemiBold" />
+        <ItemsControl ItemsSource="{Binding Variants}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="g:XYUIDocVariant">
+              <Border Classes="xyui-surface-panel" Padding="10,6" Margin="0,2" CornerRadius="4">
+                <Grid ColumnDefinitions="140,*,*">
+                  <TextBlock Text="{Binding Name}" Classes="xyui-text-code" FontWeight="SemiBold" VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="1" Text="{Binding Description}" Classes="xyui-text-body" VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="2" Text="{Binding Usage}" Classes="xyui-text-caption" VerticalAlignment="Center" />
+                </Grid>
+              </Border>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+      <StackPanel Spacing="6" IsVisible="{Binding HasStates}">
+        <TextBlock Text="状态表现 (States)" Classes="xyui-text-label" FontWeight="SemiBold" />
+        <ItemsControl ItemsSource="{Binding States}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="g:XYUIDocState">
+              <Border Classes="xyui-surface-panel" Padding="10,6" Margin="0,2" CornerRadius="4">
+                <Grid ColumnDefinitions="140,*">
+                  <TextBlock Text="{Binding Name}" Classes="xyui-text-code" FontWeight="SemiBold" VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="1" Text="{Binding Description}" Classes="xyui-text-body" VerticalAlignment="Center" />
+                </Grid>
+              </Border>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

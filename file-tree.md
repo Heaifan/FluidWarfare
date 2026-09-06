@@ -1501,8 +1501,24 @@
    │  │     │  ├─ XYUI1GalleryView.axaml.cs  # 实现对应模块的 C# 职责。
    │  │     │  ├─ XYUI1ModuleOverviewView.axaml  # 定义对应 Avalonia 界面与资源。
    │  │     │  ├─ XYUI1ModuleOverviewView.axaml.cs  # 组件索引点击导航处理。
-   │  │     │  ├─ XYUI2ModuleOverviewView.axaml  # 定义对应 Avalonia 界面与资源。
-   │  │     │  └─ XYUI2ModuleOverviewView.axaml.cs  # 实现对应模块的 C# 职责。
+│  │     │  ├─ XYUI2ModuleOverviewView.axaml  # 定义对应 Avalonia 界面与资源。
+│  │     │  ├─ XYUI2ModuleOverviewView.axaml.cs  # 实现对应模块的 C# 职责。
+│  │     │  ├─ XYUI3ComponentDocumentView.axaml  # XYUI-3 01～06 Presentation 文档容器。
+│  │     │  ├─ XYUI3ComponentDocumentView.axaml.cs  # XYUI-3 01～06 Presentation 文档容器代码隐藏。
+│  │     │  ├─ XYUI3CompositionSection.axaml  # XYUI-3 组合场景展示区。
+│  │     │  ├─ XYUI3CompositionSection.axaml.cs  # XYUI-3 组合场景代码隐藏。
+│  │     │  ├─ XYUI3CoreRulesSection.axaml  # XYUI-3 核心规则展示区。
+│  │     │  ├─ XYUI3CoreRulesSection.axaml.cs  # XYUI-3 核心规则代码隐藏。
+│  │     │  ├─ XYUI3DoDontSection.axaml  # XYUI-3 Do / Don't 展示区。
+│  │     │  ├─ XYUI3DoDontSection.axaml.cs  # XYUI-3 Do / Don't 代码隐藏。
+│  │     │  ├─ XYUI3HeaderSection.axaml  # XYUI-3 文档 Header 展示区。
+│  │     │  ├─ XYUI3HeaderSection.axaml.cs  # XYUI-3 文档 Header 代码隐藏。
+│  │     │  ├─ XYUI3LiveExamplesSection.axaml  # XYUI-3 Live Examples 展示区。
+│  │     │  ├─ XYUI3LiveExamplesSection.axaml.cs  # XYUI-3 Live Examples 代码隐藏。
+│  │     │  ├─ XYUI3QuickStartSection.axaml  # XYUI-3 Quick Start 展示区。
+│  │     │  ├─ XYUI3QuickStartSection.axaml.cs  # XYUI-3 Quick Start 代码隐藏。
+│  │     │  ├─ XYUI3VariantsStatesSection.axaml  # XYUI-3 Variants / States 展示区。
+│  │     │  └─ XYUI3VariantsStatesSection.axaml.cs  # XYUI-3 Variants / States 代码隐藏。
    │  │     ├─ XYBadgePreviewFactory.cs  # Badge Default/Accent 左指针标签的真实 Gallery Preview 工厂。
    │  │     ├─ XYIconButtonNamingExtensions.cs  # IconButton Gallery 自动化名称扩展。
    │  │     ├─ XYMonoPreviewFactory.cs  # 实现对应模块的 C# 职责。
@@ -1564,9 +1580,22 @@
    │  │     ├─ XYUI2GalleryCatalog.SearchPassword.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3DocumentationCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3DocumentationCatalog.Api.cs  # 提供 XYUI-3-23 基础用法与完整 API 文档。
+   │  │     ├─ XYUI3DocumentationCatalog.ContextMenu.cs  # 提供 XYUI-3-03 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.Menu.cs  # 提供 XYUI-3-02 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.MenuBar.cs  # 提供 XYUI-3-01 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.NavigationMenu.cs  # 提供 XYUI-3-05 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.Sidebar.cs  # 提供 XYUI-3-06 Gallery 文档内容。
+   │  │     ├─ XYUI3DocumentationCatalog.SubMenu.cs  # 提供 XYUI-3-04 Gallery 文档内容。
    │  │     ├─ XYUI3GalleryCatalog.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUI3GalleryCatalog.Navigation.cs  # 提供紧凑导航四组件的真实 Gallery Preview。
-   │  │     └─ XYUI3GalleryCatalog.Final.cs  # 提供 XYUI-3-21~24 最终导航组件真实预览。
+   │  │     ├─ XYUI3GalleryCatalog.Final.cs  # 提供 XYUI-3-21~24 最终导航组件真实预览。
+   │  │     ├─ XYUI3LiveExamplesFactory.ContextMenu.cs  # 提供 XYUI-3-03 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.Menu.cs  # 提供 XYUI-3-02 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.MenuBar.cs  # 提供 XYUI-3-01 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.NavigationMenu.cs  # 提供 XYUI-3-05 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.Sidebar.cs  # 提供 XYUI-3-06 Gallery Live Example。
+   │  │     ├─ XYUI3LiveExamplesFactory.SubMenu.cs  # 提供 XYUI-3-04 Gallery Live Example。
+   │  │     └─ XYUI3LiveExamplesFactory.cs  # XYUI-3 01～06 Live Example 分发门面。
    │  ├─ src/  # 组织该模块下的正式文件。
    │  │  └─ XYUI.Avalonia/  # 组织该模块下的正式文件。
    │  │     ├─ Catalog/  # 组织该模块下的正式文件。

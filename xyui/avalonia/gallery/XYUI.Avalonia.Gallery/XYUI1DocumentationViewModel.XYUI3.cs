@@ -13,15 +13,22 @@ public sealed partial class XYUI1DocumentationViewModel
         set
         {
             if (value == _selectedXYUI3) return;
-            _selectedXYUI3 = value; _selectedItem = null!; _selectedXYUI2 = null;
-            if (value?.Document is not null) SelectedDocument = new Views.XYUI1ComponentDocumentView { DataContext = value.Document };
-            PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI3Item))); PropertyChanged?.Invoke(this, new(nameof(SelectedDocument)));
+            _selectedXYUI3 = value; _selectedItem = null!; _selectedXYUI2 = null; _selectedFoundation = null;
+            if (value?.Document is not null)
+            {
+                SelectedDocument = value.Id is "XYUI-3-3.01" or "XYUI-3-3.02" or "XYUI-3-3.03" or "XYUI-3-3.04" or "XYUI-3-3.05" or "XYUI-3-3.06"
+                    ? new Views.XYUI3ComponentDocumentView { DataContext = value.Document }
+                    : new Views.XYUI1ComponentDocumentView { DataContext = value.Document };
+            }
+            PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI3Item))); PropertyChanged?.Invoke(this, new(nameof(SelectedItem)));
+            PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI2Item))); PropertyChanged?.Invoke(this, new(nameof(SelectedFoundation)));
+            PropertyChanged?.Invoke(this, new(nameof(SelectedDocument)));
         }
     }
     internal void BootstrapXYUI3()
     {
         XYUI3Items = XYUI3DocumentationCatalog.Build().Select(x => new XYUI1NavigationItem(x.Id, x.ChineseName, x.EnglishName, x)).ToArray();
-        // 默认落点跟随当前 XYUI-3 清单末项，保证启动后定位到最新编辑内容。
+        // 遵循 Catalog 契约：默认落点跟随当前清单末项（3.24）。
         SelectedXYUI3Item = XYUI3Items.LastOrDefault();
     }
     internal void SelectXYUI3(string id)

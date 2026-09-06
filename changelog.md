@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.77-rz · XYUI-3 Round 1 Final Integration 技术收口（2026-09-06 10:40:17 +08:00）
+
+- 目标：合流 Gemini 01～06 Gallery Contract Fix，完成 XYUI-3 Round 1 Final Integration。
+- 变化：恢复 Gallery 默认入口跟随 Catalog 最新项 3.24；保留 3.01～3.06 Presentation；不修改 Runtime；合流 32 个 Gallery 文件。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 496/496，全量合计 2143/2143 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用本机既有 E 盘 SDK 完成实际门禁。
+- 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未宣称 `USER VISUAL ACCEPTED`、`FINAL CLOSEOUT` 或 `FROZEN`。
+
 ## v0.2.28.77-rz · Fast Execution Profile 双 Agent 工作树规则修订（2026-09-06 10:30:00 +08:00）
 
 - 变化：删除“禁止共享 Dirty Working Tree”的独立 worktree 强制条款，改为允许共享 Canonical Working Tree，并明确 Runtime / Presentation 所有权隔离、未提交文件不可越权处理、施工期局部门禁、双方 HANDOFF READY 后才运行 Full Integration Gate，以及隔离另一 Agent 施工失败。

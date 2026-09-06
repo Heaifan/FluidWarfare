@@ -10,8 +10,9 @@ public sealed record XYUIDocToken(string Name, string Value, string Description)
 public sealed record XYUIDocRule(string Title, string Content);
 public sealed record XYUIDocFoundationItem(string Concept, string FoundationToken, string Description);
 public sealed record XYUIDocGuideItem(string Category, string Description);
+public sealed record XYUIDocDoDont(string Category, string DoText, string DontText, string Rationale);
 
-public sealed record XYUI1ComponentDocument(
+public record XYUI1ComponentDocument(
     string Id, string ChineseName, string EnglishName, string Overview, string WhenToUse,
     Func<Control> PreviewFactory, IReadOnlyList<string> Usages, IReadOnlyList<XYUIDocVariant> Variants,
     IReadOnlyList<XYUIDocState> States, IReadOnlyList<XYUIDocProperty> Properties,
@@ -35,10 +36,14 @@ public sealed record XYUI1ComponentDocument(
     public IReadOnlyList<XYUIDocFoundationItem> FoundationMappings { get; init; } = [];
     public IReadOnlyList<XYUIDocGuideItem> HowToUse { get; init; } = [];
     public Func<Control>? LiveExamplesFactory { get; init; }
+    public Func<Control>? CompositionFactory { get; init; }
+    public IReadOnlyList<XYUIDocDoDont> DoDonts { get; init; } = [];
     public bool HasCoreRules => CoreRules.Count > 0;
     public bool HasFoundationMappings => FoundationMappings.Count > 0;
     public bool HasHowToUse => HowToUse.Count > 0;
     public bool HasLiveExamples => LiveExamplesFactory != null;
+    public bool HasComposition => CompositionFactory != null;
+    public bool HasDoDonts => DoDonts.Count > 0;
 }
 
 public sealed record XYUI1NavigationItem(
