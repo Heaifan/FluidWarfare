@@ -2,6 +2,22 @@ namespace XYUI.Avalonia.Controls;
 
 public static class XyuiCompactNavigationTokens
 {
+    public const double MenuBarHeight = 40;
+    public const double MenuBarItemHeight = 32;
+    public const double MenuItemHeight = 30;
+    public const double MenuLeadingWidth = 24;
+    public const double NavigationMenuItemHeight = 32;
+    public const double NavigationMenuGroupLabelHeight = 20;
+    public const double NavigationMenuIconSize = 14;
+    public const double NavigationMenuPaddingX = 10;
+    public const double NavigationMenuItemRadius = 3;
+    public const double SidebarWidth = 240;
+    public const double SidebarMinWidth = 190;
+    public const double SidebarMaxWidth = 360;
+    public const double SidebarCollapsedWidth = 64;
+    public const double NavigationRailWidth = 54;
+    public const double SidebarHeaderHeight = 48;
+    public const double SidebarFooterHeight = 48;
     public const double TabBarHeight = 38;
     public const double TabBarArrowWidth = 32;
     public const double TabBarOverflowWidth = 40;

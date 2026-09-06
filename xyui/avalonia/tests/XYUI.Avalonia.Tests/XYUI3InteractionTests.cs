@@ -15,31 +15,30 @@ public sealed class XYUI3InteractionTests : IClassFixture<XyuiHeadlessFixture>
     readonly XyuiHeadlessFixture _fx;
     public XYUI3InteractionTests(XyuiHeadlessFixture fx) => _fx = fx;
 
-    [Fact] public void MenuItem_selects_first_then_invokes_and_clears_on_second_click() => _fx.Run(() =>
+    [Fact] public void MenuItem_invokes_once_and_disabled_items_are_inert() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var calls = 0; var item = new XYMenuItem { Command = () => calls++ }; var events = 0;
-        item.Invoked += (_, _) => events++; Assert.True(item.Activate()); Assert.True(item.IsSelected); Assert.Equal(0, calls); Assert.Equal(0, events);
-        Assert.True(item.Activate()); Assert.False(item.IsSelected); Assert.Equal(1, calls); Assert.Equal(1, events);
+        item.Invoked += (_, _) => events++; Assert.True(item.Activate()); Assert.True(item.IsSelected); Assert.Equal(1, calls); Assert.Equal(1, events);
         item.IsEnabled = false; Assert.False(item.Activate()); Assert.Equal(1, calls);
     });
 
     [Fact] public void Menu_selection_is_single_and_close_clears_it() => _fx.Run(() =>
     {
-        XyuiBatchTestHost.Prepare(); var first = new XYMenuItem(); var second = new XYMenuItem(); var menu = new XYMenu(first, second);
+        XyuiBatchTestHost.Prepare(); var first = new XYMenuItem { HasSubMenu = true }; var second = new XYMenuItem { HasSubMenu = true }; var menu = new XYMenu(first, second); menu.Open();
         first.Activate(); Assert.Same(first, menu.SelectedItem); second.Activate(); Assert.Same(second, menu.SelectedItem); Assert.False(first.IsSelected); menu.Close(); Assert.Null(menu.SelectedItem);
     });
 
-    [Fact] public void Menu_pointer_press_selects_before_pointer_release() => _fx.Run(() =>
+    [Fact] public void Menu_pointer_press_executes_and_closes() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var item = new XYMenuItem { Label = "打开", Width = 160 }; var menu = new XYMenu(item); var window = XyuiBatchTestHost.Show(menu);
         var point = item.TranslatePoint(new Point(20, item.Bounds.Height / 2), window)!.Value;
-        window.MouseMove(point); window.MouseDown(point, MouseButton.Left); Dispatcher.UIThread.RunJobs(); Assert.True(item.IsSelected); window.MouseUp(point, MouseButton.Left); window.Close();
+        window.MouseMove(point); window.MouseDown(point, MouseButton.Left); Dispatcher.UIThread.RunJobs(); Assert.False(menu.IsOpen); window.MouseUp(point, MouseButton.Left); window.Close();
     });
 
-    [Fact] public void ContextMenu_selection_executes_on_second_click_and_clears_outside() => _fx.Run(() =>
+    [Fact] public void ContextMenu_has_real_target_and_closes_after_command() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var calls = 0; var item = new XYMenuItem { Command = () => calls++ }; var context = new XYContextMenu { Menu = new XYMenu(item) }; var target = new Border { Width = 100, Height = 40, Background = Brushes.Transparent }; var window = XyuiBatchTestHost.Show(target);
-        context.AttachTo(target); var point = target.TranslatePoint(new Point(20, 20), window)!.Value; window.MouseMove(point); window.MouseDown(point, MouseButton.Right); Dispatcher.UIThread.RunJobs(); Assert.True(context.IsOpen); window.MouseUp(point, MouseButton.Right); item.Activate(); Assert.True(item.IsSelected); Assert.Equal(0, calls); item.Activate(); Assert.False(item.IsSelected); Assert.Equal(1, calls); Assert.False(context.IsOpen); context.Close(); Assert.False(item.IsSelected); window.Close();
+        context.AttachTo(target); var point = target.TranslatePoint(new Point(20, 20), window)!.Value; window.MouseMove(point); window.MouseDown(point, MouseButton.Right); Dispatcher.UIThread.RunJobs(); Assert.True(context.IsOpen); Assert.Same(target, context.Target); window.MouseUp(point, MouseButton.Right); item.Activate(); Assert.Equal(1, calls); Assert.False(context.IsOpen); context.Close(); Assert.False(item.IsSelected); window.Close();
     });
 
     [Fact] public void Menu_open_focuses_first_enabled_and_escape_closes() => _fx.Run(() =>

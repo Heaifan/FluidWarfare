@@ -9,6 +9,8 @@ namespace XYUI.Avalonia.Controls;
 public sealed partial class XYMenuItem : Border
 {
     bool _building;
+    XYSubMenu? _subMenu;
+    public static readonly StyledProperty<string> IdProperty = AvaloniaProperty.Register<XYMenuItem, string>(nameof(Id), "");
     public static readonly StyledProperty<string> LabelProperty = AvaloniaProperty.Register<XYMenuItem, string>(nameof(Label), "");
     public static readonly StyledProperty<string> ShortcutProperty = AvaloniaProperty.Register<XYMenuItem, string>(nameof(Shortcut), "");
     public static readonly StyledProperty<XyuiVectorIcon?> IconProperty = AvaloniaProperty.Register<XYMenuItem, XyuiVectorIcon?>(nameof(Icon));
@@ -18,6 +20,7 @@ public sealed partial class XYMenuItem : Border
     public static readonly StyledProperty<bool> IsDestructiveProperty = AvaloniaProperty.Register<XYMenuItem, bool>(nameof(IsDestructive));
     public static readonly StyledProperty<bool> IsHoveredProperty = AvaloniaProperty.Register<XYMenuItem, bool>(nameof(IsHovered));
     public static readonly StyledProperty<bool> HasSubMenuProperty = AvaloniaProperty.Register<XYMenuItem, bool>(nameof(HasSubMenu));
+    public string Id { get => GetValue(IdProperty); set => SetValue(IdProperty, value); }
     public string Label { get => GetValue(LabelProperty); set => SetValue(LabelProperty, value); }
     public string Shortcut { get => GetValue(ShortcutProperty); set => SetValue(ShortcutProperty, value); }
     public XyuiVectorIcon? Icon { get => GetValue(IconProperty); set => SetValue(IconProperty, value); }
@@ -27,6 +30,7 @@ public sealed partial class XYMenuItem : Border
     public bool IsDestructive { get => GetValue(IsDestructiveProperty); set => SetValue(IsDestructiveProperty, value); }
     public bool IsHovered { get => GetValue(IsHoveredProperty); set => SetValue(IsHoveredProperty, value); }
     public bool HasSubMenu { get => GetValue(HasSubMenuProperty); set => SetValue(HasSubMenuProperty, value); }
+    public XYSubMenu? SubMenu { get => _subMenu; set { _subMenu = value; HasSubMenu = value is not null; } }
     public XYMenuItem() { Classes.Add("xyui-menu-item"); FocusAdorner = null; Build(); InitializeInteraction(); }
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) { base.OnPropertyChanged(change); if (!_building && change.Property != IsEnabledProperty && change.Property != ChildProperty) Build(); }
     void Build() { _building = true; UpdateClasses(); Child = new XYMenuItemVisual(this); _building = false; }

@@ -2,13 +2,23 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Input;
+using Avalonia.Threading;
 
 namespace XYUI.Avalonia.Controls;
 
 public sealed partial class XYSubMenu
 {
     bool _closing;
-    void InitializeInteraction() { Focusable = true; KeyDown += OnKeyDown; }
+    DispatcherTimer? _transitionTimer;
+    public bool IsPointerTransitioning { get; private set; }
+    void InitializeInteraction()
+    {
+        Focusable = true; KeyDown += OnKeyDown; PointerEntered += (_, _) => EndPointerTransition(); PointerExited += (_, _) => BeginPointerTransition();
+    }
+    public void BeginPointerTransition()
+    { IsPointerTransitioning = true; _transitionTimer ??= new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(180) }; _transitionTimer.Stop(); _transitionTimer.Tick -= OnTransitionTick; _transitionTimer.Tick += OnTransitionTick; _transitionTimer.Start(); }
+    public void EndPointerTransition() { IsPointerTransitioning = false; _transitionTimer?.Stop(); }
+    void OnTransitionTick(object? sender, EventArgs e) { if (IsPointerTransitioning) Close(); _transitionTimer?.Stop(); }
     public void Open()
     {
         if (!EffectiveParentVisible()) return;
@@ -32,7 +42,7 @@ public sealed partial class XYSubMenu
         _grid.ColumnDefinitions[2].Width = !OpenLeft && !visible ? new GridLength(0) : new GridLength(260);
         foreach (var child in _children) child.SyncVisibility();
     }
-    void OnTriggerRequested(object? sender, EventArgs e) => Open();
+    void OnTriggerRequested(object? sender, EventArgs e) { if (IsOpen) Close(); else Open(); }
     void OnKeyDown(object? sender, KeyEventArgs e)
     { if (e.Key == Key.Right) { Open(); e.Handled = true; } else if (e.Key is Key.Left or Key.Escape) { Close(); e.Handled = true; } }
 }

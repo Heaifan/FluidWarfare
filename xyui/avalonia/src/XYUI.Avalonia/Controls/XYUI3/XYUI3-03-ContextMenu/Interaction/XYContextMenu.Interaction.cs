@@ -11,12 +11,16 @@ public sealed partial class XYContextMenu
     Popup? _popup;
     bool _closing;
     public bool IsOpen { get; private set; }
+    public Control? Target { get; private set; }
+    public Control? ContextTarget => Target;
     public event EventHandler? Opened;
     public event EventHandler? Closed;
-    public void AttachTo(Control source) { source.PointerPressed -= OnSourcePointerPressed; source.PointerPressed += OnSourcePointerPressed; }
+    public void AttachTo(Control source) { Target = source; source.PointerPressed -= OnSourcePointerPressed; source.PointerPressed += OnSourcePointerPressed; }
+    public void DetachFrom(Control source) { source.PointerPressed -= OnSourcePointerPressed; if (ReferenceEquals(Target, source)) Target = null; }
+    public void Open() { if (Target is not null) Open(Target); }
     public void Open(Control target)
     {
-        if (!IsEnabled) return; Close(); Menu.ClearSelection(); _host.Children.Remove(_surface); _popup = new Popup { PlacementTarget = target, Placement = PlacementMode.Pointer, IsLightDismissEnabled = true, Child = _surface };
+        if (!IsEnabled) return; Target = target; Close(); Menu.ClearSelection(); Menu.FocusRestoreTarget = target; _host.Children.Remove(_surface); _popup = new Popup { PlacementTarget = target, Placement = PlacementMode.Pointer, IsLightDismissEnabled = true, Child = _surface };
         _popup.Closed += OnPopupClosed; IsOpen = true; _popup.IsOpen = true; Menu.ApplyOverlayStyling(); Menu.Open(); Opened?.Invoke(this, EventArgs.Empty);
     }
     public void Close()

@@ -1382,6 +1382,8 @@
    │  │  └─ text-input-interaction-audit.md  # 记录对应主题的当前规范、计划或审计事实。
    │  ├─ XYUI1/  # 组织该模块下的正式文件。
    │  │  └─ R5-F4-fidelity-matrix.md  # 记录对应主题的当前规范、计划或审计事实。
+   │  ├─ XYUI3/  # 记录 XYUI-3 Runtime 轮次审计与交付证据。
+   │  │  └─ XYUI3-Round1-runtime-audit.md  # 记录 3.01～3.06 Runtime、测试与合流边界。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ conflict-matrix.md  # 记录对应主题的当前有效说明。
    │  │  ├─ reconciliation.md  # 记录对应主题的当前有效说明。
@@ -2068,6 +2070,7 @@
    │  │     ├─ XYUI3FinalNavigationTests.cs  # 验证 21~24 状态提交、层级限制、主操作隔离、抽屉生命周期与 Gallery。
    │  │     ├─ XYUI3CompactNavigationStructureTests.cs  # 验证紧凑导航复用、单底边、垂直居中及交互状态机。
    │  │     ├─ XYUI3InteractionTests.cs  # 实现对应模块的 C# 职责。
+   │  │     ├─ XYUI3Round1RuntimeTests.cs  # 验证 XYUI-3 3.01～3.06 Runtime 交互、状态与复合结构。
    │  │     ├─ XYUI3StructureTests.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XyuiBatchTestHost.cs  # 实现对应模块的 C# 职责。
    │  │     ├─ XYUICompositionReuseTests.cs  # 验证 XYIconLabel 等组件复用公开 XYUI 控件而非重复绘制。
@@ -2132,7 +2135,8 @@
    │  ├─ XYUI3/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-3.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-3.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。
-   │  │  └─ XYUI-3.mapping.json  # 保存对应 XYUI 规范的规范化数据与映射。
+   │  │  ├─ XYUI-3.mapping.json  # 保存对应 XYUI 规范的规范化数据与映射。
+   │  │  └─ XYUI-3-01-06-runtime-contract.md  # 提供 3.01～3.06 Runtime 公共 API 与状态合同。
    │  ├─ XYUI4/  # 组织该模块下的正式文件。
    │  │  ├─ XYUI-4.canonical.md  # 保存对应 XYUI 规范的规范化数据与映射。
    │  │  ├─ XYUI-4.gaps.json  # 保存对应 XYUI 规范的规范化数据与映射。

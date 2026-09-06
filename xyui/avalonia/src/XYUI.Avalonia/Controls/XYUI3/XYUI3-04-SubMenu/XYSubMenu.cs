@@ -5,10 +5,11 @@ namespace XYUI.Avalonia.Controls;
 
 public sealed partial class XYSubMenu : Border
 {
-    XYMenu _parent = new(); XYMenu _child = new(); readonly Grid _grid = new(); readonly XYSubMenuConnector _connector = new(); readonly List<XYSubMenu> _children = []; XYSubMenu? _parentSubMenu; bool _openLeft;
+    XYMenu _parent = new(); XYMenu _child = new(); readonly Grid _grid = new(); readonly XYSubMenuConnector _connector = new(); readonly List<XYSubMenu> _children = []; XYSubMenu? _parentSubMenu; XYMenuItem? _trigger; bool _openLeft;
     public XYMenu ParentMenu { get => _parent; set { if (ReferenceEquals(_parent, value)) return; DetachTriggers(); _parent.UnregisterSubMenu(this); _parent = value; _parent.RegisterSubMenu(this); Build(); AttachTriggers(); } }
     public XYMenu ChildMenu { get => _child; set { DetachChild(); _child = value; Build(); AttachChild(); } }
     public XYSubMenu? ParentSubMenu { get => _parentSubMenu; set { if (ReferenceEquals(_parentSubMenu, value)) return; _parentSubMenu?._children.Remove(this); _parentSubMenu = value; if (value is not null && !value._children.Contains(this)) value._children.Add(this); if (value?.EffectiveVisible == false) Close(); else SyncVisibility(); } }
+    public XYMenuItem? Trigger { get => _trigger; set { if (ReferenceEquals(_trigger, value)) return; DetachTriggers(); _trigger = value; AttachTriggers(); } }
     public IReadOnlyList<XYSubMenu> ChildSubMenus => _children;
     public bool IsOpen { get; private set; } = true;
     public bool EffectiveVisible => IsOpen && (_parentSubMenu?.EffectiveVisible ?? true);
@@ -26,10 +27,17 @@ public sealed partial class XYSubMenu : Border
         else { _grid.Children.Add(_parent); _grid.Children.Add(_connector); _grid.Children.Add(_child); Grid.SetColumn(_connector, 1); Grid.SetColumn(_child, 2); }
         Child = _grid; SyncVisibility();
     }
-    void AttachTriggers() { ParentMenu.RegisterSubMenu(this); foreach (var item in ParentMenu.Items.OfType<XYMenuItem>()) { item.SubMenuRequested -= OnTriggerRequested; item.SubMenuRequested += OnTriggerRequested; } ParentMenu.Closed -= OnParentClosed; ParentMenu.Closed += OnParentClosed; }
-    void DetachTriggers() { foreach (var item in ParentMenu.Items.OfType<XYMenuItem>()) item.SubMenuRequested -= OnTriggerRequested; ParentMenu.Closed -= OnParentClosed; }
+    void AttachTriggers()
+    {
+        ParentMenu.RegisterSubMenu(this); var items = _trigger is null ? ParentMenu.Items.OfType<XYMenuItem>().Where(x => x.HasSubMenu).Take(1) : [_trigger];
+        foreach (var item in items) { item.SubMenuRequested -= OnTriggerRequested; item.SubMenuRequested += OnTriggerRequested; item.PointerEntered -= OnTriggerPointerEntered; item.PointerEntered += OnTriggerPointerEntered; }
+        ParentMenu.Closed -= OnParentClosed; ParentMenu.Closed += OnParentClosed;
+    }
+    void DetachTriggers()
+    { foreach (var item in ParentMenu.Items.OfType<XYMenuItem>()) { item.SubMenuRequested -= OnTriggerRequested; item.PointerEntered -= OnTriggerPointerEntered; } ParentMenu.Closed -= OnParentClosed; }
     void AttachChild() { foreach (var item in ChildMenu.Items.OfType<XYMenuItem>()) { item.Invoked -= OnChildInvoked; item.Invoked += OnChildInvoked; } }
     void DetachChild() { foreach (var item in ChildMenu.Items.OfType<XYMenuItem>()) item.Invoked -= OnChildInvoked; }
     void OnChildInvoked(object? sender, EventArgs e) => Close();
     void OnParentClosed(object? sender, EventArgs e) => Close();
+    void OnTriggerPointerEntered(object? sender, global::Avalonia.Input.PointerEventArgs e) => Open();
 }

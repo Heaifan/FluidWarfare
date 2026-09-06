@@ -6,7 +6,7 @@ public sealed partial class XYMenuBarItem
 {
     void InitializeInteraction()
     {
-        Focusable = true; PointerEntered += (_, _) => IsHovered = true; PointerExited += (_, _) => IsHovered = false;
+        Focusable = true; PointerEntered += (_, _) => { if (IsEnabled) IsHovered = true; }; PointerExited += (_, _) => IsHovered = false;
         PointerPressed += OnPointerPressed; KeyDown += OnKeyDown;
     }
     public void Activate() { if (IsEnabled) Activated?.Invoke(this, EventArgs.Empty); }

@@ -17,7 +17,9 @@ public sealed partial class XYMenuBar
     void OnOpenMenuClosed(object? sender, EventArgs e) { if (ReferenceEquals(sender, OpenMenu)) Close(); }
     public void Open(XYMenuBarItem item)
     {
+        if (!item.IsEnabled) return;
         Close(); item.IsActive = true; OpenMenuId = item.Label; OpenMenu = item.Menu; if (OpenMenu is null) return;
+        Focus(); OpenMenu.FocusRestoreTarget = item;
         _subscribedMenu = OpenMenu; _subscribedMenu.Closed += OnOpenMenuClosed; _popup = new Popup { PlacementTarget = item, Placement = PlacementMode.Bottom, IsLightDismissEnabled = true, Child = OpenMenu }; _popupClosed = (_, _) => Close(); _popup.Closed += _popupClosed; _popup.IsOpen = true; OpenMenu.ApplyOverlayStyling(); OpenMenu.Open();
     }
     public void Close()
@@ -28,10 +30,12 @@ public sealed partial class XYMenuBar
     void OnPointerPressed(object? sender, PointerPressedEventArgs e) { if (OpenMenu is not null && (e.Source as Visual)?.FindAncestorOfType<XYMenuBarItem>() is null) Close(); }
     void OnKeyDown(object? sender, KeyEventArgs e)
     {
+        if (e.Key is Key.LeftAlt or Key.RightAlt) { FocusFirst(); e.Handled = true; return; }
         if (e.Key == Key.Escape) { Close(); e.Handled = true; return; }
         if (e.Key is Key.Left or Key.Right) { MoveItem(e.Key == Key.Right ? 1 : -1); e.Handled = true; return; }
         if ((e.Key is Key.Enter or Key.Down) && FocusedItem() is { } item) { Open(item); e.Handled = true; }
     }
-    void MoveItem(int delta) { if (Items.Count == 0) return; var current = Items.Select((item, index) => (item, index)).FirstOrDefault(x => x.item.IsActive).index; var index = (current + delta + Items.Count) % Items.Count; Items[index].Focus(); }
+    void MoveItem(int delta) { if (Items.Count == 0) return; var current = Items.Select((item, index) => (item, index)).FirstOrDefault(x => x.item.IsFocused || x.item.IsActive).index; for (var i = 1; i <= Items.Count; i++) { var index = (current + delta * i + Items.Count * 2) % Items.Count; if (Items[index].IsEnabled) { Items[index].Focus(); return; } } }
+    void FocusFirst() { var item = Items.FirstOrDefault(x => x.IsEnabled); item?.Focus(); }
     XYMenuBarItem? FocusedItem() => Items.FirstOrDefault(x => x.IsFocused) ?? Items.FirstOrDefault(x => x.IsActive);
 }
