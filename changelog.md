@@ -4,10 +4,11 @@
 
 - 目标：完成 3.19 BackForwardNavigation、3.20 WorkspaceSwitcher、3.21 ViewSwitcher、3.22 TableOfContents、3.23 BottomNavigation、3.24 NavigationDrawer 完整 Runtime 与 Presentation 交付；落实批准的 3.20 `XYWorkspaceItem.IsEnabled` 与可选 `Icon` 最小 Public API 扩展；保持 24/24 组件全量闭环与共享 Gallery Shell 架构。
 - 变化：
-  - 运行时：3.20 `XYWorkspaceItem` 扩展 `IsEnabled` 与可选 `Icon`，未启用项拦截点击/键盘激活且不触发切换请求；`XYMenuItemVisual` 支持工作区图标；3.23 `XYBottomNavigation` 支持 `SafeAreaBottom` 驱动底部 padding；3.19 线性历史、3.21 共享 `XYViewState`、3.22 两级限深与连续导引线、3.24 模态抽屉遮罩与键盘生命周期通过实装与回归验证。
+  - 运行时：3.20 `XYWorkspaceItem` 扩展 `IsEnabled` 与可选 `Icon`，未启用项拦截点击/键盘激活、直达提交且不触发切换请求；`XYMenuItemVisual` 支持工作区图标；3.23 `XYBottomNavigation` 支持数字 Badge 与不压缩命中区的 `SafeAreaBottom`；3.19 线性历史、3.21 共享 `XYViewState`、3.22 两级限深/连续导引线/外部滚动同步、3.24 模态抽屉遮罩/Light Dismiss/Esc/焦点生命周期通过实装与回归验证。
   - 文档与展示：统一为 3.19～3.24 编写 8 段式标准文档模型及真实 XAML Quick Start；新增 6 组交互式 Live Examples 与组合视口场景，共享 `GalleryDocumentShell` 与响应式行语义。
   - 测试与契约：新增 4 项 `XYWorkspaceSwitcher` 定向测试、Round 4 Gallery 契约测试；新增 Round 4 Audit 与 Runtime Contract；全量测试 2199/2199 通过。
-- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 552/552，全量合计 2199/2199 PASS；Round 4 定向回归 52/52 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- 验证：根 solution 与 `XYUI.Avalonia.slnx` 构建均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1286/1286、XYUI 552/552，全量合计 2199/2199 PASS；Round 4 定向回归 35/35 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：`98cffadb2fc79510fda99285842d99cb43a63cdf`（Runtime / Gallery / Tests 主提交）。
 - 状态：`TECHNICAL PASS · READY FOR USER VISUAL REVIEW`；未提前宣称 `FINAL CLOSEOUT` 或 `STATUS FROZEN`，等待人工真机验收。
 
 ## v0.2.28.77-rz · GALLERY-UNIFY-02 Shell & Module Navigation Recovery 技术收口（2026-09-06 18:33:02 +08:00）
