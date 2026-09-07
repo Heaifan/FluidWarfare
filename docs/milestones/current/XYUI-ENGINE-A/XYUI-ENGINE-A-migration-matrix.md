@@ -130,3 +130,10 @@ Codex must not modify those three AXAML views during R1-A. `XuanYu.Editor.UI/Rig
 - Legacy audit: migrated target Views contain no `uiSection`, `uiLabel`, `uiValue`, `datasetName`, `datasetStatus`, `datasetLayerName`, `datasetLayerStatus`, `kindTagRegion`, `kindTagSystem`, `treeText`, or `statePill` display classes. `uiMultiline` remains only as a wrapping/line-limit helper and is not a competing typography/surface authority.
 - Current verification: Engine Build 0W0E; XYUI Build 0W0E; Core 339/339, WarCore 22/22, World 1379/1379, XYUI 558/558, total 2298/2298; Gallery Smoke 3/3; ARCH-A PASS; 5+100 PASS; `git diff --check` PASS.
 - Next boundary: XYUI-1 Engine implementation is technically complete for R1. Further native Button/ToggleButton/ComboBox/TextBox, menu/navigation, dialog, reorderable-list, and unmatched icon work belongs to later XYUI-2/XYUI-3/GAP scopes and is not included in this closeout.
+
+## R2-B Left + Map update
+
+- Base: Left search, tree arrows, and regional authoring actions are present in `53efea66`; this round extends the same boundary to map and dataset interaction surfaces.
+- Migrated: `Left/RegionPanel.axaml`, `Left/RoadPanel.axaml`, `Left/MarkerPanel.axaml`, and `Left/RegionalAuthoringPanel.axaml` use XYUI-2 action controls; `Right/MapFormPanel.axaml`, `Right/MapPagePanel.axaml`, `Right/DatasetPanel.axaml`, and `Right/DatasetLayerPanel.axaml` use `XYTextField`, `XYSelect`, `XYButton`, and `XYToggleButton` while preserving bindings, commands, click handlers, validation, and drag routing.
+- Preserved: content-bearing `TabControl`, `ListBox`, rename `TextBox`, context menu, and drag handles remain native until their own interaction contracts are approved.
+- Contract: `UiR2BLeftMapMigrationContractTests` covers the migrated surface and rejects legacy interaction elements only within this target set.

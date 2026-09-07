@@ -1,5 +1,14 @@
 # changelog
 
+## XYUI-ENGINE-A-R2-B · Left + Map XYUI-2 migration（2026-09-07 18:25:07 +08:00）
+
+- 范围：沿用 Left 基础迁移提交 `53efea66`，补齐地图表单、地图摘要、数据集与数据集图层的 XYUI-2 交互控件迁移；未修改 ViewModel、业务命令、TabControl、列表、重命名、右键菜单或拖拽合同。
+- 迁移：Left 作者操作使用 `XYButton` / `XYToggleButton`；地图尺寸与数据集名称使用 `XYTextField`，数据集类型使用 `XYSelect`，地图/数据集操作按钮使用 `XYButton`，数据集图层可见性与锁定使用 `XYToggleButton`。
+- 契约：新增 `UiR2BLeftMapMigrationContractTests` 3 项断言，锁定 Left 搜索/箭头、作者面板、地图表单和数据集控件的 XYUI-2 使用，并拒绝目标范围内的原生 Button/TextBox/ComboBox/ToggleButton。
+- 验证：Solution Build 0 警告 / 0 错误；`UiR2BLeftMapMigrationContractTests` 3/3 PASS；ARCH-A PASS；World.Tests 1387/1389 PASS，2 项失败均位于本轮未修改的 EditorMode/Top 合同；`git diff --check` PASS。
+- Hash：本轮最终提交由 Git 记录确认。
+- 遗留：XYUI-3 内容承载型 TabControl、树/列表、右键菜单与拖拽控件保留，等待各自交互合同批次；真机视觉与交互验收仍由用户负责。
+
 ## XYUI-ENGINE-A-R1-VISUAL-FIX · SectionTitle visual authority closeout（2026-09-07 14:39:05 +08:00）
 
 - Gemini handoff：`194cb923` 已提交并 push 到 `feat/XYUI-ENGINE-A-R1-VISUAL-FIX`，修改 Engine Debug 页面，移除四组 `XYSeparator Variant="Section"`，避免通用 Divider 夺取 `XYSectionTitle` Soft Header 的视觉层级。

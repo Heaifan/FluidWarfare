@@ -1075,6 +1075,7 @@
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` - C# implementation source for UiRuntimeCollection.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` - C# implementation source for UiRuntimeRiskTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` - C# implementation source for UiRuntimeTestHost.cs.
+- `XuanYu.World.Tests/UiRuntime/UiR2BLeftMapMigrationContractTests.cs` - C# contract tests for the R2-B Left and Map UI migration.
 - `XuanYu.World.Tests/UiRuntime/UiTestAppBuilder.cs` - C# implementation source for UiTestAppBuilder.cs.
 - `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` - C# implementation source for LayerAUiCompositionTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` - C# implementation source for UiCsColorRulesTests.cs.

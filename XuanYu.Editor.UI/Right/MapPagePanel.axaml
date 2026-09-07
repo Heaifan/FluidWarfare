@@ -35,7 +35,7 @@
         <xy:XYLabel Text="ID"/>
         <Grid Grid.Column="1" ColumnDefinitions="*,Auto" ColumnSpacing="6">
           <xy:XYSelectableText Text="{Binding MapIdDisplay}" Variant="Technical" ToolTip.Tip="{Binding MapIdText}"/>
-          <Button Grid.Column="1" Classes="copyBtn" Content="复制" Click="CopyMapId_Click" ToolTip.Tip="复制完整 MapId" AutomationProperties.Name="复制完整 MapId"/>
+          <xy:XYButton Grid.Column="1" Classes="copyBtn" Content="复制" Click="CopyMapId_Click" ToolTip.Tip="复制完整 MapId" AutomationProperties.Name="复制完整 MapId"/>
         </Grid>
       </Grid>
       <Grid Classes="summaryRow" ColumnDefinitions="72,*" ColumnSpacing="8">
@@ -56,13 +56,13 @@
 
     <!-- 地图资产操作按钮组（纠偏 v2）：真正的 2×2 等宽网格，按钮水平拉伸 -->
     <UniformGrid Columns="2" ColumnSpacing="6" RowSpacing="6">
-      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="新建地图"
+      <xy:XYButton Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="新建地图"
               Command="{Binding RunCommand}" CommandParameter="新建地图" AutomationProperties.Name="新建地图"/>
-      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="打开地图"
+      <xy:XYButton Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="打开地图"
               Command="{Binding RunCommand}" CommandParameter="打开地图" AutomationProperties.Name="打开地图"/>
-      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="保存地图"
+      <xy:XYButton Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="保存地图"
               Command="{Binding RunCommand}" CommandParameter="保存地图" AutomationProperties.Name="保存地图"/>
-      <Button Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="聚焦地图"
+      <xy:XYButton Classes="uiTextButton" HorizontalAlignment="Stretch" MinWidth="0" MinHeight="28" Content="聚焦地图"
               Command="{Binding RunCommand}" CommandParameter="聚焦地图" AutomationProperties.Name="聚焦地图"/>
     </UniformGrid>
   </StackPanel>
