@@ -49,8 +49,8 @@ public partial class MapFormPanel : UserControl
 
     void ApplyMode()
     {
-        var narrow = EditableFormLayoutModel.ModeFor(Bounds.Width) == EditableFormMode.Narrow;
-        PropsWide.IsVisible = !narrow;
-        PropsNarrow.IsVisible = narrow;
+        // 游戏引擎属性检查器始终保持单行键值对布局，不因 360 DIP 阈值切为上下堆叠
+        PropsWide.IsVisible = true;
+        PropsNarrow.IsVisible = false;
     }
 }

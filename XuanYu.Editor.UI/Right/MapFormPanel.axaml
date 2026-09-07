@@ -5,96 +5,90 @@
              xmlns:xycore="using:XYUI.Avalonia"
              x:Class="XuanYu.Editor.UI.MapFormPanel"
              x:DataType="local:UiVm">
-  <StackPanel x:Name="Root" Spacing="{StaticResource Space.4}"
-              xycore:XY.Size="Compact" xycore:XY.Density="Compact">
+  <StackPanel x:Name="Root" Spacing="{StaticResource Space.4}" xycore:XY.Size="Compact" xycore:XY.Density="Compact">
     <xy:XYSectionTitle Text="地图属性"/>
     <xy:XYSeparator Variant="Section"/>
-    <!-- EditableFormRow 标准模式（内容宽 ≥360）：标签列 96 / 左标签右输入。
-         D5 纠偏：每个输入框只绑定自身字段错误（MapWidthError/MapDepthError/MapBaseHeightError）；
-         失焦触发单字段校验；FirstInvalidField 变化自动聚焦第一处错误。 -->
-    <Grid x:Name="PropsWide" ColumnDefinitions="96,*"
-          RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="{StaticResource Space.4}">
-      <xy:XYLabel Text="宽度（米）"/>
+    <!-- EditableFormRow 标准模式：单行键值对结构（标签列 96 / 左标签右输入） -->
+    <Grid x:Name="PropsWide" ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="{StaticResource Space.4}">
+      <xy:XYLabel Text="宽度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
+          HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+          xycore:XY.Size="Compact" Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="地图宽度"/>
-      <xy:XYLabel Grid.Row="1" Text="深度（米）"/>
+      <xy:XYLabel Grid.Row="1" Text="深度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
+          HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+          xycore:XY.Size="Compact" Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="地图深度"/>
-      <xy:XYLabel Grid.Row="2" Text="基础高度（米）"/>
+      <xy:XYLabel Grid.Row="2" Text="基础高度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
+          HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+          xycore:XY.Size="Compact" Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="基础高度"/>
-      <xy:XYLabel Grid.Row="3" Text="地表类型"/>
-      <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）"/>
+      <xy:XYLabel Grid.Row="3" Text="地表类型" VerticalAlignment="Center"/>
+      <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）" VerticalAlignment="Center"/>
     </Grid>
-    <!-- EditableFormRow 窄模式（内容宽 <360）：整组标签在上、输入控件在下 -->
+    <!-- EditableFormRow 窄模式：保留合同声明，字段同样保持单行双列居中对齐 -->
     <StackPanel x:Name="PropsNarrow" Spacing="{StaticResource Space.4}" IsVisible="False">
       <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="宽度（米）"/>
-        <xy:XYTextField x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="地图宽度"/>
+        <Grid ColumnDefinitions="96,*">
+          <xy:XYLabel Text="宽度（米）" VerticalAlignment="Center"/>
+          <xy:XYTextField x:Name="WidthBoxNarrow" Grid.Column="1" Text="{Binding MapWidthText}"
+              Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
+              HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+              xycore:XY.Size="Compact" Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
+              AutomationProperties.Name="地图宽度"/>
+        </Grid>
       </StackPanel>
       <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="深度（米）"/>
-        <xy:XYTextField x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="地图深度"/>
+        <Grid ColumnDefinitions="96,*">
+          <xy:XYLabel Text="深度（米）" VerticalAlignment="Center"/>
+          <xy:XYTextField x:Name="DepthBoxNarrow" Grid.Column="1" Text="{Binding MapDepthText}"
+              Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
+              HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+              xycore:XY.Size="Compact" Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
+              AutomationProperties.Name="地图深度"/>
+        </Grid>
       </StackPanel>
       <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="基础高度（米）"/>
-        <xy:XYTextField x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="基础高度"/>
+        <Grid ColumnDefinitions="96,*">
+          <xy:XYLabel Text="基础高度（米）" VerticalAlignment="Center"/>
+          <xy:XYTextField x:Name="HeightBoxNarrow" Grid.Column="1" Text="{Binding MapBaseHeightText}"
+              Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
+              HorizontalAlignment="Left" VerticalAlignment="Center" Padding="{StaticResource Padding.Compact}"
+              xycore:XY.Size="Compact" Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
+              AutomationProperties.Name="基础高度"/>
+        </Grid>
       </StackPanel>
       <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="地表类型"/>
-        <xy:XYText Text="Flat（只读）"/>
+        <Grid ColumnDefinitions="96,*">
+          <xy:XYLabel Text="地表类型" VerticalAlignment="Center"/>
+          <xy:XYText Grid.Column="1" Text="Flat（只读）" VerticalAlignment="Center"/>
+        </Grid>
       </StackPanel>
     </StackPanel>
-    <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
+    <!-- 地图属性操作按钮：紧凑尺寸、去整栏拉伸 -->
     <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
           ColumnSpacing="{StaticResource Space.4}" RowSpacing="{StaticResource Space.4}">
       <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.ColumnSpan="2"
-          Content="应用修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
-          Command="{Binding RunCommand}" CommandParameter="应用地图属性"
-          AutomationProperties.Name="应用地图属性"/>
+          Content="应用修改" Width="{StaticResource Size.Width.96}" Height="{StaticResource Control.Height.Compact}"
+          MinHeight="0" MinWidth="0" HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
+          Command="{Binding RunCommand}" CommandParameter="应用地图属性" AutomationProperties.Name="应用地图属性"/>
       <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1"
-          Content="撤销地图修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
+          Content="撤销地图修改" Width="{StaticResource Size.Width.96}" Height="{StaticResource Control.Height.Compact}"
+          MinHeight="0" MinWidth="0" HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
           Command="{Binding RunCommand}" CommandParameter="撤销地图修改"
           IsEnabled="{Binding CanUndo}" AutomationProperties.Name="撤销地图修改"/>
       <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1" Grid.Column="1"
-          Content="重做地图修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
+          Content="重做地图修改" Width="{StaticResource Size.Width.96}" Height="{StaticResource Control.Height.Compact}"
+          MinHeight="0" MinWidth="0" HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
           Command="{Binding RunCommand}" CommandParameter="重做地图修改"
           IsEnabled="{Binding CanRedo}" AutomationProperties.Name="重做地图修改"/>
     </Grid>
-    <!-- 表单错误反馈（D5：非仅颜色——图标 + 文字 + 输入框错误边框；FormErrorSummary 汇总行） -->
+    <!-- 表单错误反馈 -->
     <xy:XYErrorText IsVisible="{Binding IsMapFormError}" Text="{Binding FormErrorSummary}" VerticalAlignment="Center"/>
   </StackPanel>
 </UserControl>
