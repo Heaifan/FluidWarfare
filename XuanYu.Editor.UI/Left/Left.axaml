@@ -18,12 +18,7 @@
   <TabControl Classes="leftTabs" SelectedIndex="{Binding LeftTabIndex}">
     <TabItem Classes="leftTab" Header="项目">
       <StackPanel Spacing="8" Margin="0,6,0,0">
-        <Border Classes="searchBox">
-          <Grid ColumnDefinitions="16,*" ColumnSpacing="6">
-            <Path Classes="treeIcon" Data="{StaticResource SearchIcon}" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="1" PlaceholderText="搜索项目树..." BorderThickness="0" Background="Transparent" MinHeight="24"/>
-          </Grid>
-        </Border>
+        <xy:XYSearchField Placeholder="搜索项目树..."/>
         <ListBox x:Name="ProjectList" Classes="treeList" ItemsSource="{Binding ProjectItems}"
                  SelectedItem="{Binding SelectedProjectItem, Mode=TwoWay}"
                  Background="Transparent" BorderThickness="0"
@@ -34,10 +29,10 @@
                 <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
                   <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
                   <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="ProjectToggle_Pressed">
-                    <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
+                    <xy:XYIcon Icon="ChevronDown" Size="Small"/>
                   </Border>
                   <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="ProjectToggle_Pressed">
-                    <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
+                    <xy:XYIcon Icon="ChevronRight" Size="Small"/>
                   </Border>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource ProjectIcon}" IsVisible="{Binding IsRoot}"/>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource FolderIcon}" IsVisible="{Binding IsFolder}"/>
@@ -68,10 +63,10 @@
               <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
                 <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
                 <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="HierarchyToggle_Pressed">
-                  <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
+                  <xy:XYIcon Icon="ChevronDown" Size="Small"/>
                 </Border>
                 <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="HierarchyToggle_Pressed">
-                  <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
+                  <xy:XYIcon Icon="ChevronRight" Size="Small"/>
                 </Border>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource WorldIcon}" IsVisible="{Binding IsRoot}"/>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource CameraIcon}" IsVisible="{Binding IsCamera}"/>

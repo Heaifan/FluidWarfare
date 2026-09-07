@@ -8,11 +8,11 @@
     <StackPanel Grid.Row="0" Spacing="6" Margin="2,8,2,0">
       <xy:XYSectionTitle Text="内容类型"/>
       <UniformGrid Columns="2" ColumnSpacing="6">
-        <ToggleButton Content="区域面" IsChecked="{Binding IsRegionSurfaceAuthoringMode, Mode=OneWay}"
+        <xy:XYToggleButton Content="区域面" IsChecked="{Binding IsRegionSurfaceAuthoringMode, Mode=OneWay}"
                       Command="{Binding SelectRegionAuthoringModeCommand}" CommandParameter="区域面"/>
-        <ToggleButton Content="道路" IsChecked="{Binding IsRoadAuthoringMode, Mode=OneWay}"
+        <xy:XYToggleButton Content="道路" IsChecked="{Binding IsRoadAuthoringMode, Mode=OneWay}"
                       Command="{Binding SelectRegionAuthoringModeCommand}" CommandParameter="道路"/>
-        <ToggleButton Content="地图标记" IsChecked="{Binding IsMarkerAuthoringMode, Mode=OneWay}"
+        <xy:XYToggleButton Content="地图标记" IsChecked="{Binding IsMarkerAuthoringMode, Mode=OneWay}"
                       Command="{Binding SelectRegionAuthoringModeCommand}" CommandParameter="地图标记"/>
       </UniformGrid>
     </StackPanel>
