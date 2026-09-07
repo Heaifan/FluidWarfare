@@ -1,5 +1,16 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-FINAL-A · Left + Top XYUI-1 Final Sweep（2026-09-07 13:29:25 +08:00）
+
+- 基线：从统一母线 `cbbc52b0` 创建 `feat/XYUI-ENGINE-A-R1-FINAL-A` 独立 worktree；本轮仅施工 Left 5 个 View 与 Top 1 个 View。
+- 迁移：项目树与层级树标题使用 `XYTruncatedText`；区域/道路/标记 Display 使用 `XYSectionTitle`、`XYSeparator`、`XYLabel`、`XYText`、`XYSelectableText Technical`、`XYCaption`；Top 状态药丸使用真实 `XYBadge`，工具组分隔使用 `XYSeparator Variant=VerticalSplit`。
+- 保留：TabControl、ListBox/Tree、TextBox、ContextMenu、Menu、Button、ToggleButton、业务 Binding、Command、事件、拖拽和重命名行为均未改动；未修改 VM、Theme、App 或 XYUI Runtime。
+- 契约：新增 `UiR1FinalLeftTopContractTests` 5 项断言，锁定真实 XYUI-1 组件并拒绝本轮目标 View 的 `treeText/uiSection/uiLabel/uiValue/uiMultiline/groupSeparator/statePill` Legacy Display 类。
+- GAP：本轮无阻塞 Runtime GAP；动态文档状态没有可直接绑定的 `XyuiStatusState` 公共事实源，因此保留原状态颜色 Binding 并使用 `XYBadge`；XYReorderableList、XYUI-2 交互控件和未纳入映射的工具图标留待后续范围。
+- 验证：Engine Build 与 XYUI Build 均 0 警告 / 0 错误；定向契约 5/5；Core 339/339、WarCore 22/22、World 1379/1379、XYUI 558/558，合计 2298/2298 PASS；Gallery Smoke 3/3 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：本轮最终提交由 Git 记录确认。
+- 状态：`R1-FINAL-A TECHNICAL PASS / READY FOR INTEGRATION`。
+
 ## XYUI-ENGINE-A-R1-B2-MERGE · Codex + Gemini Controlled Merge（2026-09-07）
 
 - 合流：在 `e19e4242` 基线分支 `feat/XYUI-ENGINE-A` 上，按顺序使用受控 `--no-ff` merge 合入 Codex `0f80d905` 与 Gemini `5b9add17`；未 rebase、squash、reset、force push 或改写历史。

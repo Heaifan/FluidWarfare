@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.Left"
              x:DataType="local:UiVm">
   <UserControl.Resources>
@@ -44,7 +45,8 @@
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource MaterialIcon}" IsVisible="{Binding IsAsset}"/>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource ScriptIcon}" IsVisible="{Binding IsScript}"/>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource BuildIcon}" IsVisible="{Binding IsBuild}"/>
-                  <TextBlock Grid.Column="3" Text="{Binding Title}" Classes="treeText"/>
+                  <xy:XYTruncatedText Grid.Column="3" Text="{Binding Title}" Mode="End"
+                                      ToolTip.Tip="{Binding Title}" VerticalAlignment="Center"/>
                 </Grid>
               </Border>
             </DataTemplate>
@@ -76,7 +78,9 @@
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource GroundIcon}" IsVisible="{Binding IsGround}"/>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource RegionIcon}" IsVisible="{Binding IsRegion}"/>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource EntityIcon}" IsVisible="{Binding IsEntity}"/>
-                <TextBlock Grid.Column="3" Text="{Binding Title}" Classes="treeText" IsVisible="{Binding !IsRenaming}"/>
+                <xy:XYTruncatedText Grid.Column="3" Text="{Binding Title}" Mode="End"
+                                    ToolTip.Tip="{Binding Title}" VerticalAlignment="Center"
+                                    IsVisible="{Binding !IsRenaming}"/>
                 <TextBox Grid.Column="3" Text="{Binding RenameText, Mode=TwoWay}" IsVisible="{Binding IsRenaming}"
                          AttachedToVisualTree="RenameTextBox_AttachedToVisualTree" DetachedFromVisualTree="RenameTextBox_DetachedFromVisualTree"
                          KeyDown="RenameTextBox_KeyDown" LostFocus="RenameTextBox_LostFocus"/>

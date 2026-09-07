@@ -1,11 +1,12 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.RegionalAuthoringPanel"
              x:DataType="local:UiVm">
   <Grid RowDefinitions="Auto,*">
     <StackPanel Grid.Row="0" Spacing="6" Margin="2,8,2,0">
-      <TextBlock Text="内容类型" Classes="uiSection"/>
+      <xy:XYSectionTitle Text="内容类型"/>
       <UniformGrid Columns="2" ColumnSpacing="6">
         <ToggleButton Content="区域面" IsChecked="{Binding IsRegionSurfaceAuthoringMode, Mode=OneWay}"
                       Command="{Binding SelectRegionAuthoringModeCommand}" CommandParameter="区域面"/>

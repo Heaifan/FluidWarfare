@@ -1106,6 +1106,7 @@
 - `XuanYu.World.Tests/UiTokens/UiD6DpiContractTests.cs` - C# implementation source for UiD6DpiContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD6LogPerformanceTests.cs` - C# implementation source for UiD6LogPerformanceTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD6MotionContractTests.cs` - C# implementation source for UiD6MotionContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiR1FinalLeftTopContractTests.cs` - C# contract tests for the XYUI-1 Left and Top final sweep.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml1.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml1.cs.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml2.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml2.cs.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Cs.cs` - C# implementation source for UiDebtBaseline.Colors.Cs.cs.
