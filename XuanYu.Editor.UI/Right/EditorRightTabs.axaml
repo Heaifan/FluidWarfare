@@ -24,7 +24,6 @@
         <StackPanel Spacing="10" Margin="0,6,0,0">
           <StackPanel Spacing="4">
             <xy:XYSectionTitle Text="当前上下文"/>
-            <xy:XYSeparator Variant="Section"/>
             <ItemsControl Classes="debugList" ItemsSource="{Binding DebugContextItems}">
               <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="local:InspectorFieldRow">
@@ -38,7 +37,6 @@
           </StackPanel>
           <StackPanel Spacing="4">
             <xy:XYSectionTitle Text="当前对象"/>
-            <xy:XYSeparator Variant="Section"/>
             <ItemsControl Classes="debugList" ItemsSource="{Binding DebugObjectItems}">
               <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="local:InspectorFieldRow">
@@ -52,7 +50,6 @@
           </StackPanel>
           <StackPanel Spacing="6">
             <xy:XYSectionTitle Text="交互事务"/>
-            <xy:XYSeparator Variant="Section"/>
             <Grid ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="4">
               <xy:XYLabel Text="阶段"/>
               <xy:XYText Grid.Column="1" Text="{Binding InteractionPhase}" ToolTip.Tip="{Binding InteractionPhase}"/>
@@ -70,7 +67,6 @@
           </StackPanel>
           <StackPanel Spacing="4">
             <xy:XYSectionTitle Text="输入状态"/>
-            <xy:XYSeparator Variant="Section"/>
             <ItemsControl Classes="debugList" ItemsSource="{Binding DebugInputItems}">
               <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="local:InspectorFieldRow">

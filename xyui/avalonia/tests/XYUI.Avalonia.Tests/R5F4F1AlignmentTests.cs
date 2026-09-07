@@ -35,7 +35,7 @@ public sealed class R5F4F1AlignmentTests : IClassFixture<XyuiHeadlessFixture>
         Assert.Equal(global::Avalonia.Layout.VerticalAlignment.Center, header.VerticalAlignment);
         Assert.Equal(3, mark.Width); Assert.Equal(16, mark.Height);
         Assert.Equal(global::Avalonia.Layout.VerticalAlignment.Center, mark.VerticalAlignment);
-        Assert.Equal(Color.Parse("#526873"), Assert.IsType<SolidColorBrush>(mark.Background).Color);
+        Assert.Equal(Color.Parse("#356C99"), Assert.IsType<SolidColorBrush>(mark.Background).Color);
         Assert.Equal(14, text.FontSize); Assert.Equal(FontWeight.SemiBold, text.FontWeight);
         Assert.Equal(18, text.LineHeight);
         Assert.Equal(Color.Parse("#243744"), Assert.IsType<SolidColorBrush>(text.Foreground).Color);
