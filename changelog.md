@@ -1,5 +1,14 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-CLOSEOUT · FINAL-A + FINAL-B Controlled Merge（2026-09-07 13:50:40 +08:00）
+
+- 合流：以统一母线 `cbbc52b0` 为基线，按顺序使用受控 `--no-ff` merge 合入 FINAL-A `861340aa` 与 FINAL-B `ab92fac7`，生成 `47a43188`、`a2869ef7`；无冲突，未 rebase、squash、reset、force push 或改写历史。
+- 范围：Left、Top、Foot、Right 的本轮 XYUI-1 Engine View 迁移已统一进入 `feat/XYUI-ENGINE-A`；XYUI-1 Category A 剩余为 0。XYUI-2、XYUI-3、纯布局/渲染宿主和无 Canonical 等价物的图标按迁移矩阵保留，不提前越界。
+- 审计：目标 View 不再使用 `uiSection`、`uiLabel`、`uiValue`、`datasetName`、`datasetStatus`、`datasetLayerName`、`datasetLayerStatus`、`kindTagRegion`、`kindTagSystem`、`treeText`、`statePill` 等 Legacy Display 类；`uiMultiline` 仅承担换行/行数限制，归入布局辅助职责。
+- 验证：Engine Build 0 警告 / 0 错误；XYUI Build 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1379/1379、XYUI 558/558，合计 2298/2298 PASS；Gallery Smoke 3/3 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- 文档：同步本次 R1 closeout 到迁移矩阵；本轮无结构变化，`file-tree.md` 保持现状。
+- 状态：`TECHNICAL CLOSEOUT PASS / XYUI-1 ENGINE IMPLEMENTATION COMPLETE / READY FOR USER FINAL VISUAL ACCEPTANCE`。
+
 ## XYUI-ENGINE-A-R1-FINAL-A · Left + Top XYUI-1 Final Sweep（2026-09-07 13:29:25 +08:00）
 
 - 基线：从统一母线 `cbbc52b0` 创建 `feat/XYUI-ENGINE-A-R1-FINAL-A` 独立 worktree；本轮仅施工 Left 5 个 View 与 Top 1 个 View。

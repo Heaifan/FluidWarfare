@@ -122,3 +122,11 @@ Codex must not modify those three AXAML views during R1-A. `XuanYu.Editor.UI/Rig
 ## Audit status
 
 `T1` through `T6`: COMPLETE. M1 merged R1-A (`012ba16d`) and R1-B (`5c3b3024`) into integration merge `29d53c70`; both are ancestors. R1-C wired the real Runtime theme/style factories and removed legacy visual classes from `LayerInspectorPanel`. UI Runtime Smoke `80/80` PASS; final Engine/XYUI Build 0W0E, 2293/2293 tests, ARCH-A, 5+100 and `git diff --check` PASS.
+
+## R1-FINAL closure update
+
+- Unified line: `feat/XYUI-ENGINE-A` based on `cbbc52b0`; FINAL-A `861340aa` and FINAL-B `ab92fac7` were merged with `--no-ff` as `47a43188` and `a2869ef7`. Both source commits are ancestors of the integrated line; no merge conflicts occurred.
+- Category A closure: the remaining direct XYUI-1 display candidates in Engine Views are `0`. The remaining native elements are classified as XYUI-2 interaction controls, XYUI-3 navigation/menu contracts, layout/render hosts, or genuine GAPs without a matching Canonical Runtime contract.
+- Legacy audit: migrated target Views contain no `uiSection`, `uiLabel`, `uiValue`, `datasetName`, `datasetStatus`, `datasetLayerName`, `datasetLayerStatus`, `kindTagRegion`, `kindTagSystem`, `treeText`, or `statePill` display classes. `uiMultiline` remains only as a wrapping/line-limit helper and is not a competing typography/surface authority.
+- Current verification: Engine Build 0W0E; XYUI Build 0W0E; Core 339/339, WarCore 22/22, World 1379/1379, XYUI 558/558, total 2298/2298; Gallery Smoke 3/3; ARCH-A PASS; 5+100 PASS; `git diff --check` PASS.
+- Next boundary: XYUI-1 Engine implementation is technically complete for R1. Further native Button/ToggleButton/ComboBox/TextBox, menu/navigation, dialog, reorderable-list, and unmatched icon work belongs to later XYUI-2/XYUI-3/GAP scopes and is not included in this closeout.
