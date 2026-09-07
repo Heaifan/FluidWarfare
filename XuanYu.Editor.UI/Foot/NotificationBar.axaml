@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.NotificationBar"
              x:DataType="local:UiVm">
   <UserControl.Styles>
@@ -25,14 +26,14 @@
   </UserControl.Styles>
   <Border Classes="notificationBar" IsVisible="{Binding HasNotification}">
     <StackPanel Orientation="Horizontal" Spacing="6">
-      <PathIcon Data="{StaticResource InfoIcon}" IsVisible="{Binding IsNotificationInfo}" Width="14" Height="14" Foreground="{StaticResource Color.Text.Secondary}"/>
-      <PathIcon Data="{StaticResource SuccessIcon}" IsVisible="{Binding IsNotificationSuccess}" Width="14" Height="14" Foreground="{StaticResource Color.Success}"/>
-      <PathIcon Data="{StaticResource WarningIcon}" IsVisible="{Binding IsNotificationWarning}" Width="14" Height="14" Foreground="{StaticResource Color.Warning}"/>
-      <PathIcon Data="{StaticResource ErrorIcon}" IsVisible="{Binding IsNotificationError}" Width="14" Height="14" Foreground="{StaticResource Color.Error}"/>
-      <TextBlock Text="{Binding NotificationText}" Classes="uiSingleLine" ToolTip.Tip="{Binding NotificationText}"/>
-      <TextBlock Text="{Binding NotificationCount, StringFormat=×{0}}" IsVisible="{Binding ShowNotificationCount}" FontWeight="SemiBold"/>
+      <xy:XYIcon Icon="Info" Size="Small" Stroke="{StaticResource Color.Text.Secondary}" IsVisible="{Binding IsNotificationInfo}"/>
+      <xy:XYIcon Icon="Check" Size="Small" Stroke="{StaticResource Color.Success}" IsVisible="{Binding IsNotificationSuccess}"/>
+      <xy:XYIcon Icon="Warning" Size="Small" Stroke="{StaticResource Color.Warning}" IsVisible="{Binding IsNotificationWarning}"/>
+      <xy:XYIcon Icon="Error" Size="Small" Stroke="{StaticResource Color.Error}" IsVisible="{Binding IsNotificationError}"/>
+      <xy:XYTruncatedText Text="{Binding NotificationText}" Mode="End" ToolTip.Tip="{Binding NotificationText}"/>
+      <xy:XYBadge Text="{Binding NotificationCount, StringFormat=×{0}}" IsVisible="{Binding ShowNotificationCount}"/>
       <Button Classes="notificationClose" Click="Dismiss_Click" ToolTip.Tip="关闭通知" VerticalAlignment="Center">
-        <PathIcon Data="{StaticResource CloseIcon}" Width="10" Height="10"/>
+        <xy:XYIcon Icon="Clear" Size="Tiny"/>
       </Button>
     </StackPanel>
   </Border>
