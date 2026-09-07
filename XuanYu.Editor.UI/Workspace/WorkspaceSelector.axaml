@@ -12,11 +12,11 @@
     <Style Selector="Button.modeSplitMain"><Setter Property="Padding" Value="10,3"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/><Setter Property="FontSize" Value="13"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
     <Style Selector="MenuItem.modeChevron"><Setter Property="Width" Value="28"/><Setter Property="Height" Value="28"/><Setter Property="Padding" Value="6"/><Setter Property="Background" Value="Transparent"/></Style>
   </UserControl.Styles>
-  <Grid>
-    <xy:XYButton Classes="modeSurface" Variant="Secondary" IsVisible="{Binding IsManageMode}" Content="管理模式" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 进入编辑模式"/>
-    <Border Classes="modeSplit" IsVisible="{Binding IsEditMode}">
+  <StackPanel Orientation="Horizontal" Spacing="4">
+    <xy:XYButton Classes="modeSurface" Variant="Secondary" Content="管理模式" Command="{Binding ToggleEditorModeCommand}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="点击或按 Tab 进入编辑模式"/>
+    <Border Classes="modeSplit">
       <Grid ColumnDefinitions="*,28">
-        <xy:XYButton Classes="modeSplitMain" Variant="Secondary" Content="{Binding CurrentEditorModeText}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 返回管理模式"/>
+        <xy:XYButton Classes="modeSplitMain" Variant="Secondary" Content="{Binding CurrentEditorModeText}" Command="{Binding ToggleEditorModeCommand}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="点击或按 Tab 返回管理模式"/>
         <Menu Grid.Column="1">
           <MenuItem Classes="modeChevron" ToolTip.Tip="切换编辑器">
             <MenuItem.Header><xy:XYIcon Icon="ChevronDown" Width="16" Height="16" Stroke="{StaticResource Color.Text.Primary}" StrokeThickness="1.5"/></MenuItem.Header>
@@ -26,5 +26,5 @@
         </Menu>
       </Grid>
     </Border>
-  </Grid>
+  </StackPanel>
 </UserControl>
