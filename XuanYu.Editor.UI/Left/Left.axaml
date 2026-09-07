@@ -29,10 +29,10 @@
                 <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
                   <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
                   <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="ProjectToggle_Pressed">
-                    <xy:XYIcon Icon="ChevronDown" Size="Small"/>
+                    <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
                   </Border>
                   <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="ProjectToggle_Pressed">
-                    <xy:XYIcon Icon="ChevronRight" Size="Small"/>
+                    <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
                   </Border>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource ProjectIcon}" IsVisible="{Binding IsRoot}"/>
                   <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource FolderIcon}" IsVisible="{Binding IsFolder}"/>
@@ -63,10 +63,10 @@
               <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
                 <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
                 <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="HierarchyToggle_Pressed">
-                  <xy:XYIcon Icon="ChevronDown" Size="Small"/>
+                  <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
                 </Border>
                 <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="HierarchyToggle_Pressed">
-                  <xy:XYIcon Icon="ChevronRight" Size="Small"/>
+                  <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
                 </Border>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource WorldIcon}" IsVisible="{Binding IsRoot}"/>
                 <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource CameraIcon}" IsVisible="{Binding IsCamera}"/>
