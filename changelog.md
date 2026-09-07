@@ -1,5 +1,16 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-M1/C · Controlled Integration + Runtime Theme Wiring（2026-09-07）
+
+- 合流：从 `93893f8a` 依次合入 R1-A `012ba16d` 与 R1-B `5c3b3024`；R1-B 使用普通 `--no-ff` 受控 merge，集成提交为 `29d53c70`，未 rebase、squash 或改写历史。
+- Theme 接入：`XuanYu.Editor.UI/Bootstrap/App.axaml.cs` 复用最新 Runtime 公开 API，注册 `XyuiTheme`、`XyuiVectorIcons`、`XyuiTextStyles`、`XyuiShapeStyles`、`XyuiInteractionStyles`、`XyuiControlStyles`、`XyuiComponentStyles`；未新增 `XYUIBootstrap`，未引用 Gallery。
+- Authority：`LayerInspectorPanel.axaml` 删除会覆盖 `XYLabel` / `XYText` / `XYSelectableText` 的旧 `uiLabel` / `uiValue` 类；Button/TextBox 业务交互保持不变。
+- Smoke：`XuanYu.World.Tests` UI Runtime 定向 Smoke `80/80 PASS`；两个 R1 分支均已验证为集成提交祖先。
+- 验证：Engine Build 与 XYUI Build 均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1374/1374、XYUI 558/558，合计 2293/2293 PASS；UI Runtime Smoke 80/80 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- 修正：两项旧 LayerInspector 源码合同测试改为锁定 XYUI 类型存在且 Legacy `uiLabel/uiValue` 不再覆盖 Runtime 视觉；未弱化业务断言。
+- Hash：本轮最终提交由 Git 记录确认。
+- 状态：`R1-M1 MERGED / R1-C TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE`。
+
 ## XYUI-ENGINE-A-R1-A · Governance / Migration Matrix Audit（2026-09-07 11:37:39 +08:00）
 
 - 目标：在统一基线 `93893f8a` 上完成 Engine UI 接入审计、XYUI-1~3 Migration Matrix、Legacy/Duplicate Style Inventory 与 Agent-B ownership freeze。

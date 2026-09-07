@@ -16,10 +16,10 @@
 | `Editor.Win` → Gallery | No Gallery project reference | Valid; keep |
 | Root solution | Includes latest Runtime, Gallery, and Tests under `xyui/avalonia` | Valid; keep |
 | `XYUIBootstrap.Create()` | Not found in the current Runtime or Engine | GAP; do not invent a second bootstrap |
-| Engine XYUI AXAML namespace | No `using:XYUI.Avalonia.Controls` or `xmlns:xy` consumer yet | Migration prerequisite |
-| App theme/resource loading | `App.axaml` loads `FluentTheme` and `Editor.UI/Ui.axaml`; it does not load `XyuiTheme` or `XyuiComponentStyles` | GAP; resolve before first live XYUI view |
+| Engine XYUI AXAML namespace | R1-B views use `xmlns:xy="using:XYUI.Avalonia.Controls"` | Three-view migration is active |
+| App theme/resource loading | `App.axaml` keeps `FluentTheme` and `Editor.UI/Ui.axaml`; `App.Initialize()` now registers the Runtime's `XyuiTheme`, vector resources, and all public XYUI style factories | Wired through the latest Runtime API |
 
-The reference boundary is present, but the Engine has not started consuming XYUI controls. This is an integration readiness state, not proof that visual migration is complete.
+The reference boundary and Runtime style wiring are present; only the first three views consume XYUI controls. This is an integration readiness state, not proof that visual migration is complete.
 
 ## T2 · Runtime, Theme, and Reference baseline
 
@@ -31,7 +31,7 @@ The reference boundary is present, but the Engine has not started consuming XYUI
 | XYUI-3 public family | 24 components, including Menu, ContextMenu, Tabs, TabBar, DockTabs, NavigationMenu, Sidebar, and NavigationRail |
 | Gallery dependency from Engine | None |
 | Old embedded `XYUI/**` subtree | 34 tracked files; no current solution/project reference |
-| Duplicate Runtime/style rule | Do not copy the old subtree or Gallery styles into Engine; migrate through the latest Runtime reference |
+| Duplicate Runtime/style rule | Do not copy the old subtree or Gallery styles into Engine; Engine now calls the same public Runtime factories used by Gallery |
 
 ## T3 · Engine UI inventory
 
@@ -121,4 +121,4 @@ Codex must not modify those three AXAML views during R1-A. `XuanYu.Editor.UI/Rig
 
 ## Audit status
 
-`T1` through `T6`: COMPLETE. No Engine View or XYUI Runtime source was modified by this audit. Final gates: Engine/XYUI Build 0W0E, 2293/2293 tests, ARCH-A and 5+100 PASS, `git diff --check` PASS.
+`T1` through `T6`: COMPLETE. M1 merged R1-A (`012ba16d`) and R1-B (`5c3b3024`) into integration merge `29d53c70`; both are ancestors. R1-C wired the real Runtime theme/style factories and removed legacy visual classes from `LayerInspectorPanel`. UI Runtime Smoke `80/80` PASS; final Engine/XYUI Build 0W0E, 2293/2293 tests, ARCH-A, 5+100 and `git diff --check` PASS.

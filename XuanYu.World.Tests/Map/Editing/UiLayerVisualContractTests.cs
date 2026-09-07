@@ -63,7 +63,9 @@ public sealed class UiLayerVisualContractTests
     [Fact]
     public void V06_inspector_field_font_below_tab_font()
     {
-        Assert.Contains("uiLabel", Inspector);            // D4-F1：字段标签走公共 Label 12
-        Assert.Contains("uiValue", Inspector);            // D4-F1：字段值走公共 Body 13
+        Assert.Contains("<xy:XYLabel", Inspector);        // R1-C：字段标签由 XYUI Runtime 提供视觉
+        Assert.Contains("<xy:XYText", Inspector);         // R1-C：字段值由 XYUI Runtime 提供视觉
+        Assert.DoesNotContain("Classes=\"uiLabel\"", Inspector);
+        Assert.DoesNotContain("Classes=\"uiValue\"", Inspector);
     }
 }
