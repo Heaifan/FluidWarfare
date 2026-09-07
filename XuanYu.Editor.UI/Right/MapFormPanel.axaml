@@ -12,13 +12,13 @@
          失焦触发单字段校验；FirstInvalidField 变化自动聚焦第一处错误。 -->
     <Grid x:Name="PropsWide" ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="4">
       <xy:XYLabel Text="宽度（米）"/>
-      <TextBox x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
+      <xy:XYTextField x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
                Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图宽度"/>
       <xy:XYLabel Grid.Row="1" Text="深度（米）"/>
-      <TextBox x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
+      <xy:XYTextField x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
                Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图深度"/>
       <xy:XYLabel Grid.Row="2" Text="基础高度（米）"/>
-      <TextBox x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
+      <xy:XYTextField x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
                Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus" AutomationProperties.Name="基础高度"/>
       <xy:XYLabel Grid.Row="3" Text="地表类型"/>
       <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）"/>
@@ -27,17 +27,17 @@
     <StackPanel x:Name="PropsNarrow" Spacing="6" IsVisible="False">
       <StackPanel Spacing="2">
         <xy:XYLabel Text="宽度（米）"/>
-        <TextBox x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}"
+        <xy:XYTextField x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}"
                  Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图宽度"/>
       </StackPanel>
       <StackPanel Spacing="2">
         <xy:XYLabel Text="深度（米）"/>
-        <TextBox x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}"
+        <xy:XYTextField x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}"
                  Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图深度"/>
       </StackPanel>
       <StackPanel Spacing="2">
         <xy:XYLabel Text="基础高度（米）"/>
-        <TextBox x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}"
+        <xy:XYTextField x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}"
                  Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus" AutomationProperties.Name="基础高度"/>
       </StackPanel>
       <StackPanel Spacing="2">
@@ -48,11 +48,11 @@
     <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
     <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
           ColumnSpacing="6" RowSpacing="6" Margin="0,6,0,0">
-      <Button Classes="uiTextButton" Grid.ColumnSpan="2" Content="应用修改"
+      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.ColumnSpan="2" Content="应用修改"
               Command="{Binding RunCommand}" CommandParameter="应用地图属性" AutomationProperties.Name="应用地图属性"/>
-      <Button Classes="uiTextButton" Grid.Row="1" Content="撤销地图修改"
+      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1" Content="撤销地图修改"
               Command="{Binding RunCommand}" CommandParameter="撤销地图修改" IsEnabled="{Binding CanUndo}" AutomationProperties.Name="撤销地图修改"/>
-      <Button Classes="uiTextButton" Grid.Row="1" Grid.Column="1" Content="重做地图修改"
+      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1" Grid.Column="1" Content="重做地图修改"
               Command="{Binding RunCommand}" CommandParameter="重做地图修改" IsEnabled="{Binding CanRedo}" AutomationProperties.Name="重做地图修改"/>
     </Grid>
     <!-- 表单错误反馈（D5：非仅颜色——图标 + 文字 + 输入框错误边框；FormErrorSummary 汇总行） -->
