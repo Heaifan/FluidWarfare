@@ -1072,10 +1072,13 @@
 - `XuanYu.World.Tests/UiRuntime/ScaleIndicatorVisibilityRuntimeTests.cs` - C# implementation source for ScaleIndicatorVisibilityRuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiHeadlessFixture.cs` - C# implementation source for UiHeadlessFixture.cs.
 - `XuanYu.World.Tests/UiRuntime/UiR1VisualContractTests.cs` - C# implementation source for UiR1VisualContractTests.cs.
+- `XuanYu.World.Tests/UiRuntime/UiR1VisualFixContractTests.cs` - C# implementation source for UiR1VisualFixContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` - C# implementation source for UiRuntimeCollection.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` - C# implementation source for UiRuntimeRiskTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` - C# implementation source for UiRuntimeTestHost.cs.
 - `XuanYu.World.Tests/UiRuntime/UiTestAppBuilder.cs` - C# implementation source for UiTestAppBuilder.cs.
+- `XuanYu.World.Tests/UiRuntime/WorkspaceSelectorR2ContractTests.cs` - C# implementation source for WorkspaceSelectorR2ContractTests.cs.
+- `XuanYu.World.Tests/UiRuntime/XYUI2R2BContractTests.cs` - C# implementation source for XYUI2R2BContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` - C# implementation source for LayerAUiCompositionTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` - C# implementation source for UiCsColorRulesTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` - C# implementation source for UiD2F1RegionToolActivationContractTests.cs.

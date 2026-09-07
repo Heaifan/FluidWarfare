@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-R2-B · Buttons & Inputs visible migration（2026-09-07 18:27:45 +08:00）
+
+- 合流：以 R2-A 验收基线 `1d6e8ab2` 为共同基线，受控合入 Left `53efea66` 与 Right/Contract `fe55ea30`，生成集成提交 `9987e00e`、`4c40cb49`；未修改 Canonical 工作区。
+- 迁移：Left 项目搜索使用真实 `XYSearchField`；地图、区域、道路、标记操作使用 `XYButton`/`XYToggleButton`。Right Inspector、地图、数据集、图层操作使用真实 `XYButton`、`XYIconButton`、`XYTextField`、`XYSelect`、`XYToggleButton`，保留既有 Binding、Command 与事件语义。
+- GAP：MapForm 数值字段暂用 `XYTextField`，因为现有 VM 为字符串 Binding 且依赖 `TextBox`/`LostFocus`；本轮不改 VM，不冒险引入 `XYNumberField`。
+- 契约：新增 `XYUI2R2BContractTests`，并纳入 R1/R2-A 回归；定向测试 10/10 PASS。完整解决方案 Build 0 Warning / 0 Error；ARCH-A PASS；`git diff --check` PASS。
+- 状态：`R2-B TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE`；仍须通过唯一入口 `E:\MyDoc\project-VSCode\XuanYuEngine\run.bat` 做真机视觉与交互验收。
+
 ## XYUI-ENGINE-A-R1-VISUAL-FIX · SectionTitle visual authority closeout（2026-09-07 14:39:05 +08:00）
 
 - Gemini handoff：`194cb923` 已提交并 push 到 `feat/XYUI-ENGINE-A-R1-VISUAL-FIX`，修改 Engine Debug 页面，移除四组 `XYSeparator Variant="Section"`，避免通用 Divider 夺取 `XYSectionTitle` Soft Header 的视觉层级。
