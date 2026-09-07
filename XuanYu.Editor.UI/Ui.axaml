@@ -34,7 +34,7 @@
     <Setter Property="Background" Value="#e8eef7"/>
     <Setter Property="Padding" Value="10,5"/>
   </Style>
-  <Style Selector="Button">
+  <Style Selector="Button.legacyButton">
     <Setter Property="MinWidth" Value="52"/>
     <Setter Property="Padding" Value="10,7"/>
     <Setter Property="Margin" Value="0,0,6,0"/>

@@ -44,7 +44,7 @@ public partial class UiWin
             {
                 Content = text,
                 MinWidth = 0,
-                Classes = { danger ? "uiDanger" : "uiTextButton" }
+                Classes = { "legacyButton", danger ? "uiDanger" : "uiTextButton" }
             };
             button.Click += (_, _) => CompleteDialog(value);
             DialogButtons.Children.Add(button);

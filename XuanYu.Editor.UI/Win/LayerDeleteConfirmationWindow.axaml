@@ -11,8 +11,8 @@
       <TextBlock x:Name="Message" TextWrapping="Wrap"/>
       <TextBlock Text="此操作不可撤销。" TextWrapping="Wrap"/>
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
-        <Button x:Name="CancelButton" Content="取消" Click="Cancel_Click"/>
-        <Button x:Name="ActionButton" Content="删除" Click="Delete_Click" Classes="uiDanger"/>
+        <Button x:Name="CancelButton" Classes="legacyButton" Content="取消" Click="Cancel_Click"/>
+        <Button x:Name="ActionButton" Classes="legacyButton uiDanger" Content="删除" Click="Delete_Click"/>
       </StackPanel>
     </StackPanel>
   </Border>

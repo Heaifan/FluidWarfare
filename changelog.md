@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-F0 · XYUI visual authority blocker（2026-09-08 00:49:36 +08:00）
+
+- 实装：将旧 Avalonia 全局 `Button` 样式收窄为显式 `Button.legacyButton`，为全部原生按钮及动态对话框按钮补齐 legacy 范围；XYButton/XYToggleButton 不再被全局按钮视觉规则覆盖。
+- Area A：合入 Presentation Agent `b261fcbc`、`6e9f004a`；保留 `topCommand`/`topTool` 语义类，移除局部背景、边框、圆角和状态视觉覆盖，ChevronDown 改为真实 XYIcon；native Menu 暂保留，XYUI 菜单 API 无法无损承载现有 Avalonia Command/CommandParameter/Radio 绑定，记为菜单能力缺口。
+- 契约：新增 XYUI visual authority runtime/source contract；F0/Area A/D5 定向契约 `12/12 PASS`。
+- 验证：Solution build `0 Warning / 0 Error`；Core `339/339`；WarCore `22/22`；XYUI `558/558`；World `1398/1402`，4 项为既有基线失败；ARCH-A、`git diff --check` PASS。
+- 状态：`F0 TECHNICAL PASS / AREA A READY FOR USER VISUAL ACCEPTANCE`；Single-Workspace contract 仍未关闭，未宣称用户真机验收通过。
+
 ## XYUI-ENGINE-A-AREA-A · Top chrome semantic class closeout（2026-09-08 00:16:06 +08:00）
 
 - 合流：Presentation Agent 提交 `ac872445`、`332dc408` 与 Codex 合约提交合入 `codex/area-a-integration`，最终提交 `d4f06125`；未修改 Canonical 脏工作区。

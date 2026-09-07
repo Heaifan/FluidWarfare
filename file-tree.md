@@ -1046,6 +1046,7 @@
 - `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` - C# implementation source for UiTreeGuideTests.cs.
 - `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
 - `XuanYu.World.Tests/UiRuntime/AreaATopChromeContractTests.cs` - C# contract tests for Area A top chrome and workspace selector semantics.
+- `XuanYu.World.Tests/UiRuntime/XYUIVisualAuthorityContractTests.cs` - C# source/runtime contract tests for XYUI visual authority and legacy native button scoping.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.

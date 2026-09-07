@@ -23,10 +23,10 @@ public sealed class UiD5ButtonContractTests
     [Fact]
     public void Button_has_full_state_set()
     {
-        Assert.Contains("<Style Selector=\"Button:pointerover\">", D5);
-        Assert.Contains("<Style Selector=\"Button:pressed\">", D5);
-        Assert.Contains("<Style Selector=\"Button:focus-visible\">", D5);
-        Assert.Contains("<Style Selector=\"Button:disabled\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyButton:pointerover\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyButton:pressed\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyButton:focus-visible\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyButton:disabled\">", D5);
     }
 
     [Fact]
@@ -42,7 +42,7 @@ public sealed class UiD5ButtonContractTests
     [Fact]
     public void Danger_button_uses_danger_token()
     {
-        Assert.Contains("<Style Selector=\"Button.uiDanger\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyButton.uiDanger\">", D5);
         Assert.Contains("Color.Danger", D5);
     }
 
