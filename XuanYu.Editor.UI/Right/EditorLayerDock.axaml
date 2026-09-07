@@ -11,7 +11,7 @@
     <Border Classes="layerDockHeader">
       <Grid ColumnDefinitions="*,Auto">
         <xy:XYSectionTitle Text="{Binding CurrentLayerEmptyTitle}" VerticalAlignment="Center"/>
-        <Button x:Name="CollapseButton" Grid.Column="1" Content="收起" Click="CollapseButton_Click" Classes="uiTextButton" Padding="8,2" MinHeight="24"/>
+        <xy:XYButton x:Name="CollapseButton" Grid.Column="1" Content="收起" Click="CollapseButton_Click" Classes="uiTextButton" Variant="Secondary" Padding="8,2" MinHeight="24"/>
       </Grid>
     </Border>
     <Grid x:Name="LayerContent" Grid.Row="1">

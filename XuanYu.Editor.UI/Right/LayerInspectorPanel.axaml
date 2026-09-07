@@ -10,7 +10,7 @@
     <xy:XYSeparator Variant="Section"/>
     <Grid ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="4">
       <xy:XYLabel Text="名称"/>
-      <TextBox Grid.Column="1" Text="{Binding LayerInspectorNameText, Mode=TwoWay}"
+      <xy:XYTextField Grid.Column="1" Text="{Binding LayerInspectorNameText, Mode=TwoWay}"
                IsReadOnly="{Binding LayerInspectorIsSystem}"
                LostFocus="NameBox_LostFocus" KeyDown="NameBox_KeyDown"/>
       <xy:XYLabel Grid.Row="1" Text="类型"/>
@@ -20,7 +20,7 @@
       <xy:XYLabel Grid.Row="3" Text="图层 ID"/>
       <xy:XYSelectableText Grid.Row="3" Grid.Column="1" Text="{Binding LayerInspectorIdText}" Variant="Technical" ToolTip.Tip="{Binding LayerInspectorIdText}"/>
     </Grid>
-    <Button Content="设为当前图层" Command="{Binding RunCommand}" CommandParameter="设为当前图层"
+    <xy:XYButton Variant="Secondary" Content="设为当前图层" Command="{Binding RunCommand}" CommandParameter="设为当前图层"
             HorizontalAlignment="Left" IsVisible="{Binding LayerInspectorIsRegion}" Margin="0,4,0,0"/>
   </StackPanel>
 </UserControl>

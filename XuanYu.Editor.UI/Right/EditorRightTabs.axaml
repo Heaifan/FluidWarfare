@@ -59,10 +59,10 @@
               <xy:XYText Grid.Row="2" Grid.Column="1" Text="{Binding InteractionPreview}" ToolTip.Tip="{Binding InteractionPreview}"/>
             </Grid>
             <UniformGrid Columns="4" ColumnSpacing="6" RowSpacing="6">
-              <Button Classes="uiTextButton" Content="开始" Command="{Binding InteractionCommand}" CommandParameter="Begin"/>
-              <Button Classes="uiTextButton" Content="预览" Command="{Binding InteractionCommand}" CommandParameter="Preview"/>
-              <Button Classes="uiTextButton" Content="提交" Command="{Binding InteractionCommand}" CommandParameter="Commit"/>
-              <Button Classes="uiTextButton" Content="取消" Command="{Binding InteractionCommand}" CommandParameter="Cancel"/>
+              <xy:XYButton Classes="uiTextButton" Variant="Secondary" Content="开始" Command="{Binding InteractionCommand}" CommandParameter="Begin"/>
+              <xy:XYButton Classes="uiTextButton" Variant="Secondary" Content="预览" Command="{Binding InteractionCommand}" CommandParameter="Preview"/>
+              <xy:XYButton Classes="uiTextButton" Variant="Secondary" Content="提交" Command="{Binding InteractionCommand}" CommandParameter="Commit"/>
+              <xy:XYButton Classes="uiTextButton" Variant="Secondary" Content="取消" Command="{Binding InteractionCommand}" CommandParameter="Cancel"/>
             </UniformGrid>
           </StackPanel>
           <StackPanel Spacing="4">
