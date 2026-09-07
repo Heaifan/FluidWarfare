@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-AREA-A · Top chrome semantic class closeout（2026-09-08 00:16:06 +08:00）
+
+- 合流：Presentation Agent 提交 `ac872445`、`332dc408` 与 Codex 合约提交合入 `codex/area-a-integration`，最终提交 `d4f06125`；未修改 Canonical 脏工作区。
+- 实装：Top Row 1/Row 2 与 WorkspaceSelector 保留现有 XYUI 控件、命令绑定、环境菜单、双工作区入口和状态 Badge；旧 `cmdBtn`、`toolBtn`、`modeSurface` 等类替换为 `topCommand`、`topTool`、`workspaceMode` 语义类，并使用 XYUI Compact attached properties。
+- 契约：新增 Area A Top Chrome 合约；同步 R1/R2 与 UI debt baseline 到语义类，未放宽断言。
+- 验证：Area A `3/3 PASS`；Core `339/339`；WarCore `22/22`；XYUI `558/558`；World `1394/1398`，4 项为既有基线失败（Map form、Editor mode visibility、Top checked-tool text brush、Layer panel brush）；Editor.App、World.Tests build `0 Warning / 0 Error`；一次完整 Solution build `0 Warning / 0 Error`；ARCH-A、`git diff --check` PASS。
+- 状态：`AREA A TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE`；尚未宣称用户真机验收通过。
+
 ## XYUI-ENGINE-A-R2-B-FIXUP-02 · Property Grid single-line recovery（2026-09-07 20:17:07 +08:00）
 
 - 视觉修复：`MapFormPanel` 移除会在侧栏窄于 360 DIP 时切换的 `PropsNarrow`，地图属性固定为 `96,*` 单行 Property Grid；标签、输入框与只读值垂直居中。
