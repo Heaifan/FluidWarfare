@@ -23,7 +23,7 @@ public static partial class XyuiComponentStyles
         var section = new Style(x => x.OfType<XYSectionTitle>().Class("xyui-section-title"));
         Brush(section, Border.BackgroundProperty, XyuiSectionTitleResources.HeaderBackgroundKey);
         section.Setters.Add(new Setter(Border.HeightProperty, 28d));
-        section.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3)));
+        section.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(0)));
         section.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(0)));
         section.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(0))); styles.Add(section);
         var mark = new Style(x => x.OfType<Border>().Class("xyui-section-title-left-mark"));
