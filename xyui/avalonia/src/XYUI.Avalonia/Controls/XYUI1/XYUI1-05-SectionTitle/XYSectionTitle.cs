@@ -21,7 +21,6 @@ public sealed class XYSectionTitle : XyuiTextSurface
             Classes = { "xyui-section-title-left-mark" },
             Width = 3,
             Height = 16,
-            CornerRadius = new CornerRadius(1.5),
             VerticalAlignment = global::Avalonia.Layout.VerticalAlignment.Center,
         };
         TextPresenter.VerticalAlignment = global::Avalonia.Layout.VerticalAlignment.Center;

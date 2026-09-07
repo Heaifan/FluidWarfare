@@ -11,14 +11,14 @@ public static class XyuiSectionTitleResources
     public const string TextKey = "XY.SectionTitle.Brush.Text";
 
     public static IReadOnlyList<string> CanonicalLightHexValues =>
-        ["#EEF3F6", "#356C99", "#243744"];
+        ["#EEF3F6", "#526873", "#243744"];
 
     public static ResourceDictionary Create(bool dark)
     {
         var resources = new ResourceDictionary
         {
             [HeaderBackgroundKey] = Brush(dark, "#EEF3F6", "XY.Surface.PanelAlt"),
-            [LeftMarkKey] = Brush(dark, "#356C99", "XY.Accent.Strong"),
+            [LeftMarkKey] = Brush(dark, "#526873", "XY.Text.Secondary"),
             [TextKey] = Brush(dark, "#243744", "XY.Text.Primary"),
         };
         return resources;

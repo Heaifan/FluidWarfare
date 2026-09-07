@@ -1071,6 +1071,7 @@
 - `XuanYu.World.Tests/UiRuntime/RoadVertexSelectionD1Tests.cs` - C# implementation source for RoadVertexSelectionD1Tests.cs.
 - `XuanYu.World.Tests/UiRuntime/ScaleIndicatorVisibilityRuntimeTests.cs` - C# implementation source for ScaleIndicatorVisibilityRuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiHeadlessFixture.cs` - C# implementation source for UiHeadlessFixture.cs.
+- `XuanYu.World.Tests/UiRuntime/UiR1VisualContractTests.cs` - C# implementation source for UiR1VisualContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` - C# implementation source for UiRuntimeCollection.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` - C# implementation source for UiRuntimeRiskTests.cs.
 - `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` - C# implementation source for UiRuntimeTestHost.cs.

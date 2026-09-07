@@ -1,5 +1,14 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-VISUAL-FIX · SectionTitle visual authority closeout（2026-09-07 14:39:05 +08:00）
+
+- Gemini handoff：`194cb923` 已提交并 push 到 `feat/XYUI-ENGINE-A-R1-VISUAL-FIX`，修改 Engine Debug 页面，移除四组 `XYSeparator Variant="Section"`，避免通用 Divider 夺取 `XYSectionTitle` Soft Header 的视觉层级。
+- 根因：Canonical `XYSectionTitle` 与 Engine Theme Resource 链本身有效；Engine 页面在真实区块标题后重复放置 Section Divider，导致 Accent Bar 与 Soft Header 语义在真机上不突出。未发现 Legacy Selector 覆盖 `XYSectionTitle` 的证据。
+- Canonical：冻结标准保持不变：Header `28 DIP`、Left Mark `3 × 16 DIP`、`#526873`、文字 `14/600/18`、背景 `#EEF3F6`、圆角 `3 DIP`；Gemini 临时改动的 Accent 色和额外 Mark 圆角已按 Canonical 证据回退。
+- Contract：新增 `UiR1VisualContractTests`，验证 Engine `EditorRightTabs` 中四个真实 `XYSectionTitle` 的 Visual、尺寸、颜色、Typography、文本、无重复 Separator；并覆盖 Heading、Label、Badge、StatusBadge、ErrorText 代表性样式。
+- 验证：Engine Build 0 警告 / 0 错误；XYUI Build 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1381/1381、XYUI 558/558；Visual Contract 2/2；Gallery Smoke 3/3；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- 状态：`R1-VISUAL-FIX TECHNICAL CLOSEOUT PASS / READY FOR USER ACCEPTANCE`。
+
 ## XYUI-ENGINE-A-R1-CLOSEOUT · FINAL-A + FINAL-B Controlled Merge（2026-09-07 13:50:40 +08:00）
 
 - 合流：以统一母线 `cbbc52b0` 为基线，按顺序使用受控 `--no-ff` merge 合入 FINAL-A `861340aa` 与 FINAL-B `ab92fac7`，生成 `47a43188`、`a2869ef7`；无冲突，未 rebase、squash、reset、force push 或改写历史。
