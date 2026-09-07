@@ -13,7 +13,7 @@
       <xy:XYCaption Text="{Binding RegionDrawingTargetStatus}" TextWrapping="Wrap"/>
       <xy:XYSeparator Variant="Section"/>
       <xy:XYSectionTitle Text="绘制"/>
-      <Button Content="绘制区域" Click="RegionDrawing_Click" IsEnabled="{Binding CanRequestRegionDrawing}" AutomationProperties.Name="绘制区域"/>
+      <xy:XYButton Content="绘制区域" Click="RegionDrawing_Click" IsEnabled="{Binding CanRequestRegionDrawing}" AutomationProperties.Name="绘制区域"/>
       <xy:XYSectionTitle Text="草稿"/>
       <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" RowSpacing="4">
         <xy:XYLabel Text="顶点"/>
@@ -22,10 +22,10 @@
         <xy:XYText Grid.Row="1" Grid.Column="1" Text="{Binding RegionDrawingDraftStatus}"/>
       </Grid>
       <UniformGrid Columns="2" ColumnSpacing="6" RowSpacing="6">
-        <Button Content="撤销顶点" Click="UndoRegionDrawingVertex_Click" IsEnabled="{Binding CanUndoRegionDrawingVertex}"/>
-        <Button Content="重做顶点" Click="RedoRegionDrawingVertex_Click" IsEnabled="{Binding CanRedoRegionDrawingVertex}"/>
-        <Button Content="完成区域" Click="CompleteRegionDrawing_Click" IsEnabled="{Binding CanCompleteRegionDrawing}"/>
-        <Button Content="取消绘制" Click="CancelRegionDrawing_Click" IsEnabled="{Binding CanCancelRegionDrawing}"/>
+        <xy:XYButton Content="撤销顶点" Click="UndoRegionDrawingVertex_Click" IsEnabled="{Binding CanUndoRegionDrawingVertex}"/>
+        <xy:XYButton Content="重做顶点" Click="RedoRegionDrawingVertex_Click" IsEnabled="{Binding CanRedoRegionDrawingVertex}"/>
+        <xy:XYButton Content="完成区域" Click="CompleteRegionDrawing_Click" IsEnabled="{Binding CanCompleteRegionDrawing}"/>
+        <xy:XYButton Content="取消绘制" Click="CancelRegionDrawing_Click" IsEnabled="{Binding CanCancelRegionDrawing}"/>
       </UniformGrid>
       <xy:XYSeparator Variant="Section"/>
       <xy:XYSectionTitle Text="区域内容"/>
