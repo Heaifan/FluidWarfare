@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-R2-B-FIXUP · Property Editor compact density（2026-09-07 19:29:57 +08:00）
+
+- 视觉修复：`MapFormPanel` 的 6 个 XYUI 输入字段统一使用现有 Compact Token，固定为 `128 × 24 DIP`、右对齐、Compact Padding；属性行与窄模式间距统一收敛到 `Space.2` / `Space.4`。
+- 操作修复：应用、撤销、重做继续使用 `XYButton` 与原有 Command，统一为 `96 × 24 DIP`、左对齐、Compact Padding，移除整栏 Stretch 视觉；未修改 VM、字符串 Binding、LostFocus、校验和 Undo/Redo 语义。
+- 契约：新增 `R2BPropertyEditorVisualContractTests`，同时更新 D4 Map Editor 布局契约以锁定正式 Compact Token；运行时几何断言覆盖 6 字段与 3 按钮。
+- 验证：Property/R1/R2-A/R2-B/D4/D5 定向契约 33/33 PASS；完整解决方案 Build 0 Warning / 0 Error；ARCH-A PASS；`git diff --check` PASS。
+- 状态：`R2-B VISUAL FIX TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE`；尚未判定用户真机验收通过。
+
 ## XYUI-ENGINE-A-R2-B · Final Left SHA reconciliation（2026-09-07 18:57:04 +08:00）
 
 - 事实核验：远端 `origin/feat/XYUI-ENGINE-A-R2-B-G` 当前为 Gemini `1212f30b1bd6937bab4cf76f6eb917414285a042`；`1212f30b` 不在旧 Acceptance `7edf8fdb` 中，旧 Left `53efea66` 与 `1212f30b` 互不为祖先关系。

@@ -1055,6 +1055,7 @@
 - `XuanYu.World.Tests/UiRuntime/MapVectorOverlayAnchorContractTests.cs` - C# implementation source for MapVectorOverlayAnchorContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/MapVectorOverlayDepthPolicyTests.cs` - C# implementation source for MapVectorOverlayDepthPolicyTests.cs.
 - `XuanYu.World.Tests/UiRuntime/MapVectorOverlayV1Tests.cs` - C# implementation source for MapVectorOverlayV1Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/R2BPropertyEditorVisualContractTests.cs` - C# implementation source for R2BPropertyEditorVisualContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ActivationRuntimeTests.cs` - C# implementation source for RegionDrawingF1ActivationRuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/RegionDrawingF1BTests.cs` - C# implementation source for RegionDrawingF1BTests.cs.
 - `XuanYu.World.Tests/UiRuntime/RegionDrawingF1CStabilityTests.cs` - C# implementation source for RegionDrawingF1CStabilityTests.cs.
