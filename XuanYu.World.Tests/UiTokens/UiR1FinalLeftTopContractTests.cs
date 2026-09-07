@@ -62,7 +62,7 @@ public sealed class UiR1FinalLeftTopContractTests
         Assert.Contains("<xy:XYSeparator Variant=\"VerticalSplit\"", top);
         Assert.DoesNotContain("statePill", top);
         Assert.Contains("<Menu>", top);
-        Assert.Contains("Classes=\"cmdBtn\"", top);
-        Assert.Contains("Classes=\"toolBtn\"", top);
+        Assert.Contains("Classes=\"topCommand\"", top);
+        Assert.Contains("Classes=\"topTool\"", top);
     }
 }

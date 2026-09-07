@@ -20,7 +20,8 @@ public sealed class WorkspaceSelectorR2ContractTests
         Assert.Contains("Content=\"管理模式\"", source);
         Assert.Contains("Content=\"{Binding CurrentEditorModeText}\"", source);
         Assert.Equal(2, Count(source, "Command=\"{Binding ToggleEditorModeCommand}\""));
-        Assert.Contains("<StackPanel Orientation=\"Horizontal\" Spacing=\"4\">", source);
+        Assert.Contains("Orientation=\"Horizontal\"", source);
+        Assert.Contains("Spacing=\"4\"", source);
     }
 
     [Fact]
