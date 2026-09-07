@@ -15,10 +15,12 @@ public sealed class UiD4InspectorContractTests
     [Fact]
     public void Inspector_fonts_reference_formal_tokens()
     {
-        Assert.Contains("Font.Title.Size", Panel);      // 面板标题（对象名）→ Title 16
-        Assert.Contains("Font.Section.Size", Panel);    // 空状态标题 → Section 14
-        Assert.Contains("Classes=\"uiLabel\"", Panel);  // 字段标签 → 公共 Label 12
-        Assert.Contains("Classes=\"uiValue\"", Panel);  // 字段值 → 公共 Body 13
+        Assert.Contains("<xy:XYHeading", Panel);        // 面板标题（对象名）→ XYUI-1 Heading
+        Assert.Contains("<xy:XYSectionTitle", Panel);  // 语义分组标题 → XYUI-1 SectionTitle
+        Assert.Contains("<xy:XYLabel", Panel);         // 字段标签 → XYUI-1 Label
+        Assert.Contains("<xy:XYText", Panel);          // 字段值 → XYUI-1 Text
+        Assert.DoesNotContain("Classes=\"uiLabel\"", Panel);
+        Assert.DoesNotContain("Classes=\"uiValue\"", Panel);
     }
 
     [Fact]
@@ -44,8 +46,8 @@ public sealed class UiD4InspectorContractTests
     public void Inspector_group_uses_full_width_header_with_separator()
     {
         Assert.Contains("基础信息", Panel);
-        Assert.Contains("fieldSeparator", Panel);                  // 1 DIP 底部分隔线
-        Assert.Contains("Classes=\"uiSection\"", Panel);           // 公共分组标题
+        Assert.Contains("<xy:XYSeparator Variant=\"Section\"", Panel);
+        Assert.Contains("<xy:XYSectionTitle", Panel);
     }
 
     [Fact]
@@ -60,6 +62,8 @@ public sealed class UiD4InspectorContractTests
     {
         Assert.Contains("未选择对象", Panel);
         Assert.Contains("IsEmptySelection", Panel);
+        Assert.Contains("<xy:XYIcon Icon=\"Empty\"", Panel);
+        Assert.Contains("<xy:XYEmptyText", Panel);
         Assert.Contains("uiMultiline", Panel);                     // 空状态说明为显式多行类
     }
 }

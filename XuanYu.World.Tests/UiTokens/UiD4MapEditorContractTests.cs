@@ -33,11 +33,11 @@ public sealed class UiD4MapEditorContractTests
     [Fact]
     public void Map_id_never_wraps()
     {
-        // MapId 行显式 NoWrap + Ellipsis + MaxLines=1（D4-F1 展示型动态文本默认）
-        Assert.Contains("Text=\"{Binding MapIdDisplay}\"", Page);
-        Assert.Contains("TextWrapping=\"NoWrap\"", Page);
-        Assert.Contains("TextTrimming=\"CharacterEllipsis\"", Page);
-        Assert.Contains("MaxLines=\"1\"", Page);
+        // MapId 使用 XYUI-1-21 Technical，保留技术文本语义并由组件负责展示策略。
+        Assert.Contains("<xy:XYSelectableText Text=\"{Binding MapIdDisplay}\"", Page);
+        Assert.Contains("Variant=\"Technical\"", Page);
+        Assert.DoesNotContain("TextWrapping=\"NoWrap\"", Page);
+        Assert.DoesNotContain("TextTrimming=\"CharacterEllipsis\"", Page);
     }
 
     [Fact]
