@@ -13,7 +13,7 @@ public sealed class UiF3LayerRowContractTests
     {
         Assert.Contains("ColumnDefinitions=\"3,24,Auto,*,28,28\"", Panel);
         Assert.Contains("Grid.Column=\"1\" Classes=\"dragHandle\"", Panel);
-        Assert.Contains("Grid.Column=\"3\" Classes=\"layerName\"", Panel);
+        Assert.Contains("<xy:XYTruncatedText Grid.Column=\"3\"", Panel);
         Assert.Contains("Grid.Column=\"4\" Classes=\"layerSwitch\"", Panel);
         Assert.Contains("Grid.Column=\"5\" Classes=\"layerLockSwitch\"", Panel);
         Assert.Contains("HorizontalContentAlignment\" Value=\"Stretch\"", Panel);
@@ -22,7 +22,7 @@ public sealed class UiF3LayerRowContractTests
     [Fact]
     public void Reorder_hint_is_secondary_help_text()
     {
-        Assert.Contains("Classes=\"layerHint\"", Panel);
+        Assert.Contains("<xy:XYCaption", Panel);
         Assert.Contains("添加至少 2 个用户图层后可拖拽排序", Panel);
     }
 

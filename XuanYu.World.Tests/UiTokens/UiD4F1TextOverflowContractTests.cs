@@ -75,7 +75,7 @@ public sealed class UiD4F1TextOverflowContractTests
     [Fact]
     public void Layer_name_single_line_with_full_tooltip()
     {
-        Assert.Contains("TextWrapping\" Value=\"NoWrap\"", LayerPanel);
+        Assert.Contains("<xy:XYTruncatedText", LayerPanel);
         Assert.Contains("ToolTip.Tip=\"{Binding Name}\"", LayerPanel);
         Assert.Contains("ToolTip.Tip=\"{Binding LayerInspectorKindText}\"", LayerInspector);
     }
@@ -85,6 +85,6 @@ public sealed class UiD4F1TextOverflowContractTests
     {
         Assert.Contains("<Style Selector=\"TextBlock.uiMultiline\">", Ui);
         Assert.Contains("uiMultiline", Inspector);  // 空状态说明
-        Assert.Contains("uiMultiline", MapForm);    // 地图错误详情
+        Assert.Contains("<xy:XYErrorText", MapForm); // 地图错误详情（XYUI-1-16）
     }
 }

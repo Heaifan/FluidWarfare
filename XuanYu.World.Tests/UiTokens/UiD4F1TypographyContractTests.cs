@@ -75,8 +75,8 @@ public sealed class UiD4F1TypographyContractTests
         var mapEditor = Read("Right/MapEditorPanel.axaml");
         Assert.Contains("Font.Section.Size", mapEditor);  // 二级页签 14
         var layerPanel = Read("Right/LayerPanel.axaml");
-        Assert.Contains("Font.Body.Size", layerPanel);    // 图层名 13
-        Assert.Contains("Font.Meta.Size", layerPanel);    // 类型标签 10~11
+        Assert.Contains("<xy:XYTruncatedText", layerPanel); // 图层名 13（XYUI-1-04）
+        Assert.Contains("<xy:XYBadge", layerPanel);         // 类型标签（XYUI-1-09）
     }
 
     [Fact]

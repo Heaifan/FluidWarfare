@@ -23,10 +23,10 @@ public sealed class UiLayerVisualContractTests
     [Fact]
     public void V01_region_and_system_use_distinct_style_classes()
     {
-        Assert.Contains("kindTagRegion", LayerPanel);
-        Assert.Contains("kindTagSystem", LayerPanel);
-        Assert.Contains("Layer.Kind.Region.Bg", LayerPanel);   // D4：正式 Token 引用
-        Assert.Contains("Layer.Kind.System.Bg", LayerPanel);
+        Assert.Contains("<xy:XYBadge Grid.Column=\"2\" Variant=\"Accent\"", LayerPanel);
+        Assert.Contains("<xy:XYBadge Grid.Column=\"2\" Variant=\"Default\" Text=\"系统\"", LayerPanel);
+        Assert.DoesNotContain("kindTagRegion", LayerPanel);
+        Assert.DoesNotContain("kindTagSystem", LayerPanel);
     }
 
     [Fact]

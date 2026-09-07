@@ -6,4 +6,13 @@
     <Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/>
     <Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/>
   </Style>
+  <Style Selector="Button.scrollToBottom">
+    <Setter Property="MinWidth" Value="0"/>
+    <Setter Property="Padding" Value="8,3"/>
+    <Setter Property="Margin" Value="0"/>
+    <Setter Property="Background" Value="{StaticResource Color.Bg.Panel}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Strong}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="3"/>
+  </Style>
 </Styles>
