@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.WorkspaceSelector"
              x:DataType="local:UiVm">
   <UserControl.Resources><ResourceDictionary><ResourceDictionary.MergedDictionaries><ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/></ResourceDictionary.MergedDictionaries></ResourceDictionary></UserControl.Resources>
@@ -12,10 +13,10 @@
     <Style Selector="MenuItem.modeChevron"><Setter Property="Width" Value="28"/><Setter Property="Height" Value="28"/><Setter Property="Padding" Value="6"/><Setter Property="Background" Value="Transparent"/></Style>
   </UserControl.Styles>
   <Grid>
-    <Button Classes="modeSurface" IsVisible="{Binding IsManageMode}" Content="管理模式" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 进入编辑模式"/>
+    <xy:XYButton Classes="modeSurface" Variant="Secondary" IsVisible="{Binding IsManageMode}" Content="管理模式" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 进入编辑模式"/>
     <Border Classes="modeSplit" IsVisible="{Binding IsEditMode}">
       <Grid ColumnDefinitions="*,28">
-        <Button Classes="modeSplitMain" Content="{Binding CurrentEditorModeText}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 返回管理模式"/>
+        <xy:XYButton Classes="modeSplitMain" Variant="Secondary" Content="{Binding CurrentEditorModeText}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="双击或按 Tab 返回管理模式"/>
         <Menu Grid.Column="1">
           <MenuItem Classes="modeChevron" ToolTip.Tip="切换编辑器">
             <MenuItem.Header><Path Data="{StaticResource ChevronDownIcon}" Width="16" Height="16" Stroke="{StaticResource Color.Text.Primary}" StrokeThickness="1.5"/></MenuItem.Header>
