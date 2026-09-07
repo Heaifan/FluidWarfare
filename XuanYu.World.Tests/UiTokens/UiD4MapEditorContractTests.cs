@@ -76,7 +76,7 @@ public sealed class UiD4MapEditorContractTests
     [Fact]
     public void Map_editor_errors_use_error_token()
     {
-        Assert.Contains("Color.Error", Form);                  // W47：错误色 Token
+        Assert.Contains("<xy:XYErrorText", Form);              // W47：错误提示组件化（XYUI-1-16）
         Assert.DoesNotContain("#C0392B", Form);
     }
 

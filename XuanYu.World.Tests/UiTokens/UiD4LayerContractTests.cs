@@ -42,10 +42,8 @@ public sealed class UiD4LayerContractTests
     [Fact]
     public void Kind_tags_reference_layer_tokens_and_keep_text_labels()
     {
-        Assert.Contains("Layer.Kind.Region.Bg", Panel);
-        Assert.Contains("Layer.Kind.Region.Text", Panel);
-        Assert.Contains("Layer.Kind.System.Bg", Panel);
-        Assert.Contains("Layer.Kind.System.Text", Panel);
+        Assert.Contains("<xy:XYBadge Grid.Column=\"2\" Variant=\"Accent\"", Panel);
+        Assert.Contains("<xy:XYBadge Grid.Column=\"2\" Variant=\"Default\"", Panel);
         Assert.Contains("Text=\"{Binding KindTagText}\"", Panel);   // 文字区分（三重之一）
         Assert.Contains("Text=\"系统\"", Panel);
     }

@@ -42,10 +42,9 @@ public sealed class UiD5FormContractTests
     [Fact]
     public void Form_error_feedback_is_not_color_only()
     {
-        // 错误反馈 = 图标 + 文字 + 输入框错误边框（三重表达）
-        Assert.Contains("ErrorIcon", Form);
+        // 错误反馈 = 图标 + 文字 + 输入框错误边框（三重表达，XYErrorText 内置矢量图标 + 语义色）
+        Assert.Contains("<xy:XYErrorText", Form);
         Assert.Contains("IsMapFormError", Form);
-        Assert.Contains("Color.Error", Form);
     }
 
     [Fact]

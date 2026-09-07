@@ -2,42 +2,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
              xmlns:av="using:Avalonia.Controls"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.Foot"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Foot/Foot.States.axaml"/>
     <Style Selector="Button.logSummary"><Setter Property="MinWidth" Value="0"/><Setter Property="Padding" Value="6,2"/><Setter Property="Margin" Value="0"/><Setter Property="HorizontalContentAlignment" Value="Left"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="CornerRadius" Value="4"/></Style>
     <Style Selector="Button.logFilter"><Setter Property="MinWidth" Value="0"/><Setter Property="Padding" Value="8,3"/><Setter Property="Margin" Value="0"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Secondary}"/></Style>
     <Style Selector="Button.logFilter.selected"><Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/><Setter Property="Foreground" Value="{StaticResource Color.Accent}"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
-    <Style Selector="TextBlock.logMono"><Setter Property="FontFamily" Value="Consolas, Microsoft YaHei UI"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
-    <Style Selector="TextBlock.logHead"><Setter Property="FontSize" Value="12"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Secondary}"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
     <Style Selector="ListBox.logList ListBoxItem"><Setter Property="MinHeight" Value="28"/><Setter Property="Padding" Value="0"/><Setter Property="Margin" Value="0,1"/></Style>
     <Style Selector="ListBox.logList ListBoxItem:selected"><Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
-    <!-- ARCH-UI-SPEC-R1-D5：回到底部按钮（紧凑，不遮日志行） -->
-    <Style Selector="Button.scrollToBottom">
-      <Setter Property="MinWidth" Value="0"/>
-      <Setter Property="Padding" Value="8,3"/>
-      <Setter Property="Margin" Value="0"/>
-      <Setter Property="Background" Value="{StaticResource Color.Bg.Panel}"/>
-      <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Strong}"/>
-      <Setter Property="BorderThickness" Value="1"/>
-      <Setter Property="CornerRadius" Value="3"/>
-    </Style>
   </UserControl.Styles>
 
   <Grid RowDefinitions="Auto,*">
     <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="16" MinHeight="28">
       <Button Classes="logSummary" Command="{Binding ToggleLogCommand}" AutomationProperties.Name="展开或折叠日志">
-        <TextBlock Text="{Binding LogSummary}" VerticalAlignment="Center"/>
+        <xy:XYTruncatedText Mode="End" Text="{Binding LogSummary}" VerticalAlignment="Center"/>
       </Button>
-      <TextBlock Grid.Column="1" Text="{Binding FooterMode}" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.Secondary}"/>
+      <xy:XYBadge Grid.Column="1" Text="{Binding FooterMode}" VerticalAlignment="Center"/>
       <local:NotificationBar Grid.Column="2"/>
     </Grid>
 
@@ -50,14 +32,14 @@
           </StackPanel>
           <Border Grid.Column="1" Classes="chrome" Padding="8,4">
             <Grid ColumnDefinitions="18,*">
-              <PathIcon Data="{StaticResource SearchIcon}" Width="14" Height="14" Foreground="{StaticResource Log.Accent.Debug}"/>
-              <TextBlock Grid.Column="1" Text="搜索日志..." Classes="caption" VerticalAlignment="Center"/>
+              <xy:XYIcon Icon="Search" Size="Small" VerticalAlignment="Center"/>
+              <xy:XYCaption Grid.Column="1" Text="搜索日志..." VerticalAlignment="Center"/>
             </Grid>
           </Border>
         </Grid>
 
         <Grid Grid.Row="1" ColumnDefinitions="4,72,56,72,92,*,82" ColumnSpacing="10" Margin="0,0,0,4">
-          <TextBlock Grid.Column="1" Text="时间" Classes="logHead"/><TextBlock Grid.Column="2" Text="级别" Classes="logHead"/><TextBlock Grid.Column="3" Text="来源" Classes="logHead"/><TextBlock Grid.Column="4" Text="模块" Classes="logHead"/><TextBlock Grid.Column="5" Text="消息" Classes="logHead"/><TextBlock Grid.Column="6" Text="折叠" Classes="logHead"/>
+          <xy:XYLabel Grid.Column="1" Text="时间"/><xy:XYLabel Grid.Column="2" Text="级别"/><xy:XYLabel Grid.Column="3" Text="来源"/><xy:XYLabel Grid.Column="4" Text="模块"/><xy:XYLabel Grid.Column="5" Text="消息"/><xy:XYLabel Grid.Column="6" Text="折叠"/>
         </Grid>
 
         <Grid Grid.Row="2" ColumnDefinitions="*,280" ColumnSpacing="10">
@@ -73,7 +55,13 @@
               <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="local:LogEntry">
                   <Grid ColumnDefinitions="4,72,56,72,92,*,82" ColumnSpacing="10">
-                    <Border Background="{Binding Accent}" CornerRadius="2"/><TextBlock Grid.Column="1" Text="{Binding Time}" Classes="logMono"/><TextBlock Grid.Column="2" Text="{Binding LevelText}" FontWeight="SemiBold"/><TextBlock Grid.Column="3" Text="{Binding SourceText}" Classes="logMono"/><TextBlock Grid.Column="4" Text="{Binding ModuleText}" Classes="logMono"/><TextBlock Grid.Column="5" Text="{Binding Message}" TextTrimming="CharacterEllipsis"/><TextBlock Grid.Column="6" Text="{Binding RepeatText}" Foreground="{StaticResource Log.RepeatText}"/>
+                    <Border Background="{Binding Accent}" CornerRadius="2"/>
+                    <xy:XYCodeText Grid.Column="1" Text="{Binding Time}" VerticalAlignment="Center"/>
+                    <xy:XYStatusBadge Grid.Column="2" Text="{Binding LevelText}" VerticalAlignment="Center"/>
+                    <xy:XYText Grid.Column="3" Text="{Binding SourceText}" VerticalAlignment="Center"/>
+                    <xy:XYText Grid.Column="4" Text="{Binding ModuleText}" VerticalAlignment="Center"/>
+                    <xy:XYTruncatedText Grid.Column="5" Mode="End" Text="{Binding Message}" VerticalAlignment="Center"/>
+                    <xy:XYCaption Grid.Column="6" Text="{Binding RepeatText}" VerticalAlignment="Center"/>
                   </Grid>
                 </DataTemplate>
               </ListBox.ItemTemplate>
@@ -81,13 +69,13 @@
 
             <!-- D5：空状态区分（初次/无数据 与 筛选无结果；筛选空态提供清空入口） -->
             <StackPanel IsVisible="{Binding ShowInitialLogEmpty}" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock Text="暂无日志" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-              <TextBlock Text="低频事实记录会显示在这里，调试快照和临时探针不进入普通日志。" Classes="muted" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+              <xy:XYEmptyText Text="暂无日志" HorizontalAlignment="Center"/>
+              <xy:XYCaption Text="低频事实记录会显示在这里，调试快照和临时探针不进入普通日志。" TextWrapping="Wrap" HorizontalAlignment="Center"/>
               <Button Content="清空筛选" IsVisible="{Binding ShowNoFilterResults}" Margin="0,8,0,0" Command="{Binding SelectLogFilterCommand}" CommandParameter="全部" HorizontalAlignment="Center" AutomationProperties.Name="清空日志筛选"/>
             </StackPanel>
             <StackPanel IsVisible="{Binding ShowNoFilterResults}" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock Text="没有匹配的日志" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-              <TextBlock Text="当前筛选条件下没有日志，可以清空筛选查看全部。" Classes="muted" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+              <xy:XYEmptyText Text="没有匹配的日志" HorizontalAlignment="Center"/>
+              <xy:XYCaption Text="当前筛选条件下没有日志，可以清空筛选查看全部。" TextWrapping="Wrap" HorizontalAlignment="Center"/>
             </StackPanel>
             <!-- D5：用户离开底部时显示「回到底部」；点击恢复自动跟随 -->
             <Button x:Name="ScrollToBottomButton" IsVisible="False" Click="ScrollToBottom_Click" Content="回到底部" Classes="scrollToBottom" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,6,6" AutomationProperties.Name="回到底部"/>
