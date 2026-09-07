@@ -9,69 +9,35 @@
               xycore:XY.Size="Compact" xycore:XY.Density="Compact">
     <xy:XYSectionTitle Text="地图属性"/>
     <xy:XYSeparator Variant="Section"/>
-    <!-- EditableFormRow 标准模式（内容宽 ≥360）：标签列 96 / 左标签右输入。
+    <!-- Engine Property Grid：固定标签列 96 / 左标签右输入，不按侧栏宽度切换为上下表单。
          D5 纠偏：每个输入框只绑定自身字段错误（MapWidthError/MapDepthError/MapBaseHeightError）；
          失焦触发单字段校验；FirstInvalidField 变化自动聚焦第一处错误。 -->
     <Grid x:Name="PropsWide" ColumnDefinitions="96,*"
           RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="{StaticResource Space.4}">
-      <xy:XYLabel Text="宽度（米）"/>
+      <xy:XYLabel Text="宽度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+          HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
           Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
           Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="地图宽度"/>
-      <xy:XYLabel Grid.Row="1" Text="深度（米）"/>
+      <xy:XYLabel Grid.Row="1" Text="深度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+          HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
           Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
           Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="地图深度"/>
-      <xy:XYLabel Grid.Row="2" Text="基础高度（米）"/>
+      <xy:XYLabel Grid.Row="2" Text="基础高度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-          HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+          HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
           Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
           Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
           AutomationProperties.Name="基础高度"/>
-      <xy:XYLabel Grid.Row="3" Text="地表类型"/>
-      <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）"/>
+      <xy:XYLabel Grid.Row="3" Text="地表类型" VerticalAlignment="Center"/>
+      <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）" VerticalAlignment="Center"/>
     </Grid>
-    <!-- EditableFormRow 窄模式（内容宽 <360）：整组标签在上、输入控件在下 -->
-    <StackPanel x:Name="PropsNarrow" Spacing="{StaticResource Space.4}" IsVisible="False">
-      <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="宽度（米）"/>
-        <xy:XYTextField x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="地图宽度"/>
-      </StackPanel>
-      <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="深度（米）"/>
-        <xy:XYTextField x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="地图深度"/>
-      </StackPanel>
-      <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="基础高度（米）"/>
-        <xy:XYTextField x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}"
-            Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
-            HorizontalAlignment="Left" HorizontalContentAlignment="Right"
-            Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-            Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
-            AutomationProperties.Name="基础高度"/>
-      </StackPanel>
-      <StackPanel Spacing="{StaticResource Space.2}">
-        <xy:XYLabel Text="地表类型"/>
-        <xy:XYText Text="Flat（只读）"/>
-      </StackPanel>
-    </StackPanel>
     <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
     <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
           ColumnSpacing="{StaticResource Space.4}" RowSpacing="{StaticResource Space.4}">

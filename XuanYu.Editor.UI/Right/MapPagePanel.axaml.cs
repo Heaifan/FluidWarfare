@@ -10,8 +10,7 @@ using Avalonia.Interactivity;
 namespace XuanYu.Editor.UI;
 
 // ARCH-UI-SPEC-R1-D4/D4-F1 纠偏：双模型并存——
-//  MapEditorLayoutModel（<320 面板紧凑密度：根 Padding/分组间距/字段行距）；
-//  EditableFormLayoutModel（<360 输入表单上下）。
+//  MapEditorLayoutModel（<320 面板紧凑密度：根 Padding/分组间距/字段行距）。
 // 只读资产摘要保持单行双列，不参与任何切换；标准/窄模式共享同一 UiVm 状态。
 public partial class MapPagePanel : UserControl
 {

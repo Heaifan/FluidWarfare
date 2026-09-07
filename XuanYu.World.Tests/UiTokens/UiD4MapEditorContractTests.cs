@@ -45,15 +45,15 @@ public sealed class UiD4MapEditorContractTests
     {
         Assert.Contains("MapPathDisplay", Page);               // VM 提供 — 占位
     }
-
     [Fact]
-    public void Property_form_uses_96_column_and_narrow_mode()
+    public void Property_form_uses_fixed_96_column_single_line_rows()
     {
         Assert.Contains("PropsWide", Form);
-        Assert.Contains("PropsNarrow", Form);                  // 可编辑表单窄模式（<360 整组上下）
+        Assert.DoesNotContain("PropsNarrow", Form);             // Engine 属性区不按侧栏宽度切换上下表单
         Assert.Contains("ColumnDefinitions=\"96,*\"", Form);   // 编辑表单标签列 96
-        Assert.Contains("Spacing=\"{StaticResource Space.2}\"", Form); // 紧凑标签→字段间距
         Assert.Contains("Spacing=\"{StaticResource Space.4}\"", Form); // 紧凑字段组间距
+        Assert.Equal(5, Count(Form, "Grid.Column=\"1\""));
+        Assert.Contains("VerticalAlignment=\"Center\"", Form);
     }
 
     [Fact]

@@ -1,5 +1,14 @@
 # changelog
 
+## XYUI-ENGINE-A-R2-B-FIXUP-02 · Property Grid single-line recovery（2026-09-07 20:17:07 +08:00）
+
+- 视觉修复：`MapFormPanel` 移除会在侧栏窄于 360 DIP 时切换的 `PropsNarrow`，地图属性固定为 `96,*` 单行 Property Grid；标签、输入框与只读值垂直居中。
+- 宽度修复：左侧项目面板初始宽度恢复为 `220 DIP`，上限收敛为 `320 DIP`；属性字段不再通过窄表单或最小宽度撑大面板。
+- 语义保持：保留 `XYTextField`、`128 × 24 DIP`、字符串 Binding、LostFocus 校验、错误反馈及 Apply/Undo/Redo Command；VM 未修改。
+- 契约：R2B 运行时契约改为检查三组真实输入、四行同一 Property Grid 与左侧面板宽度边界；不再接受隐藏窄布局冒充通过。
+- 验证：属性/R1/R2-A/R2-B/D4/D5 定向契约 `50/50 PASS`；完整解决方案 Build `0 Warning / 0 Error`；ARCH-A PASS；`git diff --check` PASS。
+- 状态：`R2-B PROPERTY FINAL FIX COMPLETE / READY FOR USER VISUAL ACCEPTANCE`；尚未判定用户真机验收通过。
+
 ## XYUI-ENGINE-A-R2-B-FIXUP · Property Editor compact density（2026-09-07 19:29:57 +08:00）
 
 - 视觉修复：`MapFormPanel` 的 6 个 XYUI 输入字段统一使用现有 Compact Token，固定为 `128 × 24 DIP`、右对齐、Compact Padding；属性行与窄模式间距统一收敛到 `Space.2` / `Space.4`。
