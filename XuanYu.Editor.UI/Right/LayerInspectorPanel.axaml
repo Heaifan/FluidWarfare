@@ -1,27 +1,24 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.LayerInspectorPanel"
              x:DataType="local:UiVm">
-  <UserControl.Styles>
-    <!-- ARCH-UI-SPEC-R1-D4（W53/W54）/D4-F1：图层属性表单——标签列 96、Label 12 / Body 13、单行省略 -->
-    <Style Selector="Border.groupSeparator"><Setter Property="BorderBrush" Value="{StaticResource Color.Border.Default}"/><Setter Property="BorderThickness" Value="0,0,0,1"/><Setter Property="Margin" Value="0,2,0,6"/></Style>
-  </UserControl.Styles>
   <!-- F1：图层属性（与图层列表同页，位于列表下方；可见/锁定开关在列表行内） -->
   <StackPanel Spacing="4">
-    <TextBlock Text="图层属性" Classes="uiSection"/>
-    <Border Classes="groupSeparator"/>
+    <xy:XYSectionTitle Text="图层属性"/>
+    <xy:XYSeparator Variant="Section"/>
     <Grid ColumnDefinitions="96,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="4">
-      <TextBlock Text="名称" Classes="uiLabel"/>
+      <xy:XYLabel Text="名称" Classes="uiLabel"/>
       <TextBox Grid.Column="1" Text="{Binding LayerInspectorNameText, Mode=TwoWay}"
                IsReadOnly="{Binding LayerInspectorIsSystem}"
                LostFocus="NameBox_LostFocus" KeyDown="NameBox_KeyDown"/>
-      <TextBlock Grid.Row="1" Text="类型" Classes="uiLabel"/>
-      <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LayerInspectorKindText}" Classes="uiValue" ToolTip.Tip="{Binding LayerInspectorKindText}"/>
-      <TextBlock Grid.Row="2" Text="顺序" Classes="uiLabel"/>
-      <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding LayerInspectorOrderText}" Classes="uiValue" ToolTip.Tip="{Binding LayerInspectorOrderText}"/>
-      <TextBlock Grid.Row="3" Text="图层 ID" Classes="uiLabel"/>
-      <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding LayerInspectorIdText}" Classes="uiValue" ToolTip.Tip="{Binding LayerInspectorIdText}"/>
+      <xy:XYLabel Grid.Row="1" Text="类型" Classes="uiLabel"/>
+      <xy:XYText Grid.Row="1" Grid.Column="1" Text="{Binding LayerInspectorKindText}" Classes="uiValue" ToolTip.Tip="{Binding LayerInspectorKindText}"/>
+      <xy:XYLabel Grid.Row="2" Text="顺序" Classes="uiLabel"/>
+      <xy:XYText Grid.Row="2" Grid.Column="1" Text="{Binding LayerInspectorOrderText}" Classes="uiValue" ToolTip.Tip="{Binding LayerInspectorOrderText}"/>
+      <xy:XYLabel Grid.Row="3" Text="图层 ID" Classes="uiLabel"/>
+      <xy:XYSelectableText Grid.Row="3" Grid.Column="1" Text="{Binding LayerInspectorIdText}" Classes="uiValue" Variant="Technical" ToolTip.Tip="{Binding LayerInspectorIdText}"/>
     </Grid>
     <Button Content="设为当前图层" Command="{Binding RunCommand}" CommandParameter="设为当前图层"
             HorizontalAlignment="Left" IsVisible="{Binding LayerInspectorIsRegion}" Margin="0,4,0,0"/>
