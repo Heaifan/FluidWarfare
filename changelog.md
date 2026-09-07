@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-R2-B · Final Left SHA reconciliation（2026-09-07 18:57:04 +08:00）
+
+- 事实核验：远端 `origin/feat/XYUI-ENGINE-A-R2-B-G` 当前为 Gemini `1212f30b1bd6937bab4cf76f6eb917414285a042`；`1212f30b` 不在旧 Acceptance `7edf8fdb` 中，旧 Left `53efea66` 与 `1212f30b` 互不为祖先关系。
+- 收口：按 Gemini 最新提交原样恢复 6 个 Left 文件，生成 reconciliation commit `2924ac83`；Left 与 `1212f30b` 内容一致，Right/Contract `fe55ea30` 保留，未手改 Gemini UI。
+- 事实计数：Left 包含 `XYSearchField` 1 个、`XYButton` 11 个、`XYToggleButton` 3 个；Right XYUI-2 实装未被覆盖。
+- 验证：R2-B/R1/R2-A 定向契约 10/10 PASS；完整解决方案 Build 0 Warning / 0 Error；ARCH-A PASS；`git diff --check` PASS。
+- 状态：等待 Acceptance 更新后的唯一 `run.bat` 真机视觉与交互验收，未将自动门禁标记为用户验收通过。
+
 ## XYUI-ENGINE-A-R2-B · Buttons & Inputs visible migration（2026-09-07 18:27:45 +08:00）
 
 - 合流：以 R2-A 验收基线 `1d6e8ab2` 为共同基线，受控合入 Left `53efea66` 与 Right/Contract `fe55ea30`，生成集成提交 `9987e00e`、`4c40cb49`；未修改 Canonical 工作区。
