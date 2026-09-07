@@ -1,0 +1,39 @@
+using Avalonia;
+using Avalonia.Controls;
+using XYUI.Avalonia.Controls;
+using XYUI.Avalonia.Vector;
+
+namespace XYUI.Avalonia.Gallery;
+
+public static partial class XYUI3GalleryCatalog
+{
+    static XYViewDefinition View(string id, string label, XyuiVectorIcon icon, int priority = 0) => new(id, label, icon, Priority: priority);
+    static Control ViewSwitcherPreview()
+    {
+        var views = new[] { View("canvas", "画布", XyuiVectorIcon.Locate, 3), View("table", "表格", XyuiVectorIcon.Section, 2), View("preview", "预览", XyuiVectorIcon.Eye, 1), View("logs", "日志", XyuiVectorIcon.Code, -1) };
+        var state = new XYViewState(views, "canvas"); var segmented = new XYViewSwitcher(state); var dropdown = new XYViewSwitcher(state, XYViewSwitcherVariant.Dropdown); var more = new XYViewSwitcher(state, XYViewSwitcherVariant.PrimaryMore);
+        foreach (var switcher in new[] { segmented, dropdown, more }) switcher.ViewChangeRequested += (_, request) => request.Accept();
+        return new StackPanel { Spacing = 10, Children = { segmented, dropdown, more } };
+    }
+    static Control TocPreview()
+    {
+        var sections = new[] { new XYTocSection("intro", "概览", 1), new XYTocSection("setup", "配置", 1), new XYTocSection("map", "地图编辑", 2, "setup"), new XYTocSection("data", "数据集", 2, "setup"), new XYTocSection("api", "API", 1) };
+        var state = new XYTableOfContentsState(sections, "data"); var hierarchy = new XYTableOfContents(state); var compact = new XYTableOfContents(state, XYTableOfContentsVariant.Compact); hierarchy.SectionRequested += (_, request) => request.Accept(); compact.SectionRequested += (_, request) => request.Accept(); compact.AttachedToVisualTree += (_, _) => compact.OpenPopup();
+        return new StackPanel { Spacing = 10, Children = { hierarchy, compact } };
+    }
+    static Control BottomNavigationPreview()
+    {
+        var items = new[] { new XYBottomNavigationItem("map", "地图", XyuiVectorIcon.Locate), new XYBottomNavigationItem("data", "数据", XyuiVectorIcon.Code), new XYBottomNavigationItem("experiment", "实验", XyuiVectorIcon.Clear), new XYBottomNavigationItem("logs", "日志", XyuiVectorIcon.Section, "1"), new XYBottomNavigationItem("mine", "我的", XyuiVectorIcon.Info) };
+        var standardState = new XYNavigationState(items.Select(i => new XYNavigationEntry(i.Id, i.Label, i.Icon)), "map"); var standard = new XYBottomNavigation(standardState, items) { Width = 360 };
+        var primaryState = new XYNavigationState(items.Where(i => i.Id != "experiment").Select(i => new XYNavigationEntry(i.Id, i.Label, i.Icon)), "map"); var primary = new XYButton { Content = new XYIcon { Icon = XyuiVectorIcon.Add, Size = XyuiIconSize.Small }, Variant = XyuiButtonVariant.Primary }; var primaryNav = new XYBottomNavigation(primaryState, items.Where(i => i.Id != "experiment").ToArray(), primary) { Width = 360 };
+        foreach (var nav in new[] { standard, primaryNav }) nav.DestinationRequested += (_, request) => request.Accept();
+        return new StackPanel { Spacing = 8, Children = { standard, primaryNav, new XYCaption { Text = "5 槽等宽 (72 DIP) · Selected Icon Well · 独立 Primary Action" } } };
+    }
+    static Control NavigationDrawerPreview()
+    {
+        var state = new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate), new("data", "数据", XyuiVectorIcon.Code), new("settings", "设置", XyuiVectorIcon.Section)], "map");
+        var drawer = new XYNavigationDrawer(state); drawer.AttachedToVisualTree += (_, _) => drawer.Open();
+        var host = new Border { Classes = { "xyui-navigation-drawer-host", "xyui-surface-panel-alt" }, Width = 640, Height = 280, CornerRadius = new CornerRadius(6), Child = drawer };
+        return new StackPanel { Spacing = 8, Children = { host, new XYCaption { Text = "Full Sidebar · Backdrop / Esc / LightDismiss" } } };
+    }
+}

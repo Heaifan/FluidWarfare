@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="using:XYUI.Avalonia.Gallery.Views"
+             xmlns:g="using:XYUI.Avalonia.Gallery"
+             x:Class="XYUI.Avalonia.Gallery.Views.XYUI3ModuleOverviewView"
+             x:DataType="g:XYUI1DocumentationViewModel">
+  <views:GalleryDocumentShell HorizontalScrollBarVisibility="Disabled">
+    <StackPanel Margin="28" Spacing="12">
+      <TextBlock Text="XYUI-3 · 导航与切换" Classes="xyui-heading-page" />
+      <TextBlock Text="Navigation &amp; Switching · Canonical 24 个组件" Classes="xyui-text-code" />
+      <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="16">
+        <TextBlock Text="Canonical" Classes="xyui-text-caption" /><TextBlock Grid.Column="1" Text="24" Classes="xyui-text-code" />
+        <TextBlock Grid.Column="2" Text="XYUI-3 Implemented" Classes="xyui-text-caption" /><TextBlock Grid.Column="3" Text="24" Classes="xyui-text-code" />
+        <TextBlock Grid.Column="4" Text="Status" Classes="xyui-text-caption" /><TextBlock Grid.Column="5" Text="READY FOR USER VISUAL ACCEPTANCE" Classes="xyui-text-code" />
+      </Grid>
+      <TextBlock Text="本阶段集中建立高密编辑器导航、菜单、标签栏、分页、工具组与命令面板等全套导航与切换组件体系。" Classes="xyui-text-body" TextWrapping="Wrap" />
+      <Border Background="{DynamicResource XY.Brush.Surface.Panel}" Padding="{DynamicResource XY.Panel.Padding}" CornerRadius="6">
+        <StackPanel Spacing="6">
+          <TextBlock Text="XYUI-3 索引" Classes="xyui-text-section" />
+          <ItemsControl ItemsSource="{Binding XYUI3Items}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="g:XYUI1NavigationItem">
+                <Button Tag="{Binding Id}" Click="OnComponentClick" HorizontalContentAlignment="Stretch"
+                        Background="Transparent" BorderThickness="0" Padding="8,7"
+                        IsVisible="{Binding !!Document}">
+                  <Grid ColumnDefinitions="110,*,Auto">
+                    <TextBlock Text="{Binding Id}" Classes="xyui-text-code" />
+                    <TextBlock Grid.Column="1" Text="{Binding ChineseName}" Classes="xyui-text-label" />
+                    <TextBlock Grid.Column="2" Text="{Binding CanonicalName}" Classes="xyui-text-caption" />
+                  </Grid>
+                </Button>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </Border>
+    </StackPanel>
+  </views:GalleryDocumentShell>
+</UserControl>

@@ -1,5 +1,12 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-P0 · Latest Engine + Latest XYUI Integration（2026-09-07 11:25:42 +08:00）
+
+- 基线：Engine `feat/MAP-DATA-A` committed HEAD `7ae17b4d`；XYUI `origin/feat/XYUI-A` HEAD `3d09dc67`，包含 `5fd54b42` GALLERY-UNIFY-02 及其后续提交。
+- 整合：创建 `feat/XYUI-ENGINE-A`；受控合并无共同祖先历史，55 个 Engine 根文件按 Engine 侧保留，`xyui/**` 按最新 XYUI 侧保留；根 solution 改指向 `xyui/avalonia`，Editor.UI 增加 XYUI Runtime ProjectReference，未引入 Gallery Runtime 依赖。
+- 验证：`XuanYu.Engine.slnx` 与 `xyui/avalonia/XYUI.Avalonia.slnx` 均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1374/1374、XYUI 558/558，全量合计 2293/2293 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。D 盘指定 SDK 不存在，使用 E 盘 SDK 完成实际门禁。
+- 状态：`INTEGRATION PASS`；未创建 tag/release，未触碰两个既有 dirty 工作区。
+
 ## R2-F2 · Control Theme Rendering Reconciliation · 2026-08-13 23:45:00
 
 - 目标：修复 R2 视觉验收失败，确认 XYUI Theme 真正命中控件实例并重排 Gallery 验收布局。
