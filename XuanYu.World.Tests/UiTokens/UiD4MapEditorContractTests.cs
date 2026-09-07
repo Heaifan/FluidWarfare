@@ -52,20 +52,22 @@ public sealed class UiD4MapEditorContractTests
         Assert.Contains("PropsWide", Form);
         Assert.Contains("PropsNarrow", Form);                  // 可编辑表单窄模式（<360 整组上下）
         Assert.Contains("ColumnDefinitions=\"96,*\"", Form);   // 编辑表单标签列 96
-        Assert.Contains("Spacing=\"2\"", Form);                // 窄模式标签→字段 2~4
-        Assert.Contains("Spacing=\"6\"", Form);                // 窄模式字段组 6~8
+        Assert.Contains("Spacing=\"{StaticResource Space.2}\"", Form); // 紧凑标签→字段间距
+        Assert.Contains("Spacing=\"{StaticResource Space.4}\"", Form); // 紧凑字段组间距
     }
 
     [Fact]
-    public void Button_group_keeps_spacing_6_and_critical_actions()
+    public void Button_group_uses_compact_spacing_and_critical_actions()
     {
-        Assert.Contains("ColumnSpacing=\"6\"", Form);          // 属性按钮 Grid 间距 6
-        Assert.Contains("RowSpacing=\"6\"", Form);
+        Assert.Contains("ColumnSpacing=\"{StaticResource Space.4}\"", Form);
+        Assert.Contains("RowSpacing=\"{StaticResource Space.4}\"", Form);
+        Assert.Equal(3, Count(Form, "Width=\"{StaticResource Size.Width.96}\""));
         Assert.Contains("应用地图属性", Form);
         Assert.Contains("撤销地图修改", Form);
         Assert.Contains("重做地图修改", Form);
     }
 
+    static int Count(string text, string value) => text.Split(value).Length - 1;
     [Fact]
     public void Each_page_has_single_vertical_scroll_container()
     {
