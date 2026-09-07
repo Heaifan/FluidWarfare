@@ -1,5 +1,15 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-B2-A · Inspector / MapPage XYUI-1 Migration（2026-09-07）
+
+- 基线：基于集成分支提交 `e19e4242` 创建 `feat/XYUI-ENGINE-A-R1-B2-A`；本轮仅迁移 `InspectorPanel.axaml`、`MapPagePanel.axaml` 及其直接失效契约测试。
+- 迁移：Inspector 使用真实 `XYHeading`、`XYCaption`、`XYIcon`、`XYSectionTitle`、`XYSeparator`、`XYLabel`、`XYText`、`XYSelectableText`、`XYEmptyText`；技术字段按真实语义使用 `Technical` 变体。
+- 迁移：MapPage 的“地图资产”摘要使用 `XYSectionTitle`、`XYSeparator`、`XYLabel`、`XYText`、`XYSelectableText`；MapForm、按钮、输入控件、绑定和交互保持不变。
+- 清理：移除两个目标页面中控制 XYUI-1 视觉语义的旧 `panelTitle`、`panelIcon`、`fieldSeparator`、`groupSeparator`、`uiLabel`、`uiValue` 等 Legacy 类；更新直接失效的 Inspector、文本溢出和 MapEditor 契约断言。
+- 验证：Engine Build 与 XYUI Build 均 0 警告 / 0 错误；定向契约 23/23；Core 339/339、WarCore 22/22、World 1374/1374、XYUI 558/558，合计 2293/2293 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：本轮最终提交由 Git 记录确认。
+- 状态：`R1-B2-A TECHNICAL PASS / READY FOR INTEGRATION`。
+
 ## XYUI-ENGINE-A-R1-M1/C · Controlled Integration + Runtime Theme Wiring（2026-09-07）
 
 - 合流：从 `93893f8a` 依次合入 R1-A `012ba16d` 与 R1-B `5c3b3024`；R1-B 使用普通 `--no-ff` 受控 merge，集成提交为 `29d53c70`，未 rebase、squash 或改写历史。

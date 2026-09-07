@@ -28,7 +28,10 @@ public sealed class UiD4F1TextOverflowContractTests
     [Fact]
     public void Inspector_dynamic_values_single_line_with_full_tooltip()
     {
-        Assert.Contains("Classes=\"uiValue\"", Inspector);
+        Assert.Contains("<xy:XYText", Inspector);
+        Assert.Contains("<xy:XYSelectableText", Inspector);
+        Assert.Contains("Variant=\"Technical\"", Inspector);
+        Assert.DoesNotContain("Classes=\"uiValue\"", Inspector);
         Assert.Contains("ToolTip.Tip=\"{Binding Value}\"", Inspector);
         Assert.DoesNotContain("NarrowFields", Inspector);
     }
@@ -48,6 +51,11 @@ public sealed class UiD4F1TextOverflowContractTests
     [Fact]
     public void Map_summary_values_single_line_with_tooltips()
     {
+        Assert.Contains("<xy:XYSectionTitle Text=\"地图资产\"", MapPage);
+        Assert.Contains("<xy:XYSeparator Variant=\"Section\"", MapPage);
+        Assert.Contains("<xy:XYLabel Text=\"名称\"", MapPage);
+        Assert.Contains("<xy:XYText Grid.Column=\"1\"", MapPage);
+        Assert.Contains("<xy:XYSelectableText Grid.Column=\"1\"", MapPage);
         Assert.Contains("ToolTip.Tip=\"{Binding MapName}\"", MapPage);
         Assert.Contains("ToolTip.Tip=\"{Binding MapPath}\"", MapPage);
         Assert.Contains("ToolTip.Tip=\"{Binding MapSizeText}\"", MapPage);

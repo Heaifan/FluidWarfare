@@ -1,23 +1,20 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.InspectorPanel"
              x:DataType="local:UiVm">
   <UserControl.Styles>
     <!-- ARCH-UI-SPEC-R1-D4-F1：检查器只读键值行——标签 80 / 值 * / 单行双列（无上下拆行） -->
-    <Style Selector="Path.panelIcon"><Setter Property="Width" Value="16"/><Setter Property="Height" Value="16"/><Setter Property="Stretch" Value="Uniform"/><Setter Property="Stroke" Value="{StaticResource Color.Text.Secondary}"/><Setter Property="StrokeThickness" Value="1.5"/></Style>
-    <Style Selector="TextBlock.panelTitle"><Setter Property="FontSize" Value="{StaticResource Font.Title.Size}"/><Setter Property="FontWeight" Value="{StaticResource Font.Weight.SemiBold}"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
-    <Style Selector="TextBlock.emptyTitle"><Setter Property="FontSize" Value="{StaticResource Font.Section.Size}"/><Setter Property="FontWeight" Value="{StaticResource Font.Weight.SemiBold}"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/><Setter Property="HorizontalAlignment" Value="Center"/></Style>
-    <Style Selector="Border.fieldSeparator"><Setter Property="BorderBrush" Value="{StaticResource Color.Border.Default}"/><Setter Property="BorderThickness" Value="0,0,0,1"/><Setter Property="Margin" Value="0,2,0,4"/></Style>
     <Style Selector="Grid.fieldRow"><Setter Property="MinHeight" Value="28"/><Setter Property="Margin" Value="0,2"/></Style>
   </UserControl.Styles>
 
   <StackPanel Spacing="8" Margin="0,6,0,0">
     <Grid ColumnDefinitions="20,*" ColumnSpacing="8">
-      <Path Classes="panelIcon" Data="{StaticResource ProjectIcon}" VerticalAlignment="Center"/>
+      <xy:XYIcon Icon="Browse" Size="Small" VerticalAlignment="Center"/>
       <StackPanel Grid.Column="1" Spacing="1">
-        <TextBlock Text="{Binding InspectorSelectionTitle}" Classes="panelTitle"/>
-        <TextBlock Text="{Binding InspectorSelectionSubtitle}" Classes="muted"/>
+        <xy:XYHeading Text="{Binding InspectorSelectionTitle}" Variant="PanelTitle"/>
+        <xy:XYCaption Text="{Binding InspectorSelectionSubtitle}"/>
       </StackPanel>
     </Grid>
 
@@ -31,25 +28,29 @@
 
     <StackPanel IsVisible="{Binding IsRegionEditMode}" Spacing="6">
       <StackPanel IsVisible="{Binding !HasCurrentLayerSelection}">
-      <TextBlock Text="区域属性" Classes="uiSection"/>
-      <TextBlock Text="当前未选择区域" Classes="uiValue"/>
-      <TextBlock Text="REGION-A 接入后显示正式属性" Classes="uiLabel" TextWrapping="Wrap"/>
+      <xy:XYSectionTitle Text="区域属性"/>
+      <xy:XYEmptyText Text="当前未选择区域"/>
+      <xy:XYCaption Text="REGION-A 接入后显示正式属性" TextWrapping="Wrap"/>
       </StackPanel>
     </StackPanel>
 
     <!-- 基础信息分组：全宽标题 + 分隔线 + 只读键值行（ReadonlyKeyValueRow：标签 80 + 值 *，始终单行） -->
     <StackPanel IsVisible="{Binding HasInspectorSelection}" Spacing="4">
       <StackPanel IsVisible="{Binding !HasCurrentLayerSelection}">
-      <TextBlock Text="{Binding InspectorSectionTitle}" Classes="uiSection"/>
-      <Border Classes="fieldSeparator"/>
+      <xy:XYSectionTitle Text="{Binding InspectorSectionTitle}"/>
+      <xy:XYSeparator Variant="Section"/>
       <ItemsControl ItemsSource="{Binding InspectorFields}">
         <ItemsControl.ItemTemplate>
           <DataTemplate x:DataType="local:InspectorFieldRow">
             <StackPanel>
-              <TextBlock Text="{Binding Label}" Classes="uiSection" IsVisible="{Binding IsGroupHeader}" Margin="0,6,0,0"/>
+              <xy:XYSectionTitle Text="{Binding Label}" IsVisible="{Binding IsGroupHeader}" Margin="0,6,0,0"/>
               <Grid Classes="fieldRow" ColumnDefinitions="80,*" ColumnSpacing="8" IsVisible="{Binding !IsGroupHeader}">
-                <TextBlock Text="{Binding Label}" Classes="uiLabel"/>
-                <TextBlock Grid.Column="1" Text="{Binding Value}" Classes="uiValue" ToolTip.Tip="{Binding Value}"/>
+                <xy:XYLabel Text="{Binding Label}"/>
+                <xy:XYText Grid.Column="1" Text="{Binding Value}" ToolTip.Tip="{Binding Value}"
+                           IsVisible="{Binding Label, Converter={x:Static local:InspectorPanel.IsStandardField}}"/>
+                <xy:XYSelectableText Grid.Column="1" Text="{Binding Value}" Variant="Technical"
+                                     ToolTip.Tip="{Binding Value}"
+                                     IsVisible="{Binding Label, Converter={x:Static local:InspectorPanel.IsTechnicalField}}"/>
               </Grid>
             </StackPanel>
           </DataTemplate>
@@ -62,8 +63,8 @@
     <Grid IsVisible="{Binding IsInspectorEmpty}" MinHeight="220">
       <Grid IsVisible="{Binding !HasCurrentLayerSelection}">
       <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" MaxWidth="220">
-        <Path Classes="panelIcon" Data="{StaticResource SelectIcon}" Width="28" Height="28" HorizontalAlignment="Center"/>
-        <TextBlock Text="未选择对象" Classes="emptyTitle"/>
+        <xy:XYIcon Icon="Empty" Size="Large" Width="28" Height="28" HorizontalAlignment="Center"/>
+        <xy:XYEmptyText Text="未选择对象" HorizontalAlignment="Center"/>
         <TextBlock Text="在左侧项目树、层级页或视口中选择对象后，这里会显示属性。" Classes="uiMultiline" TextAlignment="Center"/>
       </StackPanel>
       </Grid>
