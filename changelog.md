@@ -1,5 +1,15 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-A · Governance / Migration Matrix Audit（2026-09-07 11:37:39 +08:00）
+
+- 目标：在统一基线 `93893f8a` 上完成 Engine UI 接入审计、XYUI-1~3 Migration Matrix、Legacy/Duplicate Style Inventory 与 Agent-B ownership freeze。
+- 变化：新增 `docs/milestones/current/XYUI-ENGINE-A/XYUI-ENGINE-A-migration-matrix.md`；确认 Editor.UI → 最新 `xyui/avalonia` Runtime 引用有效、Editor/App/Win 无 Gallery Runtime 依赖；不修改 Engine View、Runtime、Gallery 或全局 Theme。
+- 盘点：44 个 Engine UI AXAML；TextBlock 178、Border 66、Button 63、ToggleButton 13、TextBox 13、ListBox 16、TabControl 3、Menu 3、ContextMenu 1、Path 51、PathIcon 8；旧 `XYUI/**` 34 个 tracked 文件记为 Legacy Duplicate。
+- 遗留：`XYUIBootstrap.Create()` 不存在，App 尚未加载 `XyuiTheme` / `XyuiComponentStyles`，作为后续集成 GAP；三个 Agent-B View ownership 已冻结，`InspectorPanel.axaml` 延后 Batch 2。
+- 验证：Engine Build 与 XYUI Build 均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1374/1374、XYUI 558/558，合计 2293/2293 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- Hash：本轮提交由最终 Git 记录确认。
+- 状态：`R1-A TECHNICAL PASS / READY FOR AGENT-B HANDOFF`。
+
 ## XYUI-ENGINE-A-R1-P0 · Latest Engine + Latest XYUI Integration（2026-09-07 11:25:42 +08:00）
 
 - 基线：Engine `feat/MAP-DATA-A` committed HEAD `7ae17b4d`；XYUI `origin/feat/XYUI-A` HEAD `3d09dc67`，包含 `5fd54b42` GALLERY-UNIFY-02 及其后续提交。

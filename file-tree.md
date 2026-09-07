@@ -1,2106 +1,2113 @@
 # 玄域引擎文件树（按当前正式工作树重建）
 
-- `XYUI/README.md` - XYUI 实现工作区说明。
-- `XYUI/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - XYUI Foundation 可引用项目。
-- `XYUI/src/XYUI.Avalonia/README.md` - Avalonia 实现层使用说明。
-- `XYUI/src/XYUI.Avalonia/Foundation/XYDensity.cs` - XYUI 密度契约。
-- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeResources.cs` - Light/Dark 主题资源工厂。
-- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeVariant.cs` - XYUI 主题变体契约。
-- `XYUI/src/XYUI.Avalonia/Foundation/XYTokens.cs` - Foundation 颜色与尺寸 Token。
-- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.axaml` - XYUI 主题资源与基础样式。
-- `XYUI/src/XYUI.Avalonia/Themes/XYUIControls.axaml` - Controls Core 状态、尺寸与 Density 样式。
-- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.cs` - XYUI Avalonia 主题入口。
-- `XYUI/src/XYUI.Avalonia/Controls/XYButton.cs` - XYUI 主按钮。
-- `XYUI/src/XYUI.Avalonia/Controls/XYIconButton.cs` - XYUI 图标按钮。
-- `XYUI/src/XYUI.Avalonia/Controls/XYToggleButton.cs` - XYUI 切换按钮。
-- `XYUI/src/XYUI.Avalonia/Controls/XYTextField.cs` - XYUI 文本输入框。
-- `XYUI/src/XYUI.Avalonia/Controls/XYNumberField.cs` - XYUI 数值输入框。
-- `XYUI/src/XYUI.Avalonia/Controls/XYCheckBox.cs` - XYUI 复选框。
-- `XYUI/src/XYUI.Avalonia/Controls/XYRadioButton.cs` - XYUI 单选框。
-- `XYUI/src/XYUI.Avalonia/Controls/XYToggleSwitch.cs` - XYUI 开关。
-- `XYUI/src/XYUI.Avalonia/Controls/XYComboBox.cs` - XYUI 下拉选择框。
-- `XYUI/src/XYUI.Avalonia/Controls/XYSlider.cs` - XYUI 滑杆。
-- `XYUI/src/XYUI.Avalonia/Controls/XYBadge.cs` - XYUI 徽标。
-- `XYUI/src/XYUI.Avalonia/Controls/XYTag.cs` - XYUI 标签。
-- `XYUI/src/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - Gallery 应用项目。
-- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml` - Gallery 应用资源声明。
-- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml.cs` - Gallery 生命周期入口。
-- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml` - Foundation Gallery 页面。
-- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml.cs` - Gallery 主窗口代码后置。
-- `XYUI/src/XYUI.Avalonia.Gallery/Program.cs` - Gallery 桌面启动入口。
-- `XYUI/scripts/gallery-visible-smoke.ps1` - Gallery Desktop 可见窗口烟测。
-- `XYUI/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - XYUI Foundation 测试项目。
-- `XYUI/tests/XYUI.Avalonia.Tests/FoundationTokenTests.cs` - Foundation Token 契约测试。
-- `XYUI/tests/XYUI.Avalonia.Tests/GalleryRuntimeTests.cs` - Gallery 主题与主窗口 Headless 启动契约测试。
-- `XYUI/tests/XYUI.Avalonia.Tests/ControlsContractTests.cs` - Controls Core 类型与样式类契约测试。
-- `XYUI/tests/XYUI.Avalonia.Tests/AssemblyInfo.cs` - XYUI Avalonia 测试程序集串行化配置。
-
-> 由正式开发工作树的 `git ls-files` 与本轮预提交文件清单重建；每个文件一行职责。
-
-- `.gitattributes` — 项目资源或工程文件。
-- `.gitignore` — 项目资源或工程文件。
-- `AGENTS.md` — 项目治理、设计、里程碑或知识文档。
-- `changelog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/architecture/ENGINE_ARCHITECTURE.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/architecture/world-a-r0-coordinate-contract.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/archive/changelog/changelog-2026-05.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/archive/changelog/changelog-2026-06.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/archive/changelog/changelog-2026-07.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/CODE_CONSTITUTION.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/dev-rules.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/docs-index.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/debts/arch-ui-spec-debts.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/debts/arch-world-debts.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/dev-rules-understanding.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/diagnostic-safety.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/NAMING_RULES.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/naming-XuanYu-Engine.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/ui-spec.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/governance/版本号规范与历史映射.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/architecture.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/data.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/engineering.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/incidents.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/input.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/knowledge-index.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/lessons.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/performance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/README.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/rendering.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/ui.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/knowledge/ui/viewport-ui-control-development-guide.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/closed/MAP-A/R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/closed/MAP-DATA-A/R1-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/closed/MAP-DOC-A/R3-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R1-workspace-contract.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R2-workspace-switch.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-mode-shell.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/EDITOR-A/XYUI-backlog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/LAYER-A/LAYER-A-R1-layer-shell.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/MAP-A-CLOSE-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/MAP-A-strategic-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/map-contract.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/R3-backlog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/R3-C2-closure.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/R3-F1-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/viewport-overlay-development-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` — Region 顶点吸附真机 IPO 验收清单与门禁证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` — Region 顶点到顶点吸附范围、数据流与验收边界。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C-plan.md` — Region 顶点到边吸附的 C1/C2/C3 冻结范围与阶段状态。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C3-acceptance.md` — Region Snap 综合真机验收记录与 PASS 证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D-plan.md` — Road Vertex Editing D1/D2/D3 冻结范围与阶段边界。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-acceptance.md` — Road Vertex Selection 真机 IPO 验收模板与门禁证据。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-F1-acceptance.md` — Road Draw → Select 状态切换定向复验清单。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D2-acceptance.md` — Road Vertex Drag 真机 IPO 验收清单。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-plan.md` — 通用几何编辑、局部候选与吸附的一次性实现计划。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-acceptance.md` — 通用几何编辑与吸附一次综合真机验收清单。
-- `docs/knowledge/decisions/generic-geometry-editing-contract.md` — 通用几何编辑、吸附、局部查询与拓扑边界决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-contract.md` — E1 Geometry Capability Contract 定义。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-mapping-gap-report.md` — E1 Region/Road 映射、数据链与 Gap Report。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-E2-decision.md` — E1 对 E2 的抽取范围与禁止越界决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation.md` — Point / Map Marker 下一阶段范围与边界。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation-acceptance.md` — Point / Map Marker 八项真机 IPO 验收清单。
-- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-closeout.md` — R2 Geometry Editing Foundation 收口、证据与最终边界。
-- `docs/knowledge/decisions/map-data-r2-closeout-and-point-foundation.md` — R2 收口与 Point Consumer 下一阶段决策。
-- `docs/knowledge/decisions/map-data-r3-point-consumer.md` — Point / Map Marker 通用几何 Consumer 决策。
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-carryover.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F1-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-root-cause.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` — 架构或界面结构矢量图。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-plan.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/ui/ARCH-UI-SPEC-R1-D3_主窗口外壳与顶层页签.svg` — 架构或界面结构矢量图。
-- `docs/ui/ARCH-UI-SPEC-R1-D4_工作面板治理.svg` — 架构或界面结构矢量图。
-- `docs/ui/ARCH-UI-SPEC-R1-D4-F1_单行属性行修复.svg` — 架构或界面结构矢量图。
-- `docs/ui/ARCH-UI-SPEC-R1-D5_控件状态与弹窗通知治理.svg` — 架构或界面结构矢量图。
-- `docs/ui/玄域引擎_UI规范_1.0.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/ui/玄域引擎_UI真机基线清单.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/ui/玄域引擎_旧UI审计矩阵.md` — 项目治理、设计、里程碑或知识文档。
-- `docs/玄域引擎_AI开发宪法.md` — 项目治理、设计、里程碑或知识文档。
-- `file-tree.md` — 项目文件职责树本身。
-- `NuGet.Config` — 项目构建或数据配置。
-- `run.bat` — 编辑器启动脚本。
-- `samples/world-c-r1-ten-triangles.xyscene` — 项目资源或工程文件。
-- `scripts/arch-a-guard.ps1` — 项目验证或维护脚本。
-- `scripts/arch-a-guard-editor.ps1` — 项目验证或维护脚本。
-- `scripts/arch-a-guard-render.ps1` — 项目验证或维护脚本。
-- `scripts/arch-a-guard-warcore.ps1` — 项目验证或维护脚本。
-- `scripts/arch-a-guard-world.ps1` — 项目验证或维护脚本。
-- `scripts/generate-ui-tokens.py` — 项目资源或工程文件。
-- `XuanYu.Core.Tests/Camera/CameraBasisTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraFarRecoveryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationRollTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationSequenceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationStressTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.Safety.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/CameraOrthographicNavigationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Camera/FarProjectionSafetyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/CoreSmokeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/EditorTool/EditorTransformCapturePolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoDragConstraintTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutG1Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutPlaneTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutVulkanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/MoveGizmoScreenSizeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/RotateGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Drag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.DragSafety.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.R5R1.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/History/EditorHistoryOwnerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/History/EditorHistoryRedoTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/History/TransformHistoryIntegrationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/History/TransformHistoryRedoIntegrationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Picking/ViewportPickingServiceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Camera/StandardViewResolverTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Diagnostics/RenderLogNoiseContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/CubeRenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/FrameExecutionPolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/RenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Rotation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Selection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/ViewportAssistDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/ViewportChromeContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/DrawPlan/ViewportScaleIndicatorContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Grid/ReferenceGridDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Grid/ReferenceGridFrameStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Grid/ReferenceGridShaderContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Grid/ScaleIndicatorMetricTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Grid/ViewportMetricScaleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/LatestRenderProjectionQueueTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapRegionDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapRenderDrawPlanTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapSurfaceGeometryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapSurfaceLayerVisibilityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceKeyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceUpdatePolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoDipContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoInputIsolationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.Facing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoOverlayContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Overlay/ScaleIndicatorGlyphLiteTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/Overlay/ViewportOverlayLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/StaticModels/RegionModelTransformContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/StaticModels/StaticModelDepthRegressionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Render/StaticModels/StaticModelRenderContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/CameraOrthographicTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/CameraStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/DefaultEditorCameraTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/SpaceAssert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/ViewportStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/ViewProjectionStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/WorldRayFactoryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Space/WorldRayTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Spatial/RayAabbIntersectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Spatial/SpatialBoundsTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/Spatial/SpatialTestData.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core.Tests/XuanYu.Core.Tests.csproj` — 项目构建或数据配置。
-- `XuanYu.Core/.gitkeep` — 项目资源或工程文件。
-- `XuanYu.Core/Diagnostics/CoreSelfTest.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Common/ScreenPoint.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoAxis.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.Axes.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Hit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Plane.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoPlane.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoScreenSize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Move/MoveGizmoSegment.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoAxis.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.Math.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoLayout.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoRing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Rotate/RotateGizmoScreenRadius.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Scale/ScaleGizmoAxis.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Scale/ScaleGizmoDrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Scale/ScaleGizmoHitTester.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Scale/ScaleGizmoLayout.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Gizmo/Scale/ScaleGizmoScreenSize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/History/EditorHistoryOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/History/TransformHistoryEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Identity/EntityId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Logging/EngineLogEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Logging/EngineLogLevel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Map/MapSurfaceKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Map/MapSurfaceSampler.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Map/MapTerrainVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Math/Vector3d.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Math/YawRotation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Picking/ViewportPickingRequest.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Picking/ViewportPickingResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Picking/ViewportPickingService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Properties/AssemblyInfo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Results/EngineError.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Results/EngineResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Scene/CommittedTransform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Scene/ISceneRenderSnapshotSource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Scene/SceneEntitySnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Scene/SceneRenderSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Scene/SceneTransformCommitResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/CameraState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/DefaultEditorCamera.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/ProjectionMode.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/ViewportState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/ViewProjectionState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/ViewProjectionState.Projection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/WorldRay.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Space/WorldRayFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/RayAabbHit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/RayAabbIntersection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialAabb.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialBounds.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialQueryCategory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialQueryResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialQueryStats.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialRayAabb.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialRaycastHit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialRaycastResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialRaycastStats.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Spatial/SpatialRayQuery.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Time/SimulationTime.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Time/TimeStep.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Transform/PreviewTransform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/Transform/TransformStartSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Core/XuanYu.Core.csproj` — 项目构建或数据配置。
-- `XuanYu.Editor.App/EditorCompositionRoot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.App/Program.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.App/XuanYu.Editor.App.csproj` — 项目构建或数据配置。
-- `XuanYu.Editor.UI/Accessibility/UiAutomationNamer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Accessibility/UiDpiContract.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Accessibility/UiMotionPreference.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/app.manifest` — 项目资源或工程文件。
-- `XuanYu.Editor.UI/Bootstrap/App.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Bootstrap/App.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Bootstrap/Program.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Design/UiStyles.D4F1.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiStyles.D5.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokenManifest.json` — 项目构建或数据配置。
-- `XuanYu.Editor.UI/Design/UiTokens.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Colors.Components.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Colors.Core.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Controls.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Fonts.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Icons.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Motion.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Design/UiTokens.Spacing.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Dialogs/IEditorDialogService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Dialogs/NullEditorDialogService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorInteractionChangedResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorInteractionCommand.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorInteractionPointerSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorInteractionSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorSelectionCommand.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorSelectionSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorStateChangedResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorStateOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Interaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Tool.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorToolChangedResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorToolCommand.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorToolId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorToolSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorToolText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/EditorState/EditorTransformCapturePolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/Foot.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Foot/Foot.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/Foot.States.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Foot/LogAutoScrollPolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Follow.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Layout.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Foot/NotificationBar.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Foot/NotificationBar.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Icons/EditorIcons.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Left/Left.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/Left.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Left/Left.EntityCommands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Left/Left.Styles.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Left/RegionPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/RegionPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Left/RoadPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Left/RoadPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Main/Main.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Main/Main.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/NativeHostResizeCoalescer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/NativeHostResizeSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/NativeHostSurfaceContract.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/RelayCommand.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/DatasetLayerPanel.Drag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/DatasetPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/DatasetPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/EditableFormLayoutModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/InspectorPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/InspectorPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/LayerPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/LayerPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/LayerPanel.DragDrop.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/LayerPanel.Rename.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/LayerPanel.States.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/MapEditorLayoutModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/MapFormPanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/MapFormPanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/MapIdDisplayFormat.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/MapPagePanel.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/MapPagePanel.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/Right.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Right/Right.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripController.AllTabs.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripController.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripController.Hint.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripController.Visible.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Root/UiRoot.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Top/Top.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Top/Top.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Top/Top.States.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/TreeGuide.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/TreeGuideSegment.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Ui.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.HitTest.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.Layout.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerMessage.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerRoutePolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaCamera.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaPointer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Bridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.CameraPointer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Dpi.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Gizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.LayoutSync.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Log.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.NavGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Picking.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.Cancel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.Input.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/ViewportNativeHostRoute.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/CameraSessionMode.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/CameraSessionSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/StandardViewResolver.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.Draft.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraDolly.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraNavigation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.FarProjectionDiagnostic.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.ScaleIndicator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Camera/UiVm.ViewGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/History/UiVm.EntityCommands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/History/UiVm.History.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/History/UiVm.History.Entities.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Inspector/InspectorFieldRow.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Inspector/UiVm.Inspector.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.Parse.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Layer/EditorLayerProviderAdapter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Layer/UiVm.LayerContext.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/DebugText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorDisplayText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogBuffer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogBus.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogCategory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogClipboardText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilterQuery.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogLevel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogNoiseFilter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogRepeatKey.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogSource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/EditorLogSummary.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/LogEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/SampleLogEntries.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/UiText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.Refresh.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.State.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapDatasetRow.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapDatasetTypePresentation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.Rename.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapRegionRenderProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapRenderSnapshotProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Finalize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Road.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayTriangulation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.Danger.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDanger.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Commands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingBootstrap.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingTarget.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Inspector.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.LayerBridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Logging.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Name.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RegionPresentation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadBootstrap.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadPresentation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Routing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Selection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.Format.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Display.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.Rules.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapHistory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDiagnostics.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerInspector.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerSelection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapManifest.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapRender.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapWorld.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Commit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.DraftHistory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Input.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Logging.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Commit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.History.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Logging.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadTool.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Mode/UiVm.Mode.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/D2StaticModelDemo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/SceneHistoryEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/SceneRenderProjectionAdapter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/StaticModelRenderAdapter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.DocumentStatus.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.RenderProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.Scene.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.New.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentLog.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentMapRef.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentSave.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.StaticModelImport.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Scene/UiVm.WorldProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.Picking.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.Selection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionTrace.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionValidity.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.ViewportSelection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Selection/ViewportPickingLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoLogging.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoScreenSize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/Rotate/UiVm.RotateGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/Scale/UiVm.ScaleGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.InputGuards.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.Interaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionCancel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionPointer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.Tool.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Transform/UiVm.ViewportAssist.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Tree/UiVm.TreeCommands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/UiVm.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/UiVm.NativeHostLifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/UiVm.RightPanel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Workspace/UiVm.RegionAuthoring.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Vm/Workspace/UiVm.Workspace.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/DialogFocusTrap.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.Accessibility.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Win/UiWin.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.DialogHost.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Danger.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Input.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.Dialogs.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.EntityShortcuts.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.MapCommands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.SceneCommands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.Shortcuts.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Win/UiWin.UnsavedDialog.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml` — Avalonia 界面布局与资源。
-- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.UI/XuanYu.Editor.UI.csproj` — 项目构建或数据配置。
-- `XuanYu.Editor.Win/MainForm.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor.Win/XuanYu.Editor.Win.csproj` — 项目构建或数据配置。
-- `XuanYu.Editor/Assets/Catalog/SceneStaticModelCatalog.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/HostedSceneAsset.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/ModelAssetRuntimeState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlan.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlanner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingError.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/SceneAssetPathPolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Activate.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Complete.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Rollback.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Identity/AssetId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GlbContainer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GlbImportService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GltfAccessorReader.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GltfCoordinatePolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GltfJsonAccess.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GltfNodeTransform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/GltfStaticModelImporter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/Import/Gltf/ImportStop.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/SceneStaticModelBinding.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelAuthoringService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelColor.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelData.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelImportCodes.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelImportResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelImportWarning.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelPrimitive.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Assets/StaticModels/StaticModelVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraBasis.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraFarProjectionDiagnostic.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraFrameResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraNavigation.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraNavigation.Far.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/CameraNavigation.Try.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/EditorCameraFraming.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/EditorCameraFraming.Draft.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/EditorCameraFraming.MapOrthographic.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/EditorCameraFraming.Orthographic.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Camera/OrthographicViewFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Layering/EditorLayerItem.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Layering/IEditorLayerProvider.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/DatasetLayerState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetDescriptor.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetDocument.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetDocumentJson.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetDocumentSerializer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetDocumentValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetFeatureBinding.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetIdGenerator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetLayerIdProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetPathPolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegionBinding.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Commands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.FeatureQuery.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.LayerStates.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Query.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.RegionTransaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Rename.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Transaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Unregister.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetRuntimeProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDatasetStorageService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocument.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocumentAggregateBridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocumentJson.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocumentOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocumentResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapDocumentValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapEnvironmentDefinition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapJsonMapper.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapJsonSerializer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifest.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestJson.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestMapper.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestSerializer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestStorageService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapManifestValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapRegionDatasetCodec.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapRegionDatasetFeature.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapRoadDatasetCodec.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapRoadDatasetFeature.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapStorageService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapWorkingStorage.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapDocument/MapWorkingStorage.Promotion.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditEvents.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditReason.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.ActiveLayer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Commands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Commit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Document.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Geometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.History.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Layers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Regions.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.RegionSpatialIndex.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/MapEditSession.Roads.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.RuntimeProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapEditSession.Selection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapGeometryEditTypes.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapGeometryHitTester.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/GeometryCapability.cs` — 通用几何类型与编辑/吸附能力标志。
-- `XuanYu.Editor/MapEditing/GeometryFeatureAdapter.cs` — 通用几何 Feature 适配器数据合同。
-- `XuanYu.Editor/MapEditing/GeometryFeatureAdapters.cs` — Region/Road 到通用几何能力的映射。
-- `XuanYu.Editor/MapEditing/GeometryFeatureKey.cs` — 通用几何 Feature 身份键。
-- `XuanYu.Editor/MapEditing/GeometrySnapArbitration.cs` — Vertex/Segment 候选仲裁与稳定决胜。
-- `XuanYu.Editor/MapEditing/GeometrySnapPipeline.cs` — 通用局部吸附解析与锁定流水线。
-- `XuanYu.Editor/MapEditing/GeometrySnapPolicy.cs` — 几何来源、目标与自身排除策略。
-- `XuanYu.Editor/MapEditing/GeometrySnapQuery.cs` — 通用 Vertex/Segment 候选构造。
-- `XuanYu.Editor/MapEditing/GeometrySnapTypes.cs` — 通用吸附结果、候选与运行时状态。
-- `XuanYu.Editor/MapEditing/GeometrySpatialIndex.cs` — Region/Road 通用局部空间索引。
-- `XuanYu.Editor/MapEditing/MapGeometryHitTester.Marker.cs` — Map Marker 单点命中与可编辑性判断。
-- `XuanYu.Editor/MapDocument/MapMarkerDatasetCodec.cs` — Map Marker Dataset point Feature 序列化、读取与校验。
-- `XuanYu.Editor/MapDocument/MapMarkerDatasetFeature.cs` — Map Marker Dataset Feature 读取模型。
-- `XuanYu.World/Map/MapMarker.cs` — Map Marker Point 领域模型。
-- `XuanYu.World/Map/MapMarkerId.cs` — Map Marker 稳定 Feature ID。
-- `XuanYu.World/Map/MapMarkerValidator.cs` — Map Marker 坐标、身份与图层领域校验。
-- `XuanYu.Editor/MapEditing/MapHistoryEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapSelection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapSelectionKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/MapSurfacePicker.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/RegionDrawingState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapGeometry.cs` — Region 顶点到边吸附的纯几何投影与零长度边安全处理。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapRegion.cs` — Region 顶点到边吸附的候选区域几何容器。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapResolver.cs` — Region 顶点到边吸附的 Vertex 优先、Edge 决胜与自身排除算法。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapResult.cs` — Region 顶点到边吸附的纯算法结果合同。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapSettings.cs` — Region 顶点到边吸附的进入/释放半径合同。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapVertex.cs` — Region 顶点到边吸附的世界点与屏幕点候选。
-- `XuanYu.Editor/MapEditing/RegionEdgeSnapLockResolver.cs` — C2 Edge Segment 锁定、12px 释放与沿边重投影。
-- `XuanYu.Editor/MapEditing/RegionSpatialBounds.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialIndex.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialNode.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialQueryResult.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialQueryWalker.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialTreeBalancer.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSpatialTreeEditor.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.Editor/MapEditing/RegionVertexSnapResolver.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.Editor/MapEditing/RegionVertexSnapResult.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.Editor/MapEditing/RegionVertexSnapSettings.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.Editor/MapEditing/RegionVertexSnapState.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.Editor/MapEditing/RegionSnapKind.cs` — Region 吸附结果的 None、Vertex、Edge 类型标识。
-- `XuanYu.Editor/MapEditing/RegionSnapPipeline.cs` — C2 Region 吸附统一仲裁与 F3-A 局部查询接线。
-- `XuanYu.Editor/MapEditing/RegionSnapQuery.cs` — C2 12px 局部查询范围与候选 Region 投影构建。
-- `XuanYu.Editor/MapEditing/RegionSnapState.cs` — C2 None、Vertex、Edge 吸附目标锁定状态。
-- `XuanYu.Editor/MapEditing/RoadDrawingState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Mode/EditorModeId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Mode/EditorModeManager.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Mode/EditorModeTransition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/MapReference.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentAsset.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentEntity.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentJson.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentLoadTransaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentMapper.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentSaveTransaction.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentSession.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.MapReference.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneDocumentWorldBridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneLoadCandidate.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneSaveOutcome.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/SceneDocument/SceneStorageService.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Transform/TransformSession.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Transform/TransformSession.Rotate.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Transform/TransformSession.Scale.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceDefinition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceDefinitions.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceManager.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceTool.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/EditorWorkspaceTransition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/Workspace/RegionAuthoringMode.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Editor/XuanYu.Editor.csproj` — 项目构建或数据配置。
-- `XuanYu.Engine.slnx` — 项目构建或数据配置。
-- `XuanYu.Render.Abstractions/EditorViewPlaneGridKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/EditorViewportAssistState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/FrameExecutionPolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/INativeHostSurfaceBridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/INativeHostSurfaceBridgeFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/IRenderProjectionSource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/LatestRenderProjectionQueue.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapBoundsGeometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapRenderSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapSurfaceGeometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapSurfaceResourceKey.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdatePolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdateText.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/NativeHostHandleSnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/NativeHostLifecycleLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/NativeHostLifecycleProbe.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/NativeHostLifecycleState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/NativeHostSurfaceHandle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ReferenceGridFrameState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ReferenceGridScale.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderCameraProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderDrawPlan.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderDrawPlan.Typed.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderEntityProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderEntityType.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderProjectionResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderStaticModelKey.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderStaticModelPrimitive.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderStaticModelResource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderStaticModelTransform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderStaticModelVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderVectorOverlayKey.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderVectorOverlayPrimitive.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderVectorOverlayResource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/RenderVectorOverlayVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ScaleIndicatorGlyphLite.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ScaleIndicatorMetric.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ScaleIndicatorOverlayProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ViewportMetricScale.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ViewportOverlayAnchor.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/ViewportOverlayLayoutResolver.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj` — 项目构建或数据配置。
-- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeDeviceAttachStep.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Bridge/VulkanBridgePhysicalDeviceAttachStep.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeRenderSessionAttachStep.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeSwapchainAttachStep.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.Physical.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceInfo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelector.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Device/VulkanQueueFamilySelection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Diagnostic/VulkanResizeTracer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Frag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineVert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridVert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoVert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ScaleIndicatorFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Vert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ViewPlaneGridFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldAxesFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldOriginFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldReferenceGridFrag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Depth.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Fullscreen.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Grid.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.GridLine.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Sky.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.StaticModelInput.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanPipelineLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanScenePushConstants.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Pipeline/VulkanShaderModuleOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Commands.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Lifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Matrix.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PipelineBind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PushConstants.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Resources.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Trace.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.VectorOverlayPipeline.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.Grid.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.GridScale.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.NavGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ScaleIndicator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ViewPlaneGrid.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.WorldAxes.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Map/VulkanClearFrameOwner.MapSurface.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Frame.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Lifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Draw.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawAssist.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawGizmo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Scene.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticBounds.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelBuffer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelCache.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelFailureTracker.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelLog.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelResource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanClearFrameOwner.DrawVectorOverlay.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayBufferReusePolicy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayCache.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayResource.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayVertex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Render/VulkanDepthAttachment.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/GridPipelineSet.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Lifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Recover.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Resize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.VectorOverlay.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.vert` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid.vert` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.vert` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_scale_indicator.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_view_plane_grid.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_world_axes.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_world_origin.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/editor_world_reference_grid.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/scene.frag` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Shaders/scene.vert` — 项目资源或工程文件。
-- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainCapabilities.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.Accessors.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanApiProbe.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanBridgeLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanDeviceInfo.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanInstanceCreateInfoBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanInstanceExtensions.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanInstanceLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanInstanceOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanInstanceResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Attach.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Lifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Resize.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Scene.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridgeFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanProbeLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanProbeResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanSurfaceLogFormatter.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanSurfaceOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/VulkanSurfaceResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj` — 项目构建或数据配置。
-- `XuanYu.WarCore.Tests/Identity/MilitaryIdentityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore.Tests/State/SoldierStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore.Tests/WarCoreDependencyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj` — 项目构建或数据配置。
-- `XuanYu.WarCore/Identity/FactionId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/Identity/MilitaryIdentity.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/Identity/OrganizationId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/Identity/UnitId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/Identity/UnitKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/State/SoldierState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.WarCore/XuanYu.WarCore.csproj` — 项目构建或数据配置。
-- `XuanYu.World.Tests/Assets/AssetContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/AssetDialogTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/GlbFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/GlbImportTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/GlbMultiPrimitiveFactory.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingCompleteTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingPlannerRejectTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingPlannerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingRollbackTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingSaveAsTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingTestEnv.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/HostingTransactionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/LoadStructureErrorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/LoadTransactionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/SaveAsTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/SaveTransactionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/ScenePersistenceEnv.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/SchemaCompatibilityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelAuthoringServiceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelBaseVertexTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelCatalogTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelFailureTrackerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelProjectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Assets/StaticModelValidatorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraC2DraftFramingTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraDocumentTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraFramingOccupancyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraFramingTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.Focus.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Camera/UiViewGizmoTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Logging/FootAxamlTailContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Logging/LogAutoScrollPolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Logging/LogListAutoScrollControllerContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Logging/UiMapLogChineseTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Logging/UiRootLogRowContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Behavior.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.History.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiLayerStateFeedbackTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiLayerVisualContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiLogSummaryPriorityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiLogSummaryTimingTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapCommandRoutingTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1AcceptanceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF2Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3ContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetLayerR3Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapPersistenceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionLayerF3Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionRuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolActivationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolInvalidTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapEditorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapHistoryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapInitialProjectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayerDeleteLockRecoveryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayerDragTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayerLockLogTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.Behavior.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapLayoutContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapManifestIdentityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/Editing/UiMapManifestNavigationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapBoundsTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapCoordinateValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetDocumentTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetLayerStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetRegistryF1FailureTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetRegistryF2Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetRegistryFailureTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetRegistryLifecycleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDatasetStorageContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDefaultMapTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDefinitionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDocumentAggregateBridgeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDocumentOwnerChainTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapDocumentOwnerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapEnvironmentValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapIdTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapJsonRoundTripTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapJsonStrictnessTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerRulesTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerStackTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerStackTests.Drag.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerStackTests.Order.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerTests.Base.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapLayerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapManifestCreationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapManifestSerializationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapManifestStorageTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapManifestValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionDatasetContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionDatasetRuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionDraftTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionTests.Geometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionTests.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRegionTests.Strictness.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapRoadDatasetContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapSizeValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapStorageFailureTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapStorageTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapSurfaceSamplerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapSurfaceValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/MapWorkingStorageTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/SceneMapReferenceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/WorldMapStateOwnerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Map/WorldMapStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapCoordinateContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionCommandTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionCreationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionDirtyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionGeometryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionHistoryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionMapPropertiesTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionRegionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionSelectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionThreadTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapEditSessionValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapGeometryHitTesterTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapPickingRoundTripTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapRenderSnapshotProjectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/MapSurfacePickerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/RegionDrawingF3HistoryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/RegionDrawingStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapGeometryTests.cs` — Region 顶点到边吸附的线段最近点几何测试。
-- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapResolverTests.cs` — Region 顶点到边吸附的优先级、排除与稳定决胜测试。
-- `XuanYu.World.Tests/MapEditing/GenericGeometryCapabilityTests.cs` — 通用几何能力、身份策略与局部候选测试。
-- `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` — Road 到 Region/Road Vertex/Segment 集成测试。
-- `XuanYu.World.Tests/MapEditing/PointFeatureFoundationTests.cs` — Point/Map Marker 能力、身份、Undo/Redo 与 Dataset codec 测试。
-- `XuanYu.World.Tests/UiRuntime/MapMarkerPlacementTests.cs` — Map Marker 放置、自动回选择与 Save/Reload 测试。
-- `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` — Marker 到 Region/Road/Marker 的通用吸附集成测试。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.MarkerBootstrap.cs` — 地图标记 Dataset 初始化与放置工具入口。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapMarkerPlacement.cs` — 地图标记地面放置与自动回选择。
-- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Points.cs` — 通用几何点集合与身份解析。
-- `XuanYu.Editor.UI/Left/MarkerPanel.axaml` — 地图标记最小放置面板。
-- `XuanYu.Editor.UI/Left/MarkerPanel.axaml.cs` — 地图标记放置面板事件接线。
-- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineContractTests.cs` — C2 现有提交路径、局部查询与无新增索引合同测试。
-- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineLockTests.cs` — C2 Edge 锁定、迟滞、沿边重投影与 Vertex 升级测试。
-- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTestFixture.cs` — C2 吸附管线投影与地图测试夹具。
-- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTests.cs` — C2 Vertex/Edge 优先级与局部查询测试。
-- `XuanYu.World.Tests/MapEditing/RegionSnapStateTests.cs` — C2 吸附状态目标类型与清理测试。
-- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexLifecycleTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexScaleTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexTests.cs` — Region 局部空间查询的平衡动态 AABB 树、生命周期接线或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionVertexSnapIntegrationContractTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverBoundaryTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionVertexSnapScaleTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.World.Tests/MapEditing/RegionVertexSnapStateTests.cs` — Region 顶点吸附的纯解析器、运行时状态、接线合同或回归测试。
-- `XuanYu.World.Tests/Mode/EditorModeManagerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Mode/EditorModeUiCompositionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Mode/EditorModeUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/RegionDrawingTestVm.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Render/VulkanPresentLoopContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Render/VulkanPresentModeSelectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Render/WorldGridIndependenceContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/CommandSmokeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/EditorEnvironmentTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/EntityBoundsSemanticsTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/EntityRegistryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/EntityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/FinalSceneTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/GlobalWorldTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneConsumptionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneDocumentPersistenceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneDocumentTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneDocumentTests.Opening.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneDocumentTests.SaveFeedback.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneIsolationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneMultiEntityGateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneSelectionReentryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/SceneSingleAuthorityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/UiHistoryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Scene/UiHistoryTests.InlineRename.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Selection/FinalSelectionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Selection/SelectionToolStateUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.Selection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SceneStateOwnerSpatialTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialIndexEditLifecycleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerLifecycleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerRevisionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialIndexRebuildTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialIndexScaleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialQueryGovernanceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialQueryOracle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialQueryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialQueryTests.Geometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialRaycastNearestTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialRaycastRevisionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialRaycastScaleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialRayQueryLifecycleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialRayQueryTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Spatial/SpatialTestData.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Plane.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Region.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Session.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.DragState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Preview.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.ToolSwitch.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleGizmoGlobalModeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.AxisUniform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Helpers.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.History.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Pointer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Target.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/TransformFoundationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/TransformFoundationTests.Input.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/TransformFoundationTests.Inspector.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/TransformSessionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Transform/ViewportAssistTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Tree/UiHierarchyConnectorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeLayoutTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeStateTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayAnchorContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayDepthPolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayV1Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ActivationRuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1BTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1CStabilityTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1FullRuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RenderContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ResizeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RuntimeRedTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionDrawingF2PolygonTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/RegionPointerSafetyF2Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/ScaleIndicatorVisibilityRuntimeTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/UiHeadlessFixture.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiRuntime/UiTestAppBuilder.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD3DebtClearedTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4DebtClearedTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4F1ButtonContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4F1LayoutModelTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4F1TextOverflowContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4F1TypographyContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4InspectorContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4LayerContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4LayoutModelTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD4MapEditorContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5ButtonContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5CorrectionBehaviorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5CorrectionNotifyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5CorrectionStructureTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5DangerFlowTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5DialogAndLogContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5FormContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5InputValidationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5MapStatusTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5NotificationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogBehaviorTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD5UnsavedFlowTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD6AccessibilityContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD6DpiContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD6LogPerformanceTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiD6MotionContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml1.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml2.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Cs.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Typography.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassF2Tests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiDebtBaselineTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiF3LayerRowContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiLayerDeleteDialogContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.CsRules.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Icon.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Inline.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Structure.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTokenRefTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiTokenManifestGraphTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiTokenManifestTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiTopTabStripContractTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelHintAndListTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Viewport/NativePointerRoutePolicyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Workspace/EditorWorkspaceManagerTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiCompositionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/Workspace/RegionAuthoringHierarchyTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionInvariantTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.Activity.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.PartitionStrategy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/WorldPartition/WorldPartitionUiTests.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World.Tests/XuanYu.World.Tests.csproj` — 项目构建或数据配置。
-- `XuanYu.World/EntityRegistry.Authoring.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/EntityRegistry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/EntityRegistry.Replace.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/GlobalWorld.Authoring.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/GlobalWorld.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/GlobalWorld.Query.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/GlobalWorld.Snapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/GridWorldPartitionStrategy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/IWorldPartitionStrategy.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapBounds.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapCoordinateContract.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapDefaultDefinition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapDefinition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapDefinitionValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapGeometry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayer.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayerId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayerKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayerRules.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayerStack.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapLayerValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegion.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegionDraft.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegionId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegionIntersection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegionKind.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRegionValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRoad.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRoadDraft.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRoadId.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapRoadValidator.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapSurfaceDefinition.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/MapValidationResult.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/WorldMapState.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Map/WorldMapStateOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/RegionKey.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneSpatialBoundsProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneStateOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneStateOwner.Lifecycle.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneStateOwner.Seeding.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneStateOwner.StaticModel.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneStateOwner.Transform.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Scene/SceneWorldProjection.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.Insert.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.Node.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.Query.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.Refit.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/DynamicAabbTree.Remove.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/ISpatialIndex.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/SpatialIndexOwner.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/Spatial/SpatialRaycastResolver.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldEntityActivity.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldEntityName.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldEntitySnapshot.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldEntityType.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldPartitionEntry.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldPartitionMembership.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/WorldQuery.cs` — C# 类型、服务或测试实现。
-- `XuanYu.World/XuanYu.World.csproj` — 项目构建或数据配置。
-
-## Integrated XYUI subtree（由当前 git ls-files 重建）
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI solution 项目清单。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI Avalonia 视图、样式或主题资源。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI .NET 项目配置。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI .NET 项目配置。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI .NET 项目配置。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI C# Runtime、Gallery 或测试实现。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI 规范、审计、治理或说明文档。
-- $path - XYUI Canonical registry 或结构化合同数据。
-- $path - XYUI Canonical registry 或结构化合同数据。
+- `.gitattributes` - Tracked repository file .gitattributes.
+- `.gitignore` - Tracked repository file .gitignore.
+- `AGENTS.md` - Documentation, specification, or governance record for AGENTS.md.
+- `NuGet.Config` - Tracked repository file NuGet.Config.
+- `XYUI/README.md` - Documentation, specification, or governance record for README.md.
+- `XYUI/scripts/gallery-visible-smoke.ps1` - PowerShell validation or workflow script for gallery-visible-smoke.ps1.
+- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml` - Avalonia XAML view or style resource for App.axaml.
+- `XYUI/src/XYUI.Avalonia.Gallery/App.axaml.cs` - C# implementation source for App.axaml.cs.
+- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml` - Avalonia XAML view or style resource for MainWindow.axaml.
+- `XYUI/src/XYUI.Avalonia.Gallery/MainWindow.axaml.cs` - C# implementation source for MainWindow.axaml.cs.
+- `XYUI/src/XYUI.Avalonia.Gallery/Program.cs` - C# implementation source for Program.cs.
+- `XYUI/src/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - .NET project definition for XYUI.Avalonia.Gallery.csproj.
+- `XYUI/src/XYUI.Avalonia/Controls/XYBadge.cs` - C# implementation source for XYBadge.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYButton.cs` - C# implementation source for XYButton.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYCheckBox.cs` - C# implementation source for XYCheckBox.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYComboBox.cs` - C# implementation source for XYComboBox.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYIconButton.cs` - C# implementation source for XYIconButton.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYNumberField.cs` - C# implementation source for XYNumberField.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYRadioButton.cs` - C# implementation source for XYRadioButton.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYSlider.cs` - C# implementation source for XYSlider.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYTag.cs` - C# implementation source for XYTag.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYTextField.cs` - C# implementation source for XYTextField.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYToggleButton.cs` - C# implementation source for XYToggleButton.cs.
+- `XYUI/src/XYUI.Avalonia/Controls/XYToggleSwitch.cs` - C# implementation source for XYToggleSwitch.cs.
+- `XYUI/src/XYUI.Avalonia/Foundation/XYDensity.cs` - C# implementation source for XYDensity.cs.
+- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeResources.cs` - C# implementation source for XYThemeResources.cs.
+- `XYUI/src/XYUI.Avalonia/Foundation/XYThemeVariant.cs` - C# implementation source for XYThemeVariant.cs.
+- `XYUI/src/XYUI.Avalonia/Foundation/XYTokens.cs` - C# implementation source for XYTokens.cs.
+- `XYUI/src/XYUI.Avalonia/README.md` - Documentation, specification, or governance record for README.md.
+- `XYUI/src/XYUI.Avalonia/Themes/XYUIControls.axaml` - Avalonia XAML view or style resource for XYUIControls.axaml.
+- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.axaml` - Avalonia XAML view or style resource for XYUITheme.axaml.
+- `XYUI/src/XYUI.Avalonia/Themes/XYUITheme.cs` - C# implementation source for XYUITheme.cs.
+- `XYUI/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - .NET project definition for XYUI.Avalonia.csproj.
+- `XYUI/tests/XYUI.Avalonia.Tests/AssemblyInfo.cs` - C# implementation source for AssemblyInfo.cs.
+- `XYUI/tests/XYUI.Avalonia.Tests/ControlsContractTests.cs` - C# implementation source for ControlsContractTests.cs.
+- `XYUI/tests/XYUI.Avalonia.Tests/FoundationTokenTests.cs` - C# implementation source for FoundationTokenTests.cs.
+- `XYUI/tests/XYUI.Avalonia.Tests/GalleryRuntimeTests.cs` - C# implementation source for GalleryRuntimeTests.cs.
+- `XYUI/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - .NET project definition for XYUI.Avalonia.Tests.csproj.
+- `XuanYu.Core.Tests/Camera/CameraBasisTests.cs` - C# implementation source for CameraBasisTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraFarRecoveryTests.cs` - C# implementation source for CameraFarRecoveryTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationRollTests.cs` - C# implementation source for CameraNavigationRollTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationSequenceTests.cs` - C# implementation source for CameraNavigationSequenceTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationStressTests.cs` - C# implementation source for CameraNavigationStressTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationTests.cs` - C# implementation source for CameraNavigationTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.Safety.cs` - C# implementation source for CameraNavigationUiSequenceTests.Safety.cs.
+- `XuanYu.Core.Tests/Camera/CameraNavigationUiSequenceTests.cs` - C# implementation source for CameraNavigationUiSequenceTests.cs.
+- `XuanYu.Core.Tests/Camera/CameraOrthographicNavigationTests.cs` - C# implementation source for CameraOrthographicNavigationTests.cs.
+- `XuanYu.Core.Tests/Camera/FarProjectionSafetyTests.cs` - C# implementation source for FarProjectionSafetyTests.cs.
+- `XuanYu.Core.Tests/CoreSmokeTests.cs` - C# implementation source for CoreSmokeTests.cs.
+- `XuanYu.Core.Tests/EditorTool/EditorTransformCapturePolicyTests.cs` - C# implementation source for EditorTransformCapturePolicyTests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoDragConstraintTests.cs` - C# implementation source for MoveGizmoDragConstraintTests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutG1Tests.cs` - C# implementation source for MoveGizmoLayoutG1Tests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutPlaneTests.cs` - C# implementation source for MoveGizmoLayoutPlaneTests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutTests.cs` - C# implementation source for MoveGizmoLayoutTests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoLayoutVulkanTests.cs` - C# implementation source for MoveGizmoLayoutVulkanTests.cs.
+- `XuanYu.Core.Tests/Gizmo/MoveGizmoScreenSizeTests.cs` - C# implementation source for MoveGizmoScreenSizeTests.cs.
+- `XuanYu.Core.Tests/Gizmo/RotateGizmoLayoutTests.cs` - C# implementation source for RotateGizmoLayoutTests.cs.
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Drag.cs` - C# implementation source for ScaleGizmoTests.Drag.cs.
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.DragSafety.cs` - C# implementation source for ScaleGizmoTests.DragSafety.cs.
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.Helpers.cs` - C# implementation source for ScaleGizmoTests.Helpers.cs.
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.R5R1.cs` - C# implementation source for ScaleGizmoTests.R5R1.cs.
+- `XuanYu.Core.Tests/Gizmo/ScaleGizmoTests.cs` - C# implementation source for ScaleGizmoTests.cs.
+- `XuanYu.Core.Tests/History/EditorHistoryOwnerTests.cs` - C# implementation source for EditorHistoryOwnerTests.cs.
+- `XuanYu.Core.Tests/History/EditorHistoryRedoTests.cs` - C# implementation source for EditorHistoryRedoTests.cs.
+- `XuanYu.Core.Tests/History/TransformHistoryIntegrationTests.cs` - C# implementation source for TransformHistoryIntegrationTests.cs.
+- `XuanYu.Core.Tests/History/TransformHistoryRedoIntegrationTests.cs` - C# implementation source for TransformHistoryRedoIntegrationTests.cs.
+- `XuanYu.Core.Tests/Picking/ViewportPickingServiceTests.cs` - C# implementation source for ViewportPickingServiceTests.cs.
+- `XuanYu.Core.Tests/Render/Camera/StandardViewResolverTests.cs` - C# implementation source for StandardViewResolverTests.cs.
+- `XuanYu.Core.Tests/Render/Diagnostics/RenderLogNoiseContractTests.cs` - C# implementation source for RenderLogNoiseContractTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/CubeRenderDrawPlanTests.cs` - C# implementation source for CubeRenderDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/FrameExecutionPolicyTests.cs` - C# implementation source for FrameExecutionPolicyTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/RenderDrawPlanTests.cs` - C# implementation source for RenderDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Rotation.cs` - C# implementation source for SceneRenderProjectionAdapterTests.Rotation.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.Selection.cs` - C# implementation source for SceneRenderProjectionAdapterTests.Selection.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/SceneRenderProjectionAdapterTests.cs` - C# implementation source for SceneRenderProjectionAdapterTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportAssistDrawPlanTests.cs` - C# implementation source for ViewportAssistDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportChromeContractTests.cs` - C# implementation source for ViewportChromeContractTests.cs.
+- `XuanYu.Core.Tests/Render/DrawPlan/ViewportScaleIndicatorContractTests.cs` - C# implementation source for ViewportScaleIndicatorContractTests.cs.
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridDrawPlanTests.cs` - C# implementation source for ReferenceGridDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridFrameStateTests.cs` - C# implementation source for ReferenceGridFrameStateTests.cs.
+- `XuanYu.Core.Tests/Render/Grid/ReferenceGridShaderContractTests.cs` - C# implementation source for ReferenceGridShaderContractTests.cs.
+- `XuanYu.Core.Tests/Render/Grid/ScaleIndicatorMetricTests.cs` - C# implementation source for ScaleIndicatorMetricTests.cs.
+- `XuanYu.Core.Tests/Render/Grid/ViewportMetricScaleTests.cs` - C# implementation source for ViewportMetricScaleTests.cs.
+- `XuanYu.Core.Tests/Render/LatestRenderProjectionQueueTests.cs` - C# implementation source for LatestRenderProjectionQueueTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapRegionDrawPlanTests.cs` - C# implementation source for MapRegionDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapRenderDrawPlanTests.cs` - C# implementation source for MapRenderDrawPlanTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceGeometryTests.cs` - C# implementation source for MapSurfaceGeometryTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceLayerVisibilityTests.cs` - C# implementation source for MapSurfaceLayerVisibilityTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceKeyTests.cs` - C# implementation source for MapSurfaceResourceKeyTests.cs.
+- `XuanYu.Core.Tests/Render/Map/MapSurfaceResourceUpdatePolicyTests.cs` - C# implementation source for MapSurfaceResourceUpdatePolicyTests.cs.
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoDipContractTests.cs` - C# implementation source for NavigationGizmoDipContractTests.cs.
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoInputIsolationTests.cs` - C# implementation source for NavigationGizmoInputIsolationTests.cs.
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.Facing.cs` - C# implementation source for NavigationGizmoLayoutTests.Facing.cs.
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoLayoutTests.cs` - C# implementation source for NavigationGizmoLayoutTests.cs.
+- `XuanYu.Core.Tests/Render/NavigationGizmo/NavigationGizmoOverlayContractTests.cs` - C# implementation source for NavigationGizmoOverlayContractTests.cs.
+- `XuanYu.Core.Tests/Render/Overlay/ScaleIndicatorGlyphLiteTests.cs` - C# implementation source for ScaleIndicatorGlyphLiteTests.cs.
+- `XuanYu.Core.Tests/Render/Overlay/ViewportOverlayLayoutTests.cs` - C# implementation source for ViewportOverlayLayoutTests.cs.
+- `XuanYu.Core.Tests/Render/StaticModels/RegionModelTransformContractTests.cs` - C# implementation source for RegionModelTransformContractTests.cs.
+- `XuanYu.Core.Tests/Render/StaticModels/StaticModelDepthRegressionTests.cs` - C# implementation source for StaticModelDepthRegressionTests.cs.
+- `XuanYu.Core.Tests/Render/StaticModels/StaticModelRenderContractTests.cs` - C# implementation source for StaticModelRenderContractTests.cs.
+- `XuanYu.Core.Tests/Space/CameraOrthographicTests.cs` - C# implementation source for CameraOrthographicTests.cs.
+- `XuanYu.Core.Tests/Space/CameraStateTests.cs` - C# implementation source for CameraStateTests.cs.
+- `XuanYu.Core.Tests/Space/DefaultEditorCameraTests.cs` - C# implementation source for DefaultEditorCameraTests.cs.
+- `XuanYu.Core.Tests/Space/SpaceAssert.cs` - C# implementation source for SpaceAssert.cs.
+- `XuanYu.Core.Tests/Space/ViewProjectionStateTests.cs` - C# implementation source for ViewProjectionStateTests.cs.
+- `XuanYu.Core.Tests/Space/ViewportStateTests.cs` - C# implementation source for ViewportStateTests.cs.
+- `XuanYu.Core.Tests/Space/WorldRayFactoryTests.cs` - C# implementation source for WorldRayFactoryTests.cs.
+- `XuanYu.Core.Tests/Space/WorldRayTests.cs` - C# implementation source for WorldRayTests.cs.
+- `XuanYu.Core.Tests/Spatial/RayAabbIntersectionTests.cs` - C# implementation source for RayAabbIntersectionTests.cs.
+- `XuanYu.Core.Tests/Spatial/SpatialBoundsTests.cs` - C# implementation source for SpatialBoundsTests.cs.
+- `XuanYu.Core.Tests/Spatial/SpatialTestData.cs` - C# implementation source for SpatialTestData.cs.
+- `XuanYu.Core.Tests/XuanYu.Core.Tests.csproj` - .NET project definition for XuanYu.Core.Tests.csproj.
+- `XuanYu.Core/.gitkeep` - Tracked repository file .gitkeep.
+- `XuanYu.Core/Diagnostics/CoreSelfTest.cs` - C# implementation source for CoreSelfTest.cs.
+- `XuanYu.Core/Gizmo/Common/ScreenPoint.cs` - C# implementation source for ScreenPoint.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoAxis.cs` - C# implementation source for MoveGizmoAxis.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.Axes.cs` - C# implementation source for MoveGizmoDragConstraint.Axes.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoDragConstraint.cs` - C# implementation source for MoveGizmoDragConstraint.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Hit.cs` - C# implementation source for MoveGizmoLayout.Hit.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.Plane.cs` - C# implementation source for MoveGizmoLayout.Plane.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoLayout.cs` - C# implementation source for MoveGizmoLayout.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoPlane.cs` - C# implementation source for MoveGizmoPlane.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoScreenSize.cs` - C# implementation source for MoveGizmoScreenSize.cs.
+- `XuanYu.Core/Gizmo/Move/MoveGizmoSegment.cs` - C# implementation source for MoveGizmoSegment.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoAxis.cs` - C# implementation source for RotateGizmoAxis.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.Math.cs` - C# implementation source for RotateGizmoDrag.Math.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoDrag.cs` - C# implementation source for RotateGizmoDrag.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoLayout.cs` - C# implementation source for RotateGizmoLayout.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoRing.cs` - C# implementation source for RotateGizmoRing.cs.
+- `XuanYu.Core/Gizmo/Rotate/RotateGizmoScreenRadius.cs` - C# implementation source for RotateGizmoScreenRadius.cs.
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoAxis.cs` - C# implementation source for ScaleGizmoAxis.cs.
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoDrag.cs` - C# implementation source for ScaleGizmoDrag.cs.
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoHitTester.cs` - C# implementation source for ScaleGizmoHitTester.cs.
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoLayout.cs` - C# implementation source for ScaleGizmoLayout.cs.
+- `XuanYu.Core/Gizmo/Scale/ScaleGizmoScreenSize.cs` - C# implementation source for ScaleGizmoScreenSize.cs.
+- `XuanYu.Core/History/EditorHistoryOwner.cs` - C# implementation source for EditorHistoryOwner.cs.
+- `XuanYu.Core/History/TransformHistoryEntry.cs` - C# implementation source for TransformHistoryEntry.cs.
+- `XuanYu.Core/Identity/EntityId.cs` - C# implementation source for EntityId.cs.
+- `XuanYu.Core/Logging/EngineLogEntry.cs` - C# implementation source for EngineLogEntry.cs.
+- `XuanYu.Core/Logging/EngineLogLevel.cs` - C# implementation source for EngineLogLevel.cs.
+- `XuanYu.Core/Map/MapSurfaceKind.cs` - C# implementation source for MapSurfaceKind.cs.
+- `XuanYu.Core/Map/MapSurfaceSampler.cs` - C# implementation source for MapSurfaceSampler.cs.
+- `XuanYu.Core/Map/MapTerrainVertex.cs` - C# implementation source for MapTerrainVertex.cs.
+- `XuanYu.Core/Math/Vector3d.cs` - C# implementation source for Vector3d.cs.
+- `XuanYu.Core/Math/YawRotation.cs` - C# implementation source for YawRotation.cs.
+- `XuanYu.Core/Picking/ViewportPickingRequest.cs` - C# implementation source for ViewportPickingRequest.cs.
+- `XuanYu.Core/Picking/ViewportPickingResult.cs` - C# implementation source for ViewportPickingResult.cs.
+- `XuanYu.Core/Picking/ViewportPickingService.cs` - C# implementation source for ViewportPickingService.cs.
+- `XuanYu.Core/Properties/AssemblyInfo.cs` - C# implementation source for AssemblyInfo.cs.
+- `XuanYu.Core/Results/EngineError.cs` - C# implementation source for EngineError.cs.
+- `XuanYu.Core/Results/EngineResult.cs` - C# implementation source for EngineResult.cs.
+- `XuanYu.Core/Scene/CommittedTransform.cs` - C# implementation source for CommittedTransform.cs.
+- `XuanYu.Core/Scene/ISceneRenderSnapshotSource.cs` - C# implementation source for ISceneRenderSnapshotSource.cs.
+- `XuanYu.Core/Scene/SceneEntitySnapshot.cs` - C# implementation source for SceneEntitySnapshot.cs.
+- `XuanYu.Core/Scene/SceneRenderSnapshot.cs` - C# implementation source for SceneRenderSnapshot.cs.
+- `XuanYu.Core/Scene/SceneTransformCommitResult.cs` - C# implementation source for SceneTransformCommitResult.cs.
+- `XuanYu.Core/Space/CameraState.cs` - C# implementation source for CameraState.cs.
+- `XuanYu.Core/Space/DefaultEditorCamera.cs` - C# implementation source for DefaultEditorCamera.cs.
+- `XuanYu.Core/Space/ProjectionMode.cs` - C# implementation source for ProjectionMode.cs.
+- `XuanYu.Core/Space/ViewProjectionState.Projection.cs` - C# implementation source for ViewProjectionState.Projection.cs.
+- `XuanYu.Core/Space/ViewProjectionState.cs` - C# implementation source for ViewProjectionState.cs.
+- `XuanYu.Core/Space/ViewportState.cs` - C# implementation source for ViewportState.cs.
+- `XuanYu.Core/Space/WorldRay.cs` - C# implementation source for WorldRay.cs.
+- `XuanYu.Core/Space/WorldRayFactory.cs` - C# implementation source for WorldRayFactory.cs.
+- `XuanYu.Core/Spatial/RayAabbHit.cs` - C# implementation source for RayAabbHit.cs.
+- `XuanYu.Core/Spatial/RayAabbIntersection.cs` - C# implementation source for RayAabbIntersection.cs.
+- `XuanYu.Core/Spatial/SpatialAabb.cs` - C# implementation source for SpatialAabb.cs.
+- `XuanYu.Core/Spatial/SpatialBounds.cs` - C# implementation source for SpatialBounds.cs.
+- `XuanYu.Core/Spatial/SpatialQueryCategory.cs` - C# implementation source for SpatialQueryCategory.cs.
+- `XuanYu.Core/Spatial/SpatialQueryResult.cs` - C# implementation source for SpatialQueryResult.cs.
+- `XuanYu.Core/Spatial/SpatialQueryStats.cs` - C# implementation source for SpatialQueryStats.cs.
+- `XuanYu.Core/Spatial/SpatialRayAabb.cs` - C# implementation source for SpatialRayAabb.cs.
+- `XuanYu.Core/Spatial/SpatialRayQuery.cs` - C# implementation source for SpatialRayQuery.cs.
+- `XuanYu.Core/Spatial/SpatialRaycastHit.cs` - C# implementation source for SpatialRaycastHit.cs.
+- `XuanYu.Core/Spatial/SpatialRaycastResult.cs` - C# implementation source for SpatialRaycastResult.cs.
+- `XuanYu.Core/Spatial/SpatialRaycastStats.cs` - C# implementation source for SpatialRaycastStats.cs.
+- `XuanYu.Core/Time/SimulationTime.cs` - C# implementation source for SimulationTime.cs.
+- `XuanYu.Core/Time/TimeStep.cs` - C# implementation source for TimeStep.cs.
+- `XuanYu.Core/Transform/PreviewTransform.cs` - C# implementation source for PreviewTransform.cs.
+- `XuanYu.Core/Transform/TransformStartSnapshot.cs` - C# implementation source for TransformStartSnapshot.cs.
+- `XuanYu.Core/XuanYu.Core.csproj` - .NET project definition for XuanYu.Core.csproj.
+- `XuanYu.Editor.App/EditorCompositionRoot.cs` - C# implementation source for EditorCompositionRoot.cs.
+- `XuanYu.Editor.App/Program.cs` - C# implementation source for Program.cs.
+- `XuanYu.Editor.App/XuanYu.Editor.App.csproj` - .NET project definition for XuanYu.Editor.App.csproj.
+- `XuanYu.Editor.UI/Accessibility/UiAutomationNamer.cs` - C# implementation source for UiAutomationNamer.cs.
+- `XuanYu.Editor.UI/Accessibility/UiDpiContract.cs` - C# implementation source for UiDpiContract.cs.
+- `XuanYu.Editor.UI/Accessibility/UiMotionPreference.cs` - C# implementation source for UiMotionPreference.cs.
+- `XuanYu.Editor.UI/Bootstrap/App.axaml` - Avalonia XAML view or style resource for App.axaml.
+- `XuanYu.Editor.UI/Bootstrap/App.axaml.cs` - C# implementation source for App.axaml.cs.
+- `XuanYu.Editor.UI/Bootstrap/Program.cs` - C# implementation source for Program.cs.
+- `XuanYu.Editor.UI/Design/UiStyles.D4F1.axaml` - Avalonia XAML view or style resource for UiStyles.D4F1.axaml.
+- `XuanYu.Editor.UI/Design/UiStyles.D5.axaml` - Avalonia XAML view or style resource for UiStyles.D5.axaml.
+- `XuanYu.Editor.UI/Design/UiTokenManifest.json` - Structured registry or configuration data for UiTokenManifest.json.
+- `XuanYu.Editor.UI/Design/UiTokens.Colors.Components.axaml` - Avalonia XAML view or style resource for UiTokens.Colors.Components.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Colors.Core.axaml` - Avalonia XAML view or style resource for UiTokens.Colors.Core.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Controls.axaml` - Avalonia XAML view or style resource for UiTokens.Controls.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Fonts.axaml` - Avalonia XAML view or style resource for UiTokens.Fonts.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Icons.axaml` - Avalonia XAML view or style resource for UiTokens.Icons.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Motion.axaml` - Avalonia XAML view or style resource for UiTokens.Motion.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.Spacing.axaml` - Avalonia XAML view or style resource for UiTokens.Spacing.axaml.
+- `XuanYu.Editor.UI/Design/UiTokens.axaml` - Avalonia XAML view or style resource for UiTokens.axaml.
+- `XuanYu.Editor.UI/Dialogs/IEditorDialogService.cs` - C# implementation source for IEditorDialogService.cs.
+- `XuanYu.Editor.UI/Dialogs/NullEditorDialogService.cs` - C# implementation source for NullEditorDialogService.cs.
+- `XuanYu.Editor.UI/EditorState/EditorInteractionChangedResult.cs` - C# implementation source for EditorInteractionChangedResult.cs.
+- `XuanYu.Editor.UI/EditorState/EditorInteractionCommand.cs` - C# implementation source for EditorInteractionCommand.cs.
+- `XuanYu.Editor.UI/EditorState/EditorInteractionPointerSnapshot.cs` - C# implementation source for EditorInteractionPointerSnapshot.cs.
+- `XuanYu.Editor.UI/EditorState/EditorInteractionSnapshot.cs` - C# implementation source for EditorInteractionSnapshot.cs.
+- `XuanYu.Editor.UI/EditorState/EditorSelectionCommand.cs` - C# implementation source for EditorSelectionCommand.cs.
+- `XuanYu.Editor.UI/EditorState/EditorSelectionSnapshot.cs` - C# implementation source for EditorSelectionSnapshot.cs.
+- `XuanYu.Editor.UI/EditorState/EditorStateChangedResult.cs` - C# implementation source for EditorStateChangedResult.cs.
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Interaction.cs` - C# implementation source for EditorStateOwner.Interaction.cs.
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.Tool.cs` - C# implementation source for EditorStateOwner.Tool.cs.
+- `XuanYu.Editor.UI/EditorState/EditorStateOwner.cs` - C# implementation source for EditorStateOwner.cs.
+- `XuanYu.Editor.UI/EditorState/EditorToolChangedResult.cs` - C# implementation source for EditorToolChangedResult.cs.
+- `XuanYu.Editor.UI/EditorState/EditorToolCommand.cs` - C# implementation source for EditorToolCommand.cs.
+- `XuanYu.Editor.UI/EditorState/EditorToolId.cs` - C# implementation source for EditorToolId.cs.
+- `XuanYu.Editor.UI/EditorState/EditorToolSnapshot.cs` - C# implementation source for EditorToolSnapshot.cs.
+- `XuanYu.Editor.UI/EditorState/EditorToolText.cs` - C# implementation source for EditorToolText.cs.
+- `XuanYu.Editor.UI/EditorState/EditorTransformCapturePolicy.cs` - C# implementation source for EditorTransformCapturePolicy.cs.
+- `XuanYu.Editor.UI/Foot/Foot.States.axaml` - Avalonia XAML view or style resource for Foot.States.axaml.
+- `XuanYu.Editor.UI/Foot/Foot.axaml` - Avalonia XAML view or style resource for Foot.axaml.
+- `XuanYu.Editor.UI/Foot/Foot.axaml.cs` - C# implementation source for Foot.axaml.cs.
+- `XuanYu.Editor.UI/Foot/LogAutoScrollPolicy.cs` - C# implementation source for LogAutoScrollPolicy.cs.
+- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml` - Avalonia XAML view or style resource for LogDetailPanel.axaml.
+- `XuanYu.Editor.UI/Foot/LogDetailPanel.axaml.cs` - C# implementation source for LogDetailPanel.axaml.cs.
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Follow.cs` - C# implementation source for LogListAutoScrollController.Follow.cs.
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.Layout.cs` - C# implementation source for LogListAutoScrollController.Layout.cs.
+- `XuanYu.Editor.UI/Foot/LogListAutoScrollController.cs` - C# implementation source for LogListAutoScrollController.cs.
+- `XuanYu.Editor.UI/Foot/NotificationBar.axaml` - Avalonia XAML view or style resource for NotificationBar.axaml.
+- `XuanYu.Editor.UI/Foot/NotificationBar.axaml.cs` - C# implementation source for NotificationBar.axaml.cs.
+- `XuanYu.Editor.UI/Icons/EditorIcons.axaml` - Avalonia XAML view or style resource for EditorIcons.axaml.
+- `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` - C# implementation source for InlineRenameActivation.cs.
+- `XuanYu.Editor.UI/Left/Left.EntityCommands.cs` - C# implementation source for Left.EntityCommands.cs.
+- `XuanYu.Editor.UI/Left/Left.Styles.axaml` - Avalonia XAML view or style resource for Left.Styles.axaml.
+- `XuanYu.Editor.UI/Left/Left.axaml` - Avalonia XAML view or style resource for Left.axaml.
+- `XuanYu.Editor.UI/Left/Left.axaml.cs` - C# implementation source for Left.axaml.cs.
+- `XuanYu.Editor.UI/Left/MarkerPanel.axaml` - Avalonia XAML view or style resource for MarkerPanel.axaml.
+- `XuanYu.Editor.UI/Left/MarkerPanel.axaml.cs` - C# implementation source for MarkerPanel.axaml.cs.
+- `XuanYu.Editor.UI/Left/RegionPanel.axaml` - Avalonia XAML view or style resource for RegionPanel.axaml.
+- `XuanYu.Editor.UI/Left/RegionPanel.axaml.cs` - C# implementation source for RegionPanel.axaml.cs.
+- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml` - Avalonia XAML view or style resource for RegionalAuthoringPanel.axaml.
+- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml.cs` - C# implementation source for RegionalAuthoringPanel.axaml.cs.
+- `XuanYu.Editor.UI/Left/RoadPanel.axaml` - Avalonia XAML view or style resource for RoadPanel.axaml.
+- `XuanYu.Editor.UI/Left/RoadPanel.axaml.cs` - C# implementation source for RoadPanel.axaml.cs.
+- `XuanYu.Editor.UI/Main/Main.axaml` - Avalonia XAML view or style resource for Main.axaml.
+- `XuanYu.Editor.UI/Main/Main.axaml.cs` - C# implementation source for Main.axaml.cs.
+- `XuanYu.Editor.UI/NativeHostResizeCoalescer.cs` - C# implementation source for NativeHostResizeCoalescer.cs.
+- `XuanYu.Editor.UI/NativeHostResizeSnapshot.cs` - C# implementation source for NativeHostResizeSnapshot.cs.
+- `XuanYu.Editor.UI/NativeHostSurfaceContract.cs` - C# implementation source for NativeHostSurfaceContract.cs.
+- `XuanYu.Editor.UI/RelayCommand.cs` - C# implementation source for RelayCommand.cs.
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.Drag.cs` - C# implementation source for DatasetLayerPanel.Drag.cs.
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml` - Avalonia XAML view or style resource for DatasetLayerPanel.axaml.
+- `XuanYu.Editor.UI/Right/DatasetLayerPanel.axaml.cs` - C# implementation source for DatasetLayerPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/DatasetPanel.axaml` - Avalonia XAML view or style resource for DatasetPanel.axaml.
+- `XuanYu.Editor.UI/Right/DatasetPanel.axaml.cs` - C# implementation source for DatasetPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/EditableFormLayoutModel.cs` - C# implementation source for EditableFormLayoutModel.cs.
+- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml` - Avalonia XAML view or style resource for EditorLayerDock.axaml.
+- `XuanYu.Editor.UI/Right/EditorLayerDock.axaml.cs` - C# implementation source for EditorLayerDock.axaml.cs.
+- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml` - Avalonia XAML view or style resource for EditorRightTabs.axaml.
+- `XuanYu.Editor.UI/Right/EditorRightTabs.axaml.cs` - C# implementation source for EditorRightTabs.axaml.cs.
+- `XuanYu.Editor.UI/Right/InspectorPanel.axaml` - Avalonia XAML view or style resource for InspectorPanel.axaml.
+- `XuanYu.Editor.UI/Right/InspectorPanel.axaml.cs` - C# implementation source for InspectorPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml` - Avalonia XAML view or style resource for LayerInspectorPanel.axaml.
+- `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml.cs` - C# implementation source for LayerInspectorPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/LayerPanel.DragDrop.cs` - C# implementation source for LayerPanel.DragDrop.cs.
+- `XuanYu.Editor.UI/Right/LayerPanel.Rename.cs` - C# implementation source for LayerPanel.Rename.cs.
+- `XuanYu.Editor.UI/Right/LayerPanel.States.axaml` - Avalonia XAML view or style resource for LayerPanel.States.axaml.
+- `XuanYu.Editor.UI/Right/LayerPanel.axaml` - Avalonia XAML view or style resource for LayerPanel.axaml.
+- `XuanYu.Editor.UI/Right/LayerPanel.axaml.cs` - C# implementation source for LayerPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/MapEditorLayoutModel.cs` - C# implementation source for MapEditorLayoutModel.cs.
+- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml` - Avalonia XAML view or style resource for MapEditorPanel.axaml.
+- `XuanYu.Editor.UI/Right/MapEditorPanel.axaml.cs` - C# implementation source for MapEditorPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/MapFormPanel.axaml` - Avalonia XAML view or style resource for MapFormPanel.axaml.
+- `XuanYu.Editor.UI/Right/MapFormPanel.axaml.cs` - C# implementation source for MapFormPanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/MapIdDisplayFormat.cs` - C# implementation source for MapIdDisplayFormat.cs.
+- `XuanYu.Editor.UI/Right/MapPagePanel.axaml` - Avalonia XAML view or style resource for MapPagePanel.axaml.
+- `XuanYu.Editor.UI/Right/MapPagePanel.axaml.cs` - C# implementation source for MapPagePanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/Right.axaml` - Avalonia XAML view or style resource for Right.axaml.
+- `XuanYu.Editor.UI/Right/Right.axaml.cs` - C# implementation source for Right.axaml.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripController.AllTabs.cs` - C# implementation source for TopTabStripController.AllTabs.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripController.Hint.cs` - C# implementation source for TopTabStripController.Hint.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripController.Visible.cs` - C# implementation source for TopTabStripController.Visible.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripController.cs` - C# implementation source for TopTabStripController.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripModel.cs` - C# implementation source for TopTabStripModel.cs.
+- `XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml` - Avalonia XAML view or style resource for TopTabStripTemplate.axaml.
+- `XuanYu.Editor.UI/Root/UiRoot.axaml` - Avalonia XAML view or style resource for UiRoot.axaml.
+- `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` - C# implementation source for UiRoot.axaml.cs.
+- `XuanYu.Editor.UI/Top/Top.States.axaml` - Avalonia XAML view or style resource for Top.States.axaml.
+- `XuanYu.Editor.UI/Top/Top.axaml` - Avalonia XAML view or style resource for Top.axaml.
+- `XuanYu.Editor.UI/Top/Top.axaml.cs` - C# implementation source for Top.axaml.cs.
+- `XuanYu.Editor.UI/TreeGuide.cs` - C# implementation source for TreeGuide.cs.
+- `XuanYu.Editor.UI/TreeGuideSegment.cs` - C# implementation source for TreeGuideSegment.cs.
+- `XuanYu.Editor.UI/Ui.axaml` - Avalonia XAML view or style resource for Ui.axaml.
+- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.HitTest.cs` - C# implementation source for ViewNavigationGizmo.HitTest.cs.
+- `XuanYu.Editor.UI/Viewport/ViewNavigationGizmo.Layout.cs` - C# implementation source for ViewNavigationGizmo.Layout.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerMessage.cs` - C# implementation source for NativePointerMessage.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/NativePointerRoutePolicy.cs` - C# implementation source for NativePointerRoutePolicy.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaCamera.cs` - C# implementation source for VulkanNativeHost.AvaloniaCamera.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.AvaloniaPointer.cs` - C# implementation source for VulkanNativeHost.AvaloniaPointer.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Bridge.cs` - C# implementation source for VulkanNativeHost.Bridge.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.CameraPointer.cs` - C# implementation source for VulkanNativeHost.CameraPointer.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Dpi.cs` - C# implementation source for VulkanNativeHost.Dpi.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Gizmo.cs` - C# implementation source for VulkanNativeHost.Gizmo.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.LayoutSync.cs` - C# implementation source for VulkanNativeHost.LayoutSync.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Log.cs` - C# implementation source for VulkanNativeHost.Log.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.NavGizmo.cs` - C# implementation source for VulkanNativeHost.NavGizmo.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Picking.cs` - C# implementation source for VulkanNativeHost.Picking.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.Cancel.cs` - C# implementation source for VulkanNativeHost.Pointer.Cancel.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.Pointer.cs` - C# implementation source for VulkanNativeHost.Pointer.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanNativeHost.cs` - C# implementation source for VulkanNativeHost.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml` - Avalonia XAML view or style resource for VulkanViewport.axaml.
+- `XuanYu.Editor.UI/Viewport/Vulkan/VulkanViewport.axaml.cs` - C# implementation source for VulkanViewport.axaml.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.Input.cs` - C# implementation source for Win32ViewportHost.Input.cs.
+- `XuanYu.Editor.UI/Viewport/Vulkan/Win32ViewportHost.cs` - C# implementation source for Win32ViewportHost.cs.
+- `XuanYu.Editor.UI/ViewportNativeHostRoute.cs` - C# implementation source for ViewportNativeHostRoute.cs.
+- `XuanYu.Editor.UI/Vm/Camera/CameraSessionMode.cs` - C# implementation source for CameraSessionMode.cs.
+- `XuanYu.Editor.UI/Vm/Camera/CameraSessionSnapshot.cs` - C# implementation source for CameraSessionSnapshot.cs.
+- `XuanYu.Editor.UI/Vm/Camera/StandardViewResolver.cs` - C# implementation source for StandardViewResolver.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.Draft.cs` - C# implementation source for UiVm.Camera.Framing.Draft.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.Framing.cs` - C# implementation source for UiVm.Camera.Framing.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.Camera.cs` - C# implementation source for UiVm.Camera.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraDolly.cs` - C# implementation source for UiVm.CameraDolly.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.CameraNavigation.cs` - C# implementation source for UiVm.CameraNavigation.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.FarProjectionDiagnostic.cs` - C# implementation source for UiVm.FarProjectionDiagnostic.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.ScaleIndicator.cs` - C# implementation source for UiVm.ScaleIndicator.cs.
+- `XuanYu.Editor.UI/Vm/Camera/UiVm.ViewGizmo.cs` - C# implementation source for UiVm.ViewGizmo.cs.
+- `XuanYu.Editor.UI/Vm/History/UiVm.EntityCommands.cs` - C# implementation source for UiVm.EntityCommands.cs.
+- `XuanYu.Editor.UI/Vm/History/UiVm.History.Entities.cs` - C# implementation source for UiVm.History.Entities.cs.
+- `XuanYu.Editor.UI/Vm/History/UiVm.History.cs` - C# implementation source for UiVm.History.cs.
+- `XuanYu.Editor.UI/Vm/Inspector/InspectorFieldRow.cs` - C# implementation source for InspectorFieldRow.cs.
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.Inspector.cs` - C# implementation source for UiVm.Inspector.cs.
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.Parse.cs` - C# implementation source for UiVm.InspectorInput.Parse.cs.
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.cs` - C# implementation source for UiVm.InspectorInput.cs.
+- `XuanYu.Editor.UI/Vm/Layer/EditorLayerProviderAdapter.cs` - C# implementation source for EditorLayerProviderAdapter.cs.
+- `XuanYu.Editor.UI/Vm/Layer/UiVm.LayerContext.cs` - C# implementation source for UiVm.LayerContext.cs.
+- `XuanYu.Editor.UI/Vm/Logging/DebugText.cs` - C# implementation source for DebugText.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorDisplayText.cs` - C# implementation source for EditorDisplayText.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogBuffer.cs` - C# implementation source for EditorLogBuffer.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogBus.cs` - C# implementation source for EditorLogBus.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogCategory.cs` - C# implementation source for EditorLogCategory.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogClipboardText.cs` - C# implementation source for EditorLogClipboardText.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilter.cs` - C# implementation source for EditorLogFilter.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogFilterQuery.cs` - C# implementation source for EditorLogFilterQuery.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogLevel.cs` - C# implementation source for EditorLogLevel.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogNoiseFilter.cs` - C# implementation source for EditorLogNoiseFilter.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogRepeatKey.cs` - C# implementation source for EditorLogRepeatKey.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogSource.cs` - C# implementation source for EditorLogSource.cs.
+- `XuanYu.Editor.UI/Vm/Logging/EditorLogSummary.cs` - C# implementation source for EditorLogSummary.cs.
+- `XuanYu.Editor.UI/Vm/Logging/LogEntry.cs` - C# implementation source for LogEntry.cs.
+- `XuanYu.Editor.UI/Vm/Logging/SampleLogEntries.cs` - C# implementation source for SampleLogEntries.cs.
+- `XuanYu.Editor.UI/Vm/Logging/UiText.cs` - C# implementation source for UiText.cs.
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.Refresh.cs` - C# implementation source for UiVm.Logging.Refresh.cs.
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.State.cs` - C# implementation source for UiVm.Logging.State.cs.
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.cs` - C# implementation source for UiVm.Logging.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapDatasetRow.cs` - C# implementation source for MapDatasetRow.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapDatasetTypePresentation.cs` - C# implementation source for MapDatasetTypePresentation.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.Rename.cs` - C# implementation source for MapLayerRowViewModel.Rename.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapLayerRowViewModel.cs` - C# implementation source for MapLayerRowViewModel.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapRegionRenderProjection.cs` - C# implementation source for MapRegionRenderProjection.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapRenderSnapshotProjection.cs` - C# implementation source for MapRenderSnapshotProjection.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Finalize.cs` - C# implementation source for MapVectorOverlayBuilder.Finalize.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.Road.cs` - C# implementation source for MapVectorOverlayBuilder.Road.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayBuilder.cs` - C# implementation source for MapVectorOverlayBuilder.cs.
+- `XuanYu.Editor.UI/Vm/Map/MapVectorOverlayTriangulation.cs` - C# implementation source for MapVectorOverlayTriangulation.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.Danger.cs` - C# implementation source for UiVm.MapCommandRouting.Danger.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapCommandRouting.cs` - C# implementation source for UiVm.MapCommandRouting.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDanger.cs` - C# implementation source for UiVm.MapDanger.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Commands.cs` - C# implementation source for UiVm.MapDataset.Commands.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingBootstrap.cs` - C# implementation source for UiVm.MapDataset.DrawingBootstrap.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.DrawingTarget.cs` - C# implementation source for UiVm.MapDataset.DrawingTarget.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Inspector.cs` - C# implementation source for UiVm.MapDataset.Inspector.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.LayerBridge.cs` - C# implementation source for UiVm.MapDataset.LayerBridge.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Logging.cs` - C# implementation source for UiVm.MapDataset.Logging.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.MarkerBootstrap.cs` - C# implementation source for UiVm.MapDataset.MarkerBootstrap.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Name.cs` - C# implementation source for UiVm.MapDataset.Name.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RegionPresentation.cs` - C# implementation source for UiVm.MapDataset.RegionPresentation.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadBootstrap.cs` - C# implementation source for UiVm.MapDataset.RoadBootstrap.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.RoadPresentation.cs` - C# implementation source for UiVm.MapDataset.RoadPresentation.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Routing.cs` - C# implementation source for UiVm.MapDataset.Routing.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.Selection.cs` - C# implementation source for UiVm.MapDataset.Selection.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDataset.cs` - C# implementation source for UiVm.MapDataset.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.Format.cs` - C# implementation source for UiVm.MapDiagnostics.Format.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapDiagnostics.cs` - C# implementation source for UiVm.MapDiagnostics.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Display.cs` - C# implementation source for UiVm.MapEditor.Display.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.Rules.cs` - C# implementation source for UiVm.MapEditor.Validation.Rules.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Validation.cs` - C# implementation source for UiVm.MapEditor.Validation.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.cs` - C# implementation source for UiVm.MapEditor.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Bindings.cs` - C# implementation source for UiVm.MapGeometryEditing.Bindings.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Helpers.cs` - C# implementation source for UiVm.MapGeometryEditing.Helpers.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.Points.cs` - C# implementation source for UiVm.MapGeometryEditing.Points.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapGeometryEditing.cs` - C# implementation source for UiVm.MapGeometryEditing.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapHistory.cs` - C# implementation source for UiVm.MapHistory.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDiagnostics.cs` - C# implementation source for UiVm.MapLayerDiagnostics.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerDrag.cs` - C# implementation source for UiVm.MapLayerDrag.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerInspector.cs` - C# implementation source for UiVm.MapLayerInspector.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayerSelection.cs` - C# implementation source for UiVm.MapLayerSelection.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapLayers.cs` - C# implementation source for UiVm.MapLayers.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapManifest.cs` - C# implementation source for UiVm.MapManifest.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapMarkerPlacement.cs` - C# implementation source for UiVm.MapMarkerPlacement.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapRender.cs` - C# implementation source for UiVm.MapRender.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapRoadSelection.cs` - C# implementation source for UiVm.MapRoadSelection.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.MapWorld.cs` - C# implementation source for UiVm.MapWorld.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Commit.cs` - C# implementation source for UiVm.RegionDrawing.Commit.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.DraftHistory.cs` - C# implementation source for UiVm.RegionDrawing.DraftHistory.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Input.cs` - C# implementation source for UiVm.RegionDrawing.Input.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.Logging.cs` - C# implementation source for UiVm.RegionDrawing.Logging.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RegionDrawing.cs` - C# implementation source for UiVm.RegionDrawing.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Commit.cs` - C# implementation source for UiVm.RoadDrawing.Commit.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.History.cs` - C# implementation source for UiVm.RoadDrawing.History.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Logging.cs` - C# implementation source for UiVm.RoadDrawing.Logging.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.cs` - C# implementation source for UiVm.RoadDrawing.cs.
+- `XuanYu.Editor.UI/Vm/Map/UiVm.RoadTool.cs` - C# implementation source for UiVm.RoadTool.cs.
+- `XuanYu.Editor.UI/Vm/Mode/UiVm.Mode.cs` - C# implementation source for UiVm.Mode.cs.
+- `XuanYu.Editor.UI/Vm/Scene/D2StaticModelDemo.cs` - C# implementation source for D2StaticModelDemo.cs.
+- `XuanYu.Editor.UI/Vm/Scene/SceneHistoryEntry.cs` - C# implementation source for SceneHistoryEntry.cs.
+- `XuanYu.Editor.UI/Vm/Scene/SceneRenderProjectionAdapter.cs` - C# implementation source for SceneRenderProjectionAdapter.cs.
+- `XuanYu.Editor.UI/Vm/Scene/StaticModelRenderAdapter.cs` - C# implementation source for StaticModelRenderAdapter.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.DocumentStatus.cs` - C# implementation source for UiVm.DocumentStatus.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.RenderProjection.cs` - C# implementation source for UiVm.RenderProjection.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.Scene.cs` - C# implementation source for UiVm.Scene.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.New.cs` - C# implementation source for UiVm.SceneDocument.New.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocument.cs` - C# implementation source for UiVm.SceneDocument.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentLog.cs` - C# implementation source for UiVm.SceneDocumentLog.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentMapRef.cs` - C# implementation source for UiVm.SceneDocumentMapRef.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.SceneDocumentSave.cs` - C# implementation source for UiVm.SceneDocumentSave.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.StaticModelImport.cs` - C# implementation source for UiVm.StaticModelImport.cs.
+- `XuanYu.Editor.UI/Vm/Scene/UiVm.WorldProjection.cs` - C# implementation source for UiVm.WorldProjection.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.Picking.cs` - C# implementation source for UiVm.Picking.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.Selection.cs` - C# implementation source for UiVm.Selection.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionProjection.cs` - C# implementation source for UiVm.SelectionProjection.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionTrace.cs` - C# implementation source for UiVm.SelectionTrace.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionValidity.cs` - C# implementation source for UiVm.SelectionValidity.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.ViewportSelection.cs` - C# implementation source for UiVm.ViewportSelection.cs.
+- `XuanYu.Editor.UI/Vm/Selection/ViewportPickingLogFormatter.cs` - C# implementation source for ViewportPickingLogFormatter.cs.
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmo.cs` - C# implementation source for UiVm.MoveGizmo.cs.
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoLogging.cs` - C# implementation source for UiVm.MoveGizmoLogging.cs.
+- `XuanYu.Editor.UI/Vm/Transform/Move/UiVm.MoveGizmoScreenSize.cs` - C# implementation source for UiVm.MoveGizmoScreenSize.cs.
+- `XuanYu.Editor.UI/Vm/Transform/Rotate/UiVm.RotateGizmo.cs` - C# implementation source for UiVm.RotateGizmo.cs.
+- `XuanYu.Editor.UI/Vm/Transform/Scale/UiVm.ScaleGizmo.cs` - C# implementation source for UiVm.ScaleGizmo.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InputGuards.cs` - C# implementation source for UiVm.InputGuards.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.Interaction.cs` - C# implementation source for UiVm.Interaction.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionCancel.cs` - C# implementation source for UiVm.InteractionCancel.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionPointer.cs` - C# implementation source for UiVm.InteractionPointer.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.Tool.cs` - C# implementation source for UiVm.Tool.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.ViewportAssist.cs` - C# implementation source for UiVm.ViewportAssist.cs.
+- `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` - C# implementation source for EditorTreeNode.cs.
+- `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` - C# implementation source for TreeGuideBuilder.cs.
+- `XuanYu.Editor.UI/Vm/Tree/UiVm.TreeCommands.cs` - C# implementation source for UiVm.TreeCommands.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.NativeHostLifecycle.cs` - C# implementation source for UiVm.NativeHostLifecycle.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` - C# implementation source for UiVm.Notification.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` - C# implementation source for UiVm.NotificationLifetime.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.RightPanel.cs` - C# implementation source for UiVm.RightPanel.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.cs` - C# implementation source for UiVm.cs.
+- `XuanYu.Editor.UI/Vm/Workspace/UiVm.RegionAuthoring.cs` - C# implementation source for UiVm.RegionAuthoring.cs.
+- `XuanYu.Editor.UI/Vm/Workspace/UiVm.Workspace.cs` - C# implementation source for UiVm.Workspace.cs.
+- `XuanYu.Editor.UI/Win/DialogFocusTrap.cs` - C# implementation source for DialogFocusTrap.cs.
+- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml` - Avalonia XAML view or style resource for LayerDeleteConfirmationWindow.axaml.
+- `XuanYu.Editor.UI/Win/LayerDeleteConfirmationWindow.axaml.cs` - C# implementation source for LayerDeleteConfirmationWindow.axaml.cs.
+- `XuanYu.Editor.UI/Win/UiWin.Accessibility.cs` - C# implementation source for UiWin.Accessibility.cs.
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Danger.cs` - C# implementation source for UiWin.DialogHost.Danger.cs.
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.Input.cs` - C# implementation source for UiWin.DialogHost.Input.cs.
+- `XuanYu.Editor.UI/Win/UiWin.DialogHost.cs` - C# implementation source for UiWin.DialogHost.cs.
+- `XuanYu.Editor.UI/Win/UiWin.Dialogs.cs` - C# implementation source for UiWin.Dialogs.cs.
+- `XuanYu.Editor.UI/Win/UiWin.EntityShortcuts.cs` - C# implementation source for UiWin.EntityShortcuts.cs.
+- `XuanYu.Editor.UI/Win/UiWin.MapCommands.cs` - C# implementation source for UiWin.MapCommands.cs.
+- `XuanYu.Editor.UI/Win/UiWin.SceneCommands.cs` - C# implementation source for UiWin.SceneCommands.cs.
+- `XuanYu.Editor.UI/Win/UiWin.Shortcuts.cs` - C# implementation source for UiWin.Shortcuts.cs.
+- `XuanYu.Editor.UI/Win/UiWin.UnsavedDialog.cs` - C# implementation source for UiWin.UnsavedDialog.cs.
+- `XuanYu.Editor.UI/Win/UiWin.axaml` - Avalonia XAML view or style resource for UiWin.axaml.
+- `XuanYu.Editor.UI/Win/UiWin.axaml.cs` - C# implementation source for UiWin.axaml.cs.
+- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml` - Avalonia XAML view or style resource for WorkspaceSelector.axaml.
+- `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml.cs` - C# implementation source for WorkspaceSelector.axaml.cs.
+- `XuanYu.Editor.UI/XuanYu.Editor.UI.csproj` - .NET project definition for XuanYu.Editor.UI.csproj.
+- `XuanYu.Editor.UI/app.manifest` - Tracked repository file app.manifest.
+- `XuanYu.Editor.Win/MainForm.cs` - C# implementation source for MainForm.cs.
+- `XuanYu.Editor.Win/XuanYu.Editor.Win.csproj` - .NET project definition for XuanYu.Editor.Win.csproj.
+- `XuanYu.Editor/Assets/Catalog/SceneStaticModelCatalog.cs` - C# implementation source for SceneStaticModelCatalog.cs.
+- `XuanYu.Editor/Assets/Hosting/HostedSceneAsset.cs` - C# implementation source for HostedSceneAsset.cs.
+- `XuanYu.Editor/Assets/Hosting/ModelAssetRuntimeState.cs` - C# implementation source for ModelAssetRuntimeState.cs.
+- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlan.cs` - C# implementation source for SceneAssetHostingPlan.cs.
+- `XuanYu.Editor/Assets/Hosting/Planning/SceneAssetHostingPlanner.cs` - C# implementation source for SceneAssetHostingPlanner.cs.
+- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingError.cs` - C# implementation source for SceneAssetHostingError.cs.
+- `XuanYu.Editor/Assets/Hosting/SceneAssetHostingState.cs` - C# implementation source for SceneAssetHostingState.cs.
+- `XuanYu.Editor/Assets/Hosting/SceneAssetPathPolicy.cs` - C# implementation source for SceneAssetPathPolicy.cs.
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Activate.cs` - C# implementation source for SceneAssetHostingTransaction.Activate.cs.
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Complete.cs` - C# implementation source for SceneAssetHostingTransaction.Complete.cs.
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.Rollback.cs` - C# implementation source for SceneAssetHostingTransaction.Rollback.cs.
+- `XuanYu.Editor/Assets/Hosting/Transactions/SceneAssetHostingTransaction.cs` - C# implementation source for SceneAssetHostingTransaction.cs.
+- `XuanYu.Editor/Assets/Identity/AssetId.cs` - C# implementation source for AssetId.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GlbContainer.cs` - C# implementation source for GlbContainer.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GlbImportService.cs` - C# implementation source for GlbImportService.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GltfAccessorReader.cs` - C# implementation source for GltfAccessorReader.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GltfCoordinatePolicy.cs` - C# implementation source for GltfCoordinatePolicy.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GltfJsonAccess.cs` - C# implementation source for GltfJsonAccess.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GltfNodeTransform.cs` - C# implementation source for GltfNodeTransform.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/GltfStaticModelImporter.cs` - C# implementation source for GltfStaticModelImporter.cs.
+- `XuanYu.Editor/Assets/Import/Gltf/ImportStop.cs` - C# implementation source for ImportStop.cs.
+- `XuanYu.Editor/Assets/StaticModels/SceneStaticModelBinding.cs` - C# implementation source for SceneStaticModelBinding.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelAuthoringService.cs` - C# implementation source for StaticModelAuthoringService.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelBuilder.cs` - C# implementation source for StaticModelBuilder.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelColor.cs` - C# implementation source for StaticModelColor.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelData.cs` - C# implementation source for StaticModelData.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportCodes.cs` - C# implementation source for StaticModelImportCodes.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportResult.cs` - C# implementation source for StaticModelImportResult.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelImportWarning.cs` - C# implementation source for StaticModelImportWarning.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelPrimitive.cs` - C# implementation source for StaticModelPrimitive.cs.
+- `XuanYu.Editor/Assets/StaticModels/StaticModelVertex.cs` - C# implementation source for StaticModelVertex.cs.
+- `XuanYu.Editor/Camera/CameraBasis.cs` - C# implementation source for CameraBasis.cs.
+- `XuanYu.Editor/Camera/CameraFarProjectionDiagnostic.cs` - C# implementation source for CameraFarProjectionDiagnostic.cs.
+- `XuanYu.Editor/Camera/CameraFrameResult.cs` - C# implementation source for CameraFrameResult.cs.
+- `XuanYu.Editor/Camera/CameraNavigation.Far.cs` - C# implementation source for CameraNavigation.Far.cs.
+- `XuanYu.Editor/Camera/CameraNavigation.Try.cs` - C# implementation source for CameraNavigation.Try.cs.
+- `XuanYu.Editor/Camera/CameraNavigation.cs` - C# implementation source for CameraNavigation.cs.
+- `XuanYu.Editor/Camera/EditorCameraFraming.Draft.cs` - C# implementation source for EditorCameraFraming.Draft.cs.
+- `XuanYu.Editor/Camera/EditorCameraFraming.MapOrthographic.cs` - C# implementation source for EditorCameraFraming.MapOrthographic.cs.
+- `XuanYu.Editor/Camera/EditorCameraFraming.Orthographic.cs` - C# implementation source for EditorCameraFraming.Orthographic.cs.
+- `XuanYu.Editor/Camera/EditorCameraFraming.cs` - C# implementation source for EditorCameraFraming.cs.
+- `XuanYu.Editor/Camera/OrthographicViewFactory.cs` - C# implementation source for OrthographicViewFactory.cs.
+- `XuanYu.Editor/Layering/EditorLayerItem.cs` - C# implementation source for EditorLayerItem.cs.
+- `XuanYu.Editor/Layering/IEditorLayerProvider.cs` - C# implementation source for IEditorLayerProvider.cs.
+- `XuanYu.Editor/MapDocument/DatasetLayerState.cs` - C# implementation source for DatasetLayerState.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetDescriptor.cs` - C# implementation source for MapDatasetDescriptor.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetDocument.cs` - C# implementation source for MapDatasetDocument.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentJson.cs` - C# implementation source for MapDatasetDocumentJson.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentSerializer.cs` - C# implementation source for MapDatasetDocumentSerializer.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetDocumentValidator.cs` - C# implementation source for MapDatasetDocumentValidator.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetFeatureBinding.cs` - C# implementation source for MapDatasetFeatureBinding.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetIdGenerator.cs` - C# implementation source for MapDatasetIdGenerator.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetLayerIdProjection.cs` - C# implementation source for MapDatasetLayerIdProjection.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetPathPolicy.cs` - C# implementation source for MapDatasetPathPolicy.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegionBinding.cs` - C# implementation source for MapDatasetRegionBinding.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Commands.cs` - C# implementation source for MapDatasetRegistry.Commands.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.FeatureQuery.cs` - C# implementation source for MapDatasetRegistry.FeatureQuery.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.LayerStates.cs` - C# implementation source for MapDatasetRegistry.LayerStates.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Query.cs` - C# implementation source for MapDatasetRegistry.Query.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.RegionTransaction.cs` - C# implementation source for MapDatasetRegistry.RegionTransaction.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Rename.cs` - C# implementation source for MapDatasetRegistry.Rename.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Transaction.cs` - C# implementation source for MapDatasetRegistry.Transaction.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.Unregister.cs` - C# implementation source for MapDatasetRegistry.Unregister.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRegistry.cs` - C# implementation source for MapDatasetRegistry.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetRuntimeProjection.cs` - C# implementation source for MapDatasetRuntimeProjection.cs.
+- `XuanYu.Editor/MapDocument/MapDatasetStorageService.cs` - C# implementation source for MapDatasetStorageService.cs.
+- `XuanYu.Editor/MapDocument/MapDocument.cs` - C# implementation source for MapDocument.cs.
+- `XuanYu.Editor/MapDocument/MapDocumentAggregateBridge.cs` - C# implementation source for MapDocumentAggregateBridge.cs.
+- `XuanYu.Editor/MapDocument/MapDocumentJson.cs` - C# implementation source for MapDocumentJson.cs.
+- `XuanYu.Editor/MapDocument/MapDocumentOwner.cs` - C# implementation source for MapDocumentOwner.cs.
+- `XuanYu.Editor/MapDocument/MapDocumentResult.cs` - C# implementation source for MapDocumentResult.cs.
+- `XuanYu.Editor/MapDocument/MapDocumentValidator.cs` - C# implementation source for MapDocumentValidator.cs.
+- `XuanYu.Editor/MapDocument/MapEnvironmentDefinition.cs` - C# implementation source for MapEnvironmentDefinition.cs.
+- `XuanYu.Editor/MapDocument/MapJsonMapper.cs` - C# implementation source for MapJsonMapper.cs.
+- `XuanYu.Editor/MapDocument/MapJsonSerializer.cs` - C# implementation source for MapJsonSerializer.cs.
+- `XuanYu.Editor/MapDocument/MapManifest.cs` - C# implementation source for MapManifest.cs.
+- `XuanYu.Editor/MapDocument/MapManifestJson.cs` - C# implementation source for MapManifestJson.cs.
+- `XuanYu.Editor/MapDocument/MapManifestMapper.cs` - C# implementation source for MapManifestMapper.cs.
+- `XuanYu.Editor/MapDocument/MapManifestOwner.cs` - C# implementation source for MapManifestOwner.cs.
+- `XuanYu.Editor/MapDocument/MapManifestSerializer.cs` - C# implementation source for MapManifestSerializer.cs.
+- `XuanYu.Editor/MapDocument/MapManifestStorageService.cs` - C# implementation source for MapManifestStorageService.cs.
+- `XuanYu.Editor/MapDocument/MapManifestValidator.cs` - C# implementation source for MapManifestValidator.cs.
+- `XuanYu.Editor/MapDocument/MapMarkerDatasetCodec.cs` - C# implementation source for MapMarkerDatasetCodec.cs.
+- `XuanYu.Editor/MapDocument/MapMarkerDatasetFeature.cs` - C# implementation source for MapMarkerDatasetFeature.cs.
+- `XuanYu.Editor/MapDocument/MapRegionDatasetCodec.cs` - C# implementation source for MapRegionDatasetCodec.cs.
+- `XuanYu.Editor/MapDocument/MapRegionDatasetFeature.cs` - C# implementation source for MapRegionDatasetFeature.cs.
+- `XuanYu.Editor/MapDocument/MapRoadDatasetCodec.cs` - C# implementation source for MapRoadDatasetCodec.cs.
+- `XuanYu.Editor/MapDocument/MapRoadDatasetFeature.cs` - C# implementation source for MapRoadDatasetFeature.cs.
+- `XuanYu.Editor/MapDocument/MapStorageService.cs` - C# implementation source for MapStorageService.cs.
+- `XuanYu.Editor/MapDocument/MapWorkingStorage.Promotion.cs` - C# implementation source for MapWorkingStorage.Promotion.cs.
+- `XuanYu.Editor/MapDocument/MapWorkingStorage.cs` - C# implementation source for MapWorkingStorage.cs.
+- `XuanYu.Editor/MapEditing/GeometryCapability.cs` - C# implementation source for GeometryCapability.cs.
+- `XuanYu.Editor/MapEditing/GeometryFeatureAdapter.cs` - C# implementation source for GeometryFeatureAdapter.cs.
+- `XuanYu.Editor/MapEditing/GeometryFeatureAdapters.cs` - C# implementation source for GeometryFeatureAdapters.cs.
+- `XuanYu.Editor/MapEditing/GeometryFeatureKey.cs` - C# implementation source for GeometryFeatureKey.cs.
+- `XuanYu.Editor/MapEditing/GeometrySnapArbitration.cs` - C# implementation source for GeometrySnapArbitration.cs.
+- `XuanYu.Editor/MapEditing/GeometrySnapPipeline.cs` - C# implementation source for GeometrySnapPipeline.cs.
+- `XuanYu.Editor/MapEditing/GeometrySnapPolicy.cs` - C# implementation source for GeometrySnapPolicy.cs.
+- `XuanYu.Editor/MapEditing/GeometrySnapQuery.cs` - C# implementation source for GeometrySnapQuery.cs.
+- `XuanYu.Editor/MapEditing/GeometrySnapTypes.cs` - C# implementation source for GeometrySnapTypes.cs.
+- `XuanYu.Editor/MapEditing/GeometrySpatialIndex.cs` - C# implementation source for GeometrySpatialIndex.cs.
+- `XuanYu.Editor/MapEditing/MapEditEvents.cs` - C# implementation source for MapEditEvents.cs.
+- `XuanYu.Editor/MapEditing/MapEditReason.cs` - C# implementation source for MapEditReason.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.ActiveLayer.cs` - C# implementation source for MapEditSession.ActiveLayer.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Commands.cs` - C# implementation source for MapEditSession.Commands.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Commit.cs` - C# implementation source for MapEditSession.Commit.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Document.cs` - C# implementation source for MapEditSession.Document.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Geometry.cs` - C# implementation source for MapEditSession.Geometry.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.History.cs` - C# implementation source for MapEditSession.History.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Layers.cs` - C# implementation source for MapEditSession.Layers.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.RegionSpatialIndex.cs` - C# implementation source for MapEditSession.RegionSpatialIndex.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Regions.cs` - C# implementation source for MapEditSession.Regions.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Roads.cs` - C# implementation source for MapEditSession.Roads.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.RuntimeProjection.cs` - C# implementation source for MapEditSession.RuntimeProjection.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.Selection.cs` - C# implementation source for MapEditSession.Selection.cs.
+- `XuanYu.Editor/MapEditing/MapEditSession.cs` - C# implementation source for MapEditSession.cs.
+- `XuanYu.Editor/MapEditing/MapGeometryEditTypes.cs` - C# implementation source for MapGeometryEditTypes.cs.
+- `XuanYu.Editor/MapEditing/MapGeometryHitTester.Marker.cs` - C# implementation source for MapGeometryHitTester.Marker.cs.
+- `XuanYu.Editor/MapEditing/MapGeometryHitTester.cs` - C# implementation source for MapGeometryHitTester.cs.
+- `XuanYu.Editor/MapEditing/MapHistoryEntry.cs` - C# implementation source for MapHistoryEntry.cs.
+- `XuanYu.Editor/MapEditing/MapSelection.cs` - C# implementation source for MapSelection.cs.
+- `XuanYu.Editor/MapEditing/MapSelectionKind.cs` - C# implementation source for MapSelectionKind.cs.
+- `XuanYu.Editor/MapEditing/MapSurfacePicker.cs` - C# implementation source for MapSurfacePicker.cs.
+- `XuanYu.Editor/MapEditing/RegionDrawingState.cs` - C# implementation source for RegionDrawingState.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapGeometry.cs` - C# implementation source for RegionEdgeSnapGeometry.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapLockResolver.cs` - C# implementation source for RegionEdgeSnapLockResolver.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapRegion.cs` - C# implementation source for RegionEdgeSnapRegion.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapResolver.cs` - C# implementation source for RegionEdgeSnapResolver.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapResult.cs` - C# implementation source for RegionEdgeSnapResult.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapSettings.cs` - C# implementation source for RegionEdgeSnapSettings.cs.
+- `XuanYu.Editor/MapEditing/RegionEdgeSnapVertex.cs` - C# implementation source for RegionEdgeSnapVertex.cs.
+- `XuanYu.Editor/MapEditing/RegionSnapKind.cs` - C# implementation source for RegionSnapKind.cs.
+- `XuanYu.Editor/MapEditing/RegionSnapPipeline.cs` - C# implementation source for RegionSnapPipeline.cs.
+- `XuanYu.Editor/MapEditing/RegionSnapQuery.cs` - C# implementation source for RegionSnapQuery.cs.
+- `XuanYu.Editor/MapEditing/RegionSnapState.cs` - C# implementation source for RegionSnapState.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialBounds.cs` - C# implementation source for RegionSpatialBounds.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialIndex.cs` - C# implementation source for RegionSpatialIndex.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialNode.cs` - C# implementation source for RegionSpatialNode.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialQueryResult.cs` - C# implementation source for RegionSpatialQueryResult.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialQueryWalker.cs` - C# implementation source for RegionSpatialQueryWalker.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialTreeBalancer.cs` - C# implementation source for RegionSpatialTreeBalancer.cs.
+- `XuanYu.Editor/MapEditing/RegionSpatialTreeEditor.cs` - C# implementation source for RegionSpatialTreeEditor.cs.
+- `XuanYu.Editor/MapEditing/RegionVertexSnapResolver.cs` - C# implementation source for RegionVertexSnapResolver.cs.
+- `XuanYu.Editor/MapEditing/RegionVertexSnapResult.cs` - C# implementation source for RegionVertexSnapResult.cs.
+- `XuanYu.Editor/MapEditing/RegionVertexSnapSettings.cs` - C# implementation source for RegionVertexSnapSettings.cs.
+- `XuanYu.Editor/MapEditing/RegionVertexSnapState.cs` - C# implementation source for RegionVertexSnapState.cs.
+- `XuanYu.Editor/MapEditing/RoadDrawingState.cs` - C# implementation source for RoadDrawingState.cs.
+- `XuanYu.Editor/Mode/EditorModeId.cs` - C# implementation source for EditorModeId.cs.
+- `XuanYu.Editor/Mode/EditorModeManager.cs` - C# implementation source for EditorModeManager.cs.
+- `XuanYu.Editor/Mode/EditorModeTransition.cs` - C# implementation source for EditorModeTransition.cs.
+- `XuanYu.Editor/SceneDocument/MapReference.cs` - C# implementation source for MapReference.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentAsset.cs` - C# implementation source for SceneDocumentAsset.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentEntity.cs` - C# implementation source for SceneDocumentEntity.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentJson.cs` - C# implementation source for SceneDocumentJson.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentLoadTransaction.cs` - C# implementation source for SceneDocumentLoadTransaction.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentMapper.cs` - C# implementation source for SceneDocumentMapper.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentResult.cs` - C# implementation source for SceneDocumentResult.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentSaveTransaction.cs` - C# implementation source for SceneDocumentSaveTransaction.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentSession.cs` - C# implementation source for SceneDocumentSession.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentSnapshot.cs` - C# implementation source for SceneDocumentSnapshot.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.MapReference.cs` - C# implementation source for SceneDocumentValidator.MapReference.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentValidator.cs` - C# implementation source for SceneDocumentValidator.cs.
+- `XuanYu.Editor/SceneDocument/SceneDocumentWorldBridge.cs` - C# implementation source for SceneDocumentWorldBridge.cs.
+- `XuanYu.Editor/SceneDocument/SceneLoadCandidate.cs` - C# implementation source for SceneLoadCandidate.cs.
+- `XuanYu.Editor/SceneDocument/SceneSaveOutcome.cs` - C# implementation source for SceneSaveOutcome.cs.
+- `XuanYu.Editor/SceneDocument/SceneStorageService.cs` - C# implementation source for SceneStorageService.cs.
+- `XuanYu.Editor/Transform/TransformSession.Rotate.cs` - C# implementation source for TransformSession.Rotate.cs.
+- `XuanYu.Editor/Transform/TransformSession.Scale.cs` - C# implementation source for TransformSession.Scale.cs.
+- `XuanYu.Editor/Transform/TransformSession.cs` - C# implementation source for TransformSession.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceDefinition.cs` - C# implementation source for EditorWorkspaceDefinition.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceDefinitions.cs` - C# implementation source for EditorWorkspaceDefinitions.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceId.cs` - C# implementation source for EditorWorkspaceId.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceManager.cs` - C# implementation source for EditorWorkspaceManager.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceTool.cs` - C# implementation source for EditorWorkspaceTool.cs.
+- `XuanYu.Editor/Workspace/EditorWorkspaceTransition.cs` - C# implementation source for EditorWorkspaceTransition.cs.
+- `XuanYu.Editor/Workspace/RegionAuthoringMode.cs` - C# implementation source for RegionAuthoringMode.cs.
+- `XuanYu.Editor/XuanYu.Editor.csproj` - .NET project definition for XuanYu.Editor.csproj.
+- `XuanYu.Engine.slnx` - .NET solution definition for XuanYu.Engine.slnx.
+- `XuanYu.Render.Abstractions/EditorViewPlaneGridKind.cs` - C# implementation source for EditorViewPlaneGridKind.cs.
+- `XuanYu.Render.Abstractions/EditorViewportAssistState.cs` - C# implementation source for EditorViewportAssistState.cs.
+- `XuanYu.Render.Abstractions/FrameExecutionPolicy.cs` - C# implementation source for FrameExecutionPolicy.cs.
+- `XuanYu.Render.Abstractions/INativeHostSurfaceBridge.cs` - C# implementation source for INativeHostSurfaceBridge.cs.
+- `XuanYu.Render.Abstractions/INativeHostSurfaceBridgeFactory.cs` - C# implementation source for INativeHostSurfaceBridgeFactory.cs.
+- `XuanYu.Render.Abstractions/IRenderProjectionSource.cs` - C# implementation source for IRenderProjectionSource.cs.
+- `XuanYu.Render.Abstractions/LatestRenderProjectionQueue.cs` - C# implementation source for LatestRenderProjectionQueue.cs.
+- `XuanYu.Render.Abstractions/MapBoundsGeometry.cs` - C# implementation source for MapBoundsGeometry.cs.
+- `XuanYu.Render.Abstractions/MapRenderSnapshot.cs` - C# implementation source for MapRenderSnapshot.cs.
+- `XuanYu.Render.Abstractions/MapSurfaceGeometry.cs` - C# implementation source for MapSurfaceGeometry.cs.
+- `XuanYu.Render.Abstractions/MapSurfaceResourceKey.cs` - C# implementation source for MapSurfaceResourceKey.cs.
+- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdatePolicy.cs` - C# implementation source for MapSurfaceResourceUpdatePolicy.cs.
+- `XuanYu.Render.Abstractions/MapSurfaceResourceUpdateText.cs` - C# implementation source for MapSurfaceResourceUpdateText.cs.
+- `XuanYu.Render.Abstractions/NativeHostHandleSnapshot.cs` - C# implementation source for NativeHostHandleSnapshot.cs.
+- `XuanYu.Render.Abstractions/NativeHostLifecycleLogFormatter.cs` - C# implementation source for NativeHostLifecycleLogFormatter.cs.
+- `XuanYu.Render.Abstractions/NativeHostLifecycleProbe.cs` - C# implementation source for NativeHostLifecycleProbe.cs.
+- `XuanYu.Render.Abstractions/NativeHostLifecycleState.cs` - C# implementation source for NativeHostLifecycleState.cs.
+- `XuanYu.Render.Abstractions/NativeHostSurfaceHandle.cs` - C# implementation source for NativeHostSurfaceHandle.cs.
+- `XuanYu.Render.Abstractions/ReferenceGridFrameState.cs` - C# implementation source for ReferenceGridFrameState.cs.
+- `XuanYu.Render.Abstractions/ReferenceGridScale.cs` - C# implementation source for ReferenceGridScale.cs.
+- `XuanYu.Render.Abstractions/RenderCameraProjection.cs` - C# implementation source for RenderCameraProjection.cs.
+- `XuanYu.Render.Abstractions/RenderDrawPlan.Typed.cs` - C# implementation source for RenderDrawPlan.Typed.cs.
+- `XuanYu.Render.Abstractions/RenderDrawPlan.cs` - C# implementation source for RenderDrawPlan.cs.
+- `XuanYu.Render.Abstractions/RenderEntityProjection.cs` - C# implementation source for RenderEntityProjection.cs.
+- `XuanYu.Render.Abstractions/RenderEntityType.cs` - C# implementation source for RenderEntityType.cs.
+- `XuanYu.Render.Abstractions/RenderProjection.cs` - C# implementation source for RenderProjection.cs.
+- `XuanYu.Render.Abstractions/RenderProjectionResult.cs` - C# implementation source for RenderProjectionResult.cs.
+- `XuanYu.Render.Abstractions/RenderStaticModelKey.cs` - C# implementation source for RenderStaticModelKey.cs.
+- `XuanYu.Render.Abstractions/RenderStaticModelPrimitive.cs` - C# implementation source for RenderStaticModelPrimitive.cs.
+- `XuanYu.Render.Abstractions/RenderStaticModelResource.cs` - C# implementation source for RenderStaticModelResource.cs.
+- `XuanYu.Render.Abstractions/RenderStaticModelTransform.cs` - C# implementation source for RenderStaticModelTransform.cs.
+- `XuanYu.Render.Abstractions/RenderStaticModelVertex.cs` - C# implementation source for RenderStaticModelVertex.cs.
+- `XuanYu.Render.Abstractions/RenderVectorOverlayKey.cs` - C# implementation source for RenderVectorOverlayKey.cs.
+- `XuanYu.Render.Abstractions/RenderVectorOverlayPrimitive.cs` - C# implementation source for RenderVectorOverlayPrimitive.cs.
+- `XuanYu.Render.Abstractions/RenderVectorOverlayResource.cs` - C# implementation source for RenderVectorOverlayResource.cs.
+- `XuanYu.Render.Abstractions/RenderVectorOverlayVertex.cs` - C# implementation source for RenderVectorOverlayVertex.cs.
+- `XuanYu.Render.Abstractions/ScaleIndicatorGlyphLite.cs` - C# implementation source for ScaleIndicatorGlyphLite.cs.
+- `XuanYu.Render.Abstractions/ScaleIndicatorMetric.cs` - C# implementation source for ScaleIndicatorMetric.cs.
+- `XuanYu.Render.Abstractions/ScaleIndicatorOverlayProjection.cs` - C# implementation source for ScaleIndicatorOverlayProjection.cs.
+- `XuanYu.Render.Abstractions/ViewportMetricScale.cs` - C# implementation source for ViewportMetricScale.cs.
+- `XuanYu.Render.Abstractions/ViewportOverlayAnchor.cs` - C# implementation source for ViewportOverlayAnchor.cs.
+- `XuanYu.Render.Abstractions/ViewportOverlayLayoutResolver.cs` - C# implementation source for ViewportOverlayLayoutResolver.cs.
+- `XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj` - .NET project definition for XuanYu.Render.Abstractions.csproj.
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeDeviceAttachStep.cs` - C# implementation source for VulkanBridgeDeviceAttachStep.cs.
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgePhysicalDeviceAttachStep.cs` - C# implementation source for VulkanBridgePhysicalDeviceAttachStep.cs.
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeRenderSessionAttachStep.cs` - C# implementation source for VulkanBridgeRenderSessionAttachStep.cs.
+- `XuanYu.Render.Vulkan/Bridge/VulkanBridgeSwapchainAttachStep.cs` - C# implementation source for VulkanBridgeSwapchainAttachStep.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.Physical.cs` - C# implementation source for VulkanDeviceOwner.Physical.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanDeviceOwner.cs` - C# implementation source for VulkanDeviceOwner.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceInfo.cs` - C# implementation source for VulkanPhysicalDeviceInfo.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelection.cs` - C# implementation source for VulkanPhysicalDeviceSelection.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanPhysicalDeviceSelector.cs` - C# implementation source for VulkanPhysicalDeviceSelector.cs.
+- `XuanYu.Render.Vulkan/Device/VulkanQueueFamilySelection.cs` - C# implementation source for VulkanQueueFamilySelection.cs.
+- `XuanYu.Render.Vulkan/Diagnostic/VulkanResizeTracer.cs` - C# implementation source for VulkanResizeTracer.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Frag.cs` - C# implementation source for ShaderBytecode.Frag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineFrag.cs` - C# implementation source for ShaderBytecode.GridLineFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridLineVert.cs` - C# implementation source for ShaderBytecode.GridLineVert.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.GridVert.cs` - C# implementation source for ShaderBytecode.GridVert.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoFrag.cs` - C# implementation source for ShaderBytecode.NavGizmoFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.NavGizmoVert.cs` - C# implementation source for ShaderBytecode.NavGizmoVert.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ScaleIndicatorFrag.cs` - C# implementation source for ShaderBytecode.ScaleIndicatorFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.Vert.cs` - C# implementation source for ShaderBytecode.Vert.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.ViewPlaneGridFrag.cs` - C# implementation source for ShaderBytecode.ViewPlaneGridFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldAxesFrag.cs` - C# implementation source for ShaderBytecode.WorldAxesFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldOriginFrag.cs` - C# implementation source for ShaderBytecode.WorldOriginFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/ShaderBytecode.WorldReferenceGridFrag.cs` - C# implementation source for ShaderBytecode.WorldReferenceGridFrag.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Depth.cs` - C# implementation source for VulkanGraphicsPipelineOwner.Depth.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Fullscreen.cs` - C# implementation source for VulkanGraphicsPipelineOwner.Fullscreen.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Grid.cs` - C# implementation source for VulkanGraphicsPipelineOwner.Grid.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.GridLine.cs` - C# implementation source for VulkanGraphicsPipelineOwner.GridLine.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.Sky.cs` - C# implementation source for VulkanGraphicsPipelineOwner.Sky.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.StaticModelInput.cs` - C# implementation source for VulkanGraphicsPipelineOwner.StaticModelInput.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanGraphicsPipelineOwner.cs` - C# implementation source for VulkanGraphicsPipelineOwner.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanPipelineLogFormatter.cs` - C# implementation source for VulkanPipelineLogFormatter.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanScenePushConstants.cs` - C# implementation source for VulkanScenePushConstants.cs.
+- `XuanYu.Render.Vulkan/Pipeline/VulkanShaderModuleOwner.cs` - C# implementation source for VulkanShaderModuleOwner.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameLogFormatter.cs` - C# implementation source for VulkanClearFrameLogFormatter.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Commands.cs` - C# implementation source for VulkanClearFrameOwner.Commands.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Lifecycle.cs` - C# implementation source for VulkanClearFrameOwner.Lifecycle.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Matrix.cs` - C# implementation source for VulkanClearFrameOwner.Matrix.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PipelineBind.cs` - C# implementation source for VulkanClearFrameOwner.PipelineBind.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.PushConstants.cs` - C# implementation source for VulkanClearFrameOwner.PushConstants.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Resources.cs` - C# implementation source for VulkanClearFrameOwner.Resources.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.Trace.cs` - C# implementation source for VulkanClearFrameOwner.Trace.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.VectorOverlayPipeline.cs` - C# implementation source for VulkanClearFrameOwner.VectorOverlayPipeline.cs.
+- `XuanYu.Render.Vulkan/Render/ClearFrame/VulkanClearFrameOwner.cs` - C# implementation source for VulkanClearFrameOwner.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.Grid.cs` - C# implementation source for VulkanClearFrameOwner.Grid.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.GridScale.cs` - C# implementation source for VulkanClearFrameOwner.GridScale.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.NavGizmo.cs` - C# implementation source for VulkanClearFrameOwner.NavGizmo.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ScaleIndicator.cs` - C# implementation source for VulkanClearFrameOwner.ScaleIndicator.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.ViewPlaneGrid.cs` - C# implementation source for VulkanClearFrameOwner.ViewPlaneGrid.cs.
+- `XuanYu.Render.Vulkan/Render/Grid/VulkanClearFrameOwner.WorldAxes.cs` - C# implementation source for VulkanClearFrameOwner.WorldAxes.cs.
+- `XuanYu.Render.Vulkan/Render/Map/VulkanClearFrameOwner.MapSurface.cs` - C# implementation source for VulkanClearFrameOwner.MapSurface.cs.
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Frame.cs` - C# implementation source for VulkanPresentLoop.Frame.cs.
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.Lifecycle.cs` - C# implementation source for VulkanPresentLoop.Lifecycle.cs.
+- `XuanYu.Render.Vulkan/Render/Present/VulkanPresentLoop.cs` - C# implementation source for VulkanPresentLoop.cs.
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Draw.cs` - C# implementation source for VulkanClearFrameOwner.Draw.cs.
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawAssist.cs` - C# implementation source for VulkanClearFrameOwner.DrawAssist.cs.
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.DrawGizmo.cs` - C# implementation source for VulkanClearFrameOwner.DrawGizmo.cs.
+- `XuanYu.Render.Vulkan/Render/Scene/VulkanClearFrameOwner.Scene.cs` - C# implementation source for VulkanClearFrameOwner.Scene.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticBounds.cs` - C# implementation source for VulkanClearFrameOwner.DrawStaticBounds.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanClearFrameOwner.DrawStaticModel.cs` - C# implementation source for VulkanClearFrameOwner.DrawStaticModel.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelBuffer.cs` - C# implementation source for VulkanStaticModelBuffer.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelCache.cs` - C# implementation source for VulkanStaticModelCache.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelFailureTracker.cs` - C# implementation source for VulkanStaticModelFailureTracker.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelLog.cs` - C# implementation source for VulkanStaticModelLog.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelResource.cs` - C# implementation source for VulkanStaticModelResource.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelValidator.cs` - C# implementation source for VulkanStaticModelValidator.cs.
+- `XuanYu.Render.Vulkan/Render/StaticModels/VulkanStaticModelVertex.cs` - C# implementation source for VulkanStaticModelVertex.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanClearFrameOwner.DrawVectorOverlay.cs` - C# implementation source for VulkanClearFrameOwner.DrawVectorOverlay.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayBufferReusePolicy.cs` - C# implementation source for VulkanVectorOverlayBufferReusePolicy.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayCache.cs` - C# implementation source for VulkanVectorOverlayCache.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayResource.cs` - C# implementation source for VulkanVectorOverlayResource.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayValidator.cs` - C# implementation source for VulkanVectorOverlayValidator.cs.
+- `XuanYu.Render.Vulkan/Render/VectorOverlay/VulkanVectorOverlayVertex.cs` - C# implementation source for VulkanVectorOverlayVertex.cs.
+- `XuanYu.Render.Vulkan/Render/VulkanDepthAttachment.cs` - C# implementation source for VulkanDepthAttachment.cs.
+- `XuanYu.Render.Vulkan/Session/GridPipelineSet.cs` - C# implementation source for GridPipelineSet.cs.
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Lifecycle.cs` - C# implementation source for VulkanRenderSession.Lifecycle.cs.
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Recover.cs` - C# implementation source for VulkanRenderSession.Recover.cs.
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.Resize.cs` - C# implementation source for VulkanRenderSession.Resize.cs.
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.VectorOverlay.cs` - C# implementation source for VulkanRenderSession.VectorOverlay.cs.
+- `XuanYu.Render.Vulkan/Session/VulkanRenderSession.cs` - C# implementation source for VulkanRenderSession.cs.
+- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.frag` - Tracked repository file editor_nav_gizmo.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_nav_gizmo.vert` - Tracked repository file editor_nav_gizmo.vert.
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid.vert` - Tracked repository file editor_reference_grid.vert.
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.frag` - Tracked repository file editor_reference_grid_line.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_reference_grid_line.vert` - Tracked repository file editor_reference_grid_line.vert.
+- `XuanYu.Render.Vulkan/Shaders/editor_scale_indicator.frag` - Tracked repository file editor_scale_indicator.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_view_plane_grid.frag` - Tracked repository file editor_view_plane_grid.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_world_axes.frag` - Tracked repository file editor_world_axes.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_world_origin.frag` - Tracked repository file editor_world_origin.frag.
+- `XuanYu.Render.Vulkan/Shaders/editor_world_reference_grid.frag` - Tracked repository file editor_world_reference_grid.frag.
+- `XuanYu.Render.Vulkan/Shaders/scene.frag` - Tracked repository file scene.frag.
+- `XuanYu.Render.Vulkan/Shaders/scene.vert` - Tracked repository file scene.vert.
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainBuilder.cs` - C# implementation source for VulkanSwapchainBuilder.cs.
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainCapabilities.cs` - C# implementation source for VulkanSwapchainCapabilities.cs.
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainLogFormatter.cs` - C# implementation source for VulkanSwapchainLogFormatter.cs.
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.Accessors.cs` - C# implementation source for VulkanSwapchainOwner.Accessors.cs.
+- `XuanYu.Render.Vulkan/Swapchain/VulkanSwapchainOwner.cs` - C# implementation source for VulkanSwapchainOwner.cs.
+- `XuanYu.Render.Vulkan/VulkanApiProbe.cs` - C# implementation source for VulkanApiProbe.cs.
+- `XuanYu.Render.Vulkan/VulkanBridgeLogFormatter.cs` - C# implementation source for VulkanBridgeLogFormatter.cs.
+- `XuanYu.Render.Vulkan/VulkanDeviceInfo.cs` - C# implementation source for VulkanDeviceInfo.cs.
+- `XuanYu.Render.Vulkan/VulkanInstanceCreateInfoBuilder.cs` - C# implementation source for VulkanInstanceCreateInfoBuilder.cs.
+- `XuanYu.Render.Vulkan/VulkanInstanceExtensions.cs` - C# implementation source for VulkanInstanceExtensions.cs.
+- `XuanYu.Render.Vulkan/VulkanInstanceLogFormatter.cs` - C# implementation source for VulkanInstanceLogFormatter.cs.
+- `XuanYu.Render.Vulkan/VulkanInstanceOwner.cs` - C# implementation source for VulkanInstanceOwner.cs.
+- `XuanYu.Render.Vulkan/VulkanInstanceResult.cs` - C# implementation source for VulkanInstanceResult.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Attach.cs` - C# implementation source for VulkanNativeHostSurfaceBridge.Attach.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Lifecycle.cs` - C# implementation source for VulkanNativeHostSurfaceBridge.Lifecycle.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Resize.cs` - C# implementation source for VulkanNativeHostSurfaceBridge.Resize.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.Scene.cs` - C# implementation source for VulkanNativeHostSurfaceBridge.Scene.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridge.cs` - C# implementation source for VulkanNativeHostSurfaceBridge.cs.
+- `XuanYu.Render.Vulkan/VulkanNativeHostSurfaceBridgeFactory.cs` - C# implementation source for VulkanNativeHostSurfaceBridgeFactory.cs.
+- `XuanYu.Render.Vulkan/VulkanProbeLogFormatter.cs` - C# implementation source for VulkanProbeLogFormatter.cs.
+- `XuanYu.Render.Vulkan/VulkanProbeResult.cs` - C# implementation source for VulkanProbeResult.cs.
+- `XuanYu.Render.Vulkan/VulkanSurfaceLogFormatter.cs` - C# implementation source for VulkanSurfaceLogFormatter.cs.
+- `XuanYu.Render.Vulkan/VulkanSurfaceOwner.cs` - C# implementation source for VulkanSurfaceOwner.cs.
+- `XuanYu.Render.Vulkan/VulkanSurfaceResult.cs` - C# implementation source for VulkanSurfaceResult.cs.
+- `XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj` - .NET project definition for XuanYu.Render.Vulkan.csproj.
+- `XuanYu.WarCore.Tests/Identity/MilitaryIdentityTests.cs` - C# implementation source for MilitaryIdentityTests.cs.
+- `XuanYu.WarCore.Tests/State/SoldierStateTests.cs` - C# implementation source for SoldierStateTests.cs.
+- `XuanYu.WarCore.Tests/WarCoreDependencyTests.cs` - C# implementation source for WarCoreDependencyTests.cs.
+- `XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj` - .NET project definition for XuanYu.WarCore.Tests.csproj.
+- `XuanYu.WarCore/Identity/FactionId.cs` - C# implementation source for FactionId.cs.
+- `XuanYu.WarCore/Identity/MilitaryIdentity.cs` - C# implementation source for MilitaryIdentity.cs.
+- `XuanYu.WarCore/Identity/OrganizationId.cs` - C# implementation source for OrganizationId.cs.
+- `XuanYu.WarCore/Identity/UnitId.cs` - C# implementation source for UnitId.cs.
+- `XuanYu.WarCore/Identity/UnitKind.cs` - C# implementation source for UnitKind.cs.
+- `XuanYu.WarCore/State/SoldierState.cs` - C# implementation source for SoldierState.cs.
+- `XuanYu.WarCore/XuanYu.WarCore.csproj` - .NET project definition for XuanYu.WarCore.csproj.
+- `XuanYu.World.Tests/Assets/AssetContractTests.cs` - C# implementation source for AssetContractTests.cs.
+- `XuanYu.World.Tests/Assets/AssetDialogTests.cs` - C# implementation source for AssetDialogTests.cs.
+- `XuanYu.World.Tests/Assets/GlbFactory.cs` - C# implementation source for GlbFactory.cs.
+- `XuanYu.World.Tests/Assets/GlbImportTests.cs` - C# implementation source for GlbImportTests.cs.
+- `XuanYu.World.Tests/Assets/GlbMultiPrimitiveFactory.cs` - C# implementation source for GlbMultiPrimitiveFactory.cs.
+- `XuanYu.World.Tests/Assets/HostingCompleteTests.cs` - C# implementation source for HostingCompleteTests.cs.
+- `XuanYu.World.Tests/Assets/HostingPlannerRejectTests.cs` - C# implementation source for HostingPlannerRejectTests.cs.
+- `XuanYu.World.Tests/Assets/HostingPlannerTests.cs` - C# implementation source for HostingPlannerTests.cs.
+- `XuanYu.World.Tests/Assets/HostingRollbackTests.cs` - C# implementation source for HostingRollbackTests.cs.
+- `XuanYu.World.Tests/Assets/HostingSaveAsTests.cs` - C# implementation source for HostingSaveAsTests.cs.
+- `XuanYu.World.Tests/Assets/HostingTestEnv.cs` - C# implementation source for HostingTestEnv.cs.
+- `XuanYu.World.Tests/Assets/HostingTransactionTests.cs` - C# implementation source for HostingTransactionTests.cs.
+- `XuanYu.World.Tests/Assets/LoadStructureErrorTests.cs` - C# implementation source for LoadStructureErrorTests.cs.
+- `XuanYu.World.Tests/Assets/LoadTransactionTests.cs` - C# implementation source for LoadTransactionTests.cs.
+- `XuanYu.World.Tests/Assets/SaveAsTests.cs` - C# implementation source for SaveAsTests.cs.
+- `XuanYu.World.Tests/Assets/SaveTransactionTests.cs` - C# implementation source for SaveTransactionTests.cs.
+- `XuanYu.World.Tests/Assets/ScenePersistenceEnv.cs` - C# implementation source for ScenePersistenceEnv.cs.
+- `XuanYu.World.Tests/Assets/SchemaCompatibilityTests.cs` - C# implementation source for SchemaCompatibilityTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelAuthoringServiceTests.cs` - C# implementation source for StaticModelAuthoringServiceTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelBaseVertexTests.cs` - C# implementation source for StaticModelBaseVertexTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelCatalogTests.cs` - C# implementation source for StaticModelCatalogTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelFailureTrackerTests.cs` - C# implementation source for StaticModelFailureTrackerTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelProjectionTests.cs` - C# implementation source for StaticModelProjectionTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelUiTests.cs` - C# implementation source for StaticModelUiTests.cs.
+- `XuanYu.World.Tests/Assets/StaticModelValidatorTests.cs` - C# implementation source for StaticModelValidatorTests.cs.
+- `XuanYu.World.Tests/Camera/CameraC2DraftFramingTests.cs` - C# implementation source for CameraC2DraftFramingTests.cs.
+- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.Helpers.cs` - C# implementation source for CameraC2MapFramingTests.Helpers.cs.
+- `XuanYu.World.Tests/Camera/CameraC2MapFramingTests.cs` - C# implementation source for CameraC2MapFramingTests.cs.
+- `XuanYu.World.Tests/Camera/CameraDocumentTests.cs` - C# implementation source for CameraDocumentTests.cs.
+- `XuanYu.World.Tests/Camera/CameraFramingOccupancyTests.cs` - C# implementation source for CameraFramingOccupancyTests.cs.
+- `XuanYu.World.Tests/Camera/CameraFramingTests.cs` - C# implementation source for CameraFramingTests.cs.
+- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.Focus.cs` - C# implementation source for CameraNavigationUiTests.Focus.cs.
+- `XuanYu.World.Tests/Camera/CameraNavigationUiTests.cs` - C# implementation source for CameraNavigationUiTests.cs.
+- `XuanYu.World.Tests/Camera/UiViewGizmoTests.cs` - C# implementation source for UiViewGizmoTests.cs.
+- `XuanYu.World.Tests/Logging/FootAxamlTailContractTests.cs` - C# implementation source for FootAxamlTailContractTests.cs.
+- `XuanYu.World.Tests/Logging/LogAutoScrollPolicyTests.cs` - C# implementation source for LogAutoScrollPolicyTests.cs.
+- `XuanYu.World.Tests/Logging/LogListAutoScrollControllerContractTests.cs` - C# implementation source for LogListAutoScrollControllerContractTests.cs.
+- `XuanYu.World.Tests/Logging/UiMapLogChineseTests.cs` - C# implementation source for UiMapLogChineseTests.cs.
+- `XuanYu.World.Tests/Logging/UiRootLogRowContractTests.cs` - C# implementation source for UiRootLogRowContractTests.cs.
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Behavior.cs` - C# implementation source for MapLayerSessionTests.Behavior.cs.
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.History.cs` - C# implementation source for MapLayerSessionTests.Drag.History.cs.
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.Drag.cs` - C# implementation source for MapLayerSessionTests.Drag.cs.
+- `XuanYu.World.Tests/Map/Editing/MapLayerSessionTests.cs` - C# implementation source for MapLayerSessionTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiLayerStateFeedbackTests.cs` - C# implementation source for UiLayerStateFeedbackTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiLayerVisualContractTests.cs` - C# implementation source for UiLayerVisualContractTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiLogSummaryPriorityTests.cs` - C# implementation source for UiLogSummaryPriorityTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiLogSummaryTimingTests.cs` - C# implementation source for UiLogSummaryTimingTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapCommandRoutingTests.cs` - C# implementation source for UiMapCommandRoutingTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetContractTests.cs` - C# implementation source for UiMapDatasetContractTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1AcceptanceTests.cs` - C# implementation source for UiMapDatasetF1AcceptanceTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF1Tests.cs` - C# implementation source for UiMapDatasetF1Tests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF2Tests.cs` - C# implementation source for UiMapDatasetF2Tests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3ContractTests.cs` - C# implementation source for UiMapDatasetF3ContractTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetF3Tests.cs` - C# implementation source for UiMapDatasetF3Tests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetLayerR3Tests.cs` - C# implementation source for UiMapDatasetLayerR3Tests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapPersistenceTests.cs` - C# implementation source for UiMapDatasetRegionBootstrapPersistenceTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionBootstrapTests.cs` - C# implementation source for UiMapDatasetRegionBootstrapTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionLayerF3Tests.cs` - C# implementation source for UiMapDatasetRegionLayerF3Tests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionRuntimeTests.cs` - C# implementation source for UiMapDatasetRegionRuntimeTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolActivationTests.cs` - C# implementation source for UiMapDatasetRegionToolActivationTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapDatasetRegionToolInvalidTests.cs` - C# implementation source for UiMapDatasetRegionToolInvalidTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapEditorTests.cs` - C# implementation source for UiMapEditorTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapHistoryTests.cs` - C# implementation source for UiMapHistoryTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapInitialProjectionTests.cs` - C# implementation source for UiMapInitialProjectionTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerDeleteLockRecoveryTests.cs` - C# implementation source for UiMapLayerDeleteLockRecoveryTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerDragTests.cs` - C# implementation source for UiMapLayerDragTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerLockLogTests.cs` - C# implementation source for UiMapLayerLockLogTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.Behavior.cs` - C# implementation source for UiMapLayerPanelTests.Behavior.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayerPanelTests.cs` - C# implementation source for UiMapLayerPanelTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapLayoutContractTests.cs` - C# implementation source for UiMapLayoutContractTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapManifestIdentityTests.cs` - C# implementation source for UiMapManifestIdentityTests.cs.
+- `XuanYu.World.Tests/Map/Editing/UiMapManifestNavigationTests.cs` - C# implementation source for UiMapManifestNavigationTests.cs.
+- `XuanYu.World.Tests/Map/MapBoundsTests.cs` - C# implementation source for MapBoundsTests.cs.
+- `XuanYu.World.Tests/Map/MapCoordinateValidationTests.cs` - C# implementation source for MapCoordinateValidationTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetContractTests.cs` - C# implementation source for MapDatasetContractTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetDocumentTests.cs` - C# implementation source for MapDatasetDocumentTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetLayerStateTests.cs` - C# implementation source for MapDatasetLayerStateTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetRegistryF1FailureTests.cs` - C# implementation source for MapDatasetRegistryF1FailureTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetRegistryF2Tests.cs` - C# implementation source for MapDatasetRegistryF2Tests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetRegistryFailureTests.cs` - C# implementation source for MapDatasetRegistryFailureTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetRegistryLifecycleTests.cs` - C# implementation source for MapDatasetRegistryLifecycleTests.cs.
+- `XuanYu.World.Tests/Map/MapDatasetStorageContractTests.cs` - C# implementation source for MapDatasetStorageContractTests.cs.
+- `XuanYu.World.Tests/Map/MapDefaultMapTests.cs` - C# implementation source for MapDefaultMapTests.cs.
+- `XuanYu.World.Tests/Map/MapDefinitionTests.cs` - C# implementation source for MapDefinitionTests.cs.
+- `XuanYu.World.Tests/Map/MapDocumentAggregateBridgeTests.cs` - C# implementation source for MapDocumentAggregateBridgeTests.cs.
+- `XuanYu.World.Tests/Map/MapDocumentOwnerChainTests.cs` - C# implementation source for MapDocumentOwnerChainTests.cs.
+- `XuanYu.World.Tests/Map/MapDocumentOwnerTests.cs` - C# implementation source for MapDocumentOwnerTests.cs.
+- `XuanYu.World.Tests/Map/MapEnvironmentValidationTests.cs` - C# implementation source for MapEnvironmentValidationTests.cs.
+- `XuanYu.World.Tests/Map/MapIdTests.cs` - C# implementation source for MapIdTests.cs.
+- `XuanYu.World.Tests/Map/MapJsonRoundTripTests.cs` - C# implementation source for MapJsonRoundTripTests.cs.
+- `XuanYu.World.Tests/Map/MapJsonStrictnessTests.cs` - C# implementation source for MapJsonStrictnessTests.cs.
+- `XuanYu.World.Tests/Map/MapLayerRulesTests.cs` - C# implementation source for MapLayerRulesTests.cs.
+- `XuanYu.World.Tests/Map/MapLayerStackTests.Drag.cs` - C# implementation source for MapLayerStackTests.Drag.cs.
+- `XuanYu.World.Tests/Map/MapLayerStackTests.Order.cs` - C# implementation source for MapLayerStackTests.Order.cs.
+- `XuanYu.World.Tests/Map/MapLayerStackTests.cs` - C# implementation source for MapLayerStackTests.cs.
+- `XuanYu.World.Tests/Map/MapLayerTests.Base.cs` - C# implementation source for MapLayerTests.Base.cs.
+- `XuanYu.World.Tests/Map/MapLayerTests.cs` - C# implementation source for MapLayerTests.cs.
+- `XuanYu.World.Tests/Map/MapManifestCreationTests.cs` - C# implementation source for MapManifestCreationTests.cs.
+- `XuanYu.World.Tests/Map/MapManifestSerializationTests.cs` - C# implementation source for MapManifestSerializationTests.cs.
+- `XuanYu.World.Tests/Map/MapManifestStorageTests.cs` - C# implementation source for MapManifestStorageTests.cs.
+- `XuanYu.World.Tests/Map/MapManifestValidationTests.cs` - C# implementation source for MapManifestValidationTests.cs.
+- `XuanYu.World.Tests/Map/MapRegionDatasetContractTests.cs` - C# implementation source for MapRegionDatasetContractTests.cs.
+- `XuanYu.World.Tests/Map/MapRegionDatasetRuntimeTests.cs` - C# implementation source for MapRegionDatasetRuntimeTests.cs.
+- `XuanYu.World.Tests/Map/MapRegionDraftTests.cs` - C# implementation source for MapRegionDraftTests.cs.
+- `XuanYu.World.Tests/Map/MapRegionTests.Geometry.cs` - C# implementation source for MapRegionTests.Geometry.cs.
+- `XuanYu.World.Tests/Map/MapRegionTests.Helpers.cs` - C# implementation source for MapRegionTests.Helpers.cs.
+- `XuanYu.World.Tests/Map/MapRegionTests.Strictness.cs` - C# implementation source for MapRegionTests.Strictness.cs.
+- `XuanYu.World.Tests/Map/MapRegionTests.cs` - C# implementation source for MapRegionTests.cs.
+- `XuanYu.World.Tests/Map/MapRoadDatasetContractTests.cs` - C# implementation source for MapRoadDatasetContractTests.cs.
+- `XuanYu.World.Tests/Map/MapSizeValidationTests.cs` - C# implementation source for MapSizeValidationTests.cs.
+- `XuanYu.World.Tests/Map/MapStorageFailureTests.cs` - C# implementation source for MapStorageFailureTests.cs.
+- `XuanYu.World.Tests/Map/MapStorageTests.cs` - C# implementation source for MapStorageTests.cs.
+- `XuanYu.World.Tests/Map/MapSurfaceSamplerTests.cs` - C# implementation source for MapSurfaceSamplerTests.cs.
+- `XuanYu.World.Tests/Map/MapSurfaceValidationTests.cs` - C# implementation source for MapSurfaceValidationTests.cs.
+- `XuanYu.World.Tests/Map/MapWorkingStorageTests.cs` - C# implementation source for MapWorkingStorageTests.cs.
+- `XuanYu.World.Tests/Map/SceneMapReferenceTests.cs` - C# implementation source for SceneMapReferenceTests.cs.
+- `XuanYu.World.Tests/Map/WorldMapStateOwnerTests.cs` - C# implementation source for WorldMapStateOwnerTests.cs.
+- `XuanYu.World.Tests/Map/WorldMapStateTests.cs` - C# implementation source for WorldMapStateTests.cs.
+- `XuanYu.World.Tests/MapEditing/GenericGeometryCapabilityTests.cs` - C# implementation source for GenericGeometryCapabilityTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapCoordinateContractTests.cs` - C# implementation source for MapCoordinateContractTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionCommandTests.cs` - C# implementation source for MapEditSessionCommandTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionCreationTests.cs` - C# implementation source for MapEditSessionCreationTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionDirtyTests.cs` - C# implementation source for MapEditSessionDirtyTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionGeometryTests.cs` - C# implementation source for MapEditSessionGeometryTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionHistoryTests.cs` - C# implementation source for MapEditSessionHistoryTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionMapPropertiesTests.cs` - C# implementation source for MapEditSessionMapPropertiesTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionRegionTests.cs` - C# implementation source for MapEditSessionRegionTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionSelectionTests.cs` - C# implementation source for MapEditSessionSelectionTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionThreadTests.cs` - C# implementation source for MapEditSessionThreadTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapEditSessionValidationTests.cs` - C# implementation source for MapEditSessionValidationTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapGeometryHitTesterTests.cs` - C# implementation source for MapGeometryHitTesterTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapPickingRoundTripTests.cs` - C# implementation source for MapPickingRoundTripTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapRenderSnapshotProjectionTests.cs` - C# implementation source for MapRenderSnapshotProjectionTests.cs.
+- `XuanYu.World.Tests/MapEditing/MapSurfacePickerTests.cs` - C# implementation source for MapSurfacePickerTests.cs.
+- `XuanYu.World.Tests/MapEditing/PointFeatureFoundationTests.cs` - C# implementation source for PointFeatureFoundationTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionDrawingF3HistoryTests.cs` - C# implementation source for RegionDrawingF3HistoryTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionDrawingStateTests.cs` - C# implementation source for RegionDrawingStateTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapGeometryTests.cs` - C# implementation source for RegionEdgeSnapGeometryTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionEdgeSnapResolverTests.cs` - C# implementation source for RegionEdgeSnapResolverTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineContractTests.cs` - C# implementation source for RegionSnapPipelineContractTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineLockTests.cs` - C# implementation source for RegionSnapPipelineLockTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTestFixture.cs` - C# implementation source for RegionSnapPipelineTestFixture.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSnapPipelineTests.cs` - C# implementation source for RegionSnapPipelineTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSnapStateTests.cs` - C# implementation source for RegionSnapStateTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexLifecycleTests.cs` - C# implementation source for RegionSpatialIndexLifecycleTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexScaleTests.cs` - C# implementation source for RegionSpatialIndexScaleTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionSpatialIndexTests.cs` - C# implementation source for RegionSpatialIndexTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapIntegrationContractTests.cs` - C# implementation source for RegionVertexSnapIntegrationContractTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverBoundaryTests.cs` - C# implementation source for RegionVertexSnapResolverBoundaryTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverTests.cs` - C# implementation source for RegionVertexSnapResolverTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapScaleTests.cs` - C# implementation source for RegionVertexSnapScaleTests.cs.
+- `XuanYu.World.Tests/MapEditing/RegionVertexSnapStateTests.cs` - C# implementation source for RegionVertexSnapStateTests.cs.
+- `XuanYu.World.Tests/Mode/EditorModeManagerTests.cs` - C# implementation source for EditorModeManagerTests.cs.
+- `XuanYu.World.Tests/Mode/EditorModeUiCompositionTests.cs` - C# implementation source for EditorModeUiCompositionTests.cs.
+- `XuanYu.World.Tests/Mode/EditorModeUiTests.cs` - C# implementation source for EditorModeUiTests.cs.
+- `XuanYu.World.Tests/RegionDrawingTestVm.cs` - C# implementation source for RegionDrawingTestVm.cs.
+- `XuanYu.World.Tests/Render/VulkanPresentLoopContractTests.cs` - C# implementation source for VulkanPresentLoopContractTests.cs.
+- `XuanYu.World.Tests/Render/VulkanPresentModeSelectionTests.cs` - C# implementation source for VulkanPresentModeSelectionTests.cs.
+- `XuanYu.World.Tests/Render/WorldGridIndependenceContractTests.cs` - C# implementation source for WorldGridIndependenceContractTests.cs.
+- `XuanYu.World.Tests/Scene/CommandSmokeTests.cs` - C# implementation source for CommandSmokeTests.cs.
+- `XuanYu.World.Tests/Scene/EditorEnvironmentTests.cs` - C# implementation source for EditorEnvironmentTests.cs.
+- `XuanYu.World.Tests/Scene/EntityBoundsSemanticsTests.cs` - C# implementation source for EntityBoundsSemanticsTests.cs.
+- `XuanYu.World.Tests/Scene/EntityRegistryTests.cs` - C# implementation source for EntityRegistryTests.cs.
+- `XuanYu.World.Tests/Scene/EntityTests.cs` - C# implementation source for EntityTests.cs.
+- `XuanYu.World.Tests/Scene/FinalSceneTests.cs` - C# implementation source for FinalSceneTests.cs.
+- `XuanYu.World.Tests/Scene/GlobalWorldTests.cs` - C# implementation source for GlobalWorldTests.cs.
+- `XuanYu.World.Tests/Scene/SceneConsumptionTests.cs` - C# implementation source for SceneConsumptionTests.cs.
+- `XuanYu.World.Tests/Scene/SceneDocumentPersistenceTests.cs` - C# implementation source for SceneDocumentPersistenceTests.cs.
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.Opening.cs` - C# implementation source for SceneDocumentTests.Opening.cs.
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.SaveFeedback.cs` - C# implementation source for SceneDocumentTests.SaveFeedback.cs.
+- `XuanYu.World.Tests/Scene/SceneDocumentTests.cs` - C# implementation source for SceneDocumentTests.cs.
+- `XuanYu.World.Tests/Scene/SceneIsolationTests.cs` - C# implementation source for SceneIsolationTests.cs.
+- `XuanYu.World.Tests/Scene/SceneMultiEntityGateTests.cs` - C# implementation source for SceneMultiEntityGateTests.cs.
+- `XuanYu.World.Tests/Scene/SceneSelectionReentryTests.cs` - C# implementation source for SceneSelectionReentryTests.cs.
+- `XuanYu.World.Tests/Scene/SceneSingleAuthorityTests.cs` - C# implementation source for SceneSingleAuthorityTests.cs.
+- `XuanYu.World.Tests/Scene/UiHistoryTests.InlineRename.cs` - C# implementation source for UiHistoryTests.InlineRename.cs.
+- `XuanYu.World.Tests/Scene/UiHistoryTests.cs` - C# implementation source for UiHistoryTests.cs.
+- `XuanYu.World.Tests/Selection/FinalSelectionTests.cs` - C# implementation source for FinalSelectionTests.cs.
+- `XuanYu.World.Tests/Selection/SelectionToolStateUiTests.cs` - C# implementation source for SelectionToolStateUiTests.cs.
+- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.Selection.cs` - C# implementation source for ToolStateHighlightUiTests.Selection.cs.
+- `XuanYu.World.Tests/Selection/ToolStateHighlightUiTests.cs` - C# implementation source for ToolStateHighlightUiTests.cs.
+- `XuanYu.World.Tests/Spatial/SceneStateOwnerSpatialTests.cs` - C# implementation source for SceneStateOwnerSpatialTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialIndexEditLifecycleTests.cs` - C# implementation source for SpatialIndexEditLifecycleTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerLifecycleTests.cs` - C# implementation source for SpatialIndexOwnerLifecycleTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialIndexOwnerRevisionTests.cs` - C# implementation source for SpatialIndexOwnerRevisionTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialIndexRebuildTests.cs` - C# implementation source for SpatialIndexRebuildTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialIndexScaleTests.cs` - C# implementation source for SpatialIndexScaleTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialQueryGovernanceTests.cs` - C# implementation source for SpatialQueryGovernanceTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialQueryOracle.cs` - C# implementation source for SpatialQueryOracle.cs.
+- `XuanYu.World.Tests/Spatial/SpatialQueryTests.Geometry.cs` - C# implementation source for SpatialQueryTests.Geometry.cs.
+- `XuanYu.World.Tests/Spatial/SpatialQueryTests.cs` - C# implementation source for SpatialQueryTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialRayQueryLifecycleTests.cs` - C# implementation source for SpatialRayQueryLifecycleTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialRayQueryTests.cs` - C# implementation source for SpatialRayQueryTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialRaycastNearestTests.cs` - C# implementation source for SpatialRaycastNearestTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialRaycastRevisionTests.cs` - C# implementation source for SpatialRaycastRevisionTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialRaycastScaleTests.cs` - C# implementation source for SpatialRaycastScaleTests.cs.
+- `XuanYu.World.Tests/Spatial/SpatialTestData.cs` - C# implementation source for SpatialTestData.cs.
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Plane.cs` - C# implementation source for MoveTransformUiTests.Plane.cs.
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Region.cs` - C# implementation source for MoveTransformUiTests.Region.cs.
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.Session.cs` - C# implementation source for MoveTransformUiTests.Session.cs.
+- `XuanYu.World.Tests/Transform/Move/MoveTransformUiTests.cs` - C# implementation source for MoveTransformUiTests.cs.
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.DragState.cs` - C# implementation source for RotateTransformUiTests.DragState.cs.
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Helpers.cs` - C# implementation source for RotateTransformUiTests.Helpers.cs.
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.Preview.cs` - C# implementation source for RotateTransformUiTests.Preview.cs.
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.ToolSwitch.cs` - C# implementation source for RotateTransformUiTests.ToolSwitch.cs.
+- `XuanYu.World.Tests/Transform/Rotate/RotateTransformUiTests.cs` - C# implementation source for RotateTransformUiTests.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleGizmoGlobalModeTests.cs` - C# implementation source for ScaleGizmoGlobalModeTests.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.AxisUniform.cs` - C# implementation source for ScaleTransformUiTests.AxisUniform.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Helpers.cs` - C# implementation source for ScaleTransformUiTests.Helpers.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.History.cs` - C# implementation source for ScaleTransformUiTests.History.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Pointer.cs` - C# implementation source for ScaleTransformUiTests.Pointer.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.Target.cs` - C# implementation source for ScaleTransformUiTests.Target.cs.
+- `XuanYu.World.Tests/Transform/Scale/ScaleTransformUiTests.cs` - C# implementation source for ScaleTransformUiTests.cs.
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.Input.cs` - C# implementation source for TransformFoundationTests.Input.cs.
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.Inspector.cs` - C# implementation source for TransformFoundationTests.Inspector.cs.
+- `XuanYu.World.Tests/Transform/TransformFoundationTests.cs` - C# implementation source for TransformFoundationTests.cs.
+- `XuanYu.World.Tests/Transform/TransformSessionTests.cs` - C# implementation source for TransformSessionTests.cs.
+- `XuanYu.World.Tests/Transform/ViewportAssistTests.cs` - C# implementation source for ViewportAssistTests.cs.
+- `XuanYu.World.Tests/Tree/UiHierarchyConnectorTests.cs` - C# implementation source for UiHierarchyConnectorTests.cs.
+- `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` - C# implementation source for UiTreeGuideTests.cs.
+- `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
+- `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
+- `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
+- `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
+- `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeLayoutTests.cs` - C# implementation source for LayerPanelRuntimeLayoutTests.cs.
+- `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeStateTests.cs` - C# implementation source for LayerPanelRuntimeStateTests.cs.
+- `XuanYu.World.Tests/UiRuntime/MapMarkerPlacementTests.cs` - C# implementation source for MapMarkerPlacementTests.cs.
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayAnchorContractTests.cs` - C# implementation source for MapVectorOverlayAnchorContractTests.cs.
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayDepthPolicyTests.cs` - C# implementation source for MapVectorOverlayDepthPolicyTests.cs.
+- `XuanYu.World.Tests/UiRuntime/MapVectorOverlayV1Tests.cs` - C# implementation source for MapVectorOverlayV1Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ActivationRuntimeTests.cs` - C# implementation source for RegionDrawingF1ActivationRuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1BTests.cs` - C# implementation source for RegionDrawingF1BTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1CStabilityTests.cs` - C# implementation source for RegionDrawingF1CStabilityTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1FullRuntimeTests.cs` - C# implementation source for RegionDrawingF1FullRuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RenderContractTests.cs` - C# implementation source for RegionDrawingF1RenderContractTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1ResizeTests.cs` - C# implementation source for RegionDrawingF1ResizeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF1RuntimeRedTests.cs` - C# implementation source for RegionDrawingF1RuntimeRedTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionDrawingF2PolygonTests.cs` - C# implementation source for RegionDrawingF2PolygonTests.cs.
+- `XuanYu.World.Tests/UiRuntime/RegionPointerSafetyF2Tests.cs` - C# implementation source for RegionPointerSafetyF2Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/RoadDrawingSelectionF1Tests.Helpers.cs` - C# implementation source for RoadDrawingSelectionF1Tests.Helpers.cs.
+- `XuanYu.World.Tests/UiRuntime/RoadDrawingSelectionF1Tests.cs` - C# implementation source for RoadDrawingSelectionF1Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/RoadVertexDragD2Tests.cs` - C# implementation source for RoadVertexDragD2Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/RoadVertexSelectionD1Tests.Helpers.cs` - C# implementation source for RoadVertexSelectionD1Tests.Helpers.cs.
+- `XuanYu.World.Tests/UiRuntime/RoadVertexSelectionD1Tests.cs` - C# implementation source for RoadVertexSelectionD1Tests.cs.
+- `XuanYu.World.Tests/UiRuntime/ScaleIndicatorVisibilityRuntimeTests.cs` - C# implementation source for ScaleIndicatorVisibilityRuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/UiHeadlessFixture.cs` - C# implementation source for UiHeadlessFixture.cs.
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeCollection.cs` - C# implementation source for UiRuntimeCollection.cs.
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeRiskTests.cs` - C# implementation source for UiRuntimeRiskTests.cs.
+- `XuanYu.World.Tests/UiRuntime/UiRuntimeTestHost.cs` - C# implementation source for UiRuntimeTestHost.cs.
+- `XuanYu.World.Tests/UiRuntime/UiTestAppBuilder.cs` - C# implementation source for UiTestAppBuilder.cs.
+- `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` - C# implementation source for LayerAUiCompositionTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` - C# implementation source for UiCsColorRulesTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` - C# implementation source for UiD2F1RegionToolActivationContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolContractTests.cs` - C# implementation source for UiD2F1RegionToolContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD3DebtClearedTests.cs` - C# implementation source for UiD3DebtClearedTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4DebtClearedTests.cs` - C# implementation source for UiD4DebtClearedTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4F1ButtonContractTests.cs` - C# implementation source for UiD4F1ButtonContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4F1LayoutModelTests.cs` - C# implementation source for UiD4F1LayoutModelTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4F1TextOverflowContractTests.cs` - C# implementation source for UiD4F1TextOverflowContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4F1TypographyContractTests.cs` - C# implementation source for UiD4F1TypographyContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4InspectorContractTests.cs` - C# implementation source for UiD4InspectorContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4LayerContractTests.cs` - C# implementation source for UiD4LayerContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4LayoutModelTests.cs` - C# implementation source for UiD4LayoutModelTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD4MapEditorContractTests.cs` - C# implementation source for UiD4MapEditorContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5ButtonContractTests.cs` - C# implementation source for UiD5ButtonContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionBehaviorTests.cs` - C# implementation source for UiD5CorrectionBehaviorTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionNotifyTests.cs` - C# implementation source for UiD5CorrectionNotifyTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5CorrectionStructureTests.cs` - C# implementation source for UiD5CorrectionStructureTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5DangerFlowTests.cs` - C# implementation source for UiD5DangerFlowTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5DialogAndLogContractTests.cs` - C# implementation source for UiD5DialogAndLogContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5FormContractTests.cs` - C# implementation source for UiD5FormContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5InputValidationTests.cs` - C# implementation source for UiD5InputValidationTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5MapStatusTests.cs` - C# implementation source for UiD5MapStatusTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5NotificationTests.cs` - C# implementation source for UiD5NotificationTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogBehaviorTests.cs` - C# implementation source for UiD5UnsavedDialogBehaviorTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogTests.cs` - C# implementation source for UiD5UnsavedDialogTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD5UnsavedFlowTests.cs` - C# implementation source for UiD5UnsavedFlowTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD6AccessibilityContractTests.cs` - C# implementation source for UiD6AccessibilityContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD6DpiContractTests.cs` - C# implementation source for UiD6DpiContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD6LogPerformanceTests.cs` - C# implementation source for UiD6LogPerformanceTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiD6MotionContractTests.cs` - C# implementation source for UiD6MotionContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml1.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml1.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml2.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml2.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Cs.cs` - C# implementation source for UiDebtBaseline.Colors.Cs.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Typography.cs` - C# implementation source for UiDebtBaseline.Typography.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaseline.cs` - C# implementation source for UiDebtBaseline.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassF2Tests.cs` - C# implementation source for UiDebtBaselineBypassF2Tests.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineBypassTests.cs` - C# implementation source for UiDebtBaselineBypassTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiDebtBaselineTests.cs` - C# implementation source for UiDebtBaselineTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiF3LayerRowContractTests.cs` - C# implementation source for UiF3LayerRowContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiLayerDeleteDialogContractTests.cs` - C# implementation source for UiLayerDeleteDialogContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.CsRules.cs` - C# implementation source for UiSourceContractAnalyzer.CsRules.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Icon.cs` - C# implementation source for UiSourceContractAnalyzer.Icon.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Inline.cs` - C# implementation source for UiSourceContractAnalyzer.Inline.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Structure.cs` - C# implementation source for UiSourceContractAnalyzer.Structure.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.cs` - C# implementation source for UiSourceContractAnalyzer.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTests.cs` - C# implementation source for UiSourceContractAnalyzerTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzerTokenRefTests.cs` - C# implementation source for UiSourceContractAnalyzerTokenRefTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiTokenManifestGraphTests.cs` - C# implementation source for UiTokenManifestGraphTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiTokenManifestTests.cs` - C# implementation source for UiTokenManifestTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripContractTests.cs` - C# implementation source for UiTopTabStripContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelHintAndListTests.cs` - C# implementation source for UiTopTabStripModelHintAndListTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiTopTabStripModelTests.cs` - C# implementation source for UiTopTabStripModelTests.cs.
+- `XuanYu.World.Tests/Viewport/NativePointerRoutePolicyTests.cs` - C# implementation source for NativePointerRoutePolicyTests.cs.
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceManagerTests.cs` - C# implementation source for EditorWorkspaceManagerTests.cs.
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiCompositionTests.cs` - C# implementation source for EditorWorkspaceUiCompositionTests.cs.
+- `XuanYu.World.Tests/Workspace/EditorWorkspaceUiTests.cs` - C# implementation source for EditorWorkspaceUiTests.cs.
+- `XuanYu.World.Tests/Workspace/RegionAuthoringHierarchyTests.cs` - C# implementation source for RegionAuthoringHierarchyTests.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionInvariantTests.cs` - C# implementation source for WorldPartitionInvariantTests.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.Activity.cs` - C# implementation source for WorldPartitionMigrationTests.Activity.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionMigrationTests.cs` - C# implementation source for WorldPartitionMigrationTests.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.PartitionStrategy.cs` - C# implementation source for WorldPartitionTests.PartitionStrategy.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.cs` - C# implementation source for WorldPartitionTests.cs.
+- `XuanYu.World.Tests/WorldPartition/WorldPartitionUiTests.cs` - C# implementation source for WorldPartitionUiTests.cs.
+- `XuanYu.World.Tests/XuanYu.World.Tests.csproj` - .NET project definition for XuanYu.World.Tests.csproj.
+- `XuanYu.World/EntityRegistry.Authoring.cs` - C# implementation source for EntityRegistry.Authoring.cs.
+- `XuanYu.World/EntityRegistry.Replace.cs` - C# implementation source for EntityRegistry.Replace.cs.
+- `XuanYu.World/EntityRegistry.cs` - C# implementation source for EntityRegistry.cs.
+- `XuanYu.World/GlobalWorld.Authoring.cs` - C# implementation source for GlobalWorld.Authoring.cs.
+- `XuanYu.World/GlobalWorld.Query.cs` - C# implementation source for GlobalWorld.Query.cs.
+- `XuanYu.World/GlobalWorld.Snapshot.cs` - C# implementation source for GlobalWorld.Snapshot.cs.
+- `XuanYu.World/GlobalWorld.cs` - C# implementation source for GlobalWorld.cs.
+- `XuanYu.World/GridWorldPartitionStrategy.cs` - C# implementation source for GridWorldPartitionStrategy.cs.
+- `XuanYu.World/IWorldPartitionStrategy.cs` - C# implementation source for IWorldPartitionStrategy.cs.
+- `XuanYu.World/Map/MapBounds.cs` - C# implementation source for MapBounds.cs.
+- `XuanYu.World/Map/MapCoordinateContract.cs` - C# implementation source for MapCoordinateContract.cs.
+- `XuanYu.World/Map/MapDefaultDefinition.cs` - C# implementation source for MapDefaultDefinition.cs.
+- `XuanYu.World/Map/MapDefinition.cs` - C# implementation source for MapDefinition.cs.
+- `XuanYu.World/Map/MapDefinitionValidator.cs` - C# implementation source for MapDefinitionValidator.cs.
+- `XuanYu.World/Map/MapGeometry.cs` - C# implementation source for MapGeometry.cs.
+- `XuanYu.World/Map/MapId.cs` - C# implementation source for MapId.cs.
+- `XuanYu.World/Map/MapLayer.cs` - C# implementation source for MapLayer.cs.
+- `XuanYu.World/Map/MapLayerId.cs` - C# implementation source for MapLayerId.cs.
+- `XuanYu.World/Map/MapLayerKind.cs` - C# implementation source for MapLayerKind.cs.
+- `XuanYu.World/Map/MapLayerRules.cs` - C# implementation source for MapLayerRules.cs.
+- `XuanYu.World/Map/MapLayerStack.cs` - C# implementation source for MapLayerStack.cs.
+- `XuanYu.World/Map/MapLayerValidator.cs` - C# implementation source for MapLayerValidator.cs.
+- `XuanYu.World/Map/MapMarker.cs` - C# implementation source for MapMarker.cs.
+- `XuanYu.World/Map/MapMarkerId.cs` - C# implementation source for MapMarkerId.cs.
+- `XuanYu.World/Map/MapMarkerValidator.cs` - C# implementation source for MapMarkerValidator.cs.
+- `XuanYu.World/Map/MapRegion.cs` - C# implementation source for MapRegion.cs.
+- `XuanYu.World/Map/MapRegionDraft.cs` - C# implementation source for MapRegionDraft.cs.
+- `XuanYu.World/Map/MapRegionId.cs` - C# implementation source for MapRegionId.cs.
+- `XuanYu.World/Map/MapRegionIntersection.cs` - C# implementation source for MapRegionIntersection.cs.
+- `XuanYu.World/Map/MapRegionKind.cs` - C# implementation source for MapRegionKind.cs.
+- `XuanYu.World/Map/MapRegionValidator.cs` - C# implementation source for MapRegionValidator.cs.
+- `XuanYu.World/Map/MapRoad.cs` - C# implementation source for MapRoad.cs.
+- `XuanYu.World/Map/MapRoadDraft.cs` - C# implementation source for MapRoadDraft.cs.
+- `XuanYu.World/Map/MapRoadId.cs` - C# implementation source for MapRoadId.cs.
+- `XuanYu.World/Map/MapRoadValidator.cs` - C# implementation source for MapRoadValidator.cs.
+- `XuanYu.World/Map/MapSurfaceDefinition.cs` - C# implementation source for MapSurfaceDefinition.cs.
+- `XuanYu.World/Map/MapValidationResult.cs` - C# implementation source for MapValidationResult.cs.
+- `XuanYu.World/Map/WorldMapState.cs` - C# implementation source for WorldMapState.cs.
+- `XuanYu.World/Map/WorldMapStateOwner.cs` - C# implementation source for WorldMapStateOwner.cs.
+- `XuanYu.World/RegionKey.cs` - C# implementation source for RegionKey.cs.
+- `XuanYu.World/Scene/SceneSpatialBoundsProjection.cs` - C# implementation source for SceneSpatialBoundsProjection.cs.
+- `XuanYu.World/Scene/SceneStateOwner.Lifecycle.cs` - C# implementation source for SceneStateOwner.Lifecycle.cs.
+- `XuanYu.World/Scene/SceneStateOwner.Seeding.cs` - C# implementation source for SceneStateOwner.Seeding.cs.
+- `XuanYu.World/Scene/SceneStateOwner.StaticModel.cs` - C# implementation source for SceneStateOwner.StaticModel.cs.
+- `XuanYu.World/Scene/SceneStateOwner.Transform.cs` - C# implementation source for SceneStateOwner.Transform.cs.
+- `XuanYu.World/Scene/SceneStateOwner.cs` - C# implementation source for SceneStateOwner.cs.
+- `XuanYu.World/Scene/SceneWorldProjection.cs` - C# implementation source for SceneWorldProjection.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.Insert.cs` - C# implementation source for DynamicAabbTree.Insert.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.Node.cs` - C# implementation source for DynamicAabbTree.Node.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.Query.cs` - C# implementation source for DynamicAabbTree.Query.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.Refit.cs` - C# implementation source for DynamicAabbTree.Refit.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.Remove.cs` - C# implementation source for DynamicAabbTree.Remove.cs.
+- `XuanYu.World/Spatial/DynamicAabbTree.cs` - C# implementation source for DynamicAabbTree.cs.
+- `XuanYu.World/Spatial/ISpatialIndex.cs` - C# implementation source for ISpatialIndex.cs.
+- `XuanYu.World/Spatial/SpatialIndexOwner.cs` - C# implementation source for SpatialIndexOwner.cs.
+- `XuanYu.World/Spatial/SpatialRaycastResolver.cs` - C# implementation source for SpatialRaycastResolver.cs.
+- `XuanYu.World/WorldEntityActivity.cs` - C# implementation source for WorldEntityActivity.cs.
+- `XuanYu.World/WorldEntityName.cs` - C# implementation source for WorldEntityName.cs.
+- `XuanYu.World/WorldEntitySnapshot.cs` - C# implementation source for WorldEntitySnapshot.cs.
+- `XuanYu.World/WorldEntityType.cs` - C# implementation source for WorldEntityType.cs.
+- `XuanYu.World/WorldPartitionEntry.cs` - C# implementation source for WorldPartitionEntry.cs.
+- `XuanYu.World/WorldPartitionMembership.cs` - C# implementation source for WorldPartitionMembership.cs.
+- `XuanYu.World/WorldQuery.cs` - C# implementation source for WorldQuery.cs.
+- `XuanYu.World/XuanYu.World.csproj` - .NET project definition for XuanYu.World.csproj.
+- `changelog.md` - Documentation, specification, or governance record for changelog.md.
+- `docs/CODE_CONSTITUTION.md` - Documentation, specification, or governance record for CODE_CONSTITUTION.md.
+- `docs/architecture/ENGINE_ARCHITECTURE.md` - Documentation, specification, or governance record for ENGINE_ARCHITECTURE.md.
+- `docs/architecture/world-a-r0-coordinate-contract.md` - Documentation, specification, or governance record for world-a-r0-coordinate-contract.md.
+- `docs/archive/changelog/changelog-2026-05.md` - Documentation, specification, or governance record for changelog-2026-05.md.
+- `docs/archive/changelog/changelog-2026-06.md` - Documentation, specification, or governance record for changelog-2026-06.md.
+- `docs/archive/changelog/changelog-2026-07.md` - Documentation, specification, or governance record for changelog-2026-07.md.
+- `docs/codex-fast-execution-profile.md` - Documentation, specification, or governance record for codex-fast-execution-profile.md.
+- `docs/dev-rules.md` - Documentation, specification, or governance record for dev-rules.md.
+- `docs/docs-index.md` - Documentation, specification, or governance record for docs-index.md.
+- `docs/governance/NAMING_RULES.md` - Documentation, specification, or governance record for NAMING_RULES.md.
+- `docs/governance/debts/arch-ui-spec-debts.md` - Documentation, specification, or governance record for arch-ui-spec-debts.md.
+- `docs/governance/debts/arch-world-debts.md` - Documentation, specification, or governance record for arch-world-debts.md.
+- `docs/governance/dev-rules-understanding.md` - Documentation, specification, or governance record for dev-rules-understanding.md.
+- `docs/governance/diagnostic-safety.md` - Documentation, specification, or governance record for diagnostic-safety.md.
+- `docs/governance/naming-XuanYu-Engine.md` - Documentation, specification, or governance record for naming-XuanYu-Engine.md.
+- `docs/governance/ui-spec.md` - Documentation, specification, or governance record for ui-spec.md.
+- `docs/governance/xyui/README.md` - Documentation, specification, or governance record for README.md.
+- `"docs/governance/xyui/XYUI_Codex_Gemini\345\217\214Agent\345\274\200\345\217\221\344\270\216\344\273\243\347\240\201\345\260\201\350\243\205\350\247\204\350\214\203_v1.0.md"` - Tracked repository file 203_v1.0.md".
+- `"docs/governance/\347\211\210\346\234\254\345\217\267\350\247\204\350\214\203\344\270\216\345\216\206\345\217\262\346\230\240\345\260\204.md"` - Tracked repository file 204.md".
+- `docs/knowledge/README.md` - Documentation, specification, or governance record for README.md.
+- `docs/knowledge/architecture.md` - Documentation, specification, or governance record for architecture.md.
+- `docs/knowledge/data.md` - Documentation, specification, or governance record for data.md.
+- `docs/knowledge/decisions/generic-geometry-editing-contract.md` - Documentation, specification, or governance record for generic-geometry-editing-contract.md.
+- `docs/knowledge/decisions/map-data-r2-closeout-and-point-foundation.md` - Documentation, specification, or governance record for map-data-r2-closeout-and-point-foundation.md.
+- `docs/knowledge/decisions/map-data-r3-point-consumer.md` - Documentation, specification, or governance record for map-data-r3-point-consumer.md.
+- `docs/knowledge/engineering.md` - Documentation, specification, or governance record for engineering.md.
+- `docs/knowledge/incidents.md` - Documentation, specification, or governance record for incidents.md.
+- `docs/knowledge/input.md` - Documentation, specification, or governance record for input.md.
+- `docs/knowledge/knowledge-index.md` - Documentation, specification, or governance record for knowledge-index.md.
+- `docs/knowledge/lessons.md` - Documentation, specification, or governance record for lessons.md.
+- `docs/knowledge/performance.md` - Documentation, specification, or governance record for performance.md.
+- `docs/knowledge/rendering.md` - Documentation, specification, or governance record for rendering.md.
+- `docs/knowledge/ui.md` - Documentation, specification, or governance record for ui.md.
+- `docs/knowledge/ui/viewport-ui-control-development-guide.md` - Documentation, specification, or governance record for viewport-ui-control-development-guide.md.
+- `docs/milestones/closed/MAP-A/R2-closeout.md` - Documentation, specification, or governance record for R2-closeout.md.
+- `docs/milestones/closed/MAP-DATA-A/MAP-DATA-A-R2-closeout.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-closeout.md.
+- `docs/milestones/closed/MAP-DATA-A/R1-closeout.md` - Documentation, specification, or governance record for R1-closeout.md.
+- `docs/milestones/closed/MAP-DOC-A/R3-closeout.md` - Documentation, specification, or governance record for R3-closeout.md.
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R1-workspace-contract.md` - Documentation, specification, or governance record for EDITOR-A-R1-workspace-contract.md.
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R2-workspace-switch.md` - Documentation, specification, or governance record for EDITOR-A-R2-workspace-switch.md.
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-closeout.md` - Documentation, specification, or governance record for EDITOR-A-R3-F1-closeout.md.
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` - Documentation, specification, or governance record for EDITOR-A-R3-F1-shell-compact.md.
+- `docs/milestones/current/EDITOR-A/EDITOR-A-R3-mode-shell.md` - Documentation, specification, or governance record for EDITOR-A-R3-mode-shell.md.
+- `docs/milestones/current/EDITOR-A/XYUI-backlog.md` - Documentation, specification, or governance record for XYUI-backlog.md.
+- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` - Vector asset for editor-a-r1-workspace-contract.svg.
+- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` - Vector asset for editor-a-r2-workspace-switch.svg.
+- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` - Vector asset for editor-a-r3-mode-shell.svg.
+- `docs/milestones/current/LAYER-A/LAYER-A-R1-layer-shell.md` - Documentation, specification, or governance record for LAYER-A-R1-layer-shell.md.
+- `docs/milestones/current/MAP-A/MAP-A-CLOSE-plan.md` - Documentation, specification, or governance record for MAP-A-CLOSE-plan.md.
+- `docs/milestones/current/MAP-A/MAP-A-strategic-closeout.md` - Documentation, specification, or governance record for MAP-A-strategic-closeout.md.
+- `docs/milestones/current/MAP-A/R3-C2-closure.md` - Documentation, specification, or governance record for R3-C2-closure.md.
+- `docs/milestones/current/MAP-A/R3-F1-closeout.md` - Documentation, specification, or governance record for R3-F1-closeout.md.
+- `docs/milestones/current/MAP-A/R3-backlog.md` - Documentation, specification, or governance record for R3-backlog.md.
+- `docs/milestones/current/MAP-A/map-contract.md` - Documentation, specification, or governance record for map-contract.md.
+- `docs/milestones/current/MAP-A/viewport-overlay-development-plan.md` - Documentation, specification, or governance record for viewport-overlay-development-plan.md.
+- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` - Vector asset for viewport-overlay-roadmap.svg.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F2-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F3-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F1-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F1-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-F2-F1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-F2-F1-visible-delete-dialog.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-F2-layer-delete-ui-lock-recovery-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-region-pointer-safety-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` - Vector asset for MAP-DATA-A-R2-F2-region-pointer-safety.svg.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-A-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-B-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-B-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-C-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-C3-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-C3-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-D-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-D1-F1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-D1-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-D2-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-D2-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-E-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-E-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-E2-decision.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-E1-E2-decision.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-contract.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-E1-contract.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-E1-mapping-gap-report.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-E1-mapping-gap-report.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-plan.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R3-point-feature-foundation-acceptance.md.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R3-point-feature-foundation.md` - Documentation, specification, or governance record for MAP-DATA-A-R3-point-feature-foundation.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R1-F1-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-F1-carryover.md` - Documentation, specification, or governance record for MAP-DOC-A-R1-F1-carryover.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R1-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R1-plan.md` - Documentation, specification, or governance record for MAP-DOC-A-R1-plan.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F1-root-cause.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F1-root-cause.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F2-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F2-root-cause.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F2-root-cause.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F3-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F3-root-cause.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F3-root-cause.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F4-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-F4-root-cause.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-F4-root-cause.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-closeout.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-plan.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-plan.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F2-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` - Vector asset for MAP-DOC-A-R3-F2-ui-closeout.svg.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F3-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` - Vector asset for MAP-DOC-A-R3-F3-ui-spec-rework.svg.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F4-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-acceptance.md.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-plan.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-plan.md.
+- `docs/milestones/current/XYUI-ENGINE-A/XYUI-ENGINE-A-migration-matrix.md` - Documentation, specification, or governance record for XYUI-ENGINE-A-migration-matrix.md.
+- `"docs/ui/ARCH-UI-SPEC-R1-D3_\344\270\273\347\252\227\345\217\243\345\244\226\345\243\263\344\270\216\351\241\266\345\261\202\351\241\265\347\255\276.svg"` - Tracked repository file 276.svg".
+- `"docs/ui/ARCH-UI-SPEC-R1-D4-F1_\345\215\225\350\241\214\345\261\236\346\200\247\350\241\214\344\277\256\345\244\215.svg"` - Tracked repository file 215.svg".
+- `"docs/ui/ARCH-UI-SPEC-R1-D4_\345\267\245\344\275\234\351\235\242\346\235\277\346\262\273\347\220\206.svg"` - Tracked repository file 206.svg".
+- `"docs/ui/ARCH-UI-SPEC-R1-D5_\346\216\247\344\273\266\347\212\266\346\200\201\344\270\216\345\274\271\347\252\227\351\200\232\347\237\245\346\262\273\347\220\206.svg"` - Tracked repository file 206.svg".
+- `"docs/ui/\347\216\204\345\237\237\345\274\225\346\223\216_UI\347\234\237\346\234\272\345\237\272\347\272\277\346\270\205\345\215\225.md"` - Tracked repository file 225.md".
+- `"docs/ui/\347\216\204\345\237\237\345\274\225\346\223\216_UI\350\247\204\350\214\203_1.0.md"` - Tracked repository file 203_1.0.md".
+- `"docs/ui/\347\216\204\345\237\237\345\274\225\346\223\216_\346\227\247UI\345\256\241\350\256\241\347\237\251\351\230\265.md"` - Tracked repository file 265.md".
+- `"docs/\347\216\204\345\237\237\345\274\225\346\223\216_AI\345\274\200\345\217\221\345\256\252\346\263\225.md"` - Tracked repository file 225.md".
+- `file-tree.md` - Documentation, specification, or governance record for file-tree.md.
+- `run.bat` - Windows launcher or workflow script for run.bat.
+- `samples/world-c-r1-ten-triangles.xyscene` - Tracked repository file world-c-r1-ten-triangles.xyscene.
+- `scripts/arch-a-guard-editor.ps1` - PowerShell validation or workflow script for arch-a-guard-editor.ps1.
+- `scripts/arch-a-guard-render.ps1` - PowerShell validation or workflow script for arch-a-guard-render.ps1.
+- `scripts/arch-a-guard-warcore.ps1` - PowerShell validation or workflow script for arch-a-guard-warcore.ps1.
+- `scripts/arch-a-guard-world.ps1` - PowerShell validation or workflow script for arch-a-guard-world.ps1.
+- `scripts/arch-a-guard.ps1` - PowerShell validation or workflow script for arch-a-guard.ps1.
+- `scripts/generate-ui-tokens.py` - Tracked repository file generate-ui-tokens.py.
+- `xyui.bat` - Windows launcher or workflow script for xyui.bat.
+- `xyui/audit/GALLERY-UNIFY-01-layout-audit.md` - Documentation, specification, or governance record for GALLERY-UNIFY-01-layout-audit.md.
+- `xyui/audit/GALLERY-UNIFY-02-shell-navigation-audit.md` - Documentation, specification, or governance record for GALLERY-UNIFY-02-shell-navigation-audit.md.
+- `xyui/audit/XYUI0/decision-classification.json` - Structured registry or configuration data for decision-classification.json.
+- `xyui/audit/XYUI0/decision-classification.md` - Documentation, specification, or governance record for decision-classification.md.
+- `xyui/audit/XYUI0/evidence-index.json` - Structured registry or configuration data for evidence-index.json.
+- `xyui/audit/XYUI0/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/XYUI0/text-input-interaction-audit.md` - Documentation, specification, or governance record for text-input-interaction-audit.md.
+- `xyui/audit/XYUI1/R5-F4-fidelity-matrix.md` - Documentation, specification, or governance record for R5-F4-fidelity-matrix.md.
+- `xyui/audit/XYUI3-Round1-runtime-audit.md` - Documentation, specification, or governance record for XYUI3-Round1-runtime-audit.md.
+- `xyui/audit/XYUI3-Round2-runtime-audit.md` - Documentation, specification, or governance record for XYUI3-Round2-runtime-audit.md.
+- `xyui/audit/XYUI3-Round3-runtime-audit.md` - Documentation, specification, or governance record for XYUI3-Round3-runtime-audit.md.
+- `xyui/audit/XYUI3-Round4-runtime-audit.md` - Documentation, specification, or governance record for XYUI3-Round4-runtime-audit.md.
+- `xyui/audit/XYUI4/conflict-matrix.md` - Documentation, specification, or governance record for conflict-matrix.md.
+- `xyui/audit/XYUI4/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
+- `xyui/audit/XYUI4/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/XYUI5/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
+- `xyui/audit/XYUI5/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/XYUI6/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
+- `xyui/audit/XYUI6/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/XYUI7/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
+- `xyui/audit/XYUI7/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/XYUI8/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
+- `xyui/audit/XYUI8/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
+- `xyui/audit/cross-audit.md` - Documentation, specification, or governance record for cross-audit.md.
+- `xyui/avalonia/XYUI.Avalonia.slnx` - .NET solution definition for XYUI.Avalonia.slnx.
+- `xyui/avalonia/gallery/CATALOG-COVERAGE.md` - Documentation, specification, or governance record for CATALOG-COVERAGE.md.
+- `xyui/avalonia/gallery/README.md` - Documentation, specification, or governance record for README.md.
+- `xyui/avalonia/gallery/XYUI-1-COMPONENT-INVENTORY.md` - Documentation, specification, or governance record for XYUI-1-COMPONENT-INVENTORY.md.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/App.axaml` - Avalonia XAML view or style resource for App.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/App.axaml.cs` - C# implementation source for App.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/MainWindow.axaml` - Avalonia XAML view or style resource for MainWindow.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/MainWindow.axaml.cs` - C# implementation source for MainWindow.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/PaletteCatalog.cs` - C# implementation source for PaletteCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/PaletteViewModel.cs` - C# implementation source for PaletteViewModel.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Program.cs` - C# implementation source for Program.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/ShapeCatalog.cs` - C# implementation source for ShapeCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/ShapeViewModel.cs` - C# implementation source for ShapeViewModel.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/TypographyCatalog.cs` - C# implementation source for TypographyCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/TypographyViewModel.cs` - C# implementation source for TypographyViewModel.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AccessibilityView.axaml` - Avalonia XAML view or style resource for AccessibilityView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AccessibilityView.axaml.cs` - C# implementation source for AccessibilityView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/CatalogView.axaml` - Avalonia XAML view or style resource for CatalogView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/CatalogView.axaml.cs` - C# implementation source for CatalogView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ComponentSamplesView.axaml` - Avalonia XAML view or style resource for ComponentSamplesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ComponentSamplesView.axaml.cs` - C# implementation source for ComponentSamplesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityCoreRulesView.axaml` - Avalonia XAML view or style resource for DensityCoreRulesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityCoreRulesView.axaml.cs` - C# implementation source for DensityCoreRulesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityGuardrailsView.axaml` - Avalonia XAML view or style resource for DensityGuardrailsView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityGuardrailsView.axaml.cs` - C# implementation source for DensityGuardrailsView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityLabView.Rows.cs` - C# implementation source for DensityLabView.Rows.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityLabView.axaml` - Avalonia XAML view or style resource for DensityLabView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityLabView.axaml.cs` - C# implementation source for DensityLabView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityMatrixView.axaml` - Avalonia XAML view or style resource for DensityMatrixView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/Density/DensityMatrixView.axaml.cs` - C# implementation source for DensityMatrixView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/DensitySamplesView.axaml` - Avalonia XAML view or style resource for DensitySamplesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/DensitySamplesView.axaml.cs` - C# implementation source for DensitySamplesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/FoundationSamplesView.axaml` - Avalonia XAML view or style resource for FoundationSamplesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/FoundationSamplesView.axaml.cs` - C# implementation source for FoundationSamplesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/FoundationStatesView.axaml` - Avalonia XAML view or style resource for FoundationStatesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/FoundationStatesView.axaml.cs` - C# implementation source for FoundationStatesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/GalleryDoDontRow.cs` - C# implementation source for GalleryDoDontRow.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/GalleryDocumentShell.cs` - C# implementation source for GalleryDocumentShell.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/GalleryKeyValueRow.cs` - C# implementation source for GalleryKeyValueRow.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/GalleryTokenRow.cs` - C# implementation source for GalleryTokenRow.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/GalleryVariantRow.cs` - C# implementation source for GalleryVariantRow.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyCoreRulesSection.axaml` - Avalonia XAML view or style resource for IconographyCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyCoreRulesSection.axaml.cs` - C# implementation source for IconographyCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyGuardrailsSection.axaml` - Avalonia XAML view or style resource for IconographyGuardrailsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyGuardrailsSection.axaml.cs` - C# implementation source for IconographyGuardrailsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyOpticalSection.axaml` - Avalonia XAML view or style resource for IconographyOpticalSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyOpticalSection.axaml.cs` - C# implementation source for IconographyOpticalSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographySpecSection.axaml` - Avalonia XAML view or style resource for IconographySpecSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographySpecSection.axaml.cs` - C# implementation source for IconographySpecSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyUsageSection.axaml` - Avalonia XAML view or style resource for IconographyUsageSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyUsageSection.axaml.cs` - C# implementation source for IconographyUsageSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyView.axaml` - Avalonia XAML view or style resource for IconographyView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/IconographyView.axaml.cs` - C# implementation source for IconographyView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/InteractionStatesView.axaml` - Avalonia XAML view or style resource for InteractionStatesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/InteractionStatesView.axaml.cs` - C# implementation source for InteractionStatesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/LayoutRecipesView.axaml` - Avalonia XAML view or style resource for LayoutRecipesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/LayoutRecipesView.axaml.cs` - C# implementation source for LayoutRecipesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/PaletteView.axaml` - Avalonia XAML view or style resource for PaletteView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/PaletteView.axaml.cs` - C# implementation source for PaletteView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderCoreRulesSection.axaml` - Avalonia XAML view or style resource for RadiusBorderCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderCoreRulesSection.axaml.cs` - C# implementation source for RadiusBorderCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderGuardrailsSection.axaml` - Avalonia XAML view or style resource for RadiusBorderGuardrailsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderGuardrailsSection.axaml.cs` - C# implementation source for RadiusBorderGuardrailsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderSeparatorView.axaml` - Avalonia XAML view or style resource for RadiusBorderSeparatorView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderSeparatorView.axaml.cs` - C# implementation source for RadiusBorderSeparatorView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderSpecSection.axaml` - Avalonia XAML view or style resource for RadiusBorderSpecSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderSpecSection.axaml.cs` - C# implementation source for RadiusBorderSpecSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderUsageSection.axaml` - Avalonia XAML view or style resource for RadiusBorderUsageSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/RadiusBorderUsageSection.axaml.cs` - C# implementation source for RadiusBorderUsageSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveCodePatternsSection.axaml` - Avalonia XAML view or style resource for ResponsiveCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveCodePatternsSection.axaml.cs` - C# implementation source for ResponsiveCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveCoreRulesSection.axaml` - Avalonia XAML view or style resource for ResponsiveCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveCoreRulesSection.axaml.cs` - C# implementation source for ResponsiveCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveDecisionMatrixSection.axaml` - Avalonia XAML view or style resource for ResponsiveDecisionMatrixSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveDecisionMatrixSection.axaml.cs` - C# implementation source for ResponsiveDecisionMatrixSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveLiveLabSection.axaml` - Avalonia XAML view or style resource for ResponsiveLiveLabSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveLiveLabSection.axaml.cs` - C# implementation source for ResponsiveLiveLabSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveView.axaml` - Avalonia XAML view or style resource for ResponsiveView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ResponsiveView.axaml.cs` - C# implementation source for ResponsiveView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCodePatternsSection.axaml` - Avalonia XAML view or style resource for ShapeCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCodePatternsSection.axaml.cs` - C# implementation source for ShapeCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCompositionSection.axaml` - Avalonia XAML view or style resource for ShapeCompositionSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCompositionSection.axaml.cs` - C# implementation source for ShapeCompositionSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCoreRulesSection.axaml` - Avalonia XAML view or style resource for ShapeCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeCoreRulesSection.axaml.cs` - C# implementation source for ShapeCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeMatrixSection.axaml` - Avalonia XAML view or style resource for ShapeMatrixSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeMatrixSection.axaml.cs` - C# implementation source for ShapeMatrixSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeSamplesView.axaml` - Avalonia XAML view or style resource for ShapeSamplesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeSamplesView.axaml.cs` - C# implementation source for ShapeSamplesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeScenariosSection.axaml` - Avalonia XAML view or style resource for ShapeScenariosSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeScenariosSection.axaml.cs` - C# implementation source for ShapeScenariosSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeView.axaml` - Avalonia XAML view or style resource for ShapeView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ShapeView.axaml.cs` - C# implementation source for ShapeView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingAnatomySection.axaml` - Avalonia XAML view or style resource for SizingAnatomySection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingAnatomySection.axaml.cs` - C# implementation source for SizingAnatomySection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingCodePatternsSection.axaml` - Avalonia XAML view or style resource for SizingCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingCodePatternsSection.axaml.cs` - C# implementation source for SizingCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingCoreRulesSection.axaml` - Avalonia XAML view or style resource for SizingCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingCoreRulesSection.axaml.cs` - C# implementation source for SizingCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingMatrixSection.axaml` - Avalonia XAML view or style resource for SizingMatrixSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingMatrixSection.axaml.cs` - C# implementation source for SizingMatrixSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingView.axaml` - Avalonia XAML view or style resource for SizingView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SizingView.axaml.cs` - C# implementation source for SizingView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingCodePatternsSection.axaml` - Avalonia XAML view or style resource for SpacingCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingCodePatternsSection.axaml.cs` - C# implementation source for SpacingCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingCoreRulesSection.axaml` - Avalonia XAML view or style resource for SpacingCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingCoreRulesSection.axaml.cs` - C# implementation source for SpacingCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingDensityCompareSection.axaml` - Avalonia XAML view or style resource for SpacingDensityCompareSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingDensityCompareSection.axaml.cs` - C# implementation source for SpacingDensityCompareSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingLayoutView.axaml` - Avalonia XAML view or style resource for SpacingLayoutView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingLayoutView.axaml.cs` - C# implementation source for SpacingLayoutView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingLiveLabSection.axaml` - Avalonia XAML view or style resource for SpacingLiveLabSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SpacingLiveLabSection.axaml.cs` - C# implementation source for SpacingLiveLabSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesCodePatternsSection.axaml` - Avalonia XAML view or style resource for StatesCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesCodePatternsSection.axaml.cs` - C# implementation source for StatesCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesCoreRulesSection.axaml` - Avalonia XAML view or style resource for StatesCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesCoreRulesSection.axaml.cs` - C# implementation source for StatesCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesLiveLabSection.axaml` - Avalonia XAML view or style resource for StatesLiveLabSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesLiveLabSection.axaml.cs` - C# implementation source for StatesLiveLabSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesResolutionSection.axaml` - Avalonia XAML view or style resource for StatesResolutionSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesResolutionSection.axaml.cs` - C# implementation source for StatesResolutionSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesView.axaml` - Avalonia XAML view or style resource for StatesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/StatesView.axaml.cs` - C# implementation source for StatesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCodePatternsSection.axaml` - Avalonia XAML view or style resource for SurfaceCodePatternsSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCodePatternsSection.axaml.cs` - C# implementation source for SurfaceCodePatternsSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCompositionSection.axaml` - Avalonia XAML view or style resource for SurfaceCompositionSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCompositionSection.axaml.cs` - C# implementation source for SurfaceCompositionSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCoreRulesSection.axaml` - Avalonia XAML view or style resource for SurfaceCoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceCoreRulesSection.axaml.cs` - C# implementation source for SurfaceCoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceMapSection.axaml` - Avalonia XAML view or style resource for SurfaceMapSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceMapSection.axaml.cs` - C# implementation source for SurfaceMapSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceScenariosSection.axaml` - Avalonia XAML view or style resource for SurfaceScenariosSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceScenariosSection.axaml.cs` - C# implementation source for SurfaceScenariosSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceView.axaml` - Avalonia XAML view or style resource for SurfaceView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/SurfaceView.axaml.cs` - C# implementation source for SurfaceView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/TypographySamplesView.axaml` - Avalonia XAML view or style resource for TypographySamplesView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/TypographySamplesView.axaml.cs` - C# implementation source for TypographySamplesView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/TypographyView.axaml` - Avalonia XAML view or style resource for TypographyView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/TypographyView.axaml.cs` - C# implementation source for TypographyView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1ComponentDocumentView.axaml` - Avalonia XAML view or style resource for XYUI1ComponentDocumentView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1ComponentDocumentView.axaml.cs` - C# implementation source for XYUI1ComponentDocumentView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1DocumentationView.axaml` - Avalonia XAML view or style resource for XYUI1DocumentationView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1DocumentationView.axaml.cs` - C# implementation source for XYUI1DocumentationView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1GalleryView.axaml` - Avalonia XAML view or style resource for XYUI1GalleryView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1GalleryView.axaml.cs` - C# implementation source for XYUI1GalleryView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1ModuleOverviewView.axaml` - Avalonia XAML view or style resource for XYUI1ModuleOverviewView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI1ModuleOverviewView.axaml.cs` - C# implementation source for XYUI1ModuleOverviewView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI2ModuleOverviewView.axaml` - Avalonia XAML view or style resource for XYUI2ModuleOverviewView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI2ModuleOverviewView.axaml.cs` - C# implementation source for XYUI2ModuleOverviewView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3ComponentDocumentView.axaml` - Avalonia XAML view or style resource for XYUI3ComponentDocumentView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3ComponentDocumentView.axaml.cs` - C# implementation source for XYUI3ComponentDocumentView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3CompositionSection.axaml` - Avalonia XAML view or style resource for XYUI3CompositionSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3CompositionSection.axaml.cs` - C# implementation source for XYUI3CompositionSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3CoreRulesSection.axaml` - Avalonia XAML view or style resource for XYUI3CoreRulesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3CoreRulesSection.axaml.cs` - C# implementation source for XYUI3CoreRulesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3DoDontSection.axaml` - Avalonia XAML view or style resource for XYUI3DoDontSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3DoDontSection.axaml.cs` - C# implementation source for XYUI3DoDontSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3HeaderSection.axaml` - Avalonia XAML view or style resource for XYUI3HeaderSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3HeaderSection.axaml.cs` - C# implementation source for XYUI3HeaderSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3LiveExamplesSection.axaml` - Avalonia XAML view or style resource for XYUI3LiveExamplesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3LiveExamplesSection.axaml.cs` - C# implementation source for XYUI3LiveExamplesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3ModuleOverviewView.axaml` - Avalonia XAML view or style resource for XYUI3ModuleOverviewView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3ModuleOverviewView.axaml.cs` - C# implementation source for XYUI3ModuleOverviewView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3QuickStartSection.axaml` - Avalonia XAML view or style resource for XYUI3QuickStartSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3QuickStartSection.axaml.cs` - C# implementation source for XYUI3QuickStartSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml` - Avalonia XAML view or style resource for XYUI3VariantsStatesSection.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml.cs` - C# implementation source for XYUI3VariantsStatesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYBadgePreviewFactory.cs` - C# implementation source for XYBadgePreviewFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYIconButtonNamingExtensions.cs` - C# implementation source for XYIconButtonNamingExtensions.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYMonoPreviewFactory.cs` - C# implementation source for XYMonoPreviewFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYSelectableTextPreviewFactory.cs` - C# implementation source for XYSelectableTextPreviewFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYSubMenuHierarchyDebugPreview.cs` - C# implementation source for XYSubMenuHierarchyDebugPreview.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - .NET project definition for XYUI.Avalonia.Gallery.csproj.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Api.cs` - C# implementation source for XYUI1DocumentationCatalog.Api.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1A.Anatomy.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1A.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1A.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1A.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1A.Foundation.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1A.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1B.Anatomy.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1B.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1B.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1B.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1B.Foundation.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1B.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1B.HowToUse.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1B.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1C.Anatomy.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1C.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1C.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1C.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1C.Foundation.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1C.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1C.HowToUse.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1C.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1D.Anatomy.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1D.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1D.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1D.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1D.Foundation.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1D.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1D.HowToUse.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1D.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.cs` - C# implementation source for XYUI1DocumentationCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationModels.cs` - C# implementation source for XYUI1DocumentationModels.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.Foundation.cs` - C# implementation source for XYUI1DocumentationViewModel.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.XYUI2.cs` - C# implementation source for XYUI1DocumentationViewModel.XYUI2.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.XYUI3.cs` - C# implementation source for XYUI1DocumentationViewModel.XYUI3.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.cs` - C# implementation source for XYUI1DocumentationViewModel.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1GalleryCatalog.cs` - C# implementation source for XYUI1GalleryCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1A.Caption.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1A.Caption.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1B.Icons.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1B.Icons.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1B.Status.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1B.Status.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1B.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1B.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1C.Feedback1.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1C.Feedback1.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1C.Feedback2.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1C.Feedback2.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1C.Separator.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1C.Separator.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1D.SearchAndTrunc.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1D.SearchAndTrunc.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1D.SelectAndEmpty.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1D.SelectAndEmpty.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1D.TextAndPopup.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1D.TextAndPopup.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.TitlesAndLink.cs` - C# implementation source for XYUI1LiveExamplesFactory.TitlesAndLink.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.cs` - C# implementation source for XYUI1LiveExamplesFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2A.Anatomy.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2A.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2A.Content.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2A.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2A.Foundation.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2A.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2A.HowToUse.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2A.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2B.Anatomy.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2B.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2B.Content.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2B.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2B.Foundation.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2B.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2B.HowToUse.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2B.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2C.Anatomy.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2C.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2C.Content.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2C.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2C.Foundation.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2C.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2C.HowToUse.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2C.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2D.Anatomy.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2D.Anatomy.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2D.Content.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2D.Content.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2D.Foundation.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2D.Foundation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Phase2D.HowToUse.cs` - C# implementation source for XYUI2DocumentationCatalog.Phase2D.HowToUse.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Properties.cs` - C# implementation source for XYUI2DocumentationCatalog.Properties.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.Usages.cs` - C# implementation source for XYUI2DocumentationCatalog.Usages.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2DocumentationCatalog.cs` - C# implementation source for XYUI2DocumentationCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.Buttons.cs` - C# implementation source for XYUI2GalleryCatalog.Buttons.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.Choices.cs` - C# implementation source for XYUI2GalleryCatalog.Choices.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.ColorBool.cs` - C# implementation source for XYUI2GalleryCatalog.ColorBool.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.DateTime.cs` - C# implementation source for XYUI2GalleryCatalog.DateTime.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.DropDown.cs` - C# implementation source for XYUI2GalleryCatalog.DropDown.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.Inputs.cs` - C# implementation source for XYUI2GalleryCatalog.Inputs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.Properties.cs` - C# implementation source for XYUI2GalleryCatalog.Properties.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.SearchPassword.cs` - C# implementation source for XYUI2GalleryCatalog.SearchPassword.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2GalleryCatalog.cs` - C# implementation source for XYUI2GalleryCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Actions.cs` - C# implementation source for XYUI2LiveExamplesFactory.Actions.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Buttons.cs` - C# implementation source for XYUI2LiveExamplesFactory.Buttons.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Commands.cs` - C# implementation source for XYUI2LiveExamplesFactory.Commands.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2B.Choices.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2B.Choices.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2B.Complex.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2B.Complex.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2B.Inputs.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2B.Inputs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2C.DateTime.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2C.DateTime.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2C.SearchPassword.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2C.SearchPassword.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2C.SelectArea.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2C.SelectArea.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2D.ColorBool.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2D.ColorBool.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2D.EnumRef.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2D.EnumRef.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.Phase2D.Properties.cs` - C# implementation source for XYUI2LiveExamplesFactory.Phase2D.Properties.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI2LiveExamplesFactory.cs` - C# implementation source for XYUI2LiveExamplesFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Api.cs` - C# implementation source for XYUI3DocumentationCatalog.Api.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.BackForwardNavigation.cs` - C# implementation source for XYUI3DocumentationCatalog.BackForwardNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.BottomNavigation.cs` - C# implementation source for XYUI3DocumentationCatalog.BottomNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Breadcrumb.cs` - C# implementation source for XYUI3DocumentationCatalog.Breadcrumb.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.CommandBar.cs` - C# implementation source for XYUI3DocumentationCatalog.CommandBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.CommandPalette.cs` - C# implementation source for XYUI3DocumentationCatalog.CommandPalette.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.ContextMenu.cs` - C# implementation source for XYUI3DocumentationCatalog.ContextMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.DockTabs.cs` - C# implementation source for XYUI3DocumentationCatalog.DockTabs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Menu.cs` - C# implementation source for XYUI3DocumentationCatalog.Menu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.MenuBar.cs` - C# implementation source for XYUI3DocumentationCatalog.MenuBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.NavigationDrawer.cs` - C# implementation source for XYUI3DocumentationCatalog.NavigationDrawer.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.NavigationMenu.cs` - C# implementation source for XYUI3DocumentationCatalog.NavigationMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.NavigationRail.cs` - C# implementation source for XYUI3DocumentationCatalog.NavigationRail.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Pagination.cs` - C# implementation source for XYUI3DocumentationCatalog.Pagination.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Sidebar.cs` - C# implementation source for XYUI3DocumentationCatalog.Sidebar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Steps.cs` - C# implementation source for XYUI3DocumentationCatalog.Steps.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.SubMenu.cs` - C# implementation source for XYUI3DocumentationCatalog.SubMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.TabBar.cs` - C# implementation source for XYUI3DocumentationCatalog.TabBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.TableOfContents.cs` - C# implementation source for XYUI3DocumentationCatalog.TableOfContents.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Tabs.cs` - C# implementation source for XYUI3DocumentationCatalog.Tabs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.ToolGroup.cs` - C# implementation source for XYUI3DocumentationCatalog.ToolGroup.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.Toolbar.cs` - C# implementation source for XYUI3DocumentationCatalog.Toolbar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.TreeNavigation.cs` - C# implementation source for XYUI3DocumentationCatalog.TreeNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.ViewSwitcher.cs` - C# implementation source for XYUI3DocumentationCatalog.ViewSwitcher.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.WorkspaceSwitcher.cs` - C# implementation source for XYUI3DocumentationCatalog.WorkspaceSwitcher.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3DocumentationCatalog.cs` - C# implementation source for XYUI3DocumentationCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3GalleryCatalog.Final.cs` - C# implementation source for XYUI3GalleryCatalog.Final.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3GalleryCatalog.Navigation.cs` - C# implementation source for XYUI3GalleryCatalog.Navigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3GalleryCatalog.cs` - C# implementation source for XYUI3GalleryCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.BackForwardNavigation.cs` - C# implementation source for XYUI3LiveExamplesFactory.BackForwardNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.BottomNavigation.cs` - C# implementation source for XYUI3LiveExamplesFactory.BottomNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Breadcrumb.cs` - C# implementation source for XYUI3LiveExamplesFactory.Breadcrumb.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.CommandBar.cs` - C# implementation source for XYUI3LiveExamplesFactory.CommandBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.CommandPalette.cs` - C# implementation source for XYUI3LiveExamplesFactory.CommandPalette.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.ContextMenu.cs` - C# implementation source for XYUI3LiveExamplesFactory.ContextMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.DockTabs.cs` - C# implementation source for XYUI3LiveExamplesFactory.DockTabs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Menu.cs` - C# implementation source for XYUI3LiveExamplesFactory.Menu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.MenuBar.cs` - C# implementation source for XYUI3LiveExamplesFactory.MenuBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationDrawer.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationDrawer.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationMenu.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationRail.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationRail.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Pagination.cs` - C# implementation source for XYUI3LiveExamplesFactory.Pagination.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Sidebar.cs` - C# implementation source for XYUI3LiveExamplesFactory.Sidebar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Steps.cs` - C# implementation source for XYUI3LiveExamplesFactory.Steps.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.SubMenu.cs` - C# implementation source for XYUI3LiveExamplesFactory.SubMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.TabBar.cs` - C# implementation source for XYUI3LiveExamplesFactory.TabBar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.TableOfContents.cs` - C# implementation source for XYUI3LiveExamplesFactory.TableOfContents.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Tabs.cs` - C# implementation source for XYUI3LiveExamplesFactory.Tabs.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.ToolGroup.cs` - C# implementation source for XYUI3LiveExamplesFactory.ToolGroup.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Toolbar.cs` - C# implementation source for XYUI3LiveExamplesFactory.Toolbar.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.TreeNavigation.cs` - C# implementation source for XYUI3LiveExamplesFactory.TreeNavigation.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.ViewSwitcher.cs` - C# implementation source for XYUI3LiveExamplesFactory.ViewSwitcher.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.WorkspaceSwitcher.cs` - C# implementation source for XYUI3LiveExamplesFactory.WorkspaceSwitcher.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.cs` - C# implementation source for XYUI3LiveExamplesFactory.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogEntry.cs` - C# implementation source for XyuiCatalogEntry.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogPaths.cs` - C# implementation source for XyuiCatalogPaths.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogSource.cs` - C# implementation source for XyuiCatalogSource.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogSpecReader.cs` - C# implementation source for XyuiCatalogSpecReader.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogTruth.cs` - C# implementation source for XyuiCatalogTruth.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogTypeMap.cs` - C# implementation source for XyuiCatalogTypeMap.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/AdaptiveLayout.cs` - C# implementation source for AdaptiveLayout.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/README.md` - Documentation, specification, or governance record for README.md.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-01-Text/XYText.cs` - C# implementation source for XYText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-02-Label/XYLabel.cs` - C# implementation source for XYLabel.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-03-Caption/XYCaption.cs` - C# implementation source for XYCaption.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-04-Heading/XYHeading.cs` - C# implementation source for XYHeading.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-05-SectionTitle/XYSectionTitle.cs` - C# implementation source for XYSectionTitle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-06-Link/XYLink.cs` - C# implementation source for XYLink.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-07-CodeText/XYCodeText.cs` - C# implementation source for XYCodeText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-08-MonoText/Styles/XYMonoText.Layout.cs` - C# implementation source for XYMonoText.Layout.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-08-MonoText/XYMonoDataRow.cs` - C# implementation source for XYMonoDataRow.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-08-MonoText/XYMonoText.cs` - C# implementation source for XYMonoText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-09-Badge/XYBadge.cs` - C# implementation source for XYBadge.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-10-StatusBadge/XYStatusBadge.cs` - C# implementation source for XYStatusBadge.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-11-StatusDot/XYStatusDot.cs` - C# implementation source for XYStatusDot.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-12-Icon/Styles/XYIcon.Rendering.cs` - C# implementation source for XYIcon.Rendering.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-12-Icon/XYIcon.Sizing.cs` - C# implementation source for XYIcon.Sizing.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-12-Icon/XYIcon.cs` - C# implementation source for XYIcon.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-12-Icon/XyuiIconSizeMetrics.cs` - C# implementation source for XyuiIconSizeMetrics.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-13-IconLabel/XYIconLabel.cs` - C# implementation source for XYIconLabel.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-14-Separator/XYSeparator.cs` - C# implementation source for XYSeparator.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-15-HelpText/XYHelpText.cs` - C# implementation source for XYHelpText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-16-ErrorText/XYErrorText.cs` - C# implementation source for XYErrorText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-17-WarningText/XYWarningText.cs` - C# implementation source for XYWarningText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-18-ShortcutHint/XYShortcutHint.cs` - C# implementation source for XYShortcutHint.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-19-Tooltip/XYTooltip.cs` - C# implementation source for XYTooltip.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-20-RichText/XYRichText.cs` - C# implementation source for XYRichText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-21-SelectableText/XYSelectableText.cs` - C# implementation source for XYSelectableText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-22-EmptyText/XYEmptyText.cs` - C# implementation source for XYEmptyText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-23-SearchHighlight/XYSearchHighlight.cs` - C# implementation source for XYSearchHighlight.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/XYUI1-24-TruncatedText/XYTruncatedText.cs` - C# implementation source for XYTruncatedText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Base/XyuiTextComponent.cs` - C# implementation source for XyuiTextComponent.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Base/XyuiVectorTextSurface.cs` - C# implementation source for XyuiVectorTextSurface.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Geometry/XyuiBadgeTagPath.cs` - C# implementation source for XyuiBadgeTagPath.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Link.cs` - C# implementation source for XyuiComponentStyles.Link.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.ResultText.cs` - C# implementation source for XyuiComponentStyles.ResultText.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Selection.cs` - C# implementation source for XyuiComponentStyles.Selection.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Semantic.cs` - C# implementation source for XyuiComponentStyles.Semantic.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Surfaces.cs` - C# implementation source for XyuiComponentStyles.Surfaces.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Typography.cs` - C# implementation source for XyuiComponentStyles.Typography.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.cs` - C# implementation source for XyuiComponentStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/XyuiStatusStateTokens.cs` - C# implementation source for XyuiStatusStateTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-01-Button/XYButton.cs` - C# implementation source for XYButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-02-IconButton/XYIconButton.cs` - C# implementation source for XYIconButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-03-ToggleButton/XYToggleButton.cs` - C# implementation source for XYToggleButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-04-SplitButton/Styles/XYSplitButton.Template.cs` - C# implementation source for XYSplitButton.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-04-SplitButton/XYSplitButton.cs` - C# implementation source for XYSplitButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-05-DropDownButton/Styles/XYDropDownButton.Template.cs` - C# implementation source for XYDropDownButton.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-05-DropDownButton/XYDropDownButton.cs` - C# implementation source for XYDropDownButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-06-Checkbox/Styles/XYCheckbox.Template.cs` - C# implementation source for XYCheckbox.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-06-Checkbox/XYCheckbox.cs` - C# implementation source for XYCheckbox.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-07-RadioButton/Styles/XYRadioButton.Template.cs` - C# implementation source for XYRadioButton.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-07-RadioButton/XYRadioButton.cs` - C# implementation source for XYRadioButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-08-Switch/Styles/XYSwitch.Template.cs` - C# implementation source for XYSwitch.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-08-Switch/XYSwitch.cs` - C# implementation source for XYSwitch.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-09-TextField/Styles/XYTextField.Template.cs` - C# implementation source for XYTextField.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-09-TextField/XYTextField.cs` - C# implementation source for XYTextField.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-10-NumberField/Interaction/XYNumberField.Keyboard.cs` - C# implementation source for XYNumberField.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-10-NumberField/Interaction/XYNumberField.Scrub.cs` - C# implementation source for XYNumberField.Scrub.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-10-NumberField/Interaction/XYNumberField.Value.cs` - C# implementation source for XYNumberField.Value.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-10-NumberField/Styles/XYNumberField.Template.cs` - C# implementation source for XYNumberField.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-10-NumberField/XYNumberField.cs` - C# implementation source for XYNumberField.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-11-Slider/Styles/XYSlider.Template.cs` - C# implementation source for XYSlider.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-11-Slider/XYSlider.cs` - C# implementation source for XYSlider.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-11-Slider/XYSliderTrack.cs` - C# implementation source for XYSliderTrack.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-12-ComboBox/Interaction/XYComboBox.Filter.cs` - C# implementation source for XYComboBox.Filter.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-12-ComboBox/Interaction/XYComboBox.Keyboard.cs` - C# implementation source for XYComboBox.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-12-ComboBox/Interaction/XYComboBox.Lifecycle.cs` - C# implementation source for XYComboBox.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-12-ComboBox/Styles/XYComboBox.Template.cs` - C# implementation source for XYComboBox.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-12-ComboBox/XYComboBox.cs` - C# implementation source for XYComboBox.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-13-Select/Interaction/XYSelect.Keyboard.cs` - C# implementation source for XYSelect.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-13-Select/Interaction/XYSelect.Lifecycle.cs` - C# implementation source for XYSelect.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-13-Select/Interaction/XYSelect.Popup.cs` - C# implementation source for XYSelect.Popup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-13-Select/Styles/XYSelect.Template.cs` - C# implementation source for XYSelect.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-13-Select/XYSelect.cs` - C# implementation source for XYSelect.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-14-TextArea/Styles/XYTextArea.Template.cs` - C# implementation source for XYTextArea.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-14-TextArea/XYTextArea.cs` - C# implementation source for XYTextArea.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-15-SearchField/Interaction/XYSearchField.Keyboard.cs` - C# implementation source for XYSearchField.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-15-SearchField/Styles/XYSearchField.Template.cs` - C# implementation source for XYSearchField.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-15-SearchField/XYSearchField.cs` - C# implementation source for XYSearchField.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-16-PasswordField/Interaction/XYPasswordField.Keyboard.cs` - C# implementation source for XYPasswordField.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-16-PasswordField/Interaction/XYPasswordField.Reveal.cs` - C# implementation source for XYPasswordField.Reveal.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-16-PasswordField/Styles/XYPasswordField.Template.cs` - C# implementation source for XYPasswordField.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-16-PasswordField/XYPasswordField.cs` - C# implementation source for XYPasswordField.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-17-DatePicker/Interaction/XYDatePicker.Calendar.cs` - C# implementation source for XYDatePicker.Calendar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-17-DatePicker/Interaction/XYDatePicker.Keyboard.cs` - C# implementation source for XYDatePicker.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-17-DatePicker/Interaction/XYDatePicker.Popup.cs` - C# implementation source for XYDatePicker.Popup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-17-DatePicker/Styles/XYDatePicker.Template.cs` - C# implementation source for XYDatePicker.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-17-DatePicker/XYDatePicker.cs` - C# implementation source for XYDatePicker.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-18-TimePicker/Interaction/XYTimePicker.Keyboard.cs` - C# implementation source for XYTimePicker.Keyboard.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-18-TimePicker/Interaction/XYTimePicker.Popup.cs` - C# implementation source for XYTimePicker.Popup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-18-TimePicker/Interaction/XYTimePicker.Scrub.cs` - C# implementation source for XYTimePicker.Scrub.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-18-TimePicker/Styles/XYTimePicker.Template.cs` - C# implementation source for XYTimePicker.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-18-TimePicker/XYTimePicker.cs` - C# implementation source for XYTimePicker.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Interaction/XYColorPicker.Color.cs` - C# implementation source for XYColorPicker.Color.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Interaction/XYColorPicker.Input.cs` - C# implementation source for XYColorPicker.Input.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Interaction/XYColorPicker.Lifecycle.cs` - C# implementation source for XYColorPicker.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Interaction/XYColorPicker.Panel.cs` - C# implementation source for XYColorPicker.Panel.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Interaction/XYColorPicker.Popup.cs` - C# implementation source for XYColorPicker.Popup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/Styles/XYColorPicker.Template.cs` - C# implementation source for XYColorPicker.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-19-ColorPicker/XYColorPicker.cs` - C# implementation source for XYColorPicker.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-20-BoolProperty/Styles/XYBoolProperty.Template.cs` - C# implementation source for XYBoolProperty.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-20-BoolProperty/XYBoolProperty.cs` - C# implementation source for XYBoolProperty.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-21-NumberProperty/Interaction/XYNumberProperty.Scrub.cs` - C# implementation source for XYNumberProperty.Scrub.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-21-NumberProperty/Styles/XYNumberProperty.Template.cs` - C# implementation source for XYNumberProperty.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-21-NumberProperty/XYNumberProperty.cs` - C# implementation source for XYNumberProperty.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-22-VectorProperty/Styles/XYVectorProperty.Template.cs` - C# implementation source for XYVectorProperty.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-22-VectorProperty/XYVectorProperty.Layout.cs` - C# implementation source for XYVectorProperty.Layout.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-22-VectorProperty/XYVectorProperty.cs` - C# implementation source for XYVectorProperty.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-23-EnumProperty/Styles/XYEnumProperty.Template.cs` - C# implementation source for XYEnumProperty.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-23-EnumProperty/XYEnumProperty.cs` - C# implementation source for XYEnumProperty.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-24-ReferenceProperty/Interaction/XYReferenceProperty.DragDrop.cs` - C# implementation source for XYReferenceProperty.DragDrop.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-24-ReferenceProperty/Interaction/XYReferenceProperty.Popup.cs` - C# implementation source for XYReferenceProperty.Popup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-24-ReferenceProperty/Styles/XYReferenceProperty.Template.cs` - C# implementation source for XYReferenceProperty.Template.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-24-ReferenceProperty/XYReferenceProperty.Layout.cs` - C# implementation source for XYReferenceProperty.Layout.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-24-ReferenceProperty/XYReferenceProperty.cs` - C# implementation source for XYReferenceProperty.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Base/XyuiEditableTextBox.cs` - C# implementation source for XyuiEditableTextBox.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/ButtonFamily/XyuiActionEdge.cs` - C# implementation source for XyuiActionEdge.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/ButtonFamily/XyuiButtonChrome.cs` - C# implementation source for XyuiButtonChrome.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/ButtonFamily/XyuiButtonVariant.cs` - C# implementation source for XyuiButtonVariant.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Property/XYPropertyLayoutMetrics.cs` - C# implementation source for XYPropertyLayoutMetrics.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.ButtonFamily.cs` - C# implementation source for XyuiControlStyles.ButtonFamily.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.ChoiceControls.cs` - C# implementation source for XyuiControlStyles.ChoiceControls.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.ColorBool.cs` - C# implementation source for XyuiControlStyles.ColorBool.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.ComboBox.cs` - C# implementation source for XyuiControlStyles.ComboBox.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.DateTime.cs` - C# implementation source for XyuiControlStyles.DateTime.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.DropDownButton.cs` - C# implementation source for XyuiControlStyles.DropDownButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.Edges.cs` - C# implementation source for XyuiControlStyles.Edges.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.GhostAndToggle.cs` - C# implementation source for XyuiControlStyles.GhostAndToggle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.InputFamily.cs` - C# implementation source for XyuiControlStyles.InputFamily.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.NumberField.cs` - C# implementation source for XyuiControlStyles.NumberField.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.PropertyControls.cs` - C# implementation source for XyuiControlStyles.PropertyControls.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.SearchPassword.cs` - C# implementation source for XyuiControlStyles.SearchPassword.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.Select.cs` - C# implementation source for XyuiControlStyles.Select.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.Slider.cs` - C# implementation source for XyuiControlStyles.Slider.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.SplitButton.cs` - C# implementation source for XyuiControlStyles.SplitButton.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.TextArea.cs` - C# implementation source for XyuiControlStyles.TextArea.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Styles/XyuiControlStyles.cs` - C# implementation source for XyuiControlStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Tokens/XyuiComponentTokens.cs` - C# implementation source for XyuiComponentTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Interaction/XYMenuBar.Interaction.cs` - C# implementation source for XYMenuBar.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Interaction/XYMenuBarItem.Interaction.cs` - C# implementation source for XYMenuBarItem.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Styles/XYMenuBarItem.Style.cs` - C# implementation source for XYMenuBarItem.Style.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBar.cs` - C# implementation source for XYMenuBar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - C# implementation source for XYMenuItem.Visual.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenu.cs` - C# implementation source for XYMenu.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenuItem.cs` - C# implementation source for XYMenuItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/Interaction/XYContextMenu.Interaction.cs` - C# implementation source for XYContextMenu.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/Styles/XYContextMenu.Style.cs` - C# implementation source for XYContextMenu.Style.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/XYContextMenu.cs` - C# implementation source for XYContextMenu.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-04-SubMenu/Interaction/XYSubMenu.Interaction.cs` - C# implementation source for XYSubMenu.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-04-SubMenu/Styles/XYSubMenuConnector.cs` - C# implementation source for XYSubMenuConnector.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-04-SubMenu/XYSubMenu.cs` - C# implementation source for XYSubMenu.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-05-NavigationMenu/Interaction/XYNavigationItem.Interaction.cs` - C# implementation source for XYNavigationItem.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-05-NavigationMenu/Interaction/XYNavigationMenu.Interaction.cs` - C# implementation source for XYNavigationMenu.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-05-NavigationMenu/UI/XYNavigationItem.cs` - C# implementation source for XYNavigationItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-05-NavigationMenu/UI/XYNavigationMenu.cs` - C# implementation source for XYNavigationMenu.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-05-NavigationMenu/UI/XYNavigationMenuStyles.cs` - C# implementation source for XYNavigationMenuStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/Interaction/XYSidebar.Interaction.cs` - C# implementation source for XYSidebar.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYSidebar.cs` - C# implementation source for XYSidebar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYUI3SidebarStyles.cs` - C# implementation source for XYUI3SidebarStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/Interaction/XYNavigationRail.Interaction.cs` - C# implementation source for XYNavigationRail.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XYNavigationRail.cs` - C# implementation source for XYNavigationRail.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTab.Interaction.cs` - C# implementation source for XYTab.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTabs.Selection.cs` - C# implementation source for XYTabs.Selection.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/UI/XYTab.cs` - C# implementation source for XYTab.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/UI/XYTabs.cs` - C# implementation source for XYTabs.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-09-TabBar/Interaction/XYTabBar.Interaction.cs` - C# implementation source for XYTabBar.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-09-TabBar/UI/XYTabBar.cs` - C# implementation source for XYTabBar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-09-TabBar/UI/XYTabBarStyles.cs` - C# implementation source for XYTabBarStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-10-DockTabs/Interaction/XYDockTab.Drag.cs` - C# implementation source for XYDockTab.Drag.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-10-DockTabs/Interaction/XYDockTabs.Interaction.cs` - C# implementation source for XYDockTabs.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-10-DockTabs/UI/XYDockTab.cs` - C# implementation source for XYDockTab.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-10-DockTabs/UI/XYDockTabs.cs` - C# implementation source for XYDockTabs.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-11-Breadcrumb/Interaction/XYBreadcrumb.Interaction.cs` - C# implementation source for XYBreadcrumb.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-11-Breadcrumb/Interaction/XYBreadcrumbItem.Interaction.cs` - C# implementation source for XYBreadcrumbItem.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-11-Breadcrumb/UI/XYBreadcrumb.cs` - C# implementation source for XYBreadcrumb.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-11-Breadcrumb/UI/XYBreadcrumbItem.cs` - C# implementation source for XYBreadcrumbItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-11-Breadcrumb/UI/XYBreadcrumbTreeStyles.cs` - C# implementation source for XYBreadcrumbTreeStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-12-TreeNavigation/Interaction/XYTreeNavigation.Interaction.cs` - C# implementation source for XYTreeNavigation.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-12-TreeNavigation/Interaction/XYTreeNode.Interaction.cs` - C# implementation source for XYTreeNode.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-12-TreeNavigation/UI/XYTreeNavigation.cs` - C# implementation source for XYTreeNavigation.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-12-TreeNavigation/UI/XYTreeNode.cs` - C# implementation source for XYTreeNode.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-13-Pagination/Interaction/XYPagination.Navigation.cs` - C# implementation source for XYPagination.Navigation.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-13-Pagination/UI/XYPagination.cs` - C# implementation source for XYPagination.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-13-Pagination/UI/XYPaginationFooter.cs` - C# implementation source for XYPaginationFooter.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-14-Steps/UI/XYStepNode.cs` - C# implementation source for XYStepNode.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-14-Steps/UI/XYSteps.cs` - C# implementation source for XYSteps.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-15-Toolbar/UI/XYToolbar.cs` - C# implementation source for XYToolbar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-15-Toolbar/UI/XYToolbarTool.cs` - C# implementation source for XYToolbarTool.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-16-ToolGroup/UI/XYToolGroup.cs` - C# implementation source for XYToolGroup.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-17-CommandBar/UI/XYCommandBar.cs` - C# implementation source for XYCommandBar.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-18-CommandPalette/Interaction/XYCommandPalette.Interaction.cs` - C# implementation source for XYCommandPalette.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-18-CommandPalette/Interaction/XYCommandPalette.Lifecycle.cs` - C# implementation source for XYCommandPalette.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-18-CommandPalette/UI/XYCommandPalette.Layout.cs` - C# implementation source for XYCommandPalette.Layout.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-18-CommandPalette/UI/XYCommandPalette.cs` - C# implementation source for XYCommandPalette.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-18-CommandPalette/UI/XYCommandPaletteItem.cs` - C# implementation source for XYCommandPaletteItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Interaction.cs` - C# implementation source for XYBackForwardNavigation.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Lifecycle.cs` - C# implementation source for XYBackForwardNavigation.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/UI/XYBackForwardNavigation.cs` - C# implementation source for XYBackForwardNavigation.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Interaction.cs` - C# implementation source for XYWorkspaceSwitcher.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Lifecycle.cs` - C# implementation source for XYWorkspaceSwitcher.Lifecycle.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/UI/XYWorkspaceSwitcher.cs` - C# implementation source for XYWorkspaceSwitcher.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-21-ViewSwitcher/XYViewSwitcher.cs` - C# implementation source for XYViewSwitcher.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-22-TableOfContents/XYTableOfContents.cs` - C# implementation source for XYTableOfContents.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-23-BottomNavigation/XYBottomNavigation.cs` - C# implementation source for XYBottomNavigation.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-24-NavigationDrawer/XYNavigationDrawer.cs` - C# implementation source for XYNavigationDrawer.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Models/XYMenuItemModel.cs` - C# implementation source for XYMenuItemModel.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Models/XYNavigationState.cs` - C# implementation source for XYNavigationState.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.Batch04.cs` - C# implementation source for XyuiComponentStyles.Batch04.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.Batch05.cs` - C# implementation source for XyuiComponentStyles.Batch05.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.BottomNavigation.cs` - C# implementation source for XyuiComponentStyles.BottomNavigation.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.XYUI3.cs` - C# implementation source for XyuiComponentStyles.XYUI3.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Tokens/XyuiCompactNavigationTokens.cs` - C# implementation source for XyuiCompactNavigationTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Density/XyuiDensity.cs` - C# implementation source for XyuiDensity.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Density/XyuiDensityScope.cs` - C# implementation source for XyuiDensityScope.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XY.Foreground.cs` - C# implementation source for XY.Foreground.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XY.Geometry.cs` - C# implementation source for XY.Geometry.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XY.Spacing.cs` - C# implementation source for XY.Spacing.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XY.Typography.cs` - C# implementation source for XY.Typography.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XyuiFacadeConflictDiagnostics.cs` - C# implementation source for XyuiFacadeConflictDiagnostics.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XyuiFacadeResolver.cs` - C# implementation source for XyuiFacadeResolver.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Facade/XyuiFacadeRuntime.cs` - C# implementation source for XyuiFacadeRuntime.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorToken.cs` - C# implementation source for XyuiColorToken.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Accent.cs` - C# implementation source for XyuiColorTokens.Accent.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Border.cs` - C# implementation source for XyuiColorTokens.Border.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Core.cs` - C# implementation source for XyuiColorTokens.Core.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Editor.cs` - C# implementation source for XyuiColorTokens.Editor.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Icon.cs` - C# implementation source for XyuiColorTokens.Icon.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Semantic.cs` - C# implementation source for XyuiColorTokens.Semantic.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.State.cs` - C# implementation source for XyuiColorTokens.State.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Surface.cs` - C# implementation source for XyuiColorTokens.Surface.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.Text.cs` - C# implementation source for XyuiColorTokens.Text.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Foundation/XyuiColorTokens.cs` - C# implementation source for XyuiColorTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Interaction/XyuiFocusStyles.cs` - C# implementation source for XyuiFocusStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Interaction/XyuiInteractionState.cs` - C# implementation source for XyuiInteractionState.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Interaction/XyuiInteractionStyles.cs` - C# implementation source for XyuiInteractionStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Interaction/XyuiStateResolver.cs` - C# implementation source for XyuiStateResolver.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Interaction/XyuiStateSnapshot.cs` - C# implementation source for XyuiStateSnapshot.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Sizing/XyuiSizing.cs` - C# implementation source for XyuiSizing.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiShapeStyles.cs` - C# implementation source for XyuiShapeStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiSpatial.cs` - C# implementation source for XyuiSpatial.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiSpatialTokens.cs` - C# implementation source for XyuiSpatialTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiSectionTitleResources.cs` - C# implementation source for XyuiSectionTitleResources.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiTheme.cs` - C# implementation source for XyuiTheme.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTextStyles.cs` - C# implementation source for XyuiTextStyles.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypography.cs` - C# implementation source for XyuiTypography.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypographyTokens.cs` - C# implementation source for XyuiTypographyTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIconMetrics.cs` - C# implementation source for XyuiVectorIconMetrics.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIcons.cs` - C# implementation source for XyuiVectorIcons.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/XY.cs` - C# implementation source for XY.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/XYSize.cs` - C# implementation source for XYSize.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - .NET project definition for XYUI.Avalonia.csproj.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/AdaptiveLayoutRuntimeTests.cs` - C# implementation source for AdaptiveLayoutRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/BadgeRuntimeTests.cs` - C# implementation source for BadgeRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/BrushRuntimeTests.cs` - C# implementation source for BrushRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/CanonicalAlignmentTests.cs` - C# implementation source for CanonicalAlignmentTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/CatalogSourceTests.cs` - C# implementation source for CatalogSourceTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/CodeTextRuntimeTests.cs` - C# implementation source for CodeTextRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/ConsumerApiTests.cs` - C# implementation source for ConsumerApiTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/ControlSurfaceTests.cs` - C# implementation source for ControlSurfaceTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/DensityRuntimeTests.cs` - C# implementation source for DensityRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/FoundationFacadeRuntimeTests.cs` - C# implementation source for FoundationFacadeRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/GalleryInteractionContractTests.cs` - C# implementation source for GalleryInteractionContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/GalleryLayoutArchitectureTests.cs` - C# implementation source for GalleryLayoutArchitectureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/GalleryShellNavigationArchitectureTests.cs` - C# implementation source for GalleryShellNavigationArchitectureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/GallerySmokeTests.cs` - C# implementation source for GallerySmokeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/GalleryThemeConstructionTests.cs` - C# implementation source for GalleryThemeConstructionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/IconRuntimeTests.cs` - C# implementation source for IconRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/IconographyRulesTests.cs` - C# implementation source for IconographyRulesTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/InputRadiusCanonicalTests.cs` - C# implementation source for InputRadiusCanonicalTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/InteractionCombinationTests.cs` - C# implementation source for InteractionCombinationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/InteractionStateTests.cs` - C# implementation source for InteractionStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/MonoTextResponsiveTests.cs` - C# implementation source for MonoTextResponsiveTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/MonoTextRuntimeTests.cs` - C# implementation source for MonoTextRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/NavigationCollapseTests.cs` - C# implementation source for NavigationCollapseTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1CFeedbackRuntimeTests.cs` - C# implementation source for Phase1CFeedbackRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1CSeparatorRuntimeTests.cs` - C# implementation source for Phase1CSeparatorRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1CShortcutHintRuntimeTests.cs` - C# implementation source for Phase1CShortcutHintRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1DSearchTruncatedRuntimeTests.cs` - C# implementation source for Phase1DSearchTruncatedRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1DSelectableEmptyRuntimeTests.cs` - C# implementation source for Phase1DSelectableEmptyRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/Phase1DTooltipRichTextRuntimeTests.cs` - C# implementation source for Phase1DTooltipRichTextRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/R5F4F1AlignmentTests.cs` - C# implementation source for R5F4F1AlignmentTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/R5F4FidelityTests.cs` - C# implementation source for R5F4FidelityTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SearchHighlightRuntimeTests.cs` - C# implementation source for SearchHighlightRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SecondTruthTests.cs` - C# implementation source for SecondTruthTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SelectableTextRuntimeTests.cs` - C# implementation source for SelectableTextRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/ShapeRuntimeTests.cs` - C# implementation source for ShapeRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SkeletonTests.cs` - C# implementation source for SkeletonTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SpatialTokenTests.cs` - C# implementation source for SpatialTokenTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/SplitButtonCountingCommand.cs` - C# implementation source for SplitButtonCountingCommand.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/StatusAndIconLabelRuntimeTests.cs` - C# implementation source for StatusAndIconLabelRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/ThemeRuntimeTests.cs` - C# implementation source for ThemeRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/TypographyRuntimeTests.cs` - C# implementation source for TypographyRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/TypographyTokenTests.cs` - C# implementation source for TypographyTokenTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYFoundationRuntimeTests.cs` - C# implementation source for XYFoundationRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYSubMenuHierarchyTests.cs` - C# implementation source for XYSubMenuHierarchyTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - .NET project definition for XYUI.Avalonia.Tests.csproj.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI08ShapeContractTests.cs` - C# implementation source for XYUI08ShapeContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI10StateResolverTests.cs` - C# implementation source for XYUI10StateResolverTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI1CoverageTests.cs` - C# implementation source for XYUI1CoverageTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI1DocumentationTests.cs` - C# implementation source for XYUI1DocumentationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI1FidelityTests.cs` - C# implementation source for XYUI1FidelityTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI1TextRuntimeTests.cs` - C# implementation source for XYUI1TextRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Batch01ReconcileTests.cs` - C# implementation source for XYUI2Batch01ReconcileTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2BoolPropertyTests.cs` - C# implementation source for XYUI2BoolPropertyTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ButtonRuntimeTests.cs` - C# implementation source for XYUI2ButtonRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ButtonVisualStateTests.cs` - C# implementation source for XYUI2ButtonVisualStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ChoiceControlsTests.cs` - C# implementation source for XYUI2ChoiceControlsTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ColorPickerTests.cs` - C# implementation source for XYUI2ColorPickerTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ComboBoxTests.cs` - C# implementation source for XYUI2ComboBoxTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2ComponentReconcileTests.cs` - C# implementation source for XYUI2ComponentReconcileTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2DatePickerInteractionReworkTests.cs` - C# implementation source for XYUI2DatePickerInteractionReworkTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2DatePickerTests.cs` - C# implementation source for XYUI2DatePickerTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2DropDownButtonLayoutTests.cs` - C# implementation source for XYUI2DropDownButtonLayoutTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2DropDownButtonRuntimeTests.cs` - C# implementation source for XYUI2DropDownButtonRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2DropDownButtonVisualStateTests.cs` - C# implementation source for XYUI2DropDownButtonVisualStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2GhostToggleRuntimeTests.cs` - C# implementation source for XYUI2GhostToggleRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2GhostToggleVisualStateTests.cs` - C# implementation source for XYUI2GhostToggleVisualStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2InkAlignmentAuditTests.cs` - C# implementation source for XYUI2InkAlignmentAuditTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2InputControlsTests.cs` - C# implementation source for XYUI2InputControlsTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2NumberFieldTests.cs` - C# implementation source for XYUI2NumberFieldTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2PasswordFieldTests.cs` - C# implementation source for XYUI2PasswordFieldTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2AContractTests.cs` - C# implementation source for XYUI2Phase2AContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2ARegressionTests.cs` - C# implementation source for XYUI2Phase2ARegressionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2BContractTests.cs` - C# implementation source for XYUI2Phase2BContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2CContractTests.cs` - C# implementation source for XYUI2Phase2CContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2CIdentityTests.cs` - C# implementation source for XYUI2Phase2CIdentityTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2Phase2DContractTests.cs` - C# implementation source for XYUI2Phase2DContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2PropertyControlsTests.cs` - C# implementation source for XYUI2PropertyControlsTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2QuickStartNormalizationTests.cs` - C# implementation source for XYUI2QuickStartNormalizationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2SearchFieldTests.cs` - C# implementation source for XYUI2SearchFieldTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2SelectTests.cs` - C# implementation source for XYUI2SelectTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2SliderTests.cs` - C# implementation source for XYUI2SliderTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2SplitButtonRuntimeTests.cs` - C# implementation source for XYUI2SplitButtonRuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2SplitButtonVisualStateTests.cs` - C# implementation source for XYUI2SplitButtonVisualStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TextAreaFocusTests.cs` - C# implementation source for XYUI2TextAreaFocusTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TextAreaTests.cs` - C# implementation source for XYUI2TextAreaTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TextInputInteractionTests.cs` - C# implementation source for XYUI2TextInputInteractionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TimePickerInteractionReworkTests.cs` - C# implementation source for XYUI2TimePickerInteractionReworkTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TimePickerTests.cs` - C# implementation source for XYUI2TimePickerTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2VectorPropertyLayoutTests.cs` - C# implementation source for XYUI2VectorPropertyLayoutTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3BackForwardNavigationTests.cs` - C# implementation source for XYUI3BackForwardNavigationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch04StructureTests.cs` - C# implementation source for XYUI3Batch04StructureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationInteractionTests.cs` - C# implementation source for XYUI3CompactNavigationInteractionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationStructureTests.cs` - C# implementation source for XYUI3CompactNavigationStructureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3FinalNavigationTests.cs` - C# implementation source for XYUI3FinalNavigationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3GalleryNavigationTests.cs` - C# implementation source for XYUI3GalleryNavigationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3InteractionTests.cs` - C# implementation source for XYUI3InteractionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round1RuntimeTests.cs` - C# implementation source for XYUI3Round1RuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round2RuntimeTests.cs` - C# implementation source for XYUI3Round2RuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round3FixTests.cs` - C# implementation source for XYUI3Round3FixTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round3RuntimeTests.cs` - C# implementation source for XYUI3Round3RuntimeTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round4GalleryContractTests.cs` - C# implementation source for XYUI3Round4GalleryContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3StructureTests.cs` - C# implementation source for XYUI3StructureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TableOfContentsTests.cs` - C# implementation source for XYUI3TableOfContentsTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TreeNavigationContractTests.cs` - C# implementation source for XYUI3TreeNavigationContractTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3ViewSwitcherTests.cs` - C# implementation source for XYUI3ViewSwitcherTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - C# implementation source for XYUI3WorkspaceSwitcherTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUICompositionReuseTests.cs` - C# implementation source for XYUICompositionReuseTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUIVectorViewportTests.cs` - C# implementation source for XYUIVectorViewportTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiBatchTestHost.cs` - C# implementation source for XyuiBatchTestHost.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiHeadlessCollection.cs` - C# implementation source for XyuiHeadlessCollection.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiHeadlessFixture.cs` - C# implementation source for XyuiHeadlessFixture.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiTestAppBuilder.cs` - C# implementation source for XyuiTestAppBuilder.cs.
+- `xyui/governance/XYUI-A-plan.md` - Documentation, specification, or governance record for XYUI-A-plan.md.
+- `xyui/governance/amendments.md` - Documentation, specification, or governance record for amendments.md.
+- `xyui/packs/core-0.1/AGENT-GUIDE.md` - Documentation, specification, or governance record for AGENT-GUIDE.md.
+- `xyui/packs/core-0.1/README.md` - Documentation, specification, or governance record for README.md.
+- `xyui/packs/core-0.1/gaps.json` - Structured registry or configuration data for gaps.json.
+- `xyui/packs/core-0.1/manifest.json` - Structured registry or configuration data for manifest.json.
+- `xyui/registry/examples/foundation-registry.example.json` - Structured registry or configuration data for foundation-registry.example.json.
+- `xyui/registry/foundation/README.md` - Documentation, specification, or governance record for README.md.
+- `xyui/registry/foundation/foundation-registry.json` - Structured registry or configuration data for foundation-registry.json.
+- `xyui/registry/foundation/foundation-registry.manifest.json` - Structured registry or configuration data for foundation-registry.manifest.json.
+- `xyui/registry/foundation/identity-map.json` - Structured registry or configuration data for identity-map.json.
+- `xyui/registry/foundation/relationship-map.json` - Structured registry or configuration data for relationship-map.json.
+- `xyui/registry/foundation/validation-report.md` - Documentation, specification, or governance record for validation-report.md.
+- `xyui/registry/schema/README.md` - Documentation, specification, or governance record for README.md.
+- `xyui/registry/schema/foundation-registry.schema.json` - Structured registry or configuration data for foundation-registry.schema.json.
+- `xyui/source/XYUI0/XYUI-0.md` - Documentation, specification, or governance record for XYUI-0.md.
+- `xyui/source/XYUI1/XYUI-1.md` - Documentation, specification, or governance record for XYUI-1.md.
+- `xyui/source/XYUI2/XYUI-2.md` - Documentation, specification, or governance record for XYUI-2.md.
+- `xyui/source/XYUI3/XYUI-3.md` - Documentation, specification, or governance record for XYUI-3.md.
+- `xyui/source/XYUI4/XYUI-4.md` - Documentation, specification, or governance record for XYUI-4.md.
+- `xyui/source/XYUI5/XYUI-5.md` - Documentation, specification, or governance record for XYUI-5.md.
+- `xyui/source/XYUI6/XYUI-6.md` - Documentation, specification, or governance record for XYUI-6.md.
+- `xyui/source/XYUI7/XYUI-7.md` - Documentation, specification, or governance record for XYUI-7.md.
+- `xyui/source/XYUI8/XYUI-8.md` - Documentation, specification, or governance record for XYUI-8.md.
+- `xyui/specs/GALLERY-UNIFY-01-shared-gallery-layout-contract.md` - Documentation, specification, or governance record for GALLERY-UNIFY-01-shared-gallery-layout-contract.md.
+- `xyui/specs/GALLERY-UNIFY-02-shell-navigation-contract.md` - Documentation, specification, or governance record for GALLERY-UNIFY-02-shell-navigation-contract.md.
+- `xyui/specs/XYUI0.04/XYUI-0.04-sizing-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.04-sizing-runtime-contract.md.
+- `xyui/specs/XYUI0.05/XYUI-0.05-density-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.05-density-runtime-contract.md.
+- `xyui/specs/XYUI0.07/XYUI-0.07-canonical-facts.md` - Documentation, specification, or governance record for XYUI-0.07-canonical-facts.md.
+- `xyui/specs/XYUI0.07/XYUI-0.07-textfield-radius-drift-final-report.md` - Documentation, specification, or governance record for XYUI-0.07-textfield-radius-drift-final-report.md.
+- `xyui/specs/XYUI0.08/XYUI-0.08-shape-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.08-shape-runtime-contract.md.
+- `xyui/specs/XYUI0.09/XYUI-0.09-surface-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.09-surface-runtime-contract.md.
+- `xyui/specs/XYUI0.10/XYUI-0.10-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.10-runtime-contract.md.
+- `xyui/specs/XYUI0.11/XYUI-0.11-responsive-runtime-contract.md` - Documentation, specification, or governance record for XYUI-0.11-responsive-runtime-contract.md.
+- `xyui/specs/XYUI0/XYUI-foundation-consumer-facade-audit.md` - Documentation, specification, or governance record for XYUI-foundation-consumer-facade-audit.md.
+- `xyui/specs/XYUI0/XYUI-foundation-documentation-traceability-0.01-0.07.md` - Documentation, specification, or governance record for XYUI-foundation-documentation-traceability-0.01-0.07.md.
+- `xyui/specs/XYUI0/XYUI-public-consumer-api-standard.md` - Documentation, specification, or governance record for XYUI-public-consumer-api-standard.md.
+- `xyui/specs/XYUI1/XYUI-1.canonical.md` - Documentation, specification, or governance record for XYUI-1.canonical.md.
+- `xyui/specs/XYUI1/XYUI-1.gaps.json` - Structured registry or configuration data for XYUI-1.gaps.json.
+- `xyui/specs/XYUI1/XYUI-1.identity.json` - Structured registry or configuration data for XYUI-1.identity.json.
+- `xyui/specs/XYUI1/XYUI-1.mapping.json` - Structured registry or configuration data for XYUI-1.mapping.json.
+- `xyui/specs/XYUI2/XYUI-2.canonical.md` - Documentation, specification, or governance record for XYUI-2.canonical.md.
+- `xyui/specs/XYUI2/XYUI-2.gaps.json` - Structured registry or configuration data for XYUI-2.gaps.json.
+- `xyui/specs/XYUI2/XYUI-2.identity.json` - Structured registry or configuration data for XYUI-2.identity.json.
+- `xyui/specs/XYUI2/XYUI-2.mapping.json` - Structured registry or configuration data for XYUI-2.mapping.json.
+- `xyui/specs/XYUI3/XYUI-3-01-06-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-01-06-runtime-contract.md.
+- `xyui/specs/XYUI3/XYUI-3-07-12-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-07-12-runtime-contract.md.
+- `xyui/specs/XYUI3/XYUI-3-13-18-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-13-18-runtime-contract.md.
+- `xyui/specs/XYUI3/XYUI-3-19-24-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-19-24-runtime-contract.md.
+- `xyui/specs/XYUI3/XYUI-3.canonical.md` - Documentation, specification, or governance record for XYUI-3.canonical.md.
+- `xyui/specs/XYUI3/XYUI-3.gaps.json` - Structured registry or configuration data for XYUI-3.gaps.json.
+- `xyui/specs/XYUI3/XYUI-3.mapping.json` - Structured registry or configuration data for XYUI-3.mapping.json.
+- `xyui/specs/XYUI4/XYUI-4.canonical.md` - Documentation, specification, or governance record for XYUI-4.canonical.md.
+- `xyui/specs/XYUI4/XYUI-4.gaps.json` - Structured registry or configuration data for XYUI-4.gaps.json.
+- `xyui/specs/XYUI4/XYUI-4.mapping.json` - Structured registry or configuration data for XYUI-4.mapping.json.
+- `xyui/specs/XYUI5/XYUI-5.canonical.md` - Documentation, specification, or governance record for XYUI-5.canonical.md.
+- `xyui/specs/XYUI5/XYUI-5.gaps.json` - Structured registry or configuration data for XYUI-5.gaps.json.
+- `xyui/specs/XYUI5/XYUI-5.mapping.json` - Structured registry or configuration data for XYUI-5.mapping.json.
+- `xyui/specs/XYUI6/XYUI-6.canonical.md` - Documentation, specification, or governance record for XYUI-6.canonical.md.
+- `xyui/specs/XYUI6/XYUI-6.gaps.json` - Structured registry or configuration data for XYUI-6.gaps.json.
+- `xyui/specs/XYUI6/XYUI-6.mapping.json` - Structured registry or configuration data for XYUI-6.mapping.json.
+- `xyui/specs/XYUI7/XYUI-7.canonical.md` - Documentation, specification, or governance record for XYUI-7.canonical.md.
+- `xyui/specs/XYUI7/XYUI-7.gaps.json` - Structured registry or configuration data for XYUI-7.gaps.json.
+- `xyui/specs/XYUI7/XYUI-7.mapping.json` - Structured registry or configuration data for XYUI-7.mapping.json.
+- `xyui/specs/XYUI8/XYUI-8.canonical.md` - Documentation, specification, or governance record for XYUI-8.canonical.md.
+- `xyui/specs/XYUI8/XYUI-8.gaps.json` - Structured registry or configuration data for XYUI-8.gaps.json.
+- `xyui/specs/XYUI8/XYUI-8.mapping.json` - Structured registry or configuration data for XYUI-8.mapping.json.
+- `xyui/tokens/architecture/token-architecture.json` - Structured registry or configuration data for token-architecture.json.
+- `xyui/tokens/architecture/token-architecture.md` - Documentation, specification, or governance record for token-architecture.md.
+- `xyui/tokens/architecture/token-canonical-map.json` - Structured registry or configuration data for token-canonical-map.json.
+- `xyui/tokens/audit/token-audit.md` - Documentation, specification, or governance record for token-audit.md.
+- `xyui/tokens/audit/token-collision-matrix.json` - Structured registry or configuration data for token-collision-matrix.json.
+- `xyui/tokens/audit/token-occurrences.json` - Structured registry or configuration data for token-occurrences.json.
