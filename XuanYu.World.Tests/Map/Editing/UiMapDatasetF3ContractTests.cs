@@ -39,10 +39,12 @@ public sealed class UiMapDatasetF3ContractTests
         var layer = Read("XuanYu.Editor.UI", "Right", "DatasetLayerPanel.axaml");
         Assert.All([dataset, layer], panel =>
         {
-            Assert.Contains("HorizontalAlignment\" Value=\"Center", panel);
-            Assert.Contains("VerticalAlignment\" Value=\"Center", panel);
-            Assert.Contains("TextAlignment\" Value=\"Center", panel);
-            Assert.Contains("MinWidth\" Value=\"{StaticResource Size.Width.64}", panel);
+            Assert.Contains("<xy:XYTruncatedText", panel);
+            Assert.Contains("<xy:XYBadge", panel);
+            Assert.DoesNotContain("Classes=\"datasetName\"", panel);
+            Assert.DoesNotContain("Classes=\"datasetStatus\"", panel);
+            Assert.DoesNotContain("Classes=\"datasetLayerName\"", panel);
+            Assert.DoesNotContain("Classes=\"datasetLayerStatus\"", panel);
         });
     }
 
