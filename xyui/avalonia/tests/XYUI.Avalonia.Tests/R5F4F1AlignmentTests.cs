@@ -28,7 +28,7 @@ public sealed class R5F4F1AlignmentTests : IClassFixture<XyuiHeadlessFixture>
         mark.ApplyStyling(); text.ApplyStyling();
 
         Assert.Equal(28, section.Height);
-        Assert.Equal(new CornerRadius(3), section.CornerRadius);
+        Assert.Equal(new CornerRadius(0), section.CornerRadius);
         Assert.Equal(new Thickness(0), section.BorderThickness);
         Assert.Equal(Color.Parse("#EEF3F6"), Assert.IsType<SolidColorBrush>(section.Background).Color);
         Assert.Equal(new GridLength(3), header.ColumnDefinitions[0].Width);
