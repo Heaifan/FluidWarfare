@@ -15,7 +15,7 @@
     <xy:XYButton Classes="workspaceMode" Variant="Secondary" Content="管理模式" Command="{Binding ToggleEditorModeCommand}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="点击或按 Tab 进入编辑模式"/>
     <Border Classes="workspaceModeSplit">
       <Grid ColumnDefinitions="*,28">
-        <xy:XYButton Classes="workspaceModeMain" Variant="Secondary" Content="{Binding CurrentEditorModeText}" Command="{Binding ToggleEditorModeCommand}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="点击或按 Tab 返回管理模式"/>
+        <xy:XYButton Classes="workspaceModeMain" Variant="Secondary" Content="{Binding CurrentWorkspaceDisplayName}" Command="{Binding ToggleEditorModeCommand}" DoubleTapped="ModeSurface_DoubleTapped" ToolTip.Tip="点击或按 Tab 返回管理模式"/>
         <Menu Grid.Column="1">
           <MenuItem Classes="workspaceChevron" ToolTip.Tip="切换编辑器">
             <MenuItem.Header><xy:XYIcon Icon="ChevronDown" Size="Small" Stroke="{StaticResource Color.Text.Primary}" StrokeThickness="1.5"/></MenuItem.Header>

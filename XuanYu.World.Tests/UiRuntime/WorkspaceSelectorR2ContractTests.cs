@@ -18,7 +18,7 @@ public sealed class WorkspaceSelectorR2ContractTests
         var source = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
         Assert.Equal(2, Count(source, "<xy:XYButton"));
         Assert.Contains("Content=\"管理模式\"", source);
-        Assert.Contains("Content=\"{Binding CurrentEditorModeText}\"", source);
+        Assert.Contains("Content=\"{Binding CurrentWorkspaceDisplayName}\"", source);
         Assert.Equal(2, Count(source, "Command=\"{Binding ToggleEditorModeCommand}\""));
         Assert.Contains("Orientation=\"Horizontal\"", source);
         Assert.Contains("Spacing=\"4\"", source);
@@ -42,6 +42,9 @@ public sealed class WorkspaceSelectorR2ContractTests
         });
 
         Assert.Contains("管理模式", states.manage);
+        Assert.Contains("地图编辑", states.manage);
+        Assert.Equal("地图编辑", states.manage.Last());
+        Assert.NotEqual("管理模式", states.manage.Last());
         Assert.Contains("管理模式", states.edit);
         Assert.Contains("地图编辑", states.edit);
     }

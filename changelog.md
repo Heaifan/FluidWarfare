@@ -1,5 +1,13 @@
 # changelog
 
+## XYUI-ENGINE-A-AREA-A-FINAL · Top chrome visual & workspace selector closeout（2026-09-08 01:18:00 +08:00）
+
+- 实装：WorkspaceSelector 右侧编辑工作区按钮绑定修正为 `CurrentWorkspaceDisplayName`，彻底消除管理模式下双按钮同名缺陷（`[管理模式] [地图编辑 ▼]` / `[管理模式] [区域编辑 ▼]`）；保留全部原有 Command、DoubleTapped、ToolTip 与 Radio MenuItem 逻辑。
+- 视觉与权威：Area A 顶部栏全量收拢至 XYUI 真实控件权威，彻底移除旧按钮背景/边框覆写；ChevronDown 采用真实 `XyuiVectorIcon.ChevronDown`；原生 Menu 因现有 XYUI 缺口保持无损降级；语义类（`topCommand` / `topTool` / `workspaceMode`）完整收口。
+- 契约：更新 `WorkspaceSelectorR2ContractTests` 与 `AreaATopChromeContractTests`，锁定双模式下右按钮文本语义断言；定向 UI 契约全部 10/10 PASS。
+- 验证：解决方案一次构建 `0 Warning / 0 Error`；Core `339/339`；WarCore `22/22`；XYUI `558/558`；ARCH-A、`git diff --check` 全部 PASS。
+- 状态：`AREA A FULL INTEGRATION & VISUAL COMPLETE / READY FOR CANONICAL PROMOTE & USER ACCEPTANCE`。
+
 ## XYUI-ENGINE-A-F0 · XYUI visual authority blocker（2026-09-08 00:49:36 +08:00）
 
 - 实装：将旧 Avalonia 全局 `Button` 样式收窄为显式 `Button.legacyButton`，为全部原生按钮及动态对话框按钮补齐 legacy 范围；XYButton/XYToggleButton 不再被全局按钮视觉规则覆盖。

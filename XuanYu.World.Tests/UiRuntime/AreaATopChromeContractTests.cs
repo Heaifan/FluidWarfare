@@ -28,7 +28,7 @@ public sealed class AreaATopChromeContractTests
             Assert.Contains(label, top);
         Assert.True(Count(top, "<xy:XYToggleButton") >= 6);
         Assert.Contains("Content=\"管理模式\"", workspace);
-        Assert.Contains("CurrentEditorModeText", workspace);
+        Assert.Contains("CurrentWorkspaceDisplayName", workspace);
         Assert.Equal(2, Count(workspace, "ToggleEditorModeCommand"));
     }
 
