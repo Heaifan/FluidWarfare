@@ -1,37 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Style Selector="ToggleButton.topTool TextBlock">
+  <Style Selector="ToggleButton.toolBtn TextBlock">
     <Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
   </Style>
-  <Style Selector="ToggleButton.topTool:pointerover TextBlock,
-                  ToggleButton.topTool:pressed TextBlock,
-                  ToggleButton.topTool:checked TextBlock,
-                  ToggleButton.topTool:checked:pointerover TextBlock,
-                  ToggleButton.topTool:checked:pressed TextBlock">
-    <Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool /template/ ContentPresenter">
-    <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="BorderBrush" Value="Transparent"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="{StaticResource Color.Hover.Bg}"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool:pressed /template/ ContentPresenter">
-    <Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool:checked /template/ ContentPresenter">
-    <Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/>
-    <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Strong}"/>
-    <Setter Property="BorderThickness" Value="1,1,1,3"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool:checked">
-    <Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/>
-    <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Strong}"/>
-  </Style>
-  <Style Selector="ToggleButton.topTool:checked:pointerover /template/ ContentPresenter,
-                  ToggleButton.topTool:checked:pressed /template/ ContentPresenter">
-    <Setter Property="Background" Value="{StaticResource Color.Selection.Bg}"/>
-    <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Strong}"/>
+  <Style Selector="Button.cmdBtn TextBlock">
+    <Setter Property="VerticalAlignment" Value="Center"/>
   </Style>
 </Styles>
