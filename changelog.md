@@ -1,5 +1,15 @@
 # changelog
 
+## XYUI-ENGINE-A-R1-B2-MERGE · Codex + Gemini Controlled Merge（2026-09-07）
+
+- 合流：在 `e19e4242` 基线分支 `feat/XYUI-ENGINE-A` 上，按顺序使用受控 `--no-ff` merge 合入 Codex `0f80d905` 与 Gemini `5b9add17`；未 rebase、squash、reset、force push 或改写历史。
+- 范围：统一包含 `NotificationBar`、`LogDetailPanel`、`LayerInspectorPanel`、`InspectorPanel`、`MapPagePanel`、`DatasetLayerPanel`、`DatasetPanel` 七个 Engine View 的 XYUI-1 迁移成果；两边所有权无重叠，未发现冲突。
+- 祖先关系：`0f80d905` 与 `5b9add17` 均已确认是合流提交祖先；旧 dirty `feat/MAP-DATA-A` 工作区未触碰。
+- 验证：Engine Build 与 XYUI Build 均 0 警告 / 0 错误；Core 339/339、WarCore 22/22、World 1374/1374、XYUI 558/558，合计 2293/2293 PASS；Gallery Smoke 3/3 PASS；ARCH-A（含 5+100）PASS；`git diff --check` PASS。
+- 文件树：本轮仅合流既有文件，无新增、删除、改名或移动文件，`file-tree.md` 无需更新。
+- Hash：本轮最终合流提交由 Git 记录确认。
+- 状态：`R1-B2 INTEGRATION PASS / READY FOR USER VISUAL ACCEPTANCE`。
+
 ## XYUI-ENGINE-A-R1-B2-A · Inspector / MapPage XYUI-1 Migration（2026-09-07）
 
 - 基线：基于集成分支提交 `e19e4242` 创建 `feat/XYUI-ENGINE-A-R1-B2-A`；本轮仅迁移 `InspectorPanel.axaml`、`MapPagePanel.axaml` 及其直接失效契约测试。
