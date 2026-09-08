@@ -6,6 +6,7 @@
 - 根因：`PopupRoot` 不继承应用资源，且 Overlay 首次 `ApplyStyling()` 发生在独立 Popup 资源作用域建立前；DynamicResource Setter 因此解析为空。修复为向 PopupRoot 注入 canonical Light/Dark 主题字典、同步应用当前主题变体，并保证菜单首次样式应用发生在 PopupRoot 附着后。
 - 修复范围：新增 XYUI Overlay Resource Bridge；覆盖 MenuBar、ContextMenu、NavigationRail 的 Popup 资源作用域；未修改 Radio 几何、状态机、WorkspaceSelector 或 Native Menu/MenuItem。
 - 验证：真实 Windows Popup 探针 PASS（PopupRoot、Light/Light 主题、16×16 Ring、1.5 描边、选中 Dot 6×6 且 Stroke/Fill 有效）；Solution Build 0W0E；Core 339/339、WarCore 22/22、World 1416/1416、XYUI 576/576；ARCH-A/5+100 PASS；file-tree 2108/2108；Area A Native Menu/MenuItem 合同 0/0；`git diff --check` PASS。
+- Hash：`d1de9aee`（R9 实现与回归提交）。
 - 状态：等待用户真机视觉验收，不宣告视觉验收通过。
 
 ## v0.2.28.30-rz · AREA-A-R7 POPUP STYLE ORDER CLOSEOUT（2026-09-08 22:43:22 +08:00）
