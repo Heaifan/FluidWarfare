@@ -18,7 +18,8 @@ public sealed partial class XYWorkspaceSwitcher
     }
     XYMenuItem WorkspaceItem(XYWorkspaceItem workspace)
     {
-        var item = new XYMenuItem { Label = workspace.Label, Icon = workspace.Icon, IsEnabled = workspace.IsEnabled, IsChecked = workspace.Id == State.CurrentWorkspaceId, CheckKind = XyuiMenuCheckKind.Radio, IsSelected = workspace.Id == State.CurrentWorkspaceId, Classes = { "xyui-workspace-item" } };
+        var item = new XYMenuItem { Label = workspace.Label, Icon = workspace.Icon, IsEnabled = workspace.IsEnabled, IsChecked = workspace.Id == State.CurrentWorkspaceId, CheckKind = XyuiMenuCheckKind.Radio, IsSelected = workspace.Id == State.CurrentWorkspaceId };
+        item.Classes.Add("xyui-workspace-item"); item.RebuildVisual();
         item.SelectionRequested += (_, _) => SelectWorkspace(workspace.Id); return item;
     }
     XYMenuItem ManageItem()

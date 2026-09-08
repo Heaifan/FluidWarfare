@@ -47,9 +47,14 @@ public sealed partial class XYMenuItem : Border
         base.OnPropertyChanged(change);
         if (change.Property == CommandProperty) OnCommandChanged(change.OldValue as ICommand, change.NewValue as ICommand);
         else if (change.Property == CommandParameterProperty) UpdateCanExecute();
-        else if (!_building && change.Property != IsEnabledProperty && change.Property != ChildProperty) Build();
+        else if (!_building && change.Property != IsEnabledProperty && change.Property != ChildProperty)
+        {
+            if (change.Property == CheckKindProperty || change.Property == IconProperty || change.Property == HasSubMenuProperty || change.Property == LabelProperty || change.Property == ShortcutProperty) Build();
+            else { UpdateClasses(); (Child as XYMenuItemVisual)?.Refresh(this); }
+        }
     }
     void Build() { _building = true; UpdateClasses(); Child = new XYMenuItemVisual(this); _building = false; }
+    internal void RebuildVisual() => Build();
     void UpdateClasses() { Set("xyui-menu-hover", IsHovered); Set("xyui-menu-danger", IsDestructive); Set("xyui-menu-checked", IsChecked); Set("xyui-menu-selected", IsSelected); }
     void Set(string name, bool value) { if (value && !Classes.Contains(name)) Classes.Add(name); if (!value) Classes.Remove(name); }
 }

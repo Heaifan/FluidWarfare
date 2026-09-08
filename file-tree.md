@@ -1024,6 +1024,7 @@
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
+- `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - WorkspaceSelector runtime visual-tree regression coverage for Radio ring and dot state.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
@@ -1803,7 +1804,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - Canonical XYUI menu row visual composition, including check and radio indicators for workspace and regular menu items.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - Canonical XYUI menu row visual composition and refreshable check/radio indicators for workspace and regular menu items.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenu.cs` - C# implementation source for XYMenu.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenuItem.cs` - C# implementation source for XYMenuItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/Interaction/XYContextMenu.Interaction.cs` - C# implementation source for XYContextMenu.Interaction.cs.
@@ -2005,6 +2006,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch04StructureTests.cs` - C# implementation source for XYUI3Batch04StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - XYUI Menu Radio/Check visual-tree lifecycle and runtime state regression tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationInteractionTests.cs` - C# implementation source for XYUI3CompactNavigationInteractionTests.cs.
