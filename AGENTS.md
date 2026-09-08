@@ -1,7 +1,7 @@
 # AGENTS.md — XuanYu Engine（玄域引擎）AI 协作入口
 
 > 本文件是仓库内所有 AI 编码工具（Claude Code / Codex / Cursor / Hermes 等）的统一入口。
-> **唯一权威规则：`docs/玄域引擎_AI开发宪法.md`（2.2 版，17 章 86 条）。**
+> **唯一权威规则：`docs/玄域引擎_AI开发宪法.md`（2.3 版，17 章 86 条）。**
 > 本文件只做索引与红线摘要；两者冲突时以宪法为准。执行手册见 `docs/dev-rules.md`。
 
 ## 项目
@@ -12,7 +12,8 @@
 ## 多 Agent 通道（DEV-FIRST）
 
 - 正式开发 Agent 使用有 upstream 的里程碑分支，每轮必须 Commit + Push；GitHub 是正式事实源。
-- UI Agent 默认使用独立 `local/<任务>` 分支与 worktree，可本地 Commit，但不设 upstream、禁止 Push。
+- 除 XYUI 内置子系统外，UI Agent 默认使用独立 `local/<任务>` 分支与 worktree，可本地 Commit，但不设 upstream、禁止 Push。
+- XYUI 永久内置于本仓库 `xyui/`，与 Engine 共用工作区、分支、版本、构建、提交和维护生命周期；不存在独立 XYUI 正式工作区或 Git 基线。
 - 双方冲突时正式功能、架构、测试和共享元数据优先；UI 基于最新正式远端 HEAD 重新适配，不得阻塞主开发。
 - 正式开发只显式暂存本轮文件；禁止把 UI 本地 Commit 放在正式分支上，以免被后续 Push 传递到 GitHub。
 

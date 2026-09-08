@@ -1,5 +1,14 @@
 # changelog
 
+## v0.2.28.26-rz · SINGLE CANONICAL WORKSPACE CONSOLIDATION（2026-09-08 17:51:27 +08:00）
+
+- 目标：冻结 XYUI 内置模式，XuanYuEngine 成为唯一正式工作区与 Git 真源。
+- 收口：审计 11 个已注册 worktree；8 个干净旧 XYUI worktree 已移除，`XuanYuEngine-XYUI-INT` 的 23 个未提交文件已保存为 `f2644678` stash 后移除；项目父目录仅剩 Canonical，Recovery 物理目录因操作系统文件锁暂未能移出。
+- 历史：旧 XYUI 分支相对 Canonical 的领先提交均可由 `origin/*` 到达，没有仅存在旧 XYUI 分支且远端不可达的独有提交；Recovery 中的未合并 `922851dd` 已保留为本地 `archive/recovery-20260908-922851dd` ref，旧工作树 stash `01004bf0` 仍可恢复；未自动合并或 cherry-pick。
+- 规则：宪法升级为 2.3，`AGENTS.md`、`docs/dev-rules.md` 与 `xyui/governance/XYUI-A-plan.md` 明确 XYUI 与 Engine 共用工作区、分支、版本、构建和维护生命周期；保留 XYUI Runtime/Gallery/Tests 的独立项目边界。
+- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1413/1413、XYUI 565/565；Gallery 随 Solution 构建通过；ARCH-A、`git diff --check`、Solution/ProjectReference/`run.bat` Canonical 静态核对通过。
+- 状态：工作区收口为 `PARTIAL PASS`；Canonical 与 9 个旧 XYUI worktree 已完成清理，Recovery 物理目录和主仓库既有未跟踪 TRX 仍受保护保留。
+
 ## v0.2.28.26-rz · AREA-A-R4-FINAL XYUI MENU CAPABILITY CLOSEOUT（2026-09-08 14:59:53 +08:00）
 
 - 能力：XYMenuBar、XYMenu 与 XYMenuItem 完成声明式 AXAML、ICommand/CommandParameter、CanExecute、Check/Radio、IsChecked、Compact、键盘与焦点恢复的工程契约；ICommand 优先于遗留 Action，单次激活不会双执行。

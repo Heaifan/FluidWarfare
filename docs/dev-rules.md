@@ -296,12 +296,19 @@ dotnet build-server shutdown
 
 ### 19.2 本地 UI 通道
 
-- UI 实验默认使用独立 worktree 与 `local/<任务>` 分支；不设 upstream，禁止 Push。
+- 除 XYUI 内置子系统外，UI 实验默认使用独立 worktree 与 `local/<任务>` 分支；不设 upstream，禁止 Push。
 - UI Agent 可以本地保存和本地 Commit，但不得把本地 Commit 放在正式开发分支上。
 - UI 分支落后或冲突时，以最新正式远端 HEAD 为基线重新适配；不得要求正式开发等待未推送 UI 修改。
 
 ### 19.3 冲突与暂存
 
-- 冲突优先级固定为：正式功能代码 > 正式架构/数据模型 > 正式测试 > 正式共享元数据 > XYUI 本地实现 > UI 实验稿。
+- 冲突优先级固定为：正式功能代码 > 正式架构/数据模型 > 正式测试 > 正式共享元数据 > XYUI 内置子系统实现 > UI 实验稿。
 - 正式开发 Agent 必须显式暂存本轮文件，并用 `git diff --cached` 复核；不得用 `git add -A` 混入 UI 修改。
-- 同一工作区偶遇 UI 修改时应保留其源码，不主动删除；共享文件按正式开发需要落库，UI 后续在独立 worktree 适配。
+- 同一工作区偶遇其他 UI 实验修改时应保留其源码，不主动删除；共享文件按正式开发需要落库，其他 UI 实验后续在独立 worktree 适配。
+
+### 19.4 XYUI 内置模式
+
+- XYUI 的唯一 Canonical 根为仓库内 `xyui/`；Engine、XYUI Runtime、Gallery 和 Tests 共用一个正式工作区、Git 真源、版本和构建生命周期。
+- `xyui/avalonia/src/XYUI.Avalonia`、`gallery/XYUI.Avalonia.Gallery` 与 `tests/XYUI.Avalonia.Tests` 仍是独立项目和程序集，不得把 XYUI 源码塞入 `XuanYu.Editor.UI`。
+- ProjectReference、Solution、启动脚本和当前开发说明不得依赖外部 XYUI worktree；旧 worktree、recovery、acceptance 和 integration 目录只可作为待审计的历史/临时资产。
+- 移除旧目录前必须核对 worktree 注册、脏状态及提交可达性；不得自动合并远端不可达提交，不得删除未提交内容。

@@ -1,14 +1,16 @@
-# XYUI-A · XYUI 独立 UI 体系旁路线正式工程计划
+# XYUI-A · XYUI 内置子系统历史工程计划
+
+> **内置模式覆盖声明（2026-09-08）：** 本文档保留早期 XYUI-A 的计划与审计事实；其中关于“独立 UI 体系、独立 Workspace、XYUI-B 接入”的旧流程已被用户裁定覆盖。当前唯一 Canonical 为本仓库 `xyui/`，XYUI 与 XuanYuEngine 共用工作区、分支、版本、构建和维护生命周期。本文档中的旧 worktree 路径只表示历史证据，不是当前开发入口。
 
 > **落库信息**
 > - 来源：用户 2026-08-12 两轮裁定（XYUI-A0 治理原则 + 阶段规划收缩为 XYUI0 单块样板）。
 > - 状态：`正式计划 · R4 已获授权`。A0 治理条款继续有效；用户已授权进入 `XYUI.AVALONIA-R4 COMPONENT CATALOG & DOCUMENTED GALLERY`，本轮允许在 `xyui/avalonia/**` 建立真实 Avalonia 组件与 Gallery 文档入口。
-> - 落库前核查：主仓库无任何 XYUI-A0 落库物；`docs/milestones/current/EDITOR-A/XYUI-backlog.md` 仅登记 XYUI-001（RegionPanel Binding 文本显示异常，NON-BLOCKING BACKLOG）。**本文档是 XYUI 旁路线的第一个仓库事实源**（位于独立 XYUI worktree）。
+> - 历史核查：本文档记录早期 XYUI-A 旁路线的事实；当前 XYUI 源码、规范、Runtime、Gallery 与 Tests 均以本仓库 `xyui/` 为唯一 Canonical。
 > - 关联：`docs/milestones/current/EDITOR-A/XYUI-backlog.md`（XYUI 债务登记，玄域主仓库）；`docs/ui/玄域引擎_UI规范_1.0.md`（现有 Editor UI 规范，与 XYUI 旁路线关系见 §10）。
 
 ## 0. 定位与五角色分工
 
-XYUI 是与玄域主开发完全隔离的独立 UI 体系旁路线，直到用户批准 `START XYUI-B` 才允许接入玄域。五角色互不替代：
+XYUI 是 XuanYuEngine 内的一等 UI 子系统，保持项目与程序集边界但不再与玄域主开发分离。五角色互不替代：
 
 | 角色 | 负责 |
 |---|---|
@@ -42,11 +44,11 @@ XYUI.AVALONIA-R4  Component Catalog & Documented Gallery（当前轮）
 ### 2.1 Workspace Isolation（最高优先级，A0 硬门禁）
 
 ```text
-XuanYuEngine/        → 开发 Agent（MAP-DATA-A / F3-A / Spatial Index）
-XuanYuEngine-XYUI/   → XYUI Agent（feat/XYUI-A）
+XuanYuEngine/xyui/   → XYUI Canonical Runtime / Gallery / Tests
+XuanYuEngine/        → Engine 与 XYUI 共同正式工作区
 ```
 
-- XYUI Agent **不得进入开发 Agent 正在工作的物理目录**。
+- XYUI 修改必须在 XuanYuEngine Canonical 工作区内按本轮文件范围执行。
 - 开发端未提交改动（Spatial Index、MapEditSession、MAP-DATA 等）对 XYUI Agent 禁止一切操作：修改 / stage / commit / stash / restore / reset / checkout / 删除。
 - XYUI Workspace 若出现其他 Agent 未提交业务改动 → **立即 STOP 并报告 Workspace Isolation FAIL**。
 
@@ -101,7 +103,7 @@ Allowed root: xyui/**
 - **不要求 XuanYu.Engine 全量 Build**，不运行 Core / World / WarCore / MAP-DATA 测试（避免与开发 Agent 抢占 MSBuild、内存与磁盘资源；「不影响开发线原则」优先于「形式完整的全量门禁」）。
 - 只需：文件格式验证、Schema 验证（存在时）、链接/引用验证、changed-path gate、`git diff --check`、Git remote consistency。
 
-未来 XYUI 开始有真正 `.cs`/`.axaml` 独立代码时，再构建 **XYUI 自己的项目**；只有到 `XYUI-B` 正式接入玄域后，才重新要求玄域 Solution 完整 0W0E。
+XYUI 的 `.cs`/`.axaml` 项目已永久位于 `xyui/avalonia/`，由 XuanYuEngine Solution 一起构建；无需另等 `XYUI-B` 才接入玄域。
 
 ### 2.9 Decision Packet 同步机制
 
@@ -118,7 +120,7 @@ Allowed root: xyui/**
 看到 → 不碰 → 不处理 → 不提交 → 不 stash → 报告
 ```
 
-XYUI Agent 处于独立 Workspace，理论上不应看到开发端未提交修改；若看到 → Workspace Isolation FAIL，直接停。
+XYUI Agent 与 Engine 共用 Canonical Workspace；发现不属于本轮范围的未提交修改时，按仓库通用脏工作区规则保护、报告并停止越界操作。
 
 ## 3. XYUI-A0-R1 · Workspace Isolation（当前执行轮）
 
@@ -128,8 +130,8 @@ XYUI Agent 处于独立 Workspace，理论上不应看到开发端未提交修�
 A0-R1-01  只读检查当前仓库状态
 A0-R1-02  确认开发 Agent 当前 Workspace
 A0-R1-03  不得处理 Spatial Index / MapEditSession 外部改动
-A0-R1-04  建立独立 XYUI Workspace / Worktree
-A0-R1-05  建立或切换 feat/XYUI-A
+A0-R1-04  确认内置 xyui/ Canonical 路径与项目边界
+A0-R1-05  在当前里程碑分支维护 XYUI
 A0-R1-06  确认 XYUI Workspace 没有继承开发端未提交改动
 A0-R1-07  确认两个 Workspace 物理路径不同
 A0-R1-08  确认 Dev Agent 当前工作区保持原样
@@ -335,8 +337,8 @@ Git：Branch / HEAD / Origin HEAD / Ahead / Behind / Working Tree
 
 ## 10. 与现有 UI 体系的关系
 
-- 现有 `docs/ui/玄域引擎_UI规范_1.0.md` + `XuanYu.Editor.UI/Design/UiTokenManifest.json`（112 Token）属于玄域 Editor 现状基线，**不在本旁路线范围内**；XYUI Token 体系在 `xyui/**` 独立建设。
-- XYUI Token 与 Editor 现有 Token 的映射/迁移关系属 **XYUI-B** 裁决内容，本阶段不讨论。
+- 现有 `docs/ui/玄域引擎_UI规范_1.0.md` + `XuanYu.Editor.UI/Design/UiTokenManifest.json`（112 Token）属于 Editor 现状基线；XYUI Token 体系在同一仓库 `xyui/**` 建设并通过明确 ProjectReference 消费。
+- XYUI Token 与 Editor 现有 Token 的映射/迁移按当前里程碑矩阵执行，不再以独立 XYUI-B 接入作为前置条件。
 - `EDITOR-A/XYUI-backlog.md` 的 XYUI-001 等 backlog 项在 A1 登记时纳入。
 
 ## 11. 本计划的 UNRESOLVED 登记（禁止脑补的示范）
