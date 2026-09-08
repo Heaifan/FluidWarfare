@@ -13,6 +13,7 @@ obj/
 # Build artifacts
 artifacts/
 .artifacts/
+TestResults/
 
 # Local Codex session exports
 codex_log/
