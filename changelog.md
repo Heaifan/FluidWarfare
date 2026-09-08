@@ -5,7 +5,7 @@
 - 目标：修复 Area A 工作区 XYUI 菜单把 `CheckKind="Radio"` 呈现为勾号的问题，保持 `.27` 版本与 Top 总布局不变。
 - 根因：canonical `XYMenuItemVisual` 的工作区专用分支无论检查类型都使用 `xyui-workspace-check`；`XYWorkspaceSwitcher` 也未向工作区行声明 Radio 状态。
 - 修复：工作区行统一声明 `CheckKind=Radio` / `IsChecked`，有无图标分支都复用 XYUI 圆环/圆点指示器；补充 XYUI 回归测试。
-- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1414/1414、XYUI 566/566；ARCH-A/5+100、`git diff --check` 通过；三份 `XYUI.Avalonia.dll` SHA256 均为 `2AB9C39FF6BE40E68EB6D89D5FFB6B0232BC8434239CFCF79C20F0D9812A2393`。
+- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1414/1414、XYUI 566/566；ARCH-A/5+100、`git diff --check` 通过；三份 `XYUI.Avalonia.dll` SHA256 均为 `42ACD296AD8666F72CAFBAB5C1FB0C55BFAD934B37037D96DEF5E202CC14798E`。
 - Hash：`4cf560dd`（实现提交）。
 - 状态：TECHNICAL PASS / READY FOR USER AREA-A FINAL VISUAL ACCEPTANCE；文件菜单、环境勾选和顶部总布局未改，真机视觉验收仍待用户完成。
 
