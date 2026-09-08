@@ -130,3 +130,29 @@ Codex must not modify those three AXAML views during R1-A. `XuanYu.Editor.UI/Rig
 - Legacy audit: migrated target Views contain no `uiSection`, `uiLabel`, `uiValue`, `datasetName`, `datasetStatus`, `datasetLayerName`, `datasetLayerStatus`, `kindTagRegion`, `kindTagSystem`, `treeText`, or `statePill` display classes. `uiMultiline` remains only as a wrapping/line-limit helper and is not a competing typography/surface authority.
 - Current verification: Engine Build 0W0E; XYUI Build 0W0E; Core 339/339, WarCore 22/22, World 1379/1379, XYUI 558/558, total 2298/2298; Gallery Smoke 3/3; ARCH-A PASS; 5+100 PASS; `git diff --check` PASS.
 - Next boundary: XYUI-1 Engine implementation is technically complete for R1. Further native Button/ToggleButton/ComboBox/TextBox, menu/navigation, dialog, reorderable-list, and unmatched icon work belongs to later XYUI-2/XYUI-3/GAP scopes and is not included in this closeout.
+
+## Area A · Top Chrome final closeout
+
+- Baseline: `v0.2.28.31-rz`; formal implementation commits `d1de9aee` and `ceac71b7`; canonical workspace `D:\MyDoc\project-vsCode\XuanyuEngine`; branch `feat/XYUI-ENGINE-AREA-A-CD`.
+- Scope frozen to `Top/Top.axaml`, `Top/FileModule.axaml`, `Top/EditToolsModule.axaml`, `Top/ViewModule.axaml`, `Top/SnapModule.axaml`, `Top/RuntimeStatusModule.axaml`, `Workspace/WorkspaceSelector.axaml`, their `UiVm` command/binding paths, and the shared XYUI Menu/Popup infrastructure used by these views. Left/Right/Bottom content remains outside Area A.
+
+| Area A region | Runtime control | XYUI component | Binding / command | Native residual | Status |
+| --- | --- | --- | --- | ---: | --- |
+| Workspace / mode | `WorkspaceSelector` | `XYCaption`, `XYButton`, `XYMenuBar`, `XYMenu`, `XYMenuItem` | `CurrentWorkspaceDisplayName`, `ToggleEditorModeCommand`, `SwitchWorkspaceCommand` | 0 | Complete; user accepted |
+| File / Add / Undo / Redo | `FileModule` | `XYMenuBar`, `XYMenu`, `XYMenuItem`, `XYButton`, `XYSeparator` | `RunCommand` with file, add, undo, and redo parameters | 0 | Complete |
+| Editing tools | `EditToolsModule` | `XYCaption`, `XYToggleButton` | `SelectToolCommand`, `IsSelectTool`, `IsBoxSelectTool`, `IsMoveTool`, `IsRotateTool`, `IsScaleTool` | 0 | Complete |
+| View tools | `ViewModule` | `XYCaption`, `XYButton`, `XYMenuBar`, `XYMenu`, `XYMenuItem` | `RunCommand` with focus, frame-all, pan, orbit, and environment parameters | 0 | Complete |
+| Snap | `SnapModule` | `XYCaption`, `XYToggleButton` | `ToggleSnapCommand`, `IsSnapEnabled`, `SnapMode` | 0 | Complete |
+| Run / Stop / Status | `RuntimeStatusModule` | `XYCaption`, `XYButton`, `XYBadge` | `RunCommand`, `DocumentStatusText`, `FooterMode` | 0 | Complete |
+| Popup resources | `XYMenuBar` / `XYMenu` | `XyuiOverlayResourceBridge` → `PopupRoot` → `XYMenu` / `XYMenuItem` | canonical Light/Dark theme dictionaries and first-attach styling order | 0 | R9 fixed and user accepted |
+
+- Native residual audit: Area A production sources contain `Native Menu = 0` and `Native MenuItem = 0`; no replacement work was performed during closeout.
+- R9 infrastructure: `XyuiOverlayResourceBridge.cs` and `XYMenu.OverlayResources.cs` are present; real Windows `PopupRoot` resource access and Radio Stroke/Fill were verified; temporary probe residue is `0`.
+- Final status:
+  - `IMPLEMENTATION = COMPLETE`
+  - `FUNCTIONAL GATES = PASS`
+  - `XYUI MIGRATION = COMPLETE`
+  - `MENU MIGRATION = COMPLETE`
+  - `USER VISUAL = ACCEPTED`
+  - `BLOCKERS = 0`
+  - `AREA A · TOP CHROME = CLOSED / FROZEN`

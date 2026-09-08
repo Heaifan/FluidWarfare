@@ -7,7 +7,8 @@
 - 修复范围：新增 XYUI Overlay Resource Bridge；覆盖 MenuBar、ContextMenu、NavigationRail 的 Popup 资源作用域；未修改 Radio 几何、状态机、WorkspaceSelector 或 Native Menu/MenuItem。
 - 验证：真实 Windows Popup 探针 PASS（PopupRoot、Light/Light 主题、16×16 Ring、1.5 描边、选中 Dot 6×6 且 Stroke/Fill 有效）；Solution Build 0W0E；Core 339/339、WarCore 22/22、World 1416/1416、XYUI 576/576；ARCH-A/5+100 PASS；file-tree 2108/2108；Area A Native Menu/MenuItem 合同 0/0；`git diff --check` PASS。
 - Hash：`d1de9aee`（R9 实现与回归提交）。
-- 状态：等待用户真机视觉验收，不宣告视觉验收通过。
+- Area A 收口：Top Chrome XYUI 实现、菜单迁移与 PopupRoot 资源链均已完成；Native Menu/MenuItem 残留审计为 `0/0`；用户已确认 Workspace Radio 与普通 XYUI File 菜单视觉通过。
+- 状态：`AREA A · TOP CHROME = CLOSED / FROZEN`；后续不得无新任务或新复现缺陷继续修改 Area A。
 
 ## v0.2.28.30-rz · AREA-A-R7 POPUP STYLE ORDER CLOSEOUT（2026-09-08 22:43:22 +08:00）
 
