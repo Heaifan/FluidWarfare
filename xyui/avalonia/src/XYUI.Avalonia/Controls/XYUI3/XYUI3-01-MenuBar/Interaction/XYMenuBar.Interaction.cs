@@ -22,9 +22,10 @@ public sealed partial class XYMenuBar
         OpenMenu.DataContext ??= item.DataContext;
         Focus(); OpenMenu.FocusRestoreTarget = item;
         _subscribedMenu = OpenMenu; _subscribedMenu.Closed += OnOpenMenuClosed;
-        OpenMenu.ApplyOverlayStyling(); OpenMenu.Open();
+        OpenMenu.ApplyOverlayStyling();
         _popup = new Popup { PlacementTarget = item, Placement = PlacementMode.Bottom, IsLightDismissEnabled = true, Child = OpenMenu };
         _popupClosed = (_, _) => Close(); _popup.Closed += _popupClosed; _popup.IsOpen = true;
+        OpenMenu.Open();
     }
     public void Close()
     {
