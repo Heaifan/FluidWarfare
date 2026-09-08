@@ -29,8 +29,8 @@ public sealed class EditorModeUiCompositionTests
     public void Bottom_asset_browser_is_retired_but_file_import_remains()
     {
         Assert.False(File.Exists(Path.Combine(Root, "XuanYu.Editor.UI", "Shell", "BottomDockHost.axaml")));
-        var top = Read("XuanYu.Editor.UI", "Top", "Top.axaml");
-        Assert.Contains("CommandParameter=\"导入 GLB\"", top);
+        var file = Read("XuanYu.Editor.UI", "Top", "FileModule.axaml");
+        Assert.Contains("CommandParameter=\"导入 GLB\"", file);
     }
 
     [Fact]
@@ -72,14 +72,15 @@ public sealed class EditorModeUiCompositionTests
     }
 
     [Fact]
-    public void Selector_hides_menu_in_manage_and_routes_double_tap_to_shared_toggle()
+    public void Selector_hides_workspace_menu_in_manage_and_uses_one_toggle_gesture()
     {
         var selector = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
         var code = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml.cs");
-        Assert.Contains("IsVisible=\"{Binding IsManageMode}\"", selector);
         Assert.Contains("IsVisible=\"{Binding IsEditMode}\"", selector);
-        Assert.Contains("ChevronDownIcon", selector); Assert.Contains("ToggleType=\"Radio\"", selector);
-        Assert.Contains("ModeSurface_DoubleTapped", code); Assert.Contains("ToggleEditorMode", code);
+        Assert.Contains("ToggleType=\"Radio\"", selector);
+        Assert.DoesNotContain("DoubleTapped", selector);
+        Assert.DoesNotContain("DoubleTapped", code);
+        Assert.DoesNotContain("ToggleEditorMode", code);
     }
 
     static int Count(string text, string value) => text.Split(value).Length - 1;

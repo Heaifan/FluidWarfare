@@ -13,14 +13,17 @@ public sealed class WorkspaceSelectorR2ContractTests
     public WorkspaceSelectorR2ContractTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public void Selector_declares_both_xyui_mode_entries_and_state_visibility()
+    public void Selector_separates_workspace_and_editor_mode()
     {
         var source = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
-        Assert.Equal(2, Count(source, "<xy:XYButton"));
-        Assert.Contains("Content=\"管理模式\"", source);
+        Assert.Equal(1, Count(source, "<xy:XYButton"));
+        Assert.Contains("Text=\"工作区\"", source);
+        Assert.Contains("Text=\"当前工作区\"", source);
+        Assert.Contains("Text=\"编辑模式\"", source);
         Assert.Contains("Content=\"{Binding CurrentEditorModeText}\"", source);
-        Assert.Equal(2, Count(source, "Command=\"{Binding ToggleEditorModeCommand}\""));
-        Assert.Contains("<StackPanel Orientation=\"Horizontal\" Spacing=\"4\">", source);
+        Assert.Equal(1, Count(source, "Command=\"{Binding ToggleEditorModeCommand}\""));
+        Assert.Contains("Command=\"{Binding SwitchWorkspaceCommand}\"", source);
+        Assert.DoesNotContain("DoubleTapped=", source);
     }
 
     [Fact]
@@ -41,14 +44,14 @@ public sealed class WorkspaceSelectorR2ContractTests
         });
 
         Assert.Contains("管理模式", states.manage);
-        Assert.Contains("管理模式", states.edit);
         Assert.Contains("地图编辑", states.edit);
+        Assert.DoesNotContain("管理模式", states.edit);
     }
 
     [Fact]
     public void Top_declares_one_environment_menu()
     {
-        var source = Read("XuanYu.Editor.UI", "Top", "Top.axaml");
+        var source = Read("XuanYu.Editor.UI", "Top", "ViewModule.axaml");
         Assert.Equal(1, Count(source, "Header=\"环境\""));
     }
 

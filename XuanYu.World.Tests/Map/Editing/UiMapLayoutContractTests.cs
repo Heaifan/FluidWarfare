@@ -14,6 +14,9 @@ public sealed class UiMapLayoutContractTests
     static readonly string Right = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
 
+    static readonly string FileModule = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+        "..", "..", "..", "..", "XuanYu.Editor.UI", "Top", "FileModule.axaml"));
+
     static readonly string Top = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Top", "Top.axaml"));
 
@@ -53,7 +56,8 @@ public sealed class UiMapLayoutContractTests
     public void Add_menu_has_no_category_level()
     {
         Assert.DoesNotContain("基础实体", Top);
-        Assert.Contains("<MenuItem Header=\"立方体\" Command=\"{Binding RunCommand}\" CommandParameter=\"添加立方体\"/>", Top);
+        Assert.Contains("<MenuItem Header=\"立方体\"", FileModule);
+        Assert.Contains("CommandParameter=\"添加立方体\"", FileModule);
     }
 
     // EDITOR-A-R3：右侧顶层仅保留全局检查器与调试，地图 Context 不再替换整块右栏。

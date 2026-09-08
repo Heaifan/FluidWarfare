@@ -38,12 +38,6 @@
       <xy:XYLabel Grid.Row="3" Text="地表类型" VerticalAlignment="Center"/>
       <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）" VerticalAlignment="Center"/>
     </Grid>
-    <!-- 受限宽度仍保留独立输入控件：每个可编辑字段必须各自绑定字段错误，不能退化为表单级染色。 -->
-    <StackPanel x:Name="PropsNarrow" Spacing="{StaticResource Space.4}" IsVisible="False">
-      <StackPanel><xy:XYLabel Text="宽度（米）"/><xy:XYTextField x:Name="WidthBoxNarrow" Text="{Binding MapWidthText}" Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact" Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图宽度"/></StackPanel>
-      <StackPanel><xy:XYLabel Text="深度（米）"/><xy:XYTextField x:Name="DepthBoxNarrow" Text="{Binding MapDepthText}" Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact" Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus" AutomationProperties.Name="地图深度"/></StackPanel>
-      <StackPanel><xy:XYLabel Text="基础高度（米）"/><xy:XYTextField x:Name="HeightBoxNarrow" Text="{Binding MapBaseHeightText}" Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact" Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus" AutomationProperties.Name="基础高度"/></StackPanel>
-    </StackPanel>
     <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
     <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
           ColumnSpacing="{StaticResource Space.4}" RowSpacing="{StaticResource Space.4}">

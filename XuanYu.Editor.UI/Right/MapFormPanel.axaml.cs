@@ -36,8 +36,8 @@ public partial class MapFormPanel : UserControl
     void Field_LostFocus(object? sender, RoutedEventArgs e)
     {
         if (sender is not TextBox box || DataContext is not UiVm vm) return;
-        var field = box == WidthBoxWide || box == WidthBoxNarrow ? "宽度"
-            : box == DepthBoxWide || box == DepthBoxNarrow ? "深度" : "基础高度";
+        var field = box == WidthBoxWide ? "宽度"
+            : box == DepthBoxWide ? "深度" : "基础高度";
         var text = box.Text ?? "";
         vm.ValidateMapField(field, text, out _);
     }

@@ -58,11 +58,29 @@ public sealed class UiR1FinalLeftTopContractTests
     public void Top_uses_badges_and_canonical_vertical_separators()
     {
         var top = Read("Top/Top.axaml");
-        Assert.Contains("<xy:XYBadge", top);
-        Assert.Contains("<xy:XYSeparator Variant=\"VerticalSplit\"", top);
+        var runtime = Read("Top/RuntimeStatusModule.axaml");
+        var file = Read("Top/FileModule.axaml");
+        var tools = Read("Top/EditToolsModule.axaml");
+        var view = Read("Top/ViewModule.axaml");
+        var snap = Read("Top/SnapModule.axaml");
+        Assert.Contains("<xy:XYSeparator Grid.Column=\"1\"", top);
+        Assert.Contains("<local:WorkspaceSelector", top);
+        Assert.Contains("<local:FileModule", top);
+        Assert.Contains("<local:EditToolsModule", top);
+        Assert.Contains("<local:ViewModule", top);
+        Assert.Contains("<local:RuntimeStatusModule", top);
+        Assert.Contains("<xy:XYBadge", runtime);
+        Assert.Contains("<Menu", file);
+        Assert.Contains("Text=\"文件\"", file);
+        Assert.Contains("Text=\"编辑工具\"", tools);
+        Assert.Contains("Text=\"视图\"", view);
+        Assert.Contains("Text=\"吸附\"", snap);
+        Assert.Contains("Text=\"运行\"", runtime);
+        Assert.Contains("Text=\"状态\"", runtime);
+        Assert.DoesNotContain("WORKSPACE", top);
+        Assert.DoesNotContain("EDIT TOOLS", tools);
         Assert.DoesNotContain("statePill", top);
-        Assert.Contains("<Menu>", top);
-        Assert.Contains("Classes=\"cmdBtn\"", top);
-        Assert.Contains("Classes=\"toolBtn\"", top);
+        Assert.DoesNotContain("Classes=\"cmdBtn\"", top);
+        Assert.DoesNotContain("Classes=\"toolBtn\"", top);
     }
 }

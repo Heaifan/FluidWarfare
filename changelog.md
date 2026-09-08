@@ -1,5 +1,15 @@
 # changelog
 
+## AREA A · C+D TOP CHROME（IN PROGRESS，2026-09-08 11:36:00 +08:00）
+
+- 基准与版本硬门禁：以 `v0.2.28.24-rz` 为全项目唯一事实真源，新增 `UiCanonicalVersionContractTests`（4/4 PASS）锁定 `run.bat`、窗口标题、VM 标题与 changelog 四处完全一致，杜绝版本漂移。
+- 前置纠偏：彻底移除 `MapFormPanel` 中的隐藏 `PropsNarrow`，单行 Property Grid 3 个字段各维持 1 处独立错误绑定；更新 `UiD5FormContractTests`（1/1 绑定契约）、`UiD4MapEditorContractTests`、`R2BPropertyEditorVisualContractTests` 与 `XYUI2R2BContractTests`，实装真单行 96,* 属性区。
+- C+D 模块卡片化架构：将 Area A 顶层解耦为独立 SRP 模块视图（`WorkspaceSelector`、`FileModule`、`EditToolsModule`、`ViewModule`、`SnapModule`、`RuntimeStatusModule`、`Top.axaml`），每个手写 AXAML 文件均 ≤ 100 行（严格遵守 5+100 架构红线与多行一属性 XAML 规范）。
+- 模块七大中文分区：落地 `工作区`（独立呈现编辑模式与具体工作区）、`文件`（文件/添加原生菜单 + 高频新建/打开/保存 + 撤销/重做）、`编辑工具`（选择、框选、移动、旋转、缩放，框选由 VM 诚实反馈尚未实装）、`视图`（聚焦、全览、平移、环绕、环境菜单）、`吸附`（吸附开关与状态）、`运行`（Primary 运行、Danger 停止）、`状态`（文档状态与当前模式 Badge）。
+- 样式纯化与单手势防抖：彻底清除 `Top.States.axaml` 模板 hack 与 `.cmdBtn`/`.toolBtn` 样式，全面接入规范 XYUI 控件；移除 `WorkspaceSelector` 中的 `DoubleTapped` 穿透，锁死为单一点击切换手势。
+- 自动化门禁：完整解决方案 Build `0 Warning / 0 Error`；Core `339/339`、WarCore `22/22`、World `1399/1399`、XYUI `558/558 PASS`；`arch-a-guard.ps1`（含 5+100）与 AXAML/XML、版本一致性、`git diff --check` 均通过。
+- 状态：`READY FOR USER IPO VISUAL ACCEPTANCE`，等待真机验收。
+
 ## AREA A · TOP CHROME（IN PROGRESS，2026-09-08 10:36:02 +08:00）
 
 - 开工：在 recovered canonical 上重新施工，不导入 Area-A 私人实验提交。

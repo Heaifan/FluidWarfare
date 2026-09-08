@@ -253,9 +253,18 @@
 - `XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml` - Avalonia XAML view or style resource for TopTabStripTemplate.axaml.
 - `XuanYu.Editor.UI/Root/UiRoot.axaml` - Avalonia XAML view or style resource for UiRoot.axaml.
 - `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` - C# implementation source for UiRoot.axaml.cs.
-- `XuanYu.Editor.UI/Top/Top.States.axaml` - Avalonia XAML view or style resource for Top.States.axaml.
+- `XuanYu.Editor.UI/Top/EditToolsModule.axaml` - Area A edit-tools module view using XYUI tool controls.
+- `XuanYu.Editor.UI/Top/EditToolsModule.axaml.cs` - Code-behind for the Area A edit-tools module.
+- `XuanYu.Editor.UI/Top/FileModule.axaml` - Area A file-command module view using XYUI buttons and menus.
+- `XuanYu.Editor.UI/Top/FileModule.axaml.cs` - Code-behind for the Area A file-command module.
+- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml` - Area A runtime and document-status module view.
+- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml.cs` - Code-behind for the Area A runtime-status module.
+- `XuanYu.Editor.UI/Top/SnapModule.axaml` - Area A snap-toggle module view.
+- `XuanYu.Editor.UI/Top/SnapModule.axaml.cs` - Code-behind for the Area A snap module.
 - `XuanYu.Editor.UI/Top/Top.axaml` - Avalonia XAML view or style resource for Top.axaml.
 - `XuanYu.Editor.UI/Top/Top.axaml.cs` - C# implementation source for Top.axaml.cs.
+- `XuanYu.Editor.UI/Top/ViewModule.axaml` - Area A view-command module view using XYUI buttons and menus.
+- `XuanYu.Editor.UI/Top/ViewModule.axaml.cs` - Code-behind for the Area A view module.
 - `XuanYu.Editor.UI/TreeGuide.cs` - C# implementation source for TreeGuide.cs.
 - `XuanYu.Editor.UI/TreeGuideSegment.cs` - C# implementation source for TreeGuideSegment.cs.
 - `XuanYu.Editor.UI/Ui.axaml` - Avalonia XAML view or style resource for Ui.axaml.
@@ -1047,6 +1056,7 @@
 - `XuanYu.World.Tests/UiRuntime/WorkspaceSelectorR2ContractTests.cs` - C# implementation source for WorkspaceSelectorR2ContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/XYUI2R2BContractTests.cs` - C# implementation source for XYUI2R2BContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` - C# implementation source for LayerAUiCompositionTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiCanonicalVersionContractTests.cs` - C# contract tests verifying project canonical version consistency across runtime and UI.
 - `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` - C# implementation source for UiCsColorRulesTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` - C# implementation source for UiD2F1RegionToolActivationContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolContractTests.cs` - C# implementation source for UiD2F1RegionToolContractTests.cs.

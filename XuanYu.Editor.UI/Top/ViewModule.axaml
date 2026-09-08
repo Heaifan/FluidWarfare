@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
+             x:Class="XuanYu.Editor.UI.ViewModule"
+             x:DataType="local:UiVm">
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+  <Border BorderBrush="{StaticResource Color.Border.Default}"
+          BorderThickness="1"
+          CornerRadius="{StaticResource Radius.Standard}"
+          Padding="8,4">
+    <StackPanel Spacing="2">
+      <xy:XYCaption Text="视图"/>
+      <StackPanel Orientation="Horizontal"
+                  Spacing="4">
+        <xy:XYButton Variant="Secondary"
+                     MinHeight="32"
+                     Command="{Binding RunCommand}"
+                     CommandParameter="聚焦"
+                     ToolTip.Tip="聚焦选择对象">
+          <StackPanel Orientation="Horizontal" Spacing="4">
+            <Path Classes="topIcon" Data="{StaticResource FocusIcon}"/>
+            <TextBlock Text="聚焦"/>
+          </StackPanel>
+        </xy:XYButton>
+        <xy:XYButton Variant="Secondary"
+                     MinHeight="32"
+                     Command="{Binding RunCommand}"
+                     CommandParameter="查看全部"
+                     ToolTip.Tip="查看全部">
+          <StackPanel Orientation="Horizontal" Spacing="4">
+            <Path Classes="topIcon" Data="{StaticResource FocusIcon}"/>
+            <TextBlock Text="全览"/>
+          </StackPanel>
+        </xy:XYButton>
+        <xy:XYButton Variant="Secondary"
+                     MinHeight="32"
+                     Command="{Binding RunCommand}"
+                     CommandParameter="平移"
+                     ToolTip.Tip="平移视图">
+          <StackPanel Orientation="Horizontal" Spacing="4">
+            <Path Classes="topIcon" Data="{StaticResource PanIcon}"/>
+            <TextBlock Text="平移"/>
+          </StackPanel>
+        </xy:XYButton>
+        <xy:XYButton Variant="Secondary"
+                     MinHeight="32"
+                     Command="{Binding RunCommand}"
+                     CommandParameter="环绕"
+                     ToolTip.Tip="环绕视图">
+          <StackPanel Orientation="Horizontal" Spacing="4">
+            <Path Classes="topIcon" Data="{StaticResource OrbitIcon}"/>
+            <TextBlock Text="环绕"/>
+          </StackPanel>
+        </xy:XYButton>
+        <Menu VerticalAlignment="Center">
+          <MenuItem Header="环境">
+            <MenuItem Header="{Binding GridDisplayText}"
+                      Command="{Binding RunCommand}"
+                      CommandParameter="显示构造网格"/>
+            <MenuItem Header="{Binding OriginDisplayText}"
+                      Command="{Binding RunCommand}"
+                      CommandParameter="显示世界原点"/>
+            <MenuItem Header="{Binding WorldAxesDisplayText}"
+                      Command="{Binding RunCommand}"
+                      CommandParameter="显示世界坐标轴"/>
+            <MenuItem Header="{Binding EditorBackgroundDisplayText}"
+                      Command="{Binding RunCommand}"
+                      CommandParameter="显示编辑器背景"/>
+          </MenuItem>
+        </Menu>
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</UserControl>

@@ -25,7 +25,7 @@ public sealed class XYUI2R2BContractTests
     public void Map_inputs_are_xyui_text_fields_and_keep_validation_bindings()
     {
         var source = Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml");
-        Assert.Equal(6, Count(source, "<xy:XYTextField"));
+        Assert.Equal(3, Count(source, "<xy:XYTextField"));
         Assert.DoesNotContain("<TextBox", source);
         Assert.Contains("MapWidthText", source);
         Assert.Contains("MapDepthText", source);
@@ -66,7 +66,7 @@ public sealed class XYUI2R2BContractTests
 
         Assert.Equal(7, counts.MapButtons);
         Assert.Equal(1, counts.MapIconButtons);
-        Assert.Equal(6, counts.MapFields);
+        Assert.Equal(3, counts.MapFields);
         Assert.Equal(4, counts.DebugButtons);
     }
 
@@ -79,7 +79,7 @@ public sealed class XYUI2R2BContractTests
         Assert.Contains("<xy:XYSectionTitle", inspector);
         Assert.Contains("<xy:XYSeparator Variant=\"Section\"", inspector);
         Assert.Contains("ColumnDefinitions=\"80,*\"", inspector);
-        Assert.Contains("PropsWide", form); Assert.Contains("PropsNarrow", form);
+        Assert.Contains("PropsWide", form); Assert.DoesNotContain("PropsNarrow", form);
         Assert.Contains("EditorLayerDock", right);
     }
 
