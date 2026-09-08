@@ -3,7 +3,7 @@
 ## v0.2.28.26-rz · SINGLE CANONICAL WORKSPACE CONSOLIDATION（2026-09-08 17:51:27 +08:00）
 
 - 目标：冻结 XYUI 内置模式，XuanYuEngine 成为唯一正式工作区与 Git 真源。
-- 收口：审计 11 个已注册 worktree；8 个干净旧 XYUI worktree 已移除，`XuanYuEngine-XYUI-INT` 的 23 个未提交文件已保存为 `f2644678` stash 后移除；旧 XYUI worktree 已从项目父目录清除，Recovery 已有 14 个文件移至 G 盘隔离副本，原目录剩余 2 个被操作系统锁定的日志文件。
+- 收口：审计项目相关的 1 个 Canonical worktree 与 9 个旧 XYUI worktree（另有 3 个 G 盘 Codex 临时 worktree 保留）；8 个干净旧 XYUI worktree 已移除，`XuanYuEngine-XYUI-INT` 的 23 个未提交文件已保存为 `f2644678` stash 后移除；旧 XYUI worktree 已从项目父目录清除，Recovery 已有 14 个文件移至 G 盘隔离副本，原目录剩余 2 个被操作系统锁定的日志文件。
 - 历史：旧 XYUI 分支相对 Canonical 的领先提交均可由 `origin/*` 到达，没有仅存在旧 XYUI 分支且远端不可达的独有提交；Recovery 中的未合并 `922851dd` 已保留为本地 `archive/recovery-20260908-922851dd` ref，旧工作树 stash `01004bf0` 仍可恢复；未自动合并或 cherry-pick。
 - 规则：宪法升级为 2.3，`AGENTS.md`、`docs/dev-rules.md` 与 `xyui/governance/XYUI-A-plan.md` 明确 XYUI 与 Engine 共用工作区、分支、版本、构建和维护生命周期；保留 XYUI Runtime/Gallery/Tests 的独立项目边界。
 - 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1413/1413、XYUI 565/565；Gallery 随 Solution 构建通过；ARCH-A、`git diff --check`、Solution/ProjectReference/`run.bat` Canonical 静态核对通过。
