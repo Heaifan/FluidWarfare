@@ -1,5 +1,11 @@
 # changelog
 
+## AREA A · TOP CHROME（IN PROGRESS，2026-09-08 10:36:02 +08:00）
+
+- 开工：在 recovered canonical 上重新施工，不导入 Area-A 私人实验提交。
+- 首个布局改造：Top Chrome 用真实 `XYHeading`、`XYCaption`、`XYSeparator` 和既有 `XYBadge` 分离品牌/编辑上下文、菜单与命令组；所有既有 Command、Binding 与工具交互保持原接线。
+- 验收：自动门禁完成后仍需用户按 IPO 做顶部视觉与交互真机验收；当前状态为 `IN PROGRESS`，不是 CLOSED。
+
 ## BASELINE-STABILIZATION · e074e1bb recovered candidate（2026-09-08 10:36:02 +08:00）
 
 - 恢复：地图属性重新保留宽/窄两种真实 XYUI 输入路径，6 个字段控件均独立绑定 `MapWidthError` / `MapDepthError` / `MapBaseHeightError`，失焦校验不再退化为表单级错误；MAP focused `824/824 PASS`。
