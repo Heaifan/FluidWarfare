@@ -32,7 +32,7 @@
       <xy:XYIcon Icon="Error" Size="Small" Stroke="{StaticResource Color.Error}" IsVisible="{Binding IsNotificationError}"/>
       <xy:XYTruncatedText Text="{Binding NotificationText}" Mode="End" ToolTip.Tip="{Binding NotificationText}"/>
       <xy:XYBadge Text="{Binding NotificationCount, StringFormat=×{0}}" IsVisible="{Binding ShowNotificationCount}"/>
-      <Button Classes="notificationClose" Click="Dismiss_Click" ToolTip.Tip="关闭通知" VerticalAlignment="Center">
+      <Button Classes="legacyControl notificationClose" Click="Dismiss_Click" ToolTip.Tip="关闭通知" VerticalAlignment="Center">
         <xy:XYIcon Icon="Clear" Size="Tiny"/>
       </Button>
     </StackPanel>

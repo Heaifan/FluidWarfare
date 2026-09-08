@@ -18,18 +18,18 @@
     <Style Selector="Menu"><Setter Property="Background" Value="Transparent"/><Setter Property="Padding" Value="0"/></Style>
     <Style Selector="MenuItem"><Setter Property="MinHeight" Value="32"/><Setter Property="Padding" Value="11,5"/><Setter Property="Foreground" Value="#2f3d52"/></Style>
     <Style Selector="MenuItem:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
-    <Style Selector="Button.cmdBtn"><Setter Property="MinHeight" Value="32"/><Setter Property="MinWidth" Value="32"/><Setter Property="Padding" Value="7,4"/><Setter Property="Margin" Value="0"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
-    <Style Selector="Button.cmdBtn:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
-    <Style Selector="Button.cmdBtn:pressed"><Setter Property="Background" Value="#dfeaf8"/></Style>
-    <Style Selector="Button.cmdBtn:disabled"><Setter Property="Opacity" Value="0.48"/></Style>
-    <Style Selector="ToggleButton.toolBtn"><Setter Property="MinHeight" Value="32"/><Setter Property="MinWidth" Value="32"/><Setter Property="Padding" Value="7,4"/><Setter Property="Margin" Value="0"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
-    <Style Selector="ToggleButton.toolBtn:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
-    <Style Selector="ToggleButton.toolBtn:pressed"><Setter Property="Background" Value="#dfeaf8"/></Style>
-    <Style Selector="ToggleButton.toolBtn:checked"><Setter Property="Background" Value="#eef5ff"/><Setter Property="BorderBrush" Value="#94b9e8"/><Setter Property="BorderThickness" Value="1,1,1,3"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+    <Style Selector="Button.xyui-button.cmdBtn"><Setter Property="MinHeight" Value="32"/><Setter Property="MinWidth" Value="32"/><Setter Property="Padding" Value="7,4"/><Setter Property="Margin" Value="0"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
+    <Style Selector="Button.xyui-button.cmdBtn:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
+    <Style Selector="Button.xyui-button.cmdBtn:pressed"><Setter Property="Background" Value="#dfeaf8"/></Style>
+    <Style Selector="Button.xyui-button.cmdBtn:disabled"><Setter Property="Opacity" Value="0.48"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn"><Setter Property="MinHeight" Value="32"/><Setter Property="MinWidth" Value="32"/><Setter Property="Padding" Value="7,4"/><Setter Property="Margin" Value="0"/><Setter Property="CornerRadius" Value="4"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderBrush" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn:pressed"><Setter Property="Background" Value="#dfeaf8"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn:checked"><Setter Property="Background" Value="#eef5ff"/><Setter Property="BorderBrush" Value="#94b9e8"/><Setter Property="BorderThickness" Value="1,1,1,3"/><Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
     <Style Selector="Path.topIcon"><Setter Property="Width" Value="16"/><Setter Property="Height" Value="16"/><Setter Property="Stretch" Value="Uniform"/><Setter Property="Stroke" Value="#5d6d83"/><Setter Property="StrokeThickness" Value="1.6"/></Style>
-    <Style Selector="Button.cmdBtn:pointerover Path.topIcon"><Setter Property="Stroke" Value="#365d8d"/></Style>
-    <Style Selector="ToggleButton.toolBtn:pointerover Path.topIcon"><Setter Property="Stroke" Value="#365d8d"/></Style>
-    <Style Selector="ToggleButton.toolBtn:checked Path.topIcon"><Setter Property="Stroke" Value="#185aa6"/></Style>
+    <Style Selector="Button.xyui-button.cmdBtn:pointerover Path.topIcon"><Setter Property="Stroke" Value="#365d8d"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn:pointerover Path.topIcon"><Setter Property="Stroke" Value="#365d8d"/></Style>
+    <Style Selector="ToggleButton.xyui-toggle-button.toolBtn:checked Path.topIcon"><Setter Property="Stroke" Value="#185aa6"/></Style>
   </UserControl.Styles>
 
   <Grid RowDefinitions="Auto,Auto" RowSpacing="5">

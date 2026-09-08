@@ -23,10 +23,10 @@ public sealed class UiD5ButtonContractTests
     [Fact]
     public void Button_has_full_state_set()
     {
-        Assert.Contains("<Style Selector=\"Button:pointerover\">", D5);
-        Assert.Contains("<Style Selector=\"Button:pressed\">", D5);
-        Assert.Contains("<Style Selector=\"Button:focus-visible\">", D5);
-        Assert.Contains("<Style Selector=\"Button:disabled\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyControl:pointerover\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyControl:pressed\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyControl:focus-visible\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyControl:disabled\">", D5);
     }
 
     [Fact]
@@ -42,7 +42,7 @@ public sealed class UiD5ButtonContractTests
     [Fact]
     public void Danger_button_uses_danger_token()
     {
-        Assert.Contains("<Style Selector=\"Button.uiDanger\">", D5);
+        Assert.Contains("<Style Selector=\"Button.legacyControl.uiDanger\">", D5);
         Assert.Contains("Color.Danger", D5);
     }
 
@@ -55,5 +55,10 @@ public sealed class UiD5ButtonContractTests
         Assert.DoesNotContain("Background\" Value=\"#eef3fa\"", Ui);  // 旧按钮底色已迁移
         Assert.DoesNotContain("BorderBrush\" Value=\"#d4ddea\"", Ui);
         Assert.DoesNotContain("Foreground\" Value=\"#26324a\"", Ui);
+        Assert.Contains("Selector=\"Button.legacyControl\"", Ui);
+        Assert.Contains("Selector=\"TextBox.legacyControl\"", D5);
+        Assert.DoesNotContain("Selector=\"Button\"", Ui);
+        Assert.DoesNotContain("Selector=\"Button\"", D5);
+        Assert.DoesNotContain("Selector=\"TextBox\"", D5);
     }
 }

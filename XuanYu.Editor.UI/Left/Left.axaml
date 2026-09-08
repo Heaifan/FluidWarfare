@@ -76,7 +76,7 @@
                 <xy:XYTruncatedText Grid.Column="3" Text="{Binding Title}" Mode="End"
                                     ToolTip.Tip="{Binding Title}" VerticalAlignment="Center"
                                     IsVisible="{Binding !IsRenaming}"/>
-                <TextBox Grid.Column="3" Text="{Binding RenameText, Mode=TwoWay}" IsVisible="{Binding IsRenaming}"
+                <TextBox Classes="legacyControl" Grid.Column="3" Text="{Binding RenameText, Mode=TwoWay}" IsVisible="{Binding IsRenaming}"
                          AttachedToVisualTree="RenameTextBox_AttachedToVisualTree" DetachedFromVisualTree="RenameTextBox_DetachedFromVisualTree"
                          KeyDown="RenameTextBox_KeyDown" LostFocus="RenameTextBox_LostFocus"/>
               </Grid>

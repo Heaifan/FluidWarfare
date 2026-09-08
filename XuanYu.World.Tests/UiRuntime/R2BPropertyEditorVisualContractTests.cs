@@ -18,13 +18,13 @@ public sealed class R2BPropertyEditorVisualContractTests
     public void Map_form_declares_compact_property_geometry()
     {
         var form = Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml");
-        Assert.Equal(3, Count(form, "<xy:XYTextField"));
-        Assert.Equal(3, Count(form, "Width=\"{StaticResource Size.Width.128}\""));
-        Assert.Equal(6, Count(form, "Height=\"{StaticResource Control.Height.Compact}\""));
-        Assert.Equal(4, Count(form, "xycore:XY.Size=\"Compact\""));
+        Assert.Equal(6, Count(form, "<xy:XYTextField"));
+        Assert.Equal(6, Count(form, "Width=\"{StaticResource Size.Width.128}\""));
+        Assert.Equal(9, Count(form, "Height=\"{StaticResource Control.Height.Compact}\""));
+        Assert.Equal(7, Count(form, "xycore:XY.Size=\"Compact\""));
         Assert.Equal(3, Count(form, "Width=\"{StaticResource Size.Width.96}\""));
         Assert.DoesNotContain("HorizontalAlignment=\"Stretch\"", form);
-        Assert.DoesNotContain("PropsNarrow", form);
+        Assert.Contains("PropsNarrow", form);
         Assert.DoesNotContain("EditableFormLayoutModel", form);
         Assert.Contains("ColumnDefinitions=\"96,*\"", form);
         Assert.Equal(9, Count(form, "VerticalAlignment=\"Center\""));
@@ -48,7 +48,7 @@ public sealed class R2BPropertyEditorVisualContractTests
             return (Fields: fields, Buttons: buttons);
         });
 
-        Assert.Equal(3, result.Fields.Length);
+        Assert.Equal(6, result.Fields.Length);
         Assert.All(result.Fields, field =>
         {
             Assert.Equal(128, field.Width);
@@ -70,7 +70,7 @@ public sealed class R2BPropertyEditorVisualContractTests
         var form = Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml");
         foreach (var binding in new[] { "MapWidthText", "MapDepthText", "MapBaseHeightText" })
             Assert.Contains(binding, form);
-        Assert.Equal(3, Count(form, "LostFocus=\"Field_LostFocus\""));
+        Assert.Equal(6, Count(form, "LostFocus=\"Field_LostFocus\""));
         foreach (var command in new[] { "应用地图属性", "撤销地图修改", "重做地图修改" })
             Assert.Contains($"CommandParameter=\"{command}\"", form);
     }

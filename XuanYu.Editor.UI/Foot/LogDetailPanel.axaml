@@ -8,7 +8,7 @@
     <Grid RowDefinitions="Auto,*">
       <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,6">
         <xy:XYHeading Text="日志详情" Variant="PanelTitle"/>
-        <Button Grid.Column="1" Content="复制详情" Click="CopyDetail_Click"
+        <Button Classes="legacyControl" Grid.Column="1" Content="复制详情" Click="CopyDetail_Click"
                 IsVisible="{Binding HasSelectedLogEntry}" Padding="8,3"/>
       </Grid>
 

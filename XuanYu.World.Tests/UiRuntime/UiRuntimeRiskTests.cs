@@ -31,7 +31,7 @@ public sealed class UiRuntimeRiskTests
         });
 
         Assert.NotEqual(Color.Parse("#0078D7"), color.Item1);
-        Assert.Equal(Color.Parse("#243744"), color.Item2);
+        Assert.Equal(Color.Parse("#2B3A44"), color.Item2); // XYUI Text.Primary
     }
 
     [Fact]

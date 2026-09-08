@@ -32,10 +32,10 @@ internal static partial class UiDebtBaseline
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.topGroup", UiRuleKind.CornerRadius, "CornerRadius", "0"));
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.statePill", UiRuleKind.CornerRadius, "CornerRadius", "7"));
         list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:MenuItem", UiRuleKind.ControlHeight, "MinHeight", "32"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.cmdBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));
-        list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.cmdBtn", UiRuleKind.CornerRadius, "CornerRadius", "4"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.toolBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));
-        list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.toolBtn", UiRuleKind.CornerRadius, "CornerRadius", "4"));
+        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));
+        list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn", UiRuleKind.CornerRadius, "CornerRadius", "4"));
+        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.xyui-toggle-button.toolBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));
+        list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.xyui-toggle-button.toolBtn", UiRuleKind.CornerRadius, "CornerRadius", "4"));
         list.Add(new("W27", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Path.topIcon", UiRuleKind.StrokeThickness, "StrokeThickness", "1.6"));
         list.Add(new("W10", "XuanYu.Editor.UI/Ui.axaml", "Style:Border.panel", UiRuleKind.CornerRadius, "CornerRadius", "6"));
         list.Add(new("W04", "XuanYu.Editor.UI/Ui.axaml", "Style:Border.panel", UiRuleKind.BoxShadow, "BoxShadow", "0 14 30 0 #160f172a"));

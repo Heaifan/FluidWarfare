@@ -44,7 +44,7 @@
         </Style>
       </Grid.Styles>
       <Grid x:Name="TabStripBar" ColumnDefinitions="Auto,*,Auto,Auto">
-        <Button x:Name="TabScrollLeft" Classes="tabNavBtn" IsVisible="False" ToolTip.Tip="向左查看更多页签">
+        <Button x:Name="TabScrollLeft" Classes="legacyControl tabNavBtn" IsVisible="False" ToolTip.Tip="向左查看更多页签">
           <Path Classes="tabNavIcon" Data="{StaticResource ChevronRightIcon}">
             <Path.RenderTransform>
               <RotateTransform Angle="180"/>
@@ -79,11 +79,11 @@
             </Border.Background>
           </Border>
         </Grid>
-        <Button x:Name="TabScrollRight" Grid.Column="2" Classes="tabNavBtn" IsVisible="False"
+        <Button x:Name="TabScrollRight" Grid.Column="2" Classes="legacyControl tabNavBtn" IsVisible="False"
                 ToolTip.Tip="向右查看更多页签">
           <Path Classes="tabNavIcon" Data="{StaticResource ChevronRightIcon}"/>
         </Button>
-        <Button x:Name="TabAllTabs" Grid.Column="3" Classes="tabNavBtn" ToolTip.Tip="全部页签">
+        <Button x:Name="TabAllTabs" Grid.Column="3" Classes="legacyControl tabNavBtn" ToolTip.Tip="全部页签">
           <Path Classes="tabNavIcon" Data="{StaticResource ChevronDownIcon}"/>
         </Button>
       </Grid>

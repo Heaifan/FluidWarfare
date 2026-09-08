@@ -1,5 +1,12 @@
 # changelog
 
+## BASELINE-STABILIZATION · e074e1bb recovered candidate（2026-09-08 10:36:02 +08:00）
+
+- 恢复：地图属性重新保留宽/窄两种真实 XYUI 输入路径，6 个字段控件均独立绑定 `MapWidthError` / `MapDepthError` / `MapBaseHeightError`，失焦校验不再退化为表单级错误；MAP focused `824/824 PASS`。
+- 单源：删除 35 个历史大写 `XYUI/` 追踪路径，并以 Windows 两阶段实体目录改名收敛为唯一 `xyui/`；Engine ProjectReference 继续指向 `..\\xyui\\avalonia\\src\\XYUI.Avalonia\\XYUI.Avalonia.csproj`。
+- 样式：Engine 旧 Button/TextBox 规则改为显式 `legacyControl` opt-in；XYUI 子类不匹配 Legacy 全局规则，工具与图层状态改由 XYUI canonical token 决定。
+- 验证：Solution Build `0 Warning / 0 Error`；Core `339/339`；WarCore `22/22`；MAP `824/824`；Engine XYUI/UI focused `355/355`；XYUI 全量 `558/558`（TRX）；ARCH-A、AXAML/XML、DLL/deps/SHA256、一致性及 `git diff --check` 通过。
+
 ## XYUI-ENGINE-A-R2-B-FIXUP-02 · Property Grid single-line recovery（2026-09-07 20:17:07 +08:00）
 
 - 视觉修复：`MapFormPanel` 移除会在侧栏窄于 360 DIP 时切换的 `PropsNarrow`，地图属性固定为 `96,*` 单行 Property Grid；标签、输入框与只读值垂直居中。

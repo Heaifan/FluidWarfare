@@ -14,17 +14,17 @@ public sealed class UiD5FormContractTests
     [Fact]
     public void Text_box_has_full_state_set()
     {
-        Assert.Contains("<Style Selector=\"TextBox\">", D5);
-        Assert.Contains("<Style Selector=\"TextBox:pointerover\">", D5);
-        Assert.Contains("<Style Selector=\"TextBox:focus\">", D5);
-        Assert.Contains("<Style Selector=\"TextBox:disabled\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl:pointerover\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl:focus\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl:disabled\">", D5);
     }
 
     [Fact]
     public void Text_box_error_and_warning_states_exist()
     {
-        Assert.Contains("<Style Selector=\"TextBox.error\">", D5);
-        Assert.Contains("<Style Selector=\"TextBox.warning\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl.error\">", D5);
+        Assert.Contains("<Style Selector=\"TextBox.legacyControl.warning\">", D5);
         Assert.Contains("Color.Error", D5);
         Assert.Contains("Color.Warning", D5);
     }

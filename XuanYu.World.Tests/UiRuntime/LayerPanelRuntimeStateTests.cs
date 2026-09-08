@@ -38,7 +38,7 @@ public sealed class LayerPanelRuntimeStateTests
     }
 
     [Theory]
-    [InlineData("layerSwitch", "#EAF3F7")]
+    [InlineData("layerSwitch", "#D0E1ED")]
     [InlineData("layerLockSwitch", "#F4EFE5")]
     public void CheckedStateUsesProjectBrushInTemplate(string className, string expected)
     {

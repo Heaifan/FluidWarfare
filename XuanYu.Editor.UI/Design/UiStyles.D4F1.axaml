@@ -31,7 +31,8 @@
     <Setter Property="FontWeight" Value="{StaticResource Font.Weight.SemiBold}"/>
     <Setter Property="Foreground" Value="{StaticResource Color.Text.Primary}"/>
   </Style>
-  <Style Selector="Button.uiTextButton">
+  <!-- This compact text contract is an XYUI composition style, never a legacy Button fallback. -->
+  <Style Selector="Button.xyui-button.uiTextButton">
     <Setter Property="FontSize" Value="{StaticResource Font.Label.Size}"/>
     <Setter Property="MinHeight" Value="28"/>
     <Setter Property="MinWidth" Value="0"/>

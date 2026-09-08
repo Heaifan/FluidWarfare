@@ -22,7 +22,7 @@ public sealed class UiD4F1ButtonContractTests
     public void Unified_button_style_provides_text_contract()
     {
         // 统一文本合同：NoWrap + CharacterEllipsis + MaxLines=1 + Tooltip 完整名称 + 字体 12
-        Assert.Contains("Button.uiTextButton", Ui);
+        Assert.Contains("Button.xyui-button.uiTextButton", Ui);
         Assert.Contains("TextWrapping\" Value=\"NoWrap\"", Ui);
         Assert.Contains("TextTrimming\" Value=\"CharacterEllipsis\"", Ui);
         Assert.Contains("MaxLines\" Value=\"1\"", Ui);

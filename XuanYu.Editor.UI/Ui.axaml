@@ -34,7 +34,8 @@
     <Setter Property="Background" Value="#e8eef7"/>
     <Setter Property="Padding" Value="10,5"/>
   </Style>
-  <Style Selector="Button">
+  <!-- Legacy controls opt in explicitly; XYUI derives from Avalonia controls and must not inherit Engine chrome. -->
+  <Style Selector="Button.legacyControl">
     <Setter Property="MinWidth" Value="52"/>
     <Setter Property="Padding" Value="10,7"/>
     <Setter Property="Margin" Value="0,0,6,0"/>
