@@ -6,6 +6,7 @@
 - 根因：`XYMenuBar.Open()` 原先先设置 `_popup.IsOpen=true`，再调用 `OpenMenu.ApplyOverlayStyling()`；生产顺序调整为先注入样式并打开 Menu，再挂载并打开 Popup。
 - 回归：R7 保持真实 Popup OPEN，不关闭、不 re-parent、不创建替代 Window；验证 Overlay Styles 已注入、Radio ring/dot 视觉节点存在、Radio 状态与 `IsChecked` 同步。Headless 平台不创建 PopupRoot，最终 Windows 绘制仍交由用户真机验收。
 - 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1416/1416、XYUI 573/573；T0/T1 定向 Popup 探针、ARCH-A/5+100、Area A Native Menu/MenuItem 0/0、版本四处一致与 `git diff --check` 通过。
+- Hash：`bb17e2b5`（R7 实现、测试与正式门禁提交）。
 - 状态：TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE；真机 PopupRoot 绘制仍由用户验收，不宣告用户视觉验收通过。
 
 ## v0.2.28.29-rz · AREA-A-R6 WORKSPACE RADIO REAL RENDER CLOSEOUT（2026-09-08 22:19:45 +08:00）
