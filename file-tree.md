@@ -1025,7 +1025,7 @@
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
 - `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - WorkspaceSelector runtime visual-tree regression coverage for Radio ring and dot state.
-- `XuanYu.World.Tests/UiRuntime/AreaAR6WorkspaceRadioRenderTests.cs` - Real WorkspaceSelector Popup radio geometry and effective-style regression coverage.
+- `XuanYu.World.Tests/UiRuntime/AreaAR6WorkspaceRadioRenderTests.cs` - Real WorkspaceSelector Popup style-order and Radio state regression coverage.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.

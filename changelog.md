@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.30-rz · AREA-A-R7 POPUP STYLE ORDER CLOSEOUT（2026-09-08 22:43:22 +08:00）
+
+- 目标：修复真实 `WorkspaceSelector` Popup 首次挂载时 Overlay Styles 晚于 PopupRoot 打开的时序问题。
+- 根因：`XYMenuBar.Open()` 原先先设置 `_popup.IsOpen=true`，再调用 `OpenMenu.ApplyOverlayStyling()`；生产顺序调整为先注入样式并打开 Menu，再挂载并打开 Popup。
+- 回归：R7 保持真实 Popup OPEN，不关闭、不 re-parent、不创建替代 Window；验证 Overlay Styles 已注入、Radio ring/dot 视觉节点存在、Radio 状态与 `IsChecked` 同步。Headless 平台不创建 PopupRoot，最终 Windows 绘制仍交由用户真机验收。
+- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1416/1416、XYUI 573/573；T0/T1 定向 Popup 探针、ARCH-A/5+100、Area A Native Menu/MenuItem 0/0、版本四处一致与 `git diff --check` 通过。
+- 状态：TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE；真机 PopupRoot 绘制仍由用户验收，不宣告用户视觉验收通过。
+
 ## v0.2.28.29-rz · AREA-A-R6 WORKSPACE RADIO REAL RENDER CLOSEOUT（2026-09-08 22:19:45 +08:00）
 
 - 目标：沿真实 `WorkspaceSelector.axaml → XYMenuBar → XYMenu → XYMenuItem` Popup 链路核验工作区 Radio 的最终布局与有效样式。
