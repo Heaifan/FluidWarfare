@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.29-rz · AREA-A-R6 WORKSPACE RADIO REAL RENDER CLOSEOUT（2026-09-08 22:19:45 +08:00）
+
+- 目标：沿真实 `WorkspaceSelector.axaml → XYMenuBar → XYMenu → XYMenuItem` Popup 链路核验工作区 Radio 的最终布局与有效样式。
+- 修复：Radio 圆点沿 XYUI2 canonical RadioButton 的 `6×6` 真源补齐尺寸；保留 `16×16` 环、`1.5` 描边和现有状态刷新链，不改造不存在于真实 Editor 路径的 `XYWorkspaceSwitcher`。
+- 回归：覆盖 Popup 打开、Headless 可布局宿主中的有效样式、地图/区域切换、关闭后重新打开；断言环/点 Bounds、Stroke、StrokeThickness、Fill、可见性与居中几何。
+- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1416/1416、XYUI 573/573；ARCH-A/5+100、版本四处一致与 `git diff --check` 通过。
+- 状态：TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE；真机视觉验收仍由用户完成。
+
 ## v0.2.28.28-rz · AREA-A-R5 MENU RADIO VISUAL CLOSEOUT（2026-09-08 21:00:29 +08:00）
 
 - 目标：修复 XYMenuItem Radio 的视觉树生命周期，完成 WorkspaceSelector 的真实运行时 ring/dot 回归覆盖。
