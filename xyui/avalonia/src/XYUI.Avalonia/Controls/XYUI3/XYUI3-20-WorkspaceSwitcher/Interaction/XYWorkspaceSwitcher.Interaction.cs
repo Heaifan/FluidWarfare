@@ -18,7 +18,7 @@ public sealed partial class XYWorkspaceSwitcher
     }
     XYMenuItem WorkspaceItem(XYWorkspaceItem workspace)
     {
-        var item = new XYMenuItem { Label = workspace.Label, Icon = workspace.Icon, IsEnabled = workspace.IsEnabled, IsSelected = workspace.Id == State.CurrentWorkspaceId, Classes = { "xyui-workspace-item" } };
+        var item = new XYMenuItem { Label = workspace.Label, Icon = workspace.Icon, IsEnabled = workspace.IsEnabled, IsChecked = workspace.Id == State.CurrentWorkspaceId, CheckKind = XyuiMenuCheckKind.Radio, IsSelected = workspace.Id == State.CurrentWorkspaceId, Classes = { "xyui-workspace-item" } };
         item.SelectionRequested += (_, _) => SelectWorkspace(workspace.Id); return item;
     }
     XYMenuItem ManageItem()
@@ -38,7 +38,7 @@ public sealed partial class XYWorkspaceSwitcher
     }
     public void Open()
     {
-        _popup.PlacementTarget = Trigger; _popup.Width = Trigger.Bounds.Width > 0 ? Trigger.Bounds.Width : Width > 0 ? Width : 224; _menu.Width = _popup.Width; _popup.IsOpen = true; _menu.Open(); foreach (var item in _menu.Items.OfType<XYMenuItem>()) item.IsSelected = Workspaces.Any(x => x.Label == item.Label && x.Id == State.CurrentWorkspaceId);
+        _popup.PlacementTarget = Trigger; _popup.Width = Trigger.Bounds.Width > 0 ? Trigger.Bounds.Width : Width > 0 ? Width : 224; _menu.Width = _popup.Width; _popup.IsOpen = true; _menu.Open(); foreach (var item in _menu.Items.OfType<XYMenuItem>()) { var selected = Workspaces.Any(x => x.Label == item.Label && x.Id == State.CurrentWorkspaceId); item.IsChecked = selected; item.IsSelected = selected; }
     }
     void Toggle() { if (_popup.IsOpen) ClosePopup(); else Open(); }
     public void ClosePopup() { if (_popup.IsOpen) _popup.IsOpen = false; _menu.Close(); }

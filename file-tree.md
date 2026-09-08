@@ -1803,7 +1803,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - C# implementation source for XYMenuItem.Visual.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - Canonical XYUI menu row visual composition, including check and radio indicators for workspace and regular menu items.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenu.cs` - C# implementation source for XYMenu.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenuItem.cs` - C# implementation source for XYMenuItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/Interaction/XYContextMenu.Interaction.cs` - C# implementation source for XYContextMenu.Interaction.cs.
@@ -1859,7 +1859,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Interaction.cs` - C# implementation source for XYBackForwardNavigation.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Lifecycle.cs` - C# implementation source for XYBackForwardNavigation.Lifecycle.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/UI/XYBackForwardNavigation.cs` - C# implementation source for XYBackForwardNavigation.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Interaction.cs` - C# implementation source for XYWorkspaceSwitcher.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Interaction.cs` - Workspace popup state projection and Radio selection synchronization.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Lifecycle.cs` - C# implementation source for XYWorkspaceSwitcher.Lifecycle.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/UI/XYWorkspaceSwitcher.cs` - C# implementation source for XYWorkspaceSwitcher.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-21-ViewSwitcher/XYViewSwitcher.cs` - C# implementation source for XYViewSwitcher.cs.
@@ -2022,7 +2022,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TableOfContentsTests.cs` - C# implementation source for XYUI3TableOfContentsTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TreeNavigationContractTests.cs` - C# implementation source for XYUI3TreeNavigationContractTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3ViewSwitcherTests.cs` - C# implementation source for XYUI3ViewSwitcherTests.cs.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - C# implementation source for XYUI3WorkspaceSwitcherTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - Workspace popup layout, selection, and Radio ring/dot visual regression tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUICompositionReuseTests.cs` - C# implementation source for XYUICompositionReuseTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUIVectorViewportTests.cs` - C# implementation source for XYUIVectorViewportTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiBatchTestHost.cs` - C# implementation source for XyuiBatchTestHost.cs.

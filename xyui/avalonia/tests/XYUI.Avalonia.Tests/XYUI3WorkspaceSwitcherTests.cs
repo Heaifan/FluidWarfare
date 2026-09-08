@@ -21,9 +21,14 @@ public sealed class XYUI3WorkspaceSwitcherTests : IClassFixture<XyuiHeadlessFixt
         XyuiBatchTestHost.Prepare(); var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("map-edit"), Items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs(); Assert.IsType<XYButton>(switcher.Trigger); Assert.Equal(switcher.Trigger.Bounds.Width, switcher.WorkspacePopup.Width); Assert.Equal(224, switcher.Trigger.Bounds.Width); Assert.Equal(HorizontalAlignment.Stretch, switcher.Trigger.HorizontalAlignment); window.Close();
     });
 
-    [Fact] public void Items_are_menu_rows_with_right_aligned_selected_check() => _fx.Run(() =>
+    [Fact] public void Items_are_menu_rows_with_right_aligned_selected_radio() => _fx.Run(() =>
     {
-        XyuiBatchTestHost.Prepare(); var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("map-edit"), Items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs(); var rows = switcher.WorkspaceMenu.Items.OfType<XYMenuItem>().Where(x => x.Classes.Contains("xyui-workspace-item")).ToArray(); Assert.Equal(4, rows.Length); Assert.All(rows, row => { Assert.Equal(32, row.Height); Assert.Equal(HorizontalAlignment.Stretch, row.HorizontalAlignment); }); var selected = rows.Single(x => x.Label == "地图编辑"); Assert.Contains("xyui-menu-selected", selected.Classes); var check = selected.GetVisualDescendants().Single(x => x.Classes.Contains("xyui-workspace-check")); Assert.True(check.IsVisible); Assert.True(check.Bounds.Right >= selected.Bounds.Right - 24); window.Close();
+        XyuiBatchTestHost.Prepare(); var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("map-edit"), Items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs(); var rows = switcher.WorkspaceMenu.Items.OfType<XYMenuItem>().Where(x => x.Classes.Contains("xyui-workspace-item")).ToArray(); Assert.Equal(4, rows.Length); Assert.All(rows, row => { Assert.Equal(32, row.Height); Assert.Equal(HorizontalAlignment.Stretch, row.HorizontalAlignment); }); var selected = rows.Single(x => x.Label == "地图编辑"); Assert.Contains("xyui-menu-selected", selected.Classes); var radio = selected.GetVisualDescendants().Single(x => x.Classes.Contains("xyui-menu-radio")); Assert.True(radio.Bounds.Right >= selected.Bounds.Right - 24); window.Close();
+    });
+
+    [Fact] public void Workspace_radio_uses_ring_and_dot_instead_of_check_glyph() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var switcher = new XYWorkspaceSwitcher(new XYWorkspaceState("map-edit"), Items); var window = XyuiBatchTestHost.Show(switcher); switcher.Open(); Dispatcher.UIThread.RunJobs(); var selected = switcher.WorkspaceMenu.Items.OfType<XYMenuItem>().Single(x => x.Label == "地图编辑"); Assert.Equal(XyuiMenuCheckKind.Radio, selected.CheckKind); Assert.Contains(selected.GetVisualDescendants(), x => x.Classes.Contains("xyui-menu-radio-ring")); Assert.Contains(selected.GetVisualDescendants(), x => x.Classes.Contains("xyui-menu-radio-dot")); Assert.DoesNotContain(selected.GetVisualDescendants(), x => x.Classes.Contains("xyui-workspace-check")); window.Close();
     });
 
     [Fact] public void Manage_item_exists_and_trigger_chevron_is_right_aligned() => _fx.Run(() =>

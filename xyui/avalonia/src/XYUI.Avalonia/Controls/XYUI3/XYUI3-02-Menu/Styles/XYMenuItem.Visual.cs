@@ -15,13 +15,13 @@ internal sealed class XYMenuItemVisual : Grid
             if (item.Icon is not null)
             {
                 ColumnDefinitions = new ColumnDefinitions("24,*,24");
-                Children.Add(Leading(item)); Children.Add(Label(item)); Children.Add(Check(item));
+                Children.Add(Leading(item)); Children.Add(Label(item)); Children.Add(WorkspaceIndicator(item));
                 Grid.SetColumn(Children[1], 1); Grid.SetColumn(Children[2], 2);
             }
             else
             {
                 ColumnDefinitions = new ColumnDefinitions("*,24");
-                Children.Add(Label(item)); Children.Add(Check(item));
+                Children.Add(Label(item)); Children.Add(WorkspaceIndicator(item));
                 Grid.SetColumn(Children[1], 1);
             }
             return;
@@ -39,6 +39,7 @@ internal sealed class XYMenuItemVisual : Grid
     }
     static Control Radio(bool selected) => new Grid { Classes = { "xyui-menu-radio" }, Children = { new Ellipse { Classes = { "xyui-menu-radio-ring" } }, selected ? new Ellipse { Classes = { "xyui-menu-radio-dot" } } : new Border() } };
     static Control Check() => new Grid { Classes = { "xyui-menu-check" }, Children = { new Line { StartPoint = new Point(2, 7), EndPoint = new Point(5, 10), Classes = { "xyui-menu-check-line" } }, new Line { StartPoint = new Point(5, 10), EndPoint = new Point(12, 2), Classes = { "xyui-menu-check-line" } } } };
+    static Control WorkspaceIndicator(XYMenuItem item) => item.CheckKind == XyuiMenuCheckKind.Radio ? Radio(item.IsChecked) : Check(item);
     static TextBlock Label(XYMenuItem item) => new() { Text = item.Label, Classes = { "xyui-menu-label" }, VerticalAlignment = VerticalAlignment.Center };
     static Control Check(XYMenuItem item) => new Grid { IsVisible = item.IsSelected, Classes = { "xyui-workspace-check" }, Children = { new Line { StartPoint = new Point(2, 7), EndPoint = new Point(5, 10), Classes = { "xyui-menu-check-line" } }, new Line { StartPoint = new Point(5, 10), EndPoint = new Point(12, 2), Classes = { "xyui-menu-check-line" } } } };
     static TextBlock Shortcut(XYMenuItem item) => new() { Text = item.Shortcut, Classes = { "xyui-menu-shortcut" }, VerticalAlignment = VerticalAlignment.Center };
