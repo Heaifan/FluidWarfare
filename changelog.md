@@ -4,8 +4,9 @@
 
 - 目标：修复 XYMenuItem Radio 的视觉树生命周期，完成 WorkspaceSelector 的真实运行时 ring/dot 回归覆盖。
 - 修复：Radio 圆环与圆点稳定存在并由 `IsVisible` 刷新；`IsChecked` 运行期只刷新视觉状态；`None/Check/Radio` 类型变化重建正确视觉；工作区类加入后显式重建专用布局，避免对象初始化顺序导致普通菜单布局残留。
-- 验证：定向 XYUI 22/22、WorkspaceSelector 运行时 11/11 已通过；正式门禁结果将在本轮提交前补录。
-- 状态：TECHNICAL PASS 待完成正式门禁与用户真机视觉验收。
+- 验证：Solution Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1415/1415、XYUI 573/573；定向 XYUI 22/22、WorkspaceSelector 运行时 11/11；ARCH-A/5+100、Area A Native Menu/MenuItem 0/0、版本契约与 `git diff --check` 通过。
+- Hash：`1eddb85e`（实现提交）。
+- 状态：TECHNICAL PASS / READY FOR USER VISUAL ACCEPTANCE；真机视觉验收仍由用户完成。
 
 ## v0.2.28.27-rz · AREA-A-R5 WORKSPACE RADIO VISUAL FIX（2026-09-08 20:06:37 +08:00）
 
