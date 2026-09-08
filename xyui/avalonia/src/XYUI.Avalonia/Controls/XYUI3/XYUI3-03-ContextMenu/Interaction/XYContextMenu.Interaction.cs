@@ -3,6 +3,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.VisualTree;
+using XYUI.Avalonia.Theme;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -20,7 +21,7 @@ public sealed partial class XYContextMenu
     public void Open() { if (Target is not null) Open(Target); }
     public void Open(Control target)
     {
-        if (!IsEnabled) return; Target = target; Close(); Menu.ClearSelection(); Menu.FocusRestoreTarget = target; _host.Children.Remove(_surface); _popup = new Popup { PlacementTarget = target, Placement = PlacementMode.Pointer, IsLightDismissEnabled = true, Child = _surface };
+        if (!IsEnabled) return; Target = target; Close(); Menu.ClearSelection(); Menu.FocusRestoreTarget = target; _host.Children.Remove(_surface); XyuiOverlayResourceBridge.Attach(_surface); _popup = new Popup { PlacementTarget = target, Placement = PlacementMode.Pointer, IsLightDismissEnabled = true, Child = _surface };
         _popup.Closed += OnPopupClosed; IsOpen = true; _popup.IsOpen = true; Menu.ApplyOverlayStyling(); Menu.Open(); Opened?.Invoke(this, EventArgs.Empty);
     }
     public void Close()

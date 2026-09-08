@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Metadata;
+using XYUI.Avalonia.Theme;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -60,7 +61,7 @@ public sealed partial class XYMenu : Border
     }
     public XYMenuItem? SelectedItem => Items.OfType<XYMenuItem>().FirstOrDefault(x => x.IsSelected);
     public void ClearSelection() { foreach (var item in Items.OfType<XYMenuItem>()) { item.CloseSubMenu(); item.ClearInteractionState(); } }
-    internal void ApplyOverlayStyling() { if (!_overlayStylesApplied) { Styles.Add(XyuiComponentStyles.Create()); _overlayStylesApplied = true; } ApplyStyling(); foreach (var item in Items) item.ApplyStyling(); }
+    internal void ApplyOverlayStyling() { XyuiOverlayResourceBridge.Attach(this); if (!_overlayStylesApplied) { Styles.Add(XyuiComponentStyles.Create()); _overlayStylesApplied = true; } ApplyStyling(); foreach (var item in Items) item.ApplyStyling(); }
     void Attach(XYMenuItem item) { item.SelectionRequested -= OnSelectionRequested; item.SelectionRequested += OnSelectionRequested; item.Invoked -= OnItemInvoked; item.Invoked += OnItemInvoked; item.SubMenuRequested -= OnSubMenuRequested; item.SubMenuRequested += OnSubMenuRequested; item.PointerEntered -= OnItemPointerEntered; item.PointerEntered += OnItemPointerEntered; }
     void OnSelectionRequested(object? sender, EventArgs e)
     {

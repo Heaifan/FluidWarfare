@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using XYUI.Avalonia.Theme;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -32,7 +33,7 @@ public sealed partial class XYNavigationRail
         var child = new XYMenu(entries.Select((entry, index) => new XYMenuItem { Label = entry.Label, IsHovered = index == 0 }).ToArray()) { MinWidth = 218 };
         _contextFlyout = new XYSubMenu { ParentMenu = parent, ChildMenu = child, ShowParentMenu = false }; _contextFlyout.Close();
         _popup = new Popup { PlacementTarget = anchor, Placement = PlacementMode.Right, VerticalOffset = -24, IsLightDismissEnabled = true, Child = _contextFlyout };
-        _popup.Closed += OnPopupClosed; _popup.IsOpen = true; child.ApplyOverlayStyling(); _contextFlyout.Open();
+        XyuiOverlayResourceBridge.Attach(_contextFlyout); _popup.Closed += OnPopupClosed; _popup.IsOpen = true; child.ApplyOverlayStyling(); _contextFlyout.Open();
     }
     void OnPopupClosed(object? sender, EventArgs e) => CloseContext();
     void CloseContext()

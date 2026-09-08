@@ -1804,6 +1804,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBar.cs` - C# implementation source for XYMenuBar.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.OverlayResources.cs` - PopupRoot 资源桥接与菜单附着后样式刷新生命周期。
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - Canonical XYUI menu row visual composition and refreshable check/radio indicators for workspace and regular menu items.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenu.cs` - C# implementation source for XYMenu.cs.
@@ -1906,6 +1907,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiSpatialTokens.cs` - C# implementation source for XyuiSpatialTokens.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiSectionTitleResources.cs` - C# implementation source for XyuiSectionTitleResources.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiTheme.cs` - C# implementation source for XyuiTheme.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiOverlayResourceBridge.cs` - Popup overlay 的 canonical 主题资源注入与 PopupRoot 主题变体同步。
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTextStyles.cs` - C# implementation source for XyuiTextStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypography.cs` - C# implementation source for XyuiTypography.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypographyTokens.cs` - C# implementation source for XyuiTypographyTokens.cs.
@@ -2008,6 +2010,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - XYUI Menu Radio/Check visual-tree lifecycle and runtime state regression tests.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3OverlayResourceBridgeTests.cs` - Popup overlay 主题资源、动态画刷与重开生命周期回归测试。
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationInteractionTests.cs` - C# implementation source for XYUI3CompactNavigationInteractionTests.cs.
