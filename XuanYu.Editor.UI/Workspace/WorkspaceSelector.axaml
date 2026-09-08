@@ -27,31 +27,28 @@
                    Content="{Binding CurrentEditorModeText}"
                    Command="{Binding ToggleEditorModeCommand}"
                    ToolTip.Tip="点击切换管理模式与编辑模式"/>
-      <Menu VerticalAlignment="Center">
-        <MenuItem ToolTip.Tip="切换工作区">
-          <MenuItem.Header>
-            <StackPanel Orientation="Horizontal"
-                        Spacing="4"
-                        VerticalAlignment="Center">
-              <TextBlock Text="{Binding CurrentWorkspaceDisplayName}"/>
-              <Path Classes="topIcon"
-                    Data="{StaticResource ChevronDownIcon}"
-                    Width="10"
-                    Height="10"/>
-            </StackPanel>
-          </MenuItem.Header>
-          <MenuItem Header="地图编辑"
-                    ToggleType="Radio"
-                    IsChecked="{Binding IsMapWorkspace, Mode=OneWay}"
-                    Command="{Binding SwitchWorkspaceCommand}"
-                    CommandParameter="MapEditor"/>
-          <MenuItem Header="区域编辑"
-                    ToggleType="Radio"
-                    IsChecked="{Binding IsRegionWorkspace, Mode=OneWay}"
-                    Command="{Binding SwitchWorkspaceCommand}"
-                    CommandParameter="RegionEditor"/>
-        </MenuItem>
-      </Menu>
+      <xy:XYMenuBar Classes="compact"
+                    ShowDivider="False"
+                    VerticalAlignment="Center">
+        <xy:XYMenuBarItem Label="{Binding CurrentWorkspaceDisplayName}"
+                          ShowChevron="True"
+                          ToolTip.Tip="切换工作区">
+          <xy:XYMenu>
+            <xy:XYMenuItem Header="地图编辑"
+                           ToggleType="Radio"
+                           CheckKind="Radio"
+                           IsChecked="{Binding IsMapWorkspace, Mode=OneWay}"
+                           Command="{Binding SwitchWorkspaceCommand}"
+                           CommandParameter="MapEditor"/>
+            <xy:XYMenuItem Header="区域编辑"
+                           ToggleType="Radio"
+                           CheckKind="Radio"
+                           IsChecked="{Binding IsRegionWorkspace, Mode=OneWay}"
+                           Command="{Binding SwitchWorkspaceCommand}"
+                           CommandParameter="RegionEditor"/>
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+      </xy:XYMenuBar>
     </StackPanel>
   </Border>
 </UserControl>

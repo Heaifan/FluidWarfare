@@ -1,0 +1,72 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
+             xmlns:g="using:XYUI.Avalonia.Gallery"
+             x:Class="XYUI.Avalonia.Gallery.Views.XYUIMenuLiveSampleView"
+             x:DataType="g:XYUIMenuSampleViewModel">
+  <StackPanel Spacing="10">
+    <Border Background="{DynamicResource XY.Brush.Surface.PanelAlt}"
+            BorderBrush="{DynamicResource XY.Brush.Border.Color.Subtle}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="6,4">
+      <xy:XYMenuBar Classes="compact"
+                    ShowDivider="False">
+        <xy:XYMenuBarItem Header="文件">
+          <xy:XYMenu>
+            <xy:XYMenuItem Header="新建项目"
+                           Command="{Binding RunCommand}"
+                           CommandParameter="新建项目"
+                           Shortcut="Ctrl+N" />
+            <xy:XYMenuItem Header="打开工程"
+                           Command="{Binding RunCommand}"
+                           CommandParameter="打开工程"
+                           Shortcut="Ctrl+O" />
+            <xy:XYMenuItem Header="保存场景"
+                           Command="{Binding RunCommand}"
+                           CommandParameter="保存场景"
+                           Shortcut="Ctrl+S" />
+            <xy:XYSeparator Classes="xyui-menu-separator" />
+            <xy:XYMenuItem Header="只读锁定 (CanExecute=False)"
+                           Command="{Binding DisabledCommand}" />
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+        <xy:XYMenuBarItem Header="工作区" ShowChevron="True">
+          <xy:XYMenu>
+            <xy:XYMenuItem Header="地图编辑"
+                           CheckKind="Radio"
+                           IsChecked="{Binding IsMapEditor, Mode=TwoWay}" />
+            <xy:XYMenuItem Header="区域编辑"
+                           CheckKind="Radio"
+                           IsChecked="{Binding IsRegionEditor, Mode=TwoWay}" />
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+        <xy:XYMenuBarItem Header="视图">
+          <xy:XYMenu>
+            <xy:XYMenuItem Header="构造网格"
+                           CheckKind="Check"
+                           IsChecked="{Binding IsGridVisible, Mode=TwoWay}" />
+            <xy:XYMenuItem Header="世界原点"
+                           CheckKind="Check"
+                           IsChecked="{Binding IsOriginVisible, Mode=TwoWay}" />
+            <xy:XYMenuItem Header="世界坐标轴"
+                           CheckKind="Check"
+                           IsChecked="{Binding IsAxesVisible, Mode=TwoWay}" />
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+      </xy:XYMenuBar>
+    </Border>
+    <Border Background="{DynamicResource XY.Brush.Surface.Panel}"
+            Padding="10,8"
+            CornerRadius="4">
+      <StackPanel Spacing="4">
+        <TextBlock Text="{Binding LastAction}"
+                   Classes="xyui-text-caption"
+                   Foreground="{DynamicResource XY.Brush.Accent.Strong}" />
+        <TextBlock Text="{Binding StatusSummary}"
+                   Classes="xyui-text-caption"
+                   Foreground="{DynamicResource XY.Brush.Text.Secondary}" />
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>

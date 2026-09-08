@@ -19,6 +19,10 @@ public static partial class XyuiComponentStyles
     {
         var bar = new Style(x => x.OfType<XYMenuBar>().Class("xyui-menu-bar"));
         Brush(bar, Border.BackgroundProperty, "XY.Brush.Surface.Panel"); bar.Setters.Add(new Setter(Border.HeightProperty, XyuiCompactNavigationTokens.MenuBarHeight)); styles.Add(bar);
+        var compact = new Style(x => x.OfType<XYMenuBar>().Class("compact"));
+        compact.Setters.Add(new Setter(Border.HeightProperty, 34d));
+        compact.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent));
+        styles.Add(compact);
         var item = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-menu-bar-item"));
         item.Setters.Add(new Setter(Border.HeightProperty, XyuiCompactNavigationTokens.MenuBarItemHeight)); item.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(10, 0))); item.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3))); item.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent)); styles.Add(item);
         State(styles, typeof(XYMenuBarItem), "xyui-menu-hover", "XY.Brush.State.Color.Hover");
@@ -35,6 +39,7 @@ public static partial class XyuiComponentStyles
         var embedded = new Style(x => x.OfType<XYMenu>().Class("xyui-menu-embedded")); embedded.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent)); embedded.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(0))); embedded.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(0))); embedded.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(5, 5, 5, 0))); styles.Add(embedded);
         var item = new Style(x => x.OfType<XYMenuItem>().Class("xyui-menu-item")); item.Setters.Add(new Setter(Border.HeightProperty, XyuiCompactNavigationTokens.MenuItemHeight)); item.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(10, 0))); item.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3))); item.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent)); styles.Add(item);
         State(styles, typeof(XYMenuItem), "xyui-menu-hover", "XY.Brush.State.Color.Hover"); State(styles, typeof(XYMenuItem), "xyui-menu-selected", "XY.Brush.Surface.Selected");
+        var disabled = new Style(x => x.OfType<XYMenuItem>().Class("xyui-menu-item").Class(":disabled")); disabled.Setters.Add(new Setter(Visual.OpacityProperty, 0.45)); styles.Add(disabled);
         var danger = new Style(x => x.OfType<XYMenuItem>().Class("xyui-menu-danger").Descendant().OfType<TextBlock>().Class("xyui-menu-label")); Brush(danger, TextBlock.ForegroundProperty, "XY.Brush.Semantic.Error.Text"); styles.Add(danger);
         var separator = new Style(x => x.OfType<XYSeparator>().Class("xyui-menu-separator")); separator.Setters.Add(new Setter(Border.MarginProperty, new Thickness(5, 4))); styles.Add(separator);
     }

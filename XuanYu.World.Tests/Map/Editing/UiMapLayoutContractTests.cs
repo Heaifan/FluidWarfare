@@ -56,7 +56,7 @@ public sealed class UiMapLayoutContractTests
     public void Add_menu_has_no_category_level()
     {
         Assert.DoesNotContain("基础实体", Top);
-        Assert.Contains("<MenuItem Header=\"立方体\"", FileModule);
+        Assert.Contains("<xy:XYMenuItem Header=\"立方体\"", FileModule);
         Assert.Contains("CommandParameter=\"添加立方体\"", FileModule);
     }
 

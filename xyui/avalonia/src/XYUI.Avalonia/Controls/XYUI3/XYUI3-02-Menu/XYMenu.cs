@@ -1,11 +1,13 @@
 using Avalonia;
+using Avalonia.Collections;
 using Avalonia.Controls;
+using Avalonia.Metadata;
 
 namespace XYUI.Avalonia.Controls;
 
 public sealed partial class XYMenu : Border
 {
-    IReadOnlyList<Control> _items = [];
+    readonly AvaloniaList<Control> _items = [];
     readonly List<XYSubMenu> _subMenus = [];
     bool _embedded;
     bool _overlayStylesApplied;
@@ -14,10 +16,17 @@ public sealed partial class XYMenu : Border
     public Control? FocusRestoreTarget { get; set; }
     public event EventHandler? Closed;
     public event EventHandler<XYMenuItem>? SubMenuRequested;
-    public IReadOnlyList<Control> Items { get => _items; set { _items = value; Build(); } }
+
+    [Content]
+    public IList<Control> Items
+    {
+        get => _items;
+        set { _items.Clear(); if (value is not null) _items.AddRange(value); }
+    }
+
     public bool IsEmbedded { get => _embedded; set { _embedded = value; ApplyMode(); } }
-    public XYMenu() { Classes.Add("xyui-menu"); Build(); }
-    public XYMenu(params Control[] items) : this() => Items = items;
+    public XYMenu() { Classes.Add("xyui-menu"); _items.CollectionChanged += (_, _) => Build(); Build(); }
+    public XYMenu(params Control[] items) : this() => _items.AddRange(items);
     public static XYMenu FromModels(IEnumerable<XYMenuItemModel> models)
     {
         var menu = new XYMenu(); var controls = new List<Control>();
@@ -36,7 +45,19 @@ public sealed partial class XYMenu : Border
     internal void UnregisterSubMenu(XYSubMenu submenu) => _subMenus.Remove(submenu);
     internal IReadOnlyList<XYSubMenu> SubMenus => _subMenus;
     public static XYSeparator Separator() => new() { Variant = XyuiSeparatorVariant.Section, Classes = { "xyui-menu-separator" } };
-    void Build() { var panel = new StackPanel { Classes = { "xyui-menu-items" } }; foreach (var item in Items) { if (item is XYMenuItem menuItem) Attach(menuItem); panel.Children.Add(item); } Child = panel; ApplyMode(); }
+    void Build()
+    {
+        var panel = Child as StackPanel;
+        if (panel is null) { panel = new StackPanel { Classes = { "xyui-menu-items" } }; Child = panel; }
+        else panel.Children.Clear();
+        foreach (var item in Items)
+        {
+            if (item.Parent is Panel p) p.Children.Remove(item);
+            if (item is XYMenuItem menuItem) Attach(menuItem);
+            panel.Children.Add(item);
+        }
+        ApplyMode();
+    }
     public XYMenuItem? SelectedItem => Items.OfType<XYMenuItem>().FirstOrDefault(x => x.IsSelected);
     public void ClearSelection() { foreach (var item in Items.OfType<XYMenuItem>()) { item.CloseSubMenu(); item.ClearInteractionState(); } }
     internal void ApplyOverlayStyling() { if (!_overlayStylesApplied) { Styles.Add(XyuiComponentStyles.Create()); _overlayStylesApplied = true; } ApplyStyling(); foreach (var item in Items) item.ApplyStyling(); }

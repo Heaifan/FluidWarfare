@@ -1,11 +1,11 @@
 # XYUI-3 Round 1 Runtime Contract
 
-状态：TECHNICAL PASS candidate；Presentation 由 Gemini 独立实现。本文只描述 Runtime 公共事实源，禁止 Gallery 通过本地状态模拟。
+状态：AREA-A-R4-FINAL engineering contract；Presentation 由 Gallery 独立呈现。本文只描述 Runtime 公共事实源，禁止 Gallery 通过本地状态模拟。
 
 ## 3.01 MenuBar
 
 - Public XAML type: `XYMenuBar`, `XYMenuBarItem`。
-- Properties: `Items`, `Label`, `Menu`, `IsActive`, `IsHovered`, `IsEnabled`。
+- Properties: `Items`, `ShowDivider`; item `Label`/`Header`, `Menu`, `ShowChevron`, `IsActive`, `IsHovered`, `IsEnabled`。
 - Events/commands: `Activated`, `OpenMenu`；`Open`、`Close`、`MoveItem`。
 - States: closed/open, active, hover, focus, disabled。
 - Composition: `XYMenuBar` owns one active `XYMenu`; its popup light-dismiss closes outside and restores focus。
@@ -14,10 +14,25 @@
 ## 3.02 Menu
 
 - Public XAML type: `XYMenu`, `XYMenuItem`。
-- Properties: `Items`, `Mode`, `IsOpen`, `FocusedIndex`, `FocusRestoreTarget`; item `Id`, `Label`, `Icon`, `Shortcut`, `CheckKind`, `IsChecked`, `IsSelected`, `IsEnabled`, `HasSubMenu`, `SubMenu`。
+- Properties: `Items`, `IsOpen`, `FocusedIndex`, `FocusRestoreTarget`; item `Id`, `Label`/`Header`, `Icon`, `Shortcut`, `Command`, `CommandParameter`, `CheckKind`, `IsChecked`, `IsSelected`, `IsEnabled`, `HasSubMenu`, `SubMenu`。
 - Events/commands: `SelectionRequested`, `Invoked`, `SubMenuRequested`, `Opened`, `Closed`；`Open`、`Close`、`MoveFocus`。
 - States/variants: Normal, Icon, Shortcut, Checked, Radio, Disabled, Separator, SubMenu；keyboard Up/Down/Left/Right/Enter/Esc。
 - Composition: menu item visuals use existing `XYIcon`; nested menus use `XYSubMenu`; `FromModels` is the canonical model adapter。
+
+### AREA-A-R4 MVVM 与状态权威规则
+
+- AXAML 生产路径使用 `XYMenuItem.Command` 绑定 `ICommand`，并将 `CommandParameter` 原样传入；一次指针或键盘激活最多执行一个命令路径。
+- `CanExecute` 由命令拥有：`CanExecute=false` 时项不可用且不改变 Check/Radio 或业务状态；`CanExecuteChanged` 必须刷新可用性。
+- `CheckKind="Check"` 只负责交互展示；绑定 `IsChecked` 时，VM/editor state 是唯一真源。禁用项不得切换。
+- `CheckKind="Radio"` 只在同一 `XYMenu` 内执行互斥展示；工作区真源仍是 `EditorWorkspaceManager`，菜单不持有工作区状态机。
+- Area A 环境项的真源是 `UiVm` 的 `ShowGrid`、`ShowOrigin`、`ShowWorldAxes`、`ShowEditorBackground`；文件项继续走 `RunCommand`/`FileCommandRequested`。
+- `XYMenu` 是 presentation + interaction 层：不保存文件、工作区或环境业务状态，不以 Gallery 本地变量取代外部状态。
+
+### 键盘与焦点
+
+- `XYMenuBar`：Alt 聚焦首项，Left/Right 在启用一级项间移动，Enter/Down 打开，Escape 关闭。
+- `XYMenu`：Up/Down 跳过禁用项，Enter 激活当前项，Left/Escape 只关闭；`XYMenuItem` 的 Enter/Space 激活，Right 打开子菜单。
+- Popup 关闭后必须调用 `FocusRestoreTarget` 返回触发项；关闭或 Escape 不得执行命令或改变业务状态。
 
 ## 3.03 ContextMenu
 

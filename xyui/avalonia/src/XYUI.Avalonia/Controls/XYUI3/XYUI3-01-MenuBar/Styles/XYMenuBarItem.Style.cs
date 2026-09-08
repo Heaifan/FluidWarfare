@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Layout;
+using XYUI.Avalonia.Vector;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -8,8 +9,38 @@ public sealed partial class XYMenuBarItem
     Grid BuildVisual()
     {
         var grid = new Grid { RowDefinitions = new RowDefinitions("32,3") };
-        grid.Children.Add(new TextBlock { Text = Label, Classes = { "xyui-menu-bar-label" }, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center });
-        var indicator = new Border { Classes = { "xyui-menu-bar-indicator" }, Width = Math.Max(28, Label.Length * 14), HorizontalAlignment = HorizontalAlignment.Center };
-        grid.Children.Add(indicator); Grid.SetRow(indicator, 1); return grid;
+        var stack = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            Spacing = 4,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        stack.Children.Add(new TextBlock
+        {
+            Text = Label,
+            Classes = { "xyui-menu-bar-label" },
+            VerticalAlignment = VerticalAlignment.Center
+        });
+        if (ShowChevron)
+        {
+            stack.Children.Add(new XYIcon
+            {
+                Icon = XyuiVectorIcon.ChevronDown,
+                Size = XyuiIconSize.Tiny,
+                Classes = { "xyui-menu-chevron" },
+                VerticalAlignment = VerticalAlignment.Center
+            });
+        }
+        grid.Children.Add(stack);
+        var indicator = new Border
+        {
+            Classes = { "xyui-menu-bar-indicator" },
+            Width = Math.Max(28, (Label?.Length ?? 2) * 14),
+            HorizontalAlignment = HorizontalAlignment.Center
+        };
+        grid.Children.Add(indicator);
+        Grid.SetRow(indicator, 1);
+        return grid;
     }
 }

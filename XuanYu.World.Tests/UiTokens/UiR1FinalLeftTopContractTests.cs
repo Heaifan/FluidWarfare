@@ -77,7 +77,13 @@ public sealed class UiR1FinalLeftTopContractTests
         Assert.Contains("IsEnabled=\"{Binding IsMapEditMode}\"", snap);
         Assert.Contains("Data=\"{StaticResource FocusIcon}\"", view);
         Assert.Contains("Data=\"{StaticResource ViewAllIcon}\"", view);
-        Assert.Contains("<xy:XYBadge", runtime); Assert.Contains("<Menu", file);
+        Assert.Contains("<xy:XYBadge", runtime);
+        Assert.DoesNotContain("<Menu", file); Assert.DoesNotContain("<MenuItem", file);
+        Assert.DoesNotContain("<Menu", workspace); Assert.DoesNotContain("<MenuItem", workspace);
+        Assert.DoesNotContain("<Menu", view); Assert.DoesNotContain("<MenuItem", view);
+        Assert.Contains("<xy:XYMenuBar", file); Assert.Contains("<xy:XYMenuItem", file);
+        Assert.Contains("<xy:XYMenuBar", workspace); Assert.Contains("<xy:XYMenuItem", workspace);
+        Assert.Contains("<xy:XYMenuBar", view); Assert.Contains("<xy:XYMenuItem", view);
         Assert.Contains("Text=\"工作区\"", workspace); Assert.Contains("Text=\"文件\"", file);
         Assert.Contains("Text=\"编辑工具\"", tools); Assert.Contains("Text=\"视图\"", view);
         Assert.Contains("Text=\"吸附\"", snap); Assert.Contains("Text=\"运行\"", runtime);

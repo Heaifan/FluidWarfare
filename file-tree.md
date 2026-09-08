@@ -1022,6 +1022,8 @@
 - `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` - C# implementation source for UiTreeGuideTests.cs.
 - `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
+- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
@@ -1205,6 +1207,7 @@
 - `docs/governance/naming-XuanYu-Engine.md` - Documentation, specification, or governance record for naming-XuanYu-Engine.md.
 - `docs/governance/ui-spec.md` - Documentation, specification, or governance record for ui-spec.md.
 - `docs/governance/xyui/README.md` - Documentation, specification, or governance record for README.md.
+- `docs/governance/xyui/XYUI3_Menu_Developer_QuickStart.md` - Copyable XYUI Menu MVVM, state, and component-selection guide.
 - `"docs/governance/xyui/XYUI_Codex_Gemini\345\217\214Agent\345\274\200\345\217\221\344\270\216\344\273\243\347\240\201\345\260\201\350\243\205\350\247\204\350\214\203_v1.0.md"` - Tracked repository file 203_v1.0.md".
 - `"docs/governance/\347\211\210\346\234\254\345\217\267\350\247\204\350\214\203\344\270\216\345\216\206\345\217\262\346\230\240\345\260\204.md"` - Tracked repository file 204.md".
 - `docs/knowledge/README.md` - Documentation, specification, or governance record for README.md.
@@ -1508,6 +1511,8 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3QuickStartSection.axaml.cs` - C# implementation source for XYUI3QuickStartSection.axaml.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml` - Avalonia XAML view or style resource for XYUI3VariantsStatesSection.axaml.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml.cs` - C# implementation source for XYUI3VariantsStatesSection.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml` - Declarative XYUI Menu Gallery sample for commands and bound states.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml.cs` - Runtime host for the XYUI Menu Gallery sample view.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYBadgePreviewFactory.cs` - C# implementation source for XYBadgePreviewFactory.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYIconButtonNamingExtensions.cs` - C# implementation source for XYIconButtonNamingExtensions.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYMonoPreviewFactory.cs` - C# implementation source for XYMonoPreviewFactory.cs.
@@ -1631,6 +1636,7 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.MenuBar.cs` - C# implementation source for XYUI3LiveExamplesFactory.MenuBar.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationDrawer.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationDrawer.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationMenu.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationMenu.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUIMenuSampleViewModel.cs` - View-model truth source for the interactive XYUI Menu Gallery sample.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationRail.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationRail.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Pagination.cs` - C# implementation source for XYUI3LiveExamplesFactory.Pagination.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Sidebar.cs` - C# implementation source for XYUI3LiveExamplesFactory.Sidebar.cs.
@@ -1998,11 +2004,13 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3BackForwardNavigationTests.cs` - C# implementation source for XYUI3BackForwardNavigationTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch04StructureTests.cs` - C# implementation source for XYUI3Batch04StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationInteractionTests.cs` - C# implementation source for XYUI3CompactNavigationInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationStructureTests.cs` - C# implementation source for XYUI3CompactNavigationStructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3FinalNavigationTests.cs` - C# implementation source for XYUI3FinalNavigationTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuGalleryCloseoutTests.cs` - Gallery Menu and MenuBar closeout metadata and sample-state tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3GalleryNavigationTests.cs` - C# implementation source for XYUI3GalleryNavigationTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3InteractionTests.cs` - C# implementation source for XYUI3InteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round1RuntimeTests.cs` - C# implementation source for XYUI3Round1RuntimeTests.cs.

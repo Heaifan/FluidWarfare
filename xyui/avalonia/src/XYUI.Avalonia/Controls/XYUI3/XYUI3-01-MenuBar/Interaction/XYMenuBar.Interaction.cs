@@ -19,8 +19,12 @@ public sealed partial class XYMenuBar
     {
         if (!item.IsEnabled) return;
         Close(); item.IsActive = true; OpenMenuId = item.Label; OpenMenu = item.Menu; if (OpenMenu is null) return;
+        OpenMenu.DataContext ??= item.DataContext;
         Focus(); OpenMenu.FocusRestoreTarget = item;
-        _subscribedMenu = OpenMenu; _subscribedMenu.Closed += OnOpenMenuClosed; _popup = new Popup { PlacementTarget = item, Placement = PlacementMode.Bottom, IsLightDismissEnabled = true, Child = OpenMenu }; _popupClosed = (_, _) => Close(); _popup.Closed += _popupClosed; _popup.IsOpen = true; OpenMenu.ApplyOverlayStyling(); OpenMenu.Open();
+        _subscribedMenu = OpenMenu; _subscribedMenu.Closed += OnOpenMenuClosed;
+        _popup = new Popup { PlacementTarget = item, Placement = PlacementMode.Bottom, IsLightDismissEnabled = true, Child = OpenMenu };
+        _popupClosed = (_, _) => Close(); _popup.Closed += _popupClosed; _popup.IsOpen = true;
+        OpenMenu.ApplyOverlayStyling(); OpenMenu.Open();
     }
     public void Close()
     {

@@ -16,23 +16,27 @@
           CornerRadius="{StaticResource Radius.Standard}"
           Padding="8,4"
           VerticalAlignment="Center">
-    <StackPanel Orientation="Horizontal"
-                Spacing="4"
-                VerticalAlignment="Center">
+    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
       <xy:XYCaption Text="文件"
                     VerticalAlignment="Center"/>
-      <Menu VerticalAlignment="Center">
-        <MenuItem Header="文件">
-          <MenuItem Header="新建" Command="{Binding RunCommand}" CommandParameter="新建"/>
-          <MenuItem Header="打开" Command="{Binding RunCommand}" CommandParameter="打开"/>
-          <MenuItem Header="保存" Command="{Binding RunCommand}" CommandParameter="保存"/>
-          <MenuItem Header="另存为" Command="{Binding RunCommand}" CommandParameter="另存为"/>
-          <MenuItem Header="导入 GLB" Command="{Binding RunCommand}" CommandParameter="导入 GLB"/>
-        </MenuItem>
-        <MenuItem Header="添加">
-          <MenuItem Header="立方体" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
-        </MenuItem>
-      </Menu>
+      <xy:XYMenuBar Classes="compact"
+                    ShowDivider="False"
+                    VerticalAlignment="Center">
+        <xy:XYMenuBarItem Label="文件">
+          <xy:XYMenu>
+            <xy:XYMenuItem Label="新建" Command="{Binding RunCommand}" CommandParameter="新建"/>
+            <xy:XYMenuItem Label="打开" Command="{Binding RunCommand}" CommandParameter="打开"/>
+            <xy:XYMenuItem Label="保存" Command="{Binding RunCommand}" CommandParameter="保存"/>
+            <xy:XYMenuItem Label="另存为" Command="{Binding RunCommand}" CommandParameter="另存为"/>
+            <xy:XYMenuItem Label="导入 GLB" Command="{Binding RunCommand}" CommandParameter="导入 GLB"/>
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+        <xy:XYMenuBarItem Label="添加">
+          <xy:XYMenu>
+            <xy:XYMenuItem Header="立方体" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
+          </xy:XYMenu>
+        </xy:XYMenuBarItem>
+      </xy:XYMenuBar>
       <xy:XYButton Variant="Secondary"
                    MinHeight="34"
                    Command="{Binding RunCommand}"

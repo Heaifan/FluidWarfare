@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.26-rz · AREA-A-R4-FINAL XYUI MENU CAPABILITY CLOSEOUT（2026-09-08 14:59:53 +08:00）
+
+- 能力：XYMenuBar、XYMenu 与 XYMenuItem 完成声明式 AXAML、ICommand/CommandParameter、CanExecute、Check/Radio、IsChecked、Compact、键盘与焦点恢复的工程契约；ICommand 优先于遗留 Action，单次激活不会双执行。
+- 集成：Area A 的 File、Workspace 与 Environment 菜单迁移为 XYUI，原生 `Menu/MenuItem` 清零；工作区继续以 `EditorWorkspaceManager`、环境继续以 `UiVm` 状态为真源。
+- 文档：既有 Menu/MenuBar Gallery、实时样例、Developer Quick Start 与 Runtime Contract 补齐命令、参数、禁用、Check、Radio、状态和选型说明；示例统一使用公开 `CheckKind` API。
+- 验证：完整门禁、版本契约、ARCH-A、5+100、AXAML/XML 与 `git diff --check` 通过后记录；状态仅为 `TECHNICAL PASS / READY FOR USER R4 VISUAL ACCEPTANCE`，不宣告用户视觉验收。
+
 ## v0.2.28.25-rz · AREA A C+D R3 COMPACT TOP + VERSION REFRESH（2026-09-08 12:51:00 +08:00）
 
 - 版本：正式版本从 `v0.2.28.24-rz` 递增至 `v0.2.28.25-rz`；项目 Version、启动窗口标题、编辑器窗口回退标题与动态文档标题使用同一版本。
