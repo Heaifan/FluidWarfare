@@ -8,7 +8,7 @@ public sealed class ScaleGizmoGlobalModeTests
     [Fact]
     public void Scale_gizmo_stays_global_after_entity_rotation()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == "EntityId(1)");
         Assert.True(vm.TryCommitInspectorTransformValue("旋转", "Z", "180"));
 
@@ -23,7 +23,7 @@ public sealed class ScaleGizmoGlobalModeTests
     [Fact]
     public void No_visible_global_local_switch_exists_and_scale_does_not_auto_enter_local()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("缩放");
 

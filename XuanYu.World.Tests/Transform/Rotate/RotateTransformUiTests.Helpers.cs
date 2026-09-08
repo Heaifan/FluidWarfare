@@ -13,7 +13,7 @@ public sealed partial class RotateTransformUiTests
 {
     static UiVm RotateVmTwoEntities(out SceneStateOwner scene, out EntityId bKey)
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         var field = typeof(UiVm).GetField("_sceneState",
             BindingFlags.Instance | BindingFlags.NonPublic);
         scene = (SceneStateOwner)field!.GetValue(vm)!;

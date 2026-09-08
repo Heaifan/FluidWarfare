@@ -20,6 +20,7 @@
       <StackPanel Orientation="Horizontal"
                   Spacing="4">
         <xy:XYToggleButton MinHeight="32"
+                           IsEnabled="{Binding IsEditMode}"
                            IsChecked="{Binding IsSelectTool, Mode=OneWay}"
                            Command="{Binding SelectToolCommand}"
                            CommandParameter="选择"
@@ -30,10 +31,8 @@
           </StackPanel>
         </xy:XYToggleButton>
         <xy:XYToggleButton MinHeight="32"
-                           IsVisible="{Binding IsMapEditMode}"
+                           IsEnabled="False"
                            IsChecked="{Binding IsBoxSelectTool, Mode=OneWay}"
-                           Command="{Binding SelectToolCommand}"
-                           CommandParameter="框选"
                            ToolTip.Tip="框选功能尚未实装（即将推出）">
           <StackPanel Orientation="Horizontal" Spacing="4">
             <Path Classes="topIcon" Data="{StaticResource BoxSelectIcon}"/>
@@ -41,7 +40,7 @@
           </StackPanel>
         </xy:XYToggleButton>
         <xy:XYToggleButton MinHeight="32"
-                           IsVisible="{Binding IsMapEditMode}"
+                           IsEnabled="{Binding IsMapEditMode}"
                            IsChecked="{Binding IsMoveTool, Mode=OneWay}"
                            Command="{Binding SelectToolCommand}"
                            CommandParameter="移动"
@@ -52,7 +51,7 @@
           </StackPanel>
         </xy:XYToggleButton>
         <xy:XYToggleButton MinHeight="32"
-                           IsVisible="{Binding IsMapEditMode}"
+                           IsEnabled="{Binding IsMapEditMode}"
                            IsChecked="{Binding IsRotateTool, Mode=OneWay}"
                            Command="{Binding SelectToolCommand}"
                            CommandParameter="旋转"
@@ -63,7 +62,7 @@
           </StackPanel>
         </xy:XYToggleButton>
         <xy:XYToggleButton MinHeight="32"
-                           IsVisible="{Binding IsMapEditMode}"
+                           IsEnabled="{Binding IsMapEditMode}"
                            IsChecked="{Binding IsScaleTool, Mode=OneWay}"
                            Command="{Binding SelectToolCommand}"
                            CommandParameter="缩放"

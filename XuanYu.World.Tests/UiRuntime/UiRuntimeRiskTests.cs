@@ -40,7 +40,7 @@ public sealed class UiRuntimeRiskTests
         using var host = new UiRuntimeTestHost(_fixture);
         var color = host.Run(() =>
         {
-            var vm = new UiVm(null, seedInitialScene: false);
+            var vm = new UiVm(null, seedInitialScene: false); vm.ToggleEditorMode();
             vm.SelectToolCommand.Execute("移动");
             vm.IsLogOpen = true;
             var foot = new Foot { DataContext = vm };

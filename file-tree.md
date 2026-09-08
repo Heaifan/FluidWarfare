@@ -951,6 +951,7 @@
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverTests.cs` - C# implementation source for RegionVertexSnapResolverTests.cs.
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapScaleTests.cs` - C# implementation source for RegionVertexSnapScaleTests.cs.
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapStateTests.cs` - C# implementation source for RegionVertexSnapStateTests.cs.
+- `XuanYu.World.Tests/Mode/AreaAR2AvailabilityContractTests.cs` - Area A C+D 第二轮模式可用性与不可变契约测试。
 - `XuanYu.World.Tests/Mode/EditorModeManagerTests.cs` - C# implementation source for EditorModeManagerTests.cs.
 - `XuanYu.World.Tests/Mode/EditorModeUiCompositionTests.cs` - C# implementation source for EditorModeUiCompositionTests.cs.
 - `XuanYu.World.Tests/Mode/EditorModeUiTests.cs` - C# implementation source for EditorModeUiTests.cs.

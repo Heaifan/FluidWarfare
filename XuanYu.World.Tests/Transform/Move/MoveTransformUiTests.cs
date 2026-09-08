@@ -10,7 +10,7 @@ public sealed partial class MoveTransformUiTests
     [Fact]
     public void Move_gizmo_drag_commits_once_and_undo_redo_restores()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(item => item.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("移动");
         var hit = AxisHit(vm, MoveGizmoAxis.X);
@@ -31,7 +31,7 @@ public sealed partial class MoveTransformUiTests
     [Fact]
     public void Move_capture_blocks_selection_change()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(item => item.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("移动");
         var hit = AxisHit(vm, MoveGizmoAxis.X);

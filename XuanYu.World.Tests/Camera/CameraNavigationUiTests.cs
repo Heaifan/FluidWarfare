@@ -8,7 +8,7 @@ public sealed partial class CameraNavigationUiTests
     [Fact]
     public void Frame_selected_updates_observation_center()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(item => item.Key == "EntityId(5)");
 
         vm.RunCommand.Execute("聚焦");
@@ -44,7 +44,7 @@ public sealed partial class CameraNavigationUiTests
     [Fact]
     public void Camera_rejects_gizmo_capture_and_stale_pointer_end()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(item => item.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("移动");
         vm.InteractionCommand.Execute("Begin");

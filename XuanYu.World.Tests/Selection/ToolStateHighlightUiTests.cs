@@ -8,7 +8,7 @@ public sealed partial class ToolStateHighlightUiTests
     [Fact]
     public void Rotate_tool_switches_highlight_to_rotate_gizmo()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = EntityNode(vm, 1);
         vm.SelectToolCommand.Execute("移动");
         Assert.Equal("移动", vm.ActiveTool);
@@ -32,7 +32,7 @@ public sealed partial class ToolStateHighlightUiTests
     [Fact]
     public void Scale_tool_switches_highlight_to_scale_gizmo()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = EntityNode(vm, 1);
         vm.SelectToolCommand.Execute("移动");
         Assert.Equal("移动", vm.ActiveTool);
@@ -56,7 +56,7 @@ public sealed partial class ToolStateHighlightUiTests
     [Fact]
     public void Transform_tools_show_only_matching_gizmo_and_clear_selection_hides_all()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = EntityNode(vm, 1);
 
         vm.SelectToolCommand.Execute("移动");

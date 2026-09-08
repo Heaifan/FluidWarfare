@@ -58,11 +58,12 @@ public sealed class EditorWorkspaceUiCompositionTests
     }
 
     [Fact]
-    public void Toolbar_has_selector_and_hides_map_only_tools_in_region_workspace()
+    public void Toolbar_has_selector_and_disables_map_only_tools_in_region_workspace()
     {
         var top = Read("XuanYu.Editor.UI", "Top", "Top.axaml");
+        var snap = Read("XuanYu.Editor.UI", "Top", "SnapModule.axaml");
         Assert.Contains("<local:WorkspaceSelector", top);
-        Assert.Contains("IsVisible=\"{Binding IsMapEditMode}\"", top);
+        Assert.Contains("IsEnabled=\"{Binding IsMapEditMode}\"", snap);
         Assert.Contains("CommandParameter=\"RegionEditor\"", Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml"));
     }
 

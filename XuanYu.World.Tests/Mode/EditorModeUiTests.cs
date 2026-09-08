@@ -45,7 +45,8 @@ public sealed class EditorModeUiTests
     [Fact]
     public void Entering_edit_resets_tool_to_select()
     {
-        var vm = Create(); vm.SelectToolCommand.Execute("移动"); vm.ToggleEditorMode();
+        var vm = Create(); vm.SelectToolCommand.Execute("移动"); Assert.True(vm.IsSelectTool);
+        vm.ToggleEditorMode();
         Assert.True(vm.IsSelectTool); Assert.Equal("选择", vm.ActiveTool);
     }
 

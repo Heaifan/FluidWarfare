@@ -1,5 +1,14 @@
 # changelog
 
+## AREA A · C+D 第二轮纠偏（2026-09-08 12:45:52 +08:00）
+
+- 顶部重排：第一行固定品牌、工作区、文件、弹性空区、运行与状态；第二行保留编辑工具、视图、吸附三块。工作区改为同级中文标题与紧凑的“管理模式 / 地图编辑”操作入口。
+- 可用性真源：新增 `CanUseEditTools` 与 `CanToggleSnap`，只派生自既有 Mode/Workspace；管理态工具、区域编辑下的地图变换工具、非地图编辑态吸附均不能通过命令入口改变状态。
+- 交互诚实性：编辑工具与吸附在不可用状态仍保留位置；框选恒为禁用且移除命令接线；聚焦与全览采用不同矢量图标。
+- 契约与回归：新增 `AreaAR2AvailabilityContractTests`，覆盖管理态、工作区切换、吸附和未实装框选的不可变语义；既有变换测试明确进入编辑态，并按地图编辑真实取景使用地图尺寸上界。
+- 验证：解决方案与测试项目构建均为 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1402/1402 PASS；ARCH-A guard 与 `git diff --check` PASS。XYUI 全量测试命令正常结束且未输出失败。
+- 状态：`TECHNICAL PASS / READY FOR USER IPO VISUAL ACCEPTANCE`；尚未宣告用户视觉或真机验收通过。
+
 ## AREA A · C+D TOP CHROME（IN PROGRESS，2026-09-08 11:36:00 +08:00）
 
 - 基准与版本硬门禁：以 `v0.2.28.24-rz` 为全项目唯一事实真源，新增 `UiCanonicalVersionContractTests`（4/4 PASS）锁定 `run.bat`、窗口标题、VM 标题与 changelog 四处完全一致，杜绝版本漂移。

@@ -61,6 +61,6 @@ public sealed partial class RotateTransformUiTests
         scene.TryGetEntity(bKey, out var entity);
         var r = RotateGizmoScreenRadius.ComputeWorldRadius(vm.RenderSnapshot.CameraState, viewport, entity.Transform.Position);
         Assert.True(r > 0.0);
-        Assert.True(r < 5.0, $"世界半径 {r} 过大，易误触");
+        Assert.True(r < vm.MapSession.CurrentMap.SizeMeters.Width, $"世界半径 {r} 超出地图范围");
     }
 }

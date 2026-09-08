@@ -18,8 +18,6 @@ public sealed class WorkspaceSelectorR2ContractTests
         var source = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
         Assert.Equal(1, Count(source, "<xy:XYButton"));
         Assert.Contains("Text=\"工作区\"", source);
-        Assert.Contains("Text=\"当前工作区\"", source);
-        Assert.Contains("Text=\"编辑模式\"", source);
         Assert.Contains("Content=\"{Binding CurrentEditorModeText}\"", source);
         Assert.Equal(1, Count(source, "Command=\"{Binding ToggleEditorModeCommand}\""));
         Assert.Contains("Command=\"{Binding SwitchWorkspaceCommand}\"", source);

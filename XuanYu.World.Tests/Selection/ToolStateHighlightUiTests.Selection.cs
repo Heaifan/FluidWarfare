@@ -7,7 +7,7 @@ public sealed partial class ToolStateHighlightUiTests
     [Fact]
     public void Selection_tools_do_not_show_transform_gizmos()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         Assert.False(vm.RenderSnapshot.ShowMoveGizmo);
         Assert.False(vm.RenderSnapshot.ShowRotateGizmo);
         Assert.False(vm.RenderSnapshot.ShowScaleGizmo);

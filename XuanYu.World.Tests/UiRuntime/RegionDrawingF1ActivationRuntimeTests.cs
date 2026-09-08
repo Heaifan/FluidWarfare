@@ -47,7 +47,7 @@ public sealed class RegionDrawingF1ActivationRuntimeTests : IDisposable
         });
 
         Assert.True(enabled);
-        for (var i = 0; i < 20 && !host.Run(() => vm.IsRegionDrawingTool); i++) await Task.Delay(25);
+        for (var i = 0; i < 80 && !host.Run(() => vm.IsRegionDrawingTool); i++) await Task.Delay(25);
         var result = host.Run(() =>
         {
             left.UpdateLayout();

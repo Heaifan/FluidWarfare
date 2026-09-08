@@ -72,11 +72,12 @@ public sealed class EditorModeUiCompositionTests
     }
 
     [Fact]
-    public void Selector_hides_workspace_menu_in_manage_and_uses_one_toggle_gesture()
+    public void Selector_separates_mode_and_workspace_and_uses_one_toggle_gesture()
     {
         var selector = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
         var code = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml.cs");
-        Assert.Contains("IsVisible=\"{Binding IsEditMode}\"", selector);
+        Assert.Contains("Command=\"{Binding ToggleEditorModeCommand}\"", selector);
+        Assert.Contains("Command=\"{Binding SwitchWorkspaceCommand}\"", selector);
         Assert.Contains("ToggleType=\"Radio\"", selector);
         Assert.DoesNotContain("DoubleTapped", selector);
         Assert.DoesNotContain("DoubleTapped", code);

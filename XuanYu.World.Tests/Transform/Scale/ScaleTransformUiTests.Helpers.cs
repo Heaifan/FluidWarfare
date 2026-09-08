@@ -14,7 +14,7 @@ public sealed partial class ScaleTransformUiTests
 {
     static UiVm ScaleVm()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("缩放");
         return vm;
@@ -22,7 +22,7 @@ public sealed partial class ScaleTransformUiTests
 
     static UiVm ScaleVmTwoEntities(out SceneStateOwner scene, out EntityId bKey)
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         var field = typeof(UiVm).GetField("_sceneState",
             BindingFlags.Instance | BindingFlags.NonPublic);
         scene = (SceneStateOwner)field!.GetValue(vm)!;

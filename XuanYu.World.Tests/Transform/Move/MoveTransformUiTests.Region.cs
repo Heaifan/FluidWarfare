@@ -11,7 +11,7 @@ public sealed partial class MoveTransformUiTests
     [Fact]
     public void Cross_region_move_keeps_selection_and_undo_redo_regions()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         var key = EntityId.FromInt(5);
         SceneOf(vm).CommitPositionWithResult(key, new Vector3d(4.8, 0, 0));
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == key.ToString());
@@ -39,7 +39,7 @@ public sealed partial class MoveTransformUiTests
     [Fact]
     public void Cross_region_move_keeps_single_world_entity()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         var key = EntityId.FromInt(5);
         SceneOf(vm).CommitPositionWithResult(key, new Vector3d(4.8, 0, 0));
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == key.ToString());

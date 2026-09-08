@@ -51,7 +51,7 @@ public sealed partial class MoveTransformUiTests
 
     static UiVm MoveVm()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("移动");
         return vm;

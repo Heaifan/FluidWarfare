@@ -35,7 +35,7 @@
                      CommandParameter="查看全部"
                      ToolTip.Tip="查看全部">
           <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource FocusIcon}"/>
+            <Path Classes="topIcon" Data="{StaticResource ViewAllIcon}"/>
             <TextBlock Text="全览"/>
           </StackPanel>
         </xy:XYButton>

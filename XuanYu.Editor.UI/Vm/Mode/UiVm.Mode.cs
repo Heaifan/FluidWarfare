@@ -13,6 +13,8 @@ public sealed partial class UiVm
     public bool IsManageMode => CurrentMode == EditorModeId.Manage;
     public bool IsEditMode => CurrentMode == EditorModeId.Edit;
     public bool IsMapEditMode => IsEditMode && IsMapWorkspace;
+    public bool CanUseEditTools => IsEditMode;
+    public bool CanToggleSnap => IsMapEditMode;
     public bool IsRegionEditMode => IsEditMode && IsRegionWorkspace;
     public string CurrentEditorModeText => IsManageMode ? "管理模式" : CurrentWorkspaceDisplayName;
 
@@ -36,6 +38,7 @@ public sealed partial class UiVm
     {
         OnPropertyChanged(nameof(CurrentMode)); OnPropertyChanged(nameof(IsManageMode));
         OnPropertyChanged(nameof(IsEditMode)); OnPropertyChanged(nameof(IsMapEditMode));
+        OnPropertyChanged(nameof(CanUseEditTools)); OnPropertyChanged(nameof(CanToggleSnap));
         OnPropertyChanged(nameof(IsRegionEditMode)); OnPropertyChanged(nameof(CurrentEditorModeText));
         OnPropertyChanged(nameof(CurrentRegionAuthoringMode));
         OnPropertyChanged(nameof(IsRegionSurfaceAuthoringMode));

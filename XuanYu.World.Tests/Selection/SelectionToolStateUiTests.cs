@@ -27,7 +27,7 @@ public sealed class SelectionToolStateUiTests
     [Fact]
     public void Clearing_selection_clears_hierarchy_inspector_and_gizmo()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = EntityNode(vm, 1);
         vm.SelectToolCommand.Execute("移动");
 
@@ -58,7 +58,7 @@ public sealed class SelectionToolStateUiTests
     [Fact]
     public void Implemented_rotate_and_scale_switch_active_tool_box_select_keeps_current()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
 
         // 旋转已实装：切换进入旋转工具
         vm.SelectToolCommand.Execute("旋转");
@@ -76,7 +76,7 @@ public sealed class SelectionToolStateUiTests
     [Fact]
     public void Move_capture_blocks_tool_switch_camera_and_picking()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = EntityNode(vm, 1);
         vm.SelectToolCommand.Execute("移动");
         vm.InteractionCommand.Execute("Begin");

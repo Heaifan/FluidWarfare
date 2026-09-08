@@ -4,33 +4,41 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.WorkspaceSelector"
              x:DataType="local:UiVm">
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
   <Border BorderBrush="{StaticResource Color.Border.Default}"
           BorderThickness="1"
           CornerRadius="{StaticResource Radius.Standard}"
           Padding="8,4">
-    <Grid ColumnDefinitions="Auto,Auto"
-          ColumnSpacing="12">
-      <StackPanel Spacing="0"
+    <StackPanel Spacing="2">
+      <xy:XYCaption Text="工作区"/>
+      <StackPanel Orientation="Horizontal"
+                  Spacing="4"
                   VerticalAlignment="Center">
-        <xy:XYHeading Text="工作区"
-                      Variant="PanelTitle"/>
-        <xy:XYCaption Text="当前工作区"/>
-        <xy:XYCaption Text="{Binding CurrentWorkspaceDisplayName}"/>
-      </StackPanel>
-      <StackPanel Grid.Column="1"
-                  Spacing="2"
-                  VerticalAlignment="Center">
-        <xy:XYCaption Text="编辑模式"/>
         <xy:XYButton Variant="Secondary"
                      MinHeight="32"
-                     MinWidth="112"
                      Padding="{StaticResource Padding.Compact}"
                      Content="{Binding CurrentEditorModeText}"
                      Command="{Binding ToggleEditorModeCommand}"
                      ToolTip.Tip="点击切换管理模式与编辑模式"/>
-        <Menu IsVisible="{Binding IsEditMode}"
-              HorizontalAlignment="Right">
-          <MenuItem Header="切换工作区">
+        <Menu VerticalAlignment="Center">
+          <MenuItem ToolTip.Tip="切换工作区">
+            <MenuItem.Header>
+              <StackPanel Orientation="Horizontal"
+                          Spacing="4"
+                          VerticalAlignment="Center">
+                <TextBlock Text="{Binding CurrentWorkspaceDisplayName}"/>
+                <Path Classes="topIcon"
+                      Data="{StaticResource ChevronDownIcon}"
+                      Width="10"
+                      Height="10"/>
+              </StackPanel>
+            </MenuItem.Header>
             <MenuItem Header="地图编辑"
                       ToggleType="Radio"
                       IsChecked="{Binding IsMapWorkspace, Mode=OneWay}"
@@ -44,6 +52,6 @@
           </MenuItem>
         </Menu>
       </StackPanel>
-    </Grid>
+    </StackPanel>
   </Border>
 </UserControl>

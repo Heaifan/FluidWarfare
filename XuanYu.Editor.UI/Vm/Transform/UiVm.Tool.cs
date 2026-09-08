@@ -2,6 +2,20 @@ namespace XuanYu.Editor.UI;
 
 public sealed partial class UiVm
 {
+    void TrySelectTool(object? value)
+    {
+        if (!CanUseEditTools) return;
+        var name = value?.ToString() ?? string.Empty;
+        var tool = EditorToolText.FromText(name);
+        if (!IsMapEditMode && tool is EditorToolId.Move or EditorToolId.Rotate or EditorToolId.Scale) return;
+        SelectTool(name);
+    }
+
+    void TryToggleSnap()
+    {
+        if (CanToggleSnap) ToggleSnap();
+    }
+
     void SelectTool(string name, bool logTool = true)
     {
         if (!CanChangeToolNow(name)) return;

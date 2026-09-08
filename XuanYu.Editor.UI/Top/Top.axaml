@@ -25,8 +25,8 @@
   </UserControl.Styles>
   <Grid RowDefinitions="Auto,Auto"
         RowSpacing="8">
-    <Grid ColumnDefinitions="Auto,Auto,*,Auto"
-          ColumnSpacing="12"
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,*,Auto"
+          ColumnSpacing="8"
           VerticalAlignment="Center">
       <StackPanel Spacing="0"
                   VerticalAlignment="Center">
@@ -39,19 +39,21 @@
                       Height="32"
                       Margin="4,0"/>
       <local:WorkspaceSelector Grid.Column="2"
-                               HorizontalAlignment="Left"/>
-      <local:RuntimeStatusModule Grid.Column="3"
-                                 HorizontalAlignment="Right"/>
+                               VerticalAlignment="Center"/>
+      <local:FileModule Grid.Column="3"
+                        VerticalAlignment="Center"/>
+      <local:RuntimeStatusModule Grid.Column="5"
+                                 HorizontalAlignment="Right"
+                                 VerticalAlignment="Center"/>
     </Grid>
     <ScrollViewer Grid.Row="1"
                   HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Disabled">
       <StackPanel Orientation="Horizontal"
                   Spacing="8">
-        <local:FileModule/>
-        <local:EditToolsModule IsVisible="{Binding IsEditMode}"/>
+        <local:EditToolsModule/>
         <local:ViewModule/>
-        <local:SnapModule IsVisible="{Binding IsMapEditMode}"/>
+        <local:SnapModule/>
       </StackPanel>
     </ScrollViewer>
   </Grid>

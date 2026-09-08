@@ -47,7 +47,7 @@ public sealed partial class RotateTransformUiTests
 
     static UiVm RotateVm()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
         vm.SelectedHierarchyItem = vm.HierarchyItems.Single(i => i.Key == "EntityId(1)");
         vm.SelectToolCommand.Execute("旋转");
         return vm;
