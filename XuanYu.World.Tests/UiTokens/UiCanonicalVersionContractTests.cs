@@ -16,6 +16,10 @@ public sealed class UiCanonicalVersionContractTests
     }
 
     [Fact]
+    public void Canonical_version_uses_the_formal_four_part_rz_sequence() =>
+        Assert.Matches(@"^v\d+\.\d+\.\d+\.\d+-rz$", CanonicalVersion());
+
+    [Fact]
     public void Run_bat_declares_canonical_version()
     {
         var content = File.ReadAllText(RootPath("run.bat"));

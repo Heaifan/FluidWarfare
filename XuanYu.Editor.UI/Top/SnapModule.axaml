@@ -14,22 +14,23 @@
   <Border BorderBrush="{StaticResource Color.Border.Default}"
           BorderThickness="1"
           CornerRadius="{StaticResource Radius.Standard}"
-          Padding="8,4">
-    <StackPanel Spacing="2">
-      <xy:XYCaption Text="吸附"/>
-      <StackPanel Orientation="Horizontal"
-                  Spacing="4">
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="{Binding IsMapEditMode}"
-                           IsChecked="{Binding IsSnapEnabled, Mode=OneWay}"
-                           Command="{Binding ToggleSnapCommand}"
-                           ToolTip.Tip="切换几何吸附">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource SnapIcon}"/>
-            <TextBlock Text="{Binding SnapMode}"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-      </StackPanel>
+          Padding="8,4"
+          VerticalAlignment="Center">
+    <StackPanel Orientation="Horizontal"
+                Spacing="4"
+                VerticalAlignment="Center">
+      <xy:XYCaption Text="吸附"
+                    VerticalAlignment="Center"/>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="{Binding IsMapEditMode}"
+                         IsChecked="{Binding IsSnapEnabled, Mode=OneWay}"
+                         Command="{Binding ToggleSnapCommand}"
+                         ToolTip.Tip="切换几何吸附">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource SnapIcon}"/>
+          <TextBlock Text="{Binding SnapMode}"/>
+        </StackPanel>
+      </xy:XYToggleButton>
     </StackPanel>
   </Border>
 </UserControl>

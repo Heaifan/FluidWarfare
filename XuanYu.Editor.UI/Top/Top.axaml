@@ -24,25 +24,16 @@
     </Style>
   </UserControl.Styles>
   <Grid RowDefinitions="Auto,Auto"
-        RowSpacing="8">
-    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,*,Auto"
+        RowSpacing="6"
+        Margin="0,2">
+    <Grid ColumnDefinitions="Auto,Auto,*,Auto"
           ColumnSpacing="8"
           VerticalAlignment="Center">
-      <StackPanel Spacing="0"
-                  VerticalAlignment="Center">
-        <xy:XYHeading Text="玄域引擎"
-                      Variant="PanelTitle"/>
-        <xy:XYCaption Text="场景编辑器"/>
-      </StackPanel>
-      <xy:XYSeparator Grid.Column="1"
-                      Variant="VerticalSplit"
-                      Height="32"
-                      Margin="4,0"/>
-      <local:WorkspaceSelector Grid.Column="2"
+      <local:WorkspaceSelector Grid.Column="0"
                                VerticalAlignment="Center"/>
-      <local:FileModule Grid.Column="3"
+      <local:FileModule Grid.Column="1"
                         VerticalAlignment="Center"/>
-      <local:RuntimeStatusModule Grid.Column="5"
+      <local:RuntimeStatusModule Grid.Column="3"
                                  HorizontalAlignment="Right"
                                  VerticalAlignment="Center"/>
     </Grid>
@@ -50,7 +41,8 @@
                   HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Disabled">
       <StackPanel Orientation="Horizontal"
-                  Spacing="8">
+                  Spacing="8"
+                  VerticalAlignment="Center">
         <local:EditToolsModule/>
         <local:ViewModule/>
         <local:SnapModule/>

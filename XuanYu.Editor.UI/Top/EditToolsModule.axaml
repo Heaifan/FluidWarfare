@@ -14,65 +14,66 @@
   <Border BorderBrush="{StaticResource Color.Border.Default}"
           BorderThickness="1"
           CornerRadius="{StaticResource Radius.Standard}"
-          Padding="8,4">
-    <StackPanel Spacing="2">
-      <xy:XYCaption Text="编辑工具"/>
-      <StackPanel Orientation="Horizontal"
-                  Spacing="4">
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="{Binding IsEditMode}"
-                           IsChecked="{Binding IsSelectTool, Mode=OneWay}"
-                           Command="{Binding SelectToolCommand}"
-                           CommandParameter="选择"
-                           ToolTip.Tip="选择工具">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource SelectIcon}"/>
-            <TextBlock Text="选择"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="False"
-                           IsChecked="{Binding IsBoxSelectTool, Mode=OneWay}"
-                           ToolTip.Tip="框选功能尚未实装（即将推出）">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource BoxSelectIcon}"/>
-            <TextBlock Text="框选"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="{Binding IsMapEditMode}"
-                           IsChecked="{Binding IsMoveTool, Mode=OneWay}"
-                           Command="{Binding SelectToolCommand}"
-                           CommandParameter="移动"
-                           ToolTip.Tip="移动工具">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource MoveIcon}"/>
-            <TextBlock Text="移动"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="{Binding IsMapEditMode}"
-                           IsChecked="{Binding IsRotateTool, Mode=OneWay}"
-                           Command="{Binding SelectToolCommand}"
-                           CommandParameter="旋转"
-                           ToolTip.Tip="旋转工具">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource RotateIcon}"/>
-            <TextBlock Text="旋转"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-        <xy:XYToggleButton MinHeight="32"
-                           IsEnabled="{Binding IsMapEditMode}"
-                           IsChecked="{Binding IsScaleTool, Mode=OneWay}"
-                           Command="{Binding SelectToolCommand}"
-                           CommandParameter="缩放"
-                           ToolTip.Tip="缩放工具">
-          <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource ScaleIcon}"/>
-            <TextBlock Text="缩放"/>
-          </StackPanel>
-        </xy:XYToggleButton>
-      </StackPanel>
+          Padding="8,4"
+          VerticalAlignment="Center">
+    <StackPanel Orientation="Horizontal"
+                Spacing="4"
+                VerticalAlignment="Center">
+      <xy:XYCaption Text="编辑工具"
+                    VerticalAlignment="Center"/>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="{Binding IsEditMode}"
+                         IsChecked="{Binding IsSelectTool, Mode=OneWay}"
+                         Command="{Binding SelectToolCommand}"
+                         CommandParameter="选择"
+                         ToolTip.Tip="选择工具">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource SelectIcon}"/>
+          <TextBlock Text="选择"/>
+        </StackPanel>
+      </xy:XYToggleButton>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="False"
+                         IsChecked="{Binding IsBoxSelectTool, Mode=OneWay}"
+                         ToolTip.Tip="框选功能尚未实装（即将推出）">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource BoxSelectIcon}"/>
+          <TextBlock Text="框选"/>
+        </StackPanel>
+      </xy:XYToggleButton>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="{Binding IsMapEditMode}"
+                         IsChecked="{Binding IsMoveTool, Mode=OneWay}"
+                         Command="{Binding SelectToolCommand}"
+                         CommandParameter="移动"
+                         ToolTip.Tip="移动工具">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource MoveIcon}"/>
+          <TextBlock Text="移动"/>
+        </StackPanel>
+      </xy:XYToggleButton>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="{Binding IsMapEditMode}"
+                         IsChecked="{Binding IsRotateTool, Mode=OneWay}"
+                         Command="{Binding SelectToolCommand}"
+                         CommandParameter="旋转"
+                         ToolTip.Tip="旋转工具">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource RotateIcon}"/>
+          <TextBlock Text="旋转"/>
+        </StackPanel>
+      </xy:XYToggleButton>
+      <xy:XYToggleButton MinHeight="34"
+                         IsEnabled="{Binding IsMapEditMode}"
+                         IsChecked="{Binding IsScaleTool, Mode=OneWay}"
+                         Command="{Binding SelectToolCommand}"
+                         CommandParameter="缩放"
+                         ToolTip.Tip="缩放工具">
+        <StackPanel Orientation="Horizontal" Spacing="4">
+          <Path Classes="topIcon" Data="{StaticResource ScaleIcon}"/>
+          <TextBlock Text="缩放"/>
+        </StackPanel>
+      </xy:XYToggleButton>
     </StackPanel>
   </Border>
 </UserControl>

@@ -60,10 +60,12 @@ public sealed class UiR1FinalLeftTopContractTests
         var top = Read("Top/Top.axaml"); var runtime = Read("Top/RuntimeStatusModule.axaml");
         var file = Read("Top/FileModule.axaml"); var tools = Read("Top/EditToolsModule.axaml");
         var view = Read("Top/ViewModule.axaml"); var snap = Read("Top/SnapModule.axaml");
-        Assert.Contains("<xy:XYSeparator Grid.Column=\"1\"", top);
-        Assert.Contains("<local:WorkspaceSelector Grid.Column=\"2\"", top);
-        Assert.Contains("<local:FileModule Grid.Column=\"3\"", top);
-        Assert.Contains("<local:RuntimeStatusModule Grid.Column=\"5\"", top);
+        var workspace = Read("Workspace/WorkspaceSelector.axaml");
+        Assert.DoesNotContain("玄域引擎", top); Assert.DoesNotContain("场景编辑器", top);
+        Assert.DoesNotContain("XYSeparator", top);
+        Assert.Contains("<local:WorkspaceSelector Grid.Column=\"0\"", top);
+        Assert.Contains("<local:FileModule Grid.Column=\"1\"", top);
+        Assert.Contains("<local:RuntimeStatusModule Grid.Column=\"3\"", top);
         Assert.Contains("<local:EditToolsModule/>", top);
         Assert.Contains("<local:ViewModule/>", top);
         Assert.Contains("<local:SnapModule/>", top);
@@ -73,11 +75,13 @@ public sealed class UiR1FinalLeftTopContractTests
         Assert.Contains("ToolTip.Tip=\"框选功能尚未实装（即将推出）\"", tools);
         Assert.DoesNotContain("CommandParameter=\"框选\"", tools);
         Assert.Contains("IsEnabled=\"{Binding IsMapEditMode}\"", snap);
+        Assert.Contains("Data=\"{StaticResource FocusIcon}\"", view);
         Assert.Contains("Data=\"{StaticResource ViewAllIcon}\"", view);
         Assert.Contains("<xy:XYBadge", runtime); Assert.Contains("<Menu", file);
-        Assert.Contains("Text=\"文件\"", file); Assert.Contains("Text=\"编辑工具\"", tools);
-        Assert.Contains("Text=\"视图\"", view); Assert.Contains("Text=\"吸附\"", snap);
-        Assert.Contains("Text=\"运行\"", runtime); Assert.Contains("Text=\"状态\"", runtime);
+        Assert.Contains("Text=\"工作区\"", workspace); Assert.Contains("Text=\"文件\"", file);
+        Assert.Contains("Text=\"编辑工具\"", tools); Assert.Contains("Text=\"视图\"", view);
+        Assert.Contains("Text=\"吸附\"", snap); Assert.Contains("Text=\"运行\"", runtime);
+        Assert.Contains("Text=\"状态\"", runtime);
         Assert.DoesNotContain("WORKSPACE", top); Assert.DoesNotContain("EDIT TOOLS", tools);
         Assert.DoesNotContain("statePill", top);
     }

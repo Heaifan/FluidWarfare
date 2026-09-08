@@ -1,5 +1,14 @@
 # changelog
 
+## v0.2.28.25-rz · AREA A C+D R3 COMPACT TOP + VERSION REFRESH（2026-09-08 12:51:00 +08:00）
+
+- 版本：正式版本从 `v0.2.28.24-rz` 递增至 `v0.2.28.25-rz`；项目 Version、启动窗口标题、编辑器窗口回退标题与动态文档标题使用同一版本。
+- 标题：保持“玄域引擎编辑器 {CURRENT_VERSION} - {DocumentTitle}”语义，文档名仍由现有 `DocumentTitle` 动态提供。
+- 紧凑 Top：移除重复品牌块；首行保留工作区、文件、弹性空间、运行、状态，第二行保留编辑工具、视图、吸附。模块改为横向紧凑条，34 DIP 控件保持可点击，管理态仅禁用而不移位。
+- 契约：版本契约从项目 `Version` 提取并校验四段 `-rz` 格式，再比对启动标题、窗口回退标题、动态文档标题与 changelog；避免消费者继续停留旧版本。
+- 验证：解决方案 Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1403/1403、XYUI 558/558 PASS；ARCH-A、变更 AXAML/XML、5+100 与 `git diff --check` PASS。
+- 状态：`TECHNICAL PASS / READY FOR USER IPO VISUAL ACCEPTANCE`；未宣告用户视觉或真机验收通过。
+
 ## AREA A · C+D 第二轮纠偏（2026-09-08 12:45:52 +08:00）
 
 - 顶部重排：第一行固定品牌、工作区、文件、弹性空区、运行与状态；第二行保留编辑工具、视图、吸附三块。工作区改为同级中文标题与紧凑的“管理模式 / 地图编辑”操作入口。
