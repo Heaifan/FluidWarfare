@@ -34,15 +34,13 @@
                           ShowChevron="True"
                           ToolTip.Tip="切换工作区">
           <xy:XYMenu>
-            <xy:XYMenuItem Header="地图编辑"
-                           ToggleType="Radio"
-                           CheckKind="Radio"
+            <xy:XYMenuItem Label="地图编辑"
+                            CheckKind="Radio"
                            IsChecked="{Binding IsMapWorkspace, Mode=OneWay}"
                            Command="{Binding SwitchWorkspaceCommand}"
                            CommandParameter="MapEditor"/>
-            <xy:XYMenuItem Header="区域编辑"
-                           ToggleType="Radio"
-                           CheckKind="Radio"
+            <xy:XYMenuItem Label="区域编辑"
+                            CheckKind="Radio"
                            IsChecked="{Binding IsRegionWorkspace, Mode=OneWay}"
                            Command="{Binding SwitchWorkspaceCommand}"
                            CommandParameter="RegionEditor"/>

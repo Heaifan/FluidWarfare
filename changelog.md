@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.27-rz · AREA-A-R5 FINAL VISUAL FIDELITY CLOSEOUT（2026-09-08 18:22:50 +08:00）
+
+- 目标：完成 Area A Top 菜单的 XYUI API 归一化与正式验收构建收口，保持既有布局、命令路由和交互语义不变。
+- 收口：Workspace 菜单统一使用 `Label`/`CheckKind="Radio"`，环境菜单统一使用 `Label`/`CheckKind="Check"`；移除 Area A 无消费者的原生 `Menu`/`MenuItem` 样式与对应债务基线条目。
+- 版本：项目版本、启动脚本标题、主窗口标题与动态文档标题统一递增至 `v0.2.28.27-rz`。
+- 验证：方案 Build 0 Warning / 0 Error；Core 339/339、WarCore 22/22、World 1414/1414、XYUI 565/565；ARCH-A/5+100、AXAML/XML（124 文件）、版本契约、XYUI DLL SHA256 一致性与 `git diff --check` 均通过。
+- 状态：`TECHNICAL PASS / READY FOR USER IPO VISUAL ACCEPTANCE`；不宣告用户视觉或真机验收通过。
+
 ## v0.2.28.26-rz · SINGLE CANONICAL WORKSPACE CONSOLIDATION（2026-09-08 17:51:27 +08:00）
 
 - 目标：冻结 XYUI 内置模式，XuanYuEngine 成为唯一正式工作区与 Git 真源。

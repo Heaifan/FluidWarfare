@@ -12,8 +12,6 @@ internal static partial class UiDebtBaseline
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.topGroup", UiRuleKind.HexColor, "BorderBrush", "#d0dae8"));
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.statePill", UiRuleKind.HexColor, "Background", "#eef7f1"));
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.statePill", UiRuleKind.HexColor, "BorderBrush", "#c9e3d0"));
-        list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:MenuItem", UiRuleKind.HexColor, "Foreground", "#2f3d52"));
-        list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:MenuItem:pointerover", UiRuleKind.HexColor, "Background", "#edf3fb"));
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn:pointerover", UiRuleKind.HexColor, "Background", "#edf3fb"));
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn:pressed", UiRuleKind.HexColor, "Background", "#dfeaf8"));
         list.Add(new("W26", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.xyui-toggle-button.toolBtn:pointerover", UiRuleKind.HexColor, "Background", "#edf3fb"));

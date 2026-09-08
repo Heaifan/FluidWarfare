@@ -31,7 +31,6 @@ internal static partial class UiDebtBaseline
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.commandRail", UiRuleKind.CornerRadius, "CornerRadius", "9"));
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.topGroup", UiRuleKind.CornerRadius, "CornerRadius", "0"));
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.statePill", UiRuleKind.CornerRadius, "CornerRadius", "7"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:MenuItem", UiRuleKind.ControlHeight, "MinHeight", "32"));
         list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Button.xyui-button.cmdBtn", UiRuleKind.CornerRadius, "CornerRadius", "4"));
         list.Add(new("W71-GEN", "XuanYu.Editor.UI/Top/Top.axaml", "Style:ToggleButton.xyui-toggle-button.toolBtn", UiRuleKind.ControlHeight, "MinHeight", "32"));

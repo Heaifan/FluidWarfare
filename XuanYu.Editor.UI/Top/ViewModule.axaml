@@ -64,7 +64,7 @@
       <xy:XYMenuBar Classes="compact"
                     ShowDivider="False"
                     VerticalAlignment="Center">
-        <xy:XYMenuBarItem Header="环境">
+        <xy:XYMenuBarItem Label="环境">
           <xy:XYMenu>
             <xy:XYMenuItem Label="构造网格"
                            CheckKind="Check"

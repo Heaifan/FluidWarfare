@@ -33,7 +33,7 @@
         </xy:XYMenuBarItem>
         <xy:XYMenuBarItem Label="添加">
           <xy:XYMenu>
-            <xy:XYMenuItem Header="立方体" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
+            <xy:XYMenuItem Label="立方体" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
           </xy:XYMenu>
         </xy:XYMenuBarItem>
       </xy:XYMenuBar>

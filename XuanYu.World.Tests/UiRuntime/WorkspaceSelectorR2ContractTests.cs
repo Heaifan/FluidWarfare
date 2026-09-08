@@ -50,7 +50,22 @@ public sealed class WorkspaceSelectorR2ContractTests
     public void Top_declares_one_environment_menu()
     {
         var source = Read("XuanYu.Editor.UI", "Top", "ViewModule.axaml");
-        Assert.Equal(1, Count(source, "Header=\"环境\""));
+        Assert.Equal(1, Count(source, "Label=\"环境\""));
+    }
+
+    [Fact]
+    public void Area_a_uses_canonical_xyui_menu_apis()
+    {
+        var workspace = Read("XuanYu.Editor.UI", "Workspace", "WorkspaceSelector.axaml");
+        var file = Read("XuanYu.Editor.UI", "Top", "FileModule.axaml");
+        var view = Read("XuanYu.Editor.UI", "Top", "ViewModule.axaml");
+        var top = Read("XuanYu.Editor.UI", "Top", "Top.axaml");
+
+        Assert.Equal(2, Count(workspace, "CheckKind=\"Radio\""));
+        Assert.DoesNotContain("ToggleType=", workspace);
+        Assert.DoesNotContain("Header=", workspace + file + view);
+        Assert.DoesNotContain("<Style Selector=\"Menu\"", top);
+        Assert.DoesNotContain("<Style Selector=\"MenuItem\"", top);
     }
 
     static IEnumerable<XYButton> VisibleButtons(Control root) =>

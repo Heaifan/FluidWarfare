@@ -33,8 +33,8 @@ public sealed class UiD4DebtClearedTests
     [Fact]
     public void Baseline_total_shrinks_with_d5_migrations()
     {
-        // D4 末 159 条 → D5 清除 37 条（Button 状态×5 + UnsavedDialog×11 + Foot 日志视觉×12 + Dialogs×9）
-        Assert.Equal(122, UiDebtBaseline.Entries.Count);
+        // D4 末 159 条 → D5 清除 37 条 → Area A R5 清除 3 条。
+        Assert.Equal(119, UiDebtBaseline.Entries.Count);
     }
 
     [Fact]
