@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.44-rz · RUN-DOTNET-DISCOVERY-R1（2026-09-09 21:20:27 +08:00）
+- 目标：让启动脚本在不同电脑上自动选择真正包含 SDK 的 dotnet，而不是被 PATH 中的 Runtime Host 截断。
+- 变化：`run.bat` 现在依次验证 `XUANYU_DOTNET`、仓库旁 `sdk-dotnet`/`.dotnet` 便携目录以及 PATH 中的全部 dotnet 候选；只有 `--list-sdks` 成功的候选才会用于 restore/build/run。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 587/587；ARCH-A、AXAML/XML、SVG/XML、5+100、版本一致性与 `git diff --check` 通过。
+- Hash：起始远端 HEAD `bb75ea73`。
+- 状态：`RUN-DOTNET-DISCOVERY-R1 READY FOR USER MACHINE ACCEPTANCE`。
+
 ## v0.2.28.43-rz · RUN-DOTNET-GALLERY-R1（2026-09-09 21:11:03 +08:00）
 
 - 目标：修复不同电脑的 .NET SDK 路径差异，并将 XYUI-4.14/4.15 接入 XYUI Gallery，提供可直接验收的文档与实时示例。

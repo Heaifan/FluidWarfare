@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title XuanYu Engine Editor v0.2.28.43-rz
+title XuanYu Engine Editor v0.2.28.44-rz
 
 cd /d "%~dp0"
 if errorlevel 1 (
@@ -12,20 +12,17 @@ if errorlevel 1 (
 rem Each machine may point XUANYU_DOTNET at its own SDK executable (D:, E:, etc.).
 rem Example: setx XUANYU_DOTNET "X:\MyApp\sdk-dotnet\dotnet.exe"
 set "DOTNET_EXE="
-if defined XUANYU_DOTNET if exist "%XUANYU_DOTNET%" set "DOTNET_EXE=%XUANYU_DOTNET%"
-if not defined DOTNET_EXE for /f "delims=" %%D in ('where dotnet 2^>nul') do if not defined DOTNET_EXE set "DOTNET_EXE=%%D"
+if defined XUANYU_DOTNET call :try_dotnet "%XUANYU_DOTNET%"
+if not defined DOTNET_EXE call :try_dotnet "%~dp0sdk-dotnet\dotnet.exe"
+if not defined DOTNET_EXE call :try_dotnet "%~dp0.dotnet\dotnet.exe"
+if not defined DOTNET_EXE for /f "delims=" %%D in ('where dotnet 2^>nul') do if not defined DOTNET_EXE call :try_dotnet "%%D"
 if not defined DOTNET_EXE (
-    echo [ERROR] .NET SDK not found. Set XUANYU_DOTNET to the machine's dotnet.exe path.
+    echo [ERROR] .NET SDK not found.
+    echo Set XUANYU_DOTNET to the machine's SDK dotnet.exe path, or add it to PATH.
     pause
     exit /b 1
 )
-call "%DOTNET_EXE%" --list-sdks | findstr /r "[0-9]" >nul
-if errorlevel 1 (
-    echo [ERROR] "%DOTNET_EXE%" is a runtime host without an SDK.
-    echo Set XUANYU_DOTNET to the installed SDK dotnet.exe path.
-    pause
-    exit /b 1
-)
+echo Using .NET SDK: "%DOTNET_EXE%"
 
 set "PROJECT=.\XuanYu.Editor.App\XuanYu.Editor.App.csproj"
 
@@ -70,3 +67,11 @@ echo.
 echo [ERROR] Editor failed. Exit code: %exitCode%
 pause
 exit /b %exitCode%
+
+:try_dotnet
+if defined DOTNET_EXE exit /b 0
+if not exist "%~1" exit /b 0
+call "%~1" --list-sdks >nul 2>&1
+if errorlevel 1 exit /b 0
+set "DOTNET_EXE=%~1"
+exit /b 0
