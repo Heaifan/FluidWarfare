@@ -1824,6 +1824,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYSidebar.cs` - C# implementation source for XYSidebar.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYUI3SidebarStyles.cs` - C# implementation source for XYUI3SidebarStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/Interaction/XYNavigationRail.Interaction.cs` - C# implementation source for XYNavigationRail.Interaction.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XyuiNavigationLayoutVariant.cs` - Public layout variant enum for default and Workspace NavigationRail presentation.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XYNavigationRail.cs` - C# implementation source for XYNavigationRail.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTab.Interaction.cs` - C# implementation source for XYTab.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTabs.Selection.cs` - C# implementation source for XYTabs.Selection.cs.
@@ -2010,6 +2011,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - XYUI Menu Radio/Check visual-tree lifecycle and runtime state regression tests.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceTests.cs` - Workspace NavigationRail stacked layout, selection, hover, keyboard, disabled, and default regression tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3OverlayResourceBridgeTests.cs` - Popup overlay 主题资源、动态画刷与重开生命周期回归测试。
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.

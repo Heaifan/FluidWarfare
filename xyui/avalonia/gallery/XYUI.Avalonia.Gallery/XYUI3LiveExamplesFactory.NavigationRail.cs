@@ -11,19 +11,20 @@ public static partial class XYUI3LiveExamplesFactory
     {
         var entries = new[]
         {
-            new XYNavigationEntry("map", "地图系统", XyuiVectorIcon.Locate),
-            new XYNavigationEntry("environment", "环境配置", XyuiVectorIcon.Eye),
-            new XYNavigationEntry("dataset", "数据资产", XyuiVectorIcon.Code)
+            new XYNavigationEntry("project", "项目", XyuiVectorIcon.Browse),
+            new XYNavigationEntry("hierarchy", "层级", XyuiVectorIcon.Locate),
+            new XYNavigationEntry("map", "地图", XyuiVectorIcon.Eye),
+            new XYNavigationEntry("region", "区域", XyuiVectorIcon.Section, IsEnabled: false)
         };
         var contextMap = new Dictionary<string, IReadOnlyList<XYNavigationEntry>>
         {
-            ["map"] = [new("base", "基础网格", XyuiVectorIcon.Section), new("terrain", "地形高程", XyuiVectorIcon.Section), new("vector", "矢量图层", XyuiVectorIcon.Section)],
-            ["environment"] = [new("lighting", "天空光照", XyuiVectorIcon.Section), new("weather", "天气系统", XyuiVectorIcon.Section)],
-            ["dataset"] = [new("tables", "数据表格", XyuiVectorIcon.Section), new("presets", "预设资产", XyuiVectorIcon.Section)]
+            ["project"] = [new("tree", "项目树", XyuiVectorIcon.Browse)],
+            ["hierarchy"] = [new("scene", "场景层级", XyuiVectorIcon.Locate)],
+            ["map"] = [new("base", "地图基础", XyuiVectorIcon.Section), new("dataset", "数据集", XyuiVectorIcon.Code)]
         };
         var state = new XYNavigationState(entries, "map");
         var footer = new XYNavigationEntry("settings", "首选项", XyuiVectorIcon.Section);
-        var rail = new XYNavigationRail(state, contextMap, footer, showExpandButton: true) { Width = 64, Height = 340 };
+        var rail = new XYNavigationRail(state, contextMap, footer, showExpandButton: true) { LayoutVariant = XyuiNavigationLayoutVariant.Workspace, Width = 64, Height = 340 };
 
         var statusText = new TextBlock { Text = $"当前定位：{state.Selected?.Label} (点击图标呼出二级上下文菜单)", Classes = { "xyui-text-caption" } };
         var eventLog = new TextBlock { Text = "事件日志：就绪", Classes = { "xyui-text-caption" } };
@@ -31,9 +32,9 @@ public static partial class XYUI3LiveExamplesFactory
         state.Changed += (_, _) => statusText.Text = $"当前定位：{state.Selected?.Label} (已激活对应 Flyout)";
         rail.ExpandRequested += (_, _) => eventLog.Text = "事件日志：触发 ExpandRequested · 响应式请求展开为 Sidebar (240 DIP)";
 
-        var infoPanel = new StackPanel { Spacing = 8, Width = 340, Children = { statusText, eventLog } };
+        var infoPanel = new StackPanel { Spacing = 8, Width = 340, Children = { statusText, eventLog, new TextBlock { Text = "Workspace / Stacked：标签常驻；区域用于 Disabled 状态示例。", Classes = { "xyui-text-caption" }, TextWrapping = global::Avalonia.Media.TextWrapping.Wrap } } };
         var host = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 24, Children = { rail, infoPanel } };
-        return WrapCard(host, "独立导航轨 · 64 DIP Canonical 轨与二级 Context Flyout 联动");
+        return WrapCard(host, "XYUI3-07 Workspace / Stacked · 64 DIP 导航轨与二级 Context Flyout");
     }
 
     static Control CreateNavigationRailComposition()

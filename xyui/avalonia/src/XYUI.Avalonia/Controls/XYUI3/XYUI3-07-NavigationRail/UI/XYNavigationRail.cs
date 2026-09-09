@@ -15,6 +15,7 @@ public sealed partial class XYNavigationRail : Border
     IReadOnlyDictionary<string, IReadOnlyList<XYNavigationEntry>> _contextMap;
     XYNavigationEntry? _footer;
     bool _building;
+    XyuiNavigationLayoutVariant _layoutVariant;
     Popup? _popup;
     XYSubMenu? _contextFlyout;
     public ObservableCollection<XYNavigationItem> Items { get; } = [];
@@ -22,6 +23,7 @@ public sealed partial class XYNavigationRail : Border
     public ObservableCollection<XYNavigationEntry> ContextItems { get; } = [];
     public XYNavigationEntry? Footer { get => _footer; set { _footer = value; Build(); } }
     public bool ShowExpandButton { get; set { if (field == value) return; field = value; Build(); } }
+    public XyuiNavigationLayoutVariant LayoutVariant { get => _layoutVariant; set { if (_layoutVariant == value) return; _layoutVariant = value; Build(); } }
     public bool IsContextFlyoutOpen => _popup?.IsOpen == true;
     public XYSubMenu? NavigationContextFlyout => _contextFlyout;
     public event EventHandler? ExpandRequested;
@@ -35,7 +37,7 @@ public sealed partial class XYNavigationRail : Border
     public XYNavigationRail(params XYNavigationItem[] items) : this((IReadOnlyList<XYNavigationItem>)items) { }
     void Build()
     {
-        _building = true; _panel.Children.Clear(); _itemViews.Clear();
+        _building = true; Classes.Set("xyui-navigation-rail-workspace", LayoutVariant == XyuiNavigationLayoutVariant.Workspace); _panel.Children.Clear(); _itemViews.Clear();
         if (ShowExpandButton) { var expand = new XYIconButton { Content = new XYIcon { Icon = XyuiVectorIcon.ChevronRight, Size = XyuiIconSize.Small }, Classes = { "xyui-rail-expand" } }; expand.SetValue(AutomationProperties.NameProperty, "展开侧边栏"); expand.Click += (_, _) => ExpandRequested?.Invoke(this, EventArgs.Empty); _panel.Children.Add(expand); }
         foreach (var entry in _state.Entries) AddItem(entry);
         if (_footer is not null) { _panel.Children.Add(new XYSeparator { Classes = { "xyui-rail-footer-separator" } }); AddItem(_footer); }
@@ -44,7 +46,7 @@ public sealed partial class XYNavigationRail : Border
     void AddItem(XYNavigationEntry entry)
     {
         var item = Items.FirstOrDefault(x => x.Id == entry.Id) ?? new XYNavigationItem { Id = entry.Id };
-        item.Label = entry.Label; item.Icon = entry.Icon; item.Badge = entry.Badge; item.Status = entry.Status; item.IsEnabled = entry.IsEnabled; item.IsSelected = entry.Id == _state.SelectedId; item.IsIconOnly = true; item.Classes.Add("xyui-rail-item"); item.SetValue(AutomationProperties.NameProperty, entry.Label); ToolTip.SetTip(item, entry.Label); item.Selected -= OnSelected; item.Selected += OnSelected; item.KeyDown -= OnItemKeyDown; item.KeyDown += OnItemKeyDown;
+        item.Label = entry.Label; item.Icon = entry.Icon; item.Badge = entry.Badge; item.Status = entry.Status; item.IsEnabled = entry.IsEnabled; item.IsSelected = entry.Id == _state.SelectedId; item.LayoutVariant = LayoutVariant; item.IsIconOnly = LayoutVariant == XyuiNavigationLayoutVariant.Default; item.Classes.Set("xyui-rail-item", LayoutVariant == XyuiNavigationLayoutVariant.Default); item.Classes.Set("xyui-rail-workspace-item", LayoutVariant == XyuiNavigationLayoutVariant.Workspace); item.SetValue(AutomationProperties.NameProperty, entry.Label); ToolTip.SetTip(item, entry.Label); item.Selected -= OnSelected; item.Selected += OnSelected; item.KeyDown -= OnItemKeyDown; item.KeyDown += OnItemKeyDown;
         if (!Items.Contains(item)) Items.Add(item); _itemViews[entry.Id] = item; _panel.Children.Add(item);
     }
     static XYNavigationState CreateState(IEnumerable<XYNavigationItem> items) => new(items.Select(x => new XYNavigationEntry(x.Id, x.Label, x.Icon, x.Badge, x.Status, x.IsEnabled)), items.FirstOrDefault(x => x.IsSelected)?.Id);

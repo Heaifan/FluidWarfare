@@ -6,6 +6,7 @@ public static partial class XYUI3DocumentationCatalog
     {
         "XYUI-3-3.01" => MenuBarProperties(),
         "XYUI-3-3.02" => MenuProperties(),
+        "XYUI-3-3.07" => NavigationRailProperties(),
         "XYUI-3-3.23" => BottomNavProperties(),
         _ => []
     };
@@ -41,6 +42,15 @@ public static partial class XYUI3DocumentationCatalog
         P("XYBottomNavigationItem.IsEnabled", "bool", "true", "false 时目的地不可点击。"),
         P("NavigationState", "XYNavigationState", "必填", "共享目的地与当前 SelectedId 的状态源。"),
         P("Items", "IReadOnlyList<XYBottomNavigationItem>", "state.Entries", "只读目的地集合，按等宽 Slot 渲染。")
+    ];
+
+    static IReadOnlyList<XYUIDocProperty> NavigationRailProperties() =>
+    [
+        P("NavigationState", "XYNavigationState", "必填", "唯一导航事实源，负责 SelectedId、RequestNavigation 与禁用目的地。"),
+        P("LayoutVariant", "XyuiNavigationLayoutVariant", "Default", "Default 保持纯图标 Rail；Workspace 使用图标上置、标签常驻的堆叠布局。"),
+        P("XYNavigationItem.Label", "string", "必填", "Workspace 变体中始终可见的一级工作区标签。"),
+        P("XYNavigationItem.Icon", "XyuiVectorIcon", "必填", "来自 XYUI Vector Icon Registry 的导航图标。"),
+        P("XYNavigationItem.IsEnabled", "bool", "true", "false 时不可点击、不可导航，并使用 Disabled 视觉。")
     ];
 
     static XYUIDocProperty P(string name, string type, string value, string description) =>

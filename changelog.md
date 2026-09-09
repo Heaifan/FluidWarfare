@@ -1,5 +1,14 @@
 # changelog
 
+## v0.2.28.32-rz · XYUI3-07 WORKSPACE STACKED NAVIGATION RAIL（2026-09-09 09:44:15 +08:00）
+
+- 目标：补齐现有 `XYNavigationRail` / `XYNavigationItem` 的 Workspace / Stacked 变体，供编辑器一级工作区使用；本轮不施工 Area B Left。
+- 变化：新增真实 `LayoutVariant="Workspace"` API；复用 `XYNavigationState`、既有选择/键盘/禁用链路；图标上置、中文标签常驻、56 × 58 DIP item 意图、唯一 3 DIP 左侧 Selected Mark；默认 Icon Rail 行为保持不变。
+- Gallery / 文档：更新 XYUI3-07 NavigationRail Live Example、Quick Start、适用边界与 Default/Workspace 变体说明，展示项目/层级/地图/区域及 Disabled 状态。
+- 验证：XYUI3 Workspace Rail targeted tests 4/4 PASS；XYUI solution build 0W0E；XYUI tests 580/580；Engine solution build 0W0E；Core 339/339、WarCore 22/22、World 1416/1416；ARCH-A PASS；用户视觉验收未执行。
+- Hash：待提交后回填。
+- 状态：`XYUI3-07-R1 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.31-rz · AREA-A-R9 POPUP RESOURCE BRIDGE CLOSEOUT（2026-09-09 00:08:25 +08:00）
 
 - 目标：修复真实 Windows `PopupRoot` 中 Workspace 菜单 Radio 仅有布局、不产生 Ring/选中 Dot 绘制的问题。
