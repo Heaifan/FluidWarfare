@@ -9,6 +9,9 @@ public sealed partial class UiVm
     public bool IsEntityInspector => SelectedDataset is null &&
         TrySelectedEntityKey(out var key) && _sceneState.TryGetEntity(key, out _);
 
+    public string InspectorEntitySubtitle => TrySelectedEntity(out var entity)
+        ? $"{EditorDisplayText.EntityType(entity.Type)} · Entity" : SelectionSubtitle;
+
     public string InspectorEntityNameText
     {
         get => _inspectorEntityNameText;

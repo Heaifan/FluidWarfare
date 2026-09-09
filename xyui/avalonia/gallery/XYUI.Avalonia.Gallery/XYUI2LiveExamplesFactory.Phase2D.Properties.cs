@@ -26,15 +26,18 @@ public static partial class XYUI2LiveExamplesFactory
     static Control VectorPropertyExamples()
     {
         var col1 = new StackPanel { Spacing = 8, Width = 640, HorizontalAlignment = HorizontalAlignment.Left };
-        col1.Children.Add(new XYVectorProperty { Width = 620, Label = "世界位置 (Vector3)", Dimension = XYVectorDimension.Vector3, X = 12.5, Y = 0, Z = -4.8, Step = .1, DecimalPlaces = 2 });
-        col1.Children.Add(new XYVectorProperty { Width = 420, Label = "欧拉旋转 (中宽布局)", Dimension = XYVectorDimension.Vector3, X = 0, Y = 90, Z = 0, Step = 1, DecimalPlaces = 0 });
+        col1.Children.Add(new XYVectorProperty { Width = 620, Label = "Auto · 宽屏 Vector3", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Auto, X = 12.5, Y = 0, Z = -4.8, Step = .1, DecimalPlaces = 2 });
+        col1.Children.Add(new XYVectorProperty { Width = 280, Label = "Auto · 紧凑 Vector3", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Auto, X = 0, Y = 90, Z = 0, Step = 1, DecimalPlaces = 0 });
+        col1.Children.Add(new XYVectorProperty { Width = 300, Label = "Inline · 紧凑 Vector3", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = -1.42, Z = 0, Step = .1, DecimalPlaces = 2 });
 
         var col2 = new StackPanel { Spacing = 8, Width = 640, HorizontalAlignment = HorizontalAlignment.Left };
-        col2.Children.Add(new XYVectorProperty { Width = 280, Label = "UV 平铺 (紧凑布局)", Dimension = XYVectorDimension.Vector2, X = 1.0, Y = 1.0, Step = .1, DecimalPlaces = 2 });
-        col2.Children.Add(new XYVectorProperty { Width = 620, Label = "四维向量 (Vector4)", Dimension = XYVectorDimension.Vector4, X = 1, Y = 0, Z = 0, W = 1 });
+        col2.Children.Add(new XYVectorProperty { Width = 620, Label = "Stacked · 宽屏 Vector3", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Stacked, X = 1, Y = 0, Z = 0, Step = .1, DecimalPlaces = 2 });
+        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Position", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = -1.42, Z = 0, Step = .1, DecimalPlaces = 2 });
+        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Rotation", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = 0, Z = 0, Step = .1, DecimalPlaces = 2 });
+        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Scale", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 1, Y = 1, Z = 1, Step = .1, DecimalPlaces = 2 });
 
         return SceneHost(
-            Scene("场景 1 · 宽屏与中屏布局 (各轴独立复用 XYNumberField，独立编辑与 Scrub)", col1),
-            Scene("场景 2 · 紧凑自适应与高阶维度 (空间不足时自适应逐轴纵向堆叠)", col2));
+            Scene("布局策略 · Auto / Inline (各轴独立复用 XYNumberField，独立编辑与 Scrub)", col1),
+            Scene("布局策略 · Stacked / XuanYu Editor Area D Transform Inspector", col2));
     }
 }

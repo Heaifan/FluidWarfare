@@ -15,8 +15,8 @@
     <Grid ColumnDefinitions="20,*" ColumnSpacing="8">
       <xy:XYIcon Icon="Browse" Size="Small" VerticalAlignment="Center"/>
       <StackPanel Grid.Column="1" Spacing="1">
-        <xy:XYHeading Text="{Binding InspectorSelectionTitle}" Variant="PanelTitle"/>
-        <xy:XYCaption Text="{Binding InspectorSelectionSubtitle}"/>
+        <xy:XYHeading x:Name="EntityHeaderTitle" Text="{Binding InspectorSelectionTitle}" Variant="PanelTitle"/>
+        <xy:XYCaption x:Name="EntityHeaderSubtitle" Text="{Binding InspectorSelectionSubtitle}"/>
       </StackPanel>
     </Grid>
 

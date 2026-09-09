@@ -22,7 +22,8 @@ public static partial class XYUI2DocumentationCatalog
         "XYUI-2-22" => [
             new("Wide", "宽屏单行横排，所有轴均匀横向平铺", "宽容器属性面板"),
             new("Medium", "中屏布局，标签置顶，轴保持横向平铺", "中等宽度面板"),
-            new("Compact", "紧凑布局，标签置顶，轴竖向逐行堆叠", "窄侧边栏与小窗口")
+            new("Compact", "Auto 紧凑布局，标签置顶，轴竖向逐行堆叠", "窄侧边栏与小窗口"),
+            new("Inline / Stacked", "正式策略可分别强制轴横排或纵排", "专业 Inspector 与明确纵排表单")
         ],
         "XYUI-2-23" => [
             new("Closed", "收起常态，展示当前选中项与下拉箭头", "离散枚举展示"),
@@ -61,6 +62,7 @@ public static partial class XYUI2DocumentationCatalog
         "XYUI-2-22" => [
             new("Label", "string", "向量", "属性标签文本"),
             new("Dimension", "XYVectorDimension", "Vector3", "向量维度（Vector2 / 3 / 4）"),
+            new("Layout", "XYVectorPropertyLayout", "Auto", "Auto 响应式；Inline 横排；Stacked 纵排"),
             new("X / Y / Z / W", "double", "0", "各轴独立分量真值"),
             new("Minimum / Maximum", "double", "-100000 / 100000", "各轴数值约束")
         ],

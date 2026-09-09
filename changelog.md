@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.49-rz · XYUI2-22-R1 + AREA-D-R1-FIX2（2026-09-10 00:49:46 +08:00）
+- 目标：为 `XYVectorProperty` 补齐正式布局策略，并在 Area D Inspector 消费紧凑横排能力，完成基础信息与实体上下文布局收口。
+- 变化：新增默认向后兼容的 `Layout=Auto|Inline|Stacked`；Inline/Stacked 继续复用 `XYNumberField`；Gallery 补充三种策略和 Area D Transform 示例；Inspector 修复基础信息两行 Grid、上下文副标题，并令 Position/Rotation/Scale 使用 `Layout="Inline"`。
+- 验证：XYUI 定向构建 0W0E、布局回归 11/11；Area D Headless 7/7；完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1443/1443、XYUI 594/594；ARCH-A、5+100、AXAML/XML、版本四处一致性与 `git diff --check` 通过。
+- Hash：起始远端 HEAD `159644942831d3843fa5a2cd85a66fd7377b6b94`。
+- 状态：`XYUI2-22-R1 + AREA-D-R1-FIX2 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.48-rz · AREA-D-R1-FIX1（2026-09-10 00:20:55 +08:00）
 - 目标：让 Right Inspector 的实体 Section Rail 内容在 300–480 DIP 内可纵向滚动，同时保持右侧 Tab Header 固定。
 - 变化：Inspector 内容根改为唯一的纵向 `ScrollViewer`（垂直 Auto、水平 Disabled）；保留现有 Section Rail、`XYTextField`、`XYVectorProperty` 与编辑提交链；新增 Headless 运行时回归覆盖 300/360/480 DIP 滚动、固定 Tab Header 和空状态内容适配。

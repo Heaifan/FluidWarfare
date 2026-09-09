@@ -7,7 +7,7 @@ public static partial class XYUI2DocumentationCatalog
         "XYUI-2-19" => "<xy:XYColorPicker Color=\"{Binding PrimaryColor}\" Mode=\"RGBA\" />",
         "XYUI-2-20" => "<xy:XYBoolProperty Label=\"Visible\" Value=\"{Binding IsVisible}\" />",
         "XYUI-2-21" => "<xy:XYNumberProperty Label=\"Mass\" Value=\"{Binding Mass}\" Suffix=\"kg\" />",
-        "XYUI-2-22" => "<xy:XYVectorProperty Label=\"Position\" Dimension=\"Vector3\" X=\"{Binding PosX}\" Y=\"{Binding PosY}\" Z=\"{Binding PosZ}\" />",
+        "XYUI-2-22" => "<xy:XYVectorProperty Label=\"Position\" Dimension=\"Vector3\" Layout=\"Inline\" X=\"{Binding PosX}\" Y=\"{Binding PosY}\" Z=\"{Binding PosZ}\" />",
         "XYUI-2-23" => "<xy:XYEnumProperty Label=\"Blend Mode\" ItemsSource=\"{Binding BlendModes}\" SelectedItem=\"{Binding CurrentBlendMode}\" />",
         "XYUI-2-24" => "<xy:XYReferenceProperty Label=\"Material\" Reference=\"{Binding MaterialRef}\" ExpectedType=\"Material\" />",
         _ => ""
@@ -33,7 +33,7 @@ public static partial class XYUI2DocumentationCatalog
         "XYUI-2-22" => [
             new("组件定义", "多维向量属性控制行（支持 Vector2/3/4），各轴严格复用 XYNumberField。"),
             new("独立编辑", "每一轴拥有独立输入与微调能力，修改某一轴不影响其他轴的既有数值。"),
-            new("响应式自适应", "宽屏横向平铺，中屏与紧凑模式自适应折行与纵向堆叠，防止轴被压扁。")
+            new("布局策略", "Layout 默认 Auto 保留响应式行为；Inline 强制轴横排，Stacked 强制轴纵排。")
         ],
         "XYUI-2-23" => [
             new("组件定义", "枚举类型离散选项控制行，内部严格复用 XYSelect 真实选择控件。"),

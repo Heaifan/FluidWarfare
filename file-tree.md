@@ -1044,6 +1044,7 @@
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
+- `XuanYu.World.Tests/UiRuntime/InspectorSectionRailLayoutRuntimeTests.cs` - Headless runtime coverage for Inspector base rows, entity header, and official inline vector axes.
 - `XuanYu.World.Tests/UiRuntime/InspectorSectionRailScrollRuntimeTests.cs` - Headless runtime regression coverage for inspector-only vertical scrolling and fixed tab headers.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeLayoutTests.cs` - C# implementation source for LayerPanelRuntimeLayoutTests.cs.
@@ -2034,6 +2035,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TimePickerInteractionReworkTests.cs` - C# implementation source for XYUI2TimePickerInteractionReworkTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2TimePickerTests.cs` - C# implementation source for XYUI2TimePickerTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2VectorPropertyLayoutTests.cs` - C# implementation source for XYUI2VectorPropertyLayoutTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI2VectorPropertyLayoutStrategyTests.cs` - XYVectorProperty Auto, Inline, and Stacked layout strategy regression coverage.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3BackForwardNavigationTests.cs` - C# implementation source for XYUI3BackForwardNavigationTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch04StructureTests.cs` - C# implementation source for XYUI3Batch04StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.

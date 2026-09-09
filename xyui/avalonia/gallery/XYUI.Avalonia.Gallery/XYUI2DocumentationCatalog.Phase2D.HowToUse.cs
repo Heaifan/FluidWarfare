@@ -21,7 +21,7 @@ public static partial class XYUI2DocumentationCatalog
         ],
         "XYUI-2-22" => [
             new("适用场景 (Use when)", "空间坐标与变换属性配置，如「位置 (Vector3)」、「缩放 (Vector3)」、「UV (Vector2)」。"),
-            new("响应式折行 (Responsive)", "在不同面板宽度下自动切换单行横排、标签置顶或逐轴纵向堆叠。"),
+            new("响应式与策略 (Layout)", "默认 Auto 自动适配；专业 Inspector 可设 Layout=\"Inline\" 保持各轴横排，明确纵排可设 Stacked。"),
             new("各轴独立 (Per-Axis)", "每一轴均为独立 XYNumberField，支持独立键盘编辑与局部微调。")
         ],
         "XYUI-2-23" => [

@@ -12,7 +12,9 @@ public partial class XYVectorProperty
         if (RowPart is null || AxisPanelPart is null) return;
         var width = Bounds.Width; var dimension = (int)Dimension; var wideCandidate = width >= XYPropertyLayoutMetrics.WideBreakpoint;
         var axisWidth = Math.Max(0, width - (wideCandidate ? XYPropertyLayoutMetrics.LabelColumnWidth + XYPropertyLayoutMetrics.ColumnGap : 0));
-        var compact = XYPropertyLayoutMetrics.IsCompact(width) || axisWidth < RequiredAxisWidth(dimension); var wide = wideCandidate && !compact;
+        var autoCompact = XYPropertyLayoutMetrics.IsCompact(width) || axisWidth < RequiredAxisWidth(dimension);
+        var compact = Layout == XYVectorPropertyLayout.Stacked || Layout == XYVectorPropertyLayout.Auto && autoCompact;
+        var wide = Layout == XYVectorPropertyLayout.Auto ? wideCandidate && !compact : wideCandidate;
         Classes.Set("xyui-vector-wide", wide); Classes.Set("xyui-vector-medium", !wide && !compact); Classes.Set("xyui-vector-compact", compact);
         if (wide) { AxisPanelPart.Margin = new Thickness(0); XYPropertyLayoutMetrics.ConfigureRow(RowPart, LabelPart!, AxisPanelPart, width); } else ConfigureStackedRow();
         ConfigureAxisGrid(dimension, compact);
