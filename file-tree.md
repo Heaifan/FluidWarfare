@@ -2012,6 +2012,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - XYUI Menu Radio/Check visual-tree lifecycle and runtime state regression tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceTests.cs` - Workspace NavigationRail stacked layout, selection, hover, keyboard, disabled, and default regression tests.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceStateTests.cs` - Workspace NavigationRail canonical focus and disabled navigation state regression test.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3OverlayResourceBridgeTests.cs` - Popup overlay 主题资源、动态画刷与重开生命周期回归测试。
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
