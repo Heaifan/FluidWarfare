@@ -13,7 +13,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
     bool _createdReported;
     bool _layoutSyncHooked;
     nint _hwnd;
-    internal event EventHandler? RendererReady;
+    internal event EventHandler? RendererReady; internal bool IsRendererReady { get; private set; }
     public VulkanNativeHost()
     {
         Focusable = false;
@@ -28,6 +28,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
+        IsRendererReady = false;
         if (!_createdReported)
         {
             Report(NativeHostLifecycleState.Created, 0, 0, 0, 1d, false);
@@ -35,7 +36,10 @@ public sealed partial class VulkanNativeHost : NativeControlHost
         }
         var snap = Report(NativeHostLifecycleState.Attached, _hwnd, (int)Bounds.Width, (int)Bounds.Height, GetDpiScale(), _hwnd != 0);
         _bridge ??= CreateBridge();
-        if (_bridge.Attach(NativeHostSurfaceContract.ToSurfaceHandle(snap))) RendererReady?.Invoke(this, EventArgs.Empty);
+        if (_bridge.Attach(NativeHostSurfaceContract.ToSurfaceHandle(snap)))
+        {
+            IsRendererReady = true; RendererReady?.Invoke(this, EventArgs.Empty);
+        }
     }
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {
@@ -67,6 +71,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
         UnhookLayoutSync();
         Report(NativeHostLifecycleState.Detached, _hwnd, (int)Bounds.Width, (int)Bounds.Height, GetDpiScale(), _hwnd != 0);
         _bridge?.Detach();
+        IsRendererReady = false;
         base.OnDetachedFromVisualTree(e);
     }
     protected override void DestroyNativeControlCore(IPlatformHandle control)
@@ -77,6 +82,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
         Report(NativeHostLifecycleState.Invalidated, _hwnd, (int)Bounds.Width, (int)Bounds.Height, GetDpiScale(), false);
         (_bridge as IDisposable)?.Dispose();
         _bridge = null;
+        IsRendererReady = false;
         if (_hwnd != 0)
         {
             Win32ViewportHost.SetInputSink(_hwnd, null);

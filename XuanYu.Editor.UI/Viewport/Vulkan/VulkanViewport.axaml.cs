@@ -1,15 +1,27 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.LogicalTree;
 using Avalonia.VisualTree;
 
 namespace XuanYu.Editor.UI;
 
 public partial class VulkanViewport : UserControl
 {
+    VulkanNativeHost? _host;
+    bool _hostHooked;
+
     public VulkanViewport()
     {
         InitializeComponent();
-        this.GetVisualDescendants().OfType<VulkanNativeHost>().Single().RendererReady += (_, _) => HideFallback();
-        AttachedToVisualTree += (_, _) => SetFallback("Vulkan 正在初始化...");
+        AttachedToVisualTree += OnAttached;
+    }
+
+    void OnAttached(object? sender, VisualTreeAttachmentEventArgs e)
+    {
+        SetFallback("Vulkan 正在初始化...");
+        _host ??= this.GetLogicalDescendants().OfType<VulkanNativeHost>().Single();
+        if (!_hostHooked) { _host.RendererReady += (_, _) => HideFallback(); _hostHooked = true; }
+        if (_host.IsRendererReady) HideFallback();
     }
 
     internal void SetFallback(string message)
