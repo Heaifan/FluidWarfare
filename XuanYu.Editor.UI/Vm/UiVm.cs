@@ -39,7 +39,7 @@ public sealed partial class UiVm : INotifyPropertyChanged, XuanYu.Core.Scene.ISc
         SurfaceBridgeFactory = surfaceBridgeFactory;
         if (dialogService is not null) _dialogService = dialogService;
         RunCommand = new RelayCommand(name => Run(name?.ToString() ?? string.Empty));
-        SelectToolCommand = new RelayCommand(TrySelectTool); SwitchWorkspaceCommand = new RelayCommand(SwitchWorkspace); SelectRegionAuthoringModeCommand = new RelayCommand(SelectRegionAuthoringModeCommandTarget);
+        SelectToolCommand = new RelayCommand(TrySelectTool, CanSelectTool); SwitchWorkspaceCommand = new RelayCommand(SwitchWorkspace); SelectRegionAuthoringModeCommand = new RelayCommand(SelectRegionAuthoringModeCommandTarget);
         ToggleSnapCommand = new RelayCommand(_ => TryToggleSnap()); ToggleEditorModeCommand = new RelayCommand(_ => ToggleEditorMode());
         InteractionCommand = new RelayCommand(name => RunInteraction(name?.ToString() ?? string.Empty));
         ToggleLogCommand = new RelayCommand(_ => IsLogOpen = !IsLogOpen);

@@ -4,7 +4,7 @@ using Avalonia.Media;
 
 namespace XYUI.Avalonia.Vector;
 
-public enum XyuiVectorIcon { Info, Error, Warning, Search, Locate, Browse, Copy, Code, Tag, StatusDot, Check, Section, Empty, ChevronDown, Clear, Filter, Eye, Calendar, Clock, ChevronLeft, ChevronRight, ScrubLeftRight, MoreHorizontal, Add, DragGrip }
+public enum XyuiVectorIcon { Info, Error, Warning, Search, Locate, Browse, Copy, Code, Tag, StatusDot, Check, Section, Empty, ChevronDown, Clear, Filter, Eye, Calendar, Clock, ChevronLeft, ChevronRight, ScrubLeftRight, MoreHorizontal, Add, DragGrip, File, NewFile, Open, Save, Undo, Redo, Play, Stop, Select, BoxSelect, Move, Rotate, Scale, Focus, ViewAll, Pan, Orbit, Snap }
 
 public static class XyuiVectorIcons
 {
@@ -37,7 +37,25 @@ public static class XyuiVectorIcons
             [XyuiVectorIcon.ScrubLeftRight] = "M8 7 L3 12 L8 17 M16 7 L21 12 L16 17 M4 12 H20",
             [XyuiVectorIcon.MoreHorizontal] = "M5 10.5 A1.5 1.5 0 1 0 5 13.5 A1.5 1.5 0 1 0 5 10.5 M12 10.5 A1.5 1.5 0 1 0 12 13.5 A1.5 1.5 0 1 0 12 10.5 M19 10.5 A1.5 1.5 0 1 0 19 13.5 A1.5 1.5 0 1 0 19 10.5",
             [XyuiVectorIcon.Add] = "M12 5 V19 M5 12 H19",
-            [XyuiVectorIcon.DragGrip] = "M8 7 A1 1 0 1 0 8 9 A1 1 0 1 0 8 7 M16 7 A1 1 0 1 0 16 9 A1 1 0 1 0 16 7 M8 15 A1 1 0 1 0 8 17 A1 1 0 1 0 8 15 M16 15 A1 1 0 1 0 16 17 A1 1 0 1 0 16 15"
+            [XyuiVectorIcon.DragGrip] = "M8 7 A1 1 0 1 0 8 9 A1 1 0 1 0 8 7 M16 7 A1 1 0 1 0 16 9 A1 1 0 1 0 16 7 M8 15 A1 1 0 1 0 8 17 A1 1 0 1 0 8 15 M16 15 A1 1 0 1 0 16 17 A1 1 0 1 0 16 15",
+            [XyuiVectorIcon.File] = "M3 3H13L17 7V21H3ZM13 3V7H17M6 11H14M6 15H14",
+            [XyuiVectorIcon.NewFile] = "M3 3H9L13 7V14H3ZM9 3V7H13M8 9V12M6.5 10.5H9.5",
+            [XyuiVectorIcon.Open] = "M2 6H6L8 4H21V19H2ZM2 6V19H18L21 4",
+            [XyuiVectorIcon.Save] = "M3 3H21V21H3ZM6 3V9H18V3M7 14H17V19H7Z",
+            [XyuiVectorIcon.Undo] = "M6 5L3 8L6 11M3 8H12C16 8 18 10 18 14V17",
+            [XyuiVectorIcon.Redo] = "M18 5L21 8L18 11M21 8H12C8 8 6 10 6 14V17",
+            [XyuiVectorIcon.Play] = "M5 3L19 12L5 21Z",
+            [XyuiVectorIcon.Stop] = "M5 5H19V19H5Z",
+            [XyuiVectorIcon.Select] = "M5 3L17 14L11.7 15.1L14.7 20.2L12.4 21.5L9.4 16.4L5.8 20.2Z",
+            [XyuiVectorIcon.BoxSelect] = "M4 5H17V16H4ZM14.5 14L20 19.2L17.4 19.8L18.9 22L17.2 23L15.8 20.7L14.1 22.4Z",
+            [XyuiVectorIcon.Move] = "M12 3V21M12 3L9 6M12 3L15 6M12 21L9 18M12 21L15 18M3 12H21M3 12L6 9M3 12L6 15M21 12L18 9M21 12L18 15M12 10.5A1.5 1.5 0 1 0 12 13.5A1.5 1.5 0 1 0 12 10.5",
+            [XyuiVectorIcon.Rotate] = "M12 10.5A1.5 1.5 0 1 0 12 13.5A1.5 1.5 0 1 0 12 10.5M6.2 9.5A6.6 6.6 0 0 1 15.8 5.3M15.8 5.3L15.2 2.8M15.8 5.3L13.2 5.9M17.8 14.5A6.6 6.6 0 0 1 8.2 18.7M8.2 18.7L8.8 21.2M8.2 18.7L10.8 18.1",
+            [XyuiVectorIcon.Scale] = "M8 4H4V8M4 4L9 9M16 4H20V8M20 4L15 9M8 20H4V16M4 20L9 15M16 20H20V16M20 20L15 15M9 9H15V15H9Z",
+            [XyuiVectorIcon.Focus] = "M4 9V4H9M15 4H20V9M20 15V20H15M9 20H4V15M12 9.8A2.2 2.2 0 1 0 12 14.2A2.2 2.2 0 0 0 12 9.8M12 11.2A0.8 0.8 0 1 0 12 12.8A0.8 0.8 0 0 0 12 11.2",
+            [XyuiVectorIcon.ViewAll] = "M3 7V3H7M17 3H21V7M21 17V21H17M7 21H3V17M7 7H17V17H7Z",
+            [XyuiVectorIcon.Pan] = "M8 11V5.8C8 5 8.6 4.4 9.4 4.4C10.2 4.4 10.8 5 10.8 5.8V11M10.8 10.5V4.8C10.8 4 11.4 3.4 12.2 3.4C13 3.4 13.6 4 13.6 4.8V11M13.6 10.5V6.2C13.6 5.4 14.2 4.8 15 4.8C15.8 4.8 16.4 5.4 16.4 6.2V12.5M8 11L6.8 9.8C6.2 9.2 5.2 9.2 4.7 9.9C4.2 10.5 4.3 11.3 4.8 11.9L9.3 17.8C10.1 18.8 11.3 19.4 12.6 19.4H15.1C17.5 19.4 19.4 17.5 19.4 15.1V11.4",
+            [XyuiVectorIcon.Orbit] = "M4.7 15.4C3.5 13.2 6.1 10.1 10.5 8.2C14.9 6.4 19.5 6.5 20.3 8.6C21.1 10.8 18.6 13.9 14.2 15.7C9.8 17.6 5.8 17.4 4.7 15.4M17.8 6.8L20.7 7.4L19.4 10M12 10.2A1.8 1.8 0 1 0 12 13.8A1.8 1.8 0 1 0 12 10.2",
+            [XyuiVectorIcon.Snap] = "M7 4V11C7 13.8 9.2 16 12 16C14.8 16 17 13.8 17 11V4M7 4H10.5V11C10.5 11.8 11.2 12.5 12 12.5C12.8 12.5 13.5 11.8 13.5 11V4H17M4 4H7M17 4H20M4 8H7M17 8H20",
         };
 
     public static StreamGeometry Create(XyuiVectorIcon icon) => StreamGeometry.Parse(PathData[icon]);

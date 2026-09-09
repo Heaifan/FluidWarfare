@@ -4,56 +4,38 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.FileModule"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <Border BorderBrush="{StaticResource Color.Border.Default}"
           BorderThickness="1"
           CornerRadius="{StaticResource Radius.Standard}"
           Padding="8,4"
           VerticalAlignment="Center">
     <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
-      <xy:XYCaption Text="文件"
-                    VerticalAlignment="Center"/>
       <xy:XYMenuBar Classes="compact"
                     ShowDivider="False"
                     VerticalAlignment="Center">
-        <xy:XYMenuBarItem Label="文件">
+        <xy:XYMenuBarItem Label="文件" Icon="File">
           <xy:XYMenu>
-            <xy:XYMenuItem Label="新建" Command="{Binding RunCommand}" CommandParameter="新建"/>
             <xy:XYMenuItem Label="打开" Command="{Binding RunCommand}" CommandParameter="打开"/>
             <xy:XYMenuItem Label="保存" Command="{Binding RunCommand}" CommandParameter="保存"/>
             <xy:XYMenuItem Label="另存为" Command="{Binding RunCommand}" CommandParameter="另存为"/>
             <xy:XYMenuItem Label="导入 GLB" Command="{Binding RunCommand}" CommandParameter="导入 GLB"/>
           </xy:XYMenu>
         </xy:XYMenuBarItem>
-        <xy:XYMenuBarItem Label="添加">
+        <xy:XYMenuBarItem Label="新建" Icon="NewFile" ShowChevron="True">
           <xy:XYMenu>
-            <xy:XYMenuItem Label="立方体" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
+            <xy:XYMenuItem Label="新建" Icon="NewFile" Command="{Binding RunCommand}" CommandParameter="新建"/>
+            <xy:XYSeparator Variant="Section"/>
+            <xy:XYMenuItem Label="立方体" Icon="Add" Command="{Binding RunCommand}" CommandParameter="添加立方体"/>
           </xy:XYMenu>
         </xy:XYMenuBarItem>
       </xy:XYMenuBar>
       <xy:XYButton Variant="Secondary"
                    MinHeight="34"
                    Command="{Binding RunCommand}"
-                   CommandParameter="新建"
-                   ToolTip.Tip="新建场景">
-        <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource NewFileIcon}"/>
-          <TextBlock Text="新建"/>
-        </StackPanel>
-      </xy:XYButton>
-      <xy:XYButton Variant="Secondary"
-                   MinHeight="34"
-                   Command="{Binding RunCommand}"
                    CommandParameter="打开"
                    ToolTip.Tip="打开场景">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource OpenIcon}"/>
+          <xy:XYIcon Icon="Open" Size="Small"/>
           <TextBlock Text="打开"/>
         </StackPanel>
       </xy:XYButton>
@@ -64,7 +46,7 @@
                    CommandParameter="保存"
                    ToolTip.Tip="保存场景">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource SaveIcon}"/>
+          <xy:XYIcon Icon="Save" Size="Small"/>
           <TextBlock Text="保存"/>
         </StackPanel>
       </xy:XYButton>
@@ -77,7 +59,7 @@
                    CommandParameter="撤销"
                    ToolTip.Tip="撤销">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource UndoIcon}"/>
+          <xy:XYIcon Icon="Undo" Size="Small"/>
           <TextBlock Text="撤销"/>
         </StackPanel>
       </xy:XYButton>
@@ -87,7 +69,7 @@
                    CommandParameter="重做"
                    ToolTip.Tip="重做">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource RedoIcon}"/>
+          <xy:XYIcon Icon="Redo" Size="Small"/>
           <TextBlock Text="重做"/>
         </StackPanel>
       </xy:XYButton>

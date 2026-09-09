@@ -62,7 +62,14 @@ public sealed partial class UiVm
         SetSelectedNodeKey(_editorState.Snapshot.SelectionKey);
         OnPropertyChanged(nameof(HasSelection));
         OnPropertyChanged(nameof(IsEmptySelection));
+        OnPropertyChanged(nameof(HasInspectorSelection));
+        OnPropertyChanged(nameof(IsInspectorEmpty));
+        OnPropertyChanged(nameof(InspectorSelectionTitle));
+        OnPropertyChanged(nameof(InspectorSelectionSubtitle));
+        OnPropertyChanged(nameof(InspectorSectionTitle));
         OnPropertyChanged(nameof(InspectorFields));
+        OnPropertyChanged(nameof(CanTransformSelectedEntity));
+        (SelectToolCommand as RelayCommand)?.RaiseCanExecuteChanged();
         PublishSceneRenderSnapshot();
     }
 }

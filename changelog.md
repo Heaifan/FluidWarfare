@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.37-rz · TOP-LEFT-INTERACTION-R1（2026-09-09 15:47:23 +08:00）
+
+- 目标：收口 Top 创建入口、Left 项目/文件语义与 Scene Hierarchy/Shared Selection/Inspector/Transform 真实交互链。
+- 变化：删除独立“添加”入口，将现有新建场景与添加立方体命令置于 XYUI“新建”菜单；Top 文件、菜单、动作和运行/停止统一使用 XYUI 图标；补齐 Selection 变更到 Inspector 的绑定通知，并让变换工具按编辑模式与可变换实体选择状态真实可用。
+- 语义：Left 继续只展示 Project/File 数据；Cube 作为 Scene Instance 仅投影到 Right“层级”，不进入 Left 项目树。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1422/1422、XYUI 582/582；定向回归 20/20；ARCH-A、5+100、AXAML/XML 与 `git diff --check` PASS；未启动 Gallery，未替代用户真机/视觉验收。
+- 状态：`TOP-LEFT-INTERACTION-R1 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.36-rz · AREA-B-LEFT-P1-INTEGRATED（2026-09-09 15:09:36 +08:00）
 
 - 目标：将已确认的 Area B Left 紧凑项目/文件组合从 Gallery Prototype 接入 XuanYu Engine，修复项目/文件文字实际居中问题。

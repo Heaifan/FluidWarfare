@@ -4,13 +4,6 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.RuntimeStatusModule"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <StackPanel Orientation="Horizontal"
               Spacing="8"
               VerticalAlignment="Center">
@@ -30,7 +23,7 @@
                      CommandParameter="运行"
                      ToolTip.Tip="启动场景模拟">
           <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource PlayIcon}" Stroke="White"/>
+            <xy:XYIcon Icon="Play" Size="Small"/>
             <TextBlock Text="运行"/>
           </StackPanel>
         </xy:XYButton>
@@ -40,7 +33,7 @@
                      CommandParameter="停止"
                      ToolTip.Tip="停止场景模拟">
           <StackPanel Orientation="Horizontal" Spacing="4">
-            <Path Classes="topIcon" Data="{StaticResource StopIcon}" Stroke="White"/>
+            <xy:XYIcon Icon="Stop" Size="Small"/>
             <TextBlock Text="停止"/>
           </StackPanel>
         </xy:XYButton>

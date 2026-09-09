@@ -4,13 +4,6 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.ViewModule"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <Border BorderBrush="{StaticResource Color.Border.Default}"
           BorderThickness="1"
           CornerRadius="{StaticResource Radius.Standard}"
@@ -27,7 +20,7 @@
                    CommandParameter="聚焦"
                    ToolTip.Tip="聚焦选择对象">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource FocusIcon}"/>
+          <xy:XYIcon Icon="Focus" Size="Small"/>
           <TextBlock Text="聚焦"/>
         </StackPanel>
       </xy:XYButton>
@@ -37,7 +30,7 @@
                    CommandParameter="查看全部"
                    ToolTip.Tip="查看全部">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource ViewAllIcon}"/>
+          <xy:XYIcon Icon="ViewAll" Size="Small"/>
           <TextBlock Text="全览"/>
         </StackPanel>
       </xy:XYButton>
@@ -47,7 +40,7 @@
                    CommandParameter="平移"
                    ToolTip.Tip="平移视图">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource PanIcon}"/>
+          <xy:XYIcon Icon="Pan" Size="Small"/>
           <TextBlock Text="平移"/>
         </StackPanel>
       </xy:XYButton>
@@ -57,7 +50,7 @@
                    CommandParameter="环绕"
                    ToolTip.Tip="环绕视图">
         <StackPanel Orientation="Horizontal" Spacing="4">
-          <Path Classes="topIcon" Data="{StaticResource OrbitIcon}"/>
+          <xy:XYIcon Icon="Orbit" Size="Small"/>
           <TextBlock Text="环绕"/>
         </StackPanel>
       </xy:XYButton>

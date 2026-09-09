@@ -260,9 +260,9 @@
 - `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` - C# implementation source for UiRoot.axaml.cs.
 - `XuanYu.Editor.UI/Top/EditToolsModule.axaml` - Avalonia XAML view or style resource for EditToolsModule.axaml.
 - `XuanYu.Editor.UI/Top/EditToolsModule.axaml.cs` - C# implementation source for EditToolsModule.axaml.cs.
-- `XuanYu.Editor.UI/Top/FileModule.axaml` - Avalonia XAML view or style resource for FileModule.axaml.
+- `XuanYu.Editor.UI/Top/FileModule.axaml` - XYUI file and new menus plus Open, Save, Undo and Redo actions.
 - `XuanYu.Editor.UI/Top/FileModule.axaml.cs` - C# implementation source for FileModule.axaml.cs.
-- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml` - Avalonia XAML view or style resource for RuntimeStatusModule.axaml.
+- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml` - XYUI run/stop actions and document/runtime status badges.
 - `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml.cs` - C# implementation source for RuntimeStatusModule.axaml.cs.
 - `XuanYu.Editor.UI/Top/SnapModule.axaml` - Avalonia XAML view or style resource for SnapModule.axaml.
 - `XuanYu.Editor.UI/Top/SnapModule.axaml.cs` - C# implementation source for SnapModule.axaml.cs.
@@ -391,7 +391,7 @@
 - `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.Logging.cs` - C# implementation source for UiVm.RoadDrawing.Logging.cs.
 - `XuanYu.Editor.UI/Vm/Map/UiVm.RoadDrawing.cs` - C# implementation source for UiVm.RoadDrawing.cs.
 - `XuanYu.Editor.UI/Vm/Map/UiVm.RoadTool.cs` - C# implementation source for UiVm.RoadTool.cs.
-- `XuanYu.Editor.UI/Vm/Mode/UiVm.Mode.cs` - C# implementation source for UiVm.Mode.cs.
+- `XuanYu.Editor.UI/Vm/Mode/UiVm.Mode.cs` - Editor mode ownership and transform availability notification bridge.
 - `XuanYu.Editor.UI/Vm/Scene/D2StaticModelDemo.cs` - C# implementation source for D2StaticModelDemo.cs.
 - `XuanYu.Editor.UI/Vm/Scene/SceneHistoryEntry.cs` - C# implementation source for SceneHistoryEntry.cs.
 - `XuanYu.Editor.UI/Vm/Scene/SceneRenderProjectionAdapter.cs` - C# implementation source for SceneRenderProjectionAdapter.cs.
@@ -408,7 +408,7 @@
 - `XuanYu.Editor.UI/Vm/Scene/UiVm.WorldProjection.cs` - C# implementation source for UiVm.WorldProjection.cs.
 - `XuanYu.Editor.UI/Vm/Selection/UiVm.Picking.cs` - C# implementation source for UiVm.Picking.cs.
 - `XuanYu.Editor.UI/Vm/Selection/UiVm.Selection.cs` - C# implementation source for UiVm.Selection.cs.
-- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionProjection.cs` - C# implementation source for UiVm.SelectionProjection.cs.
+- `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionProjection.cs` - Canonical selection projection to tree, Inspector and transform bindings.
 - `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionTrace.cs` - C# implementation source for UiVm.SelectionTrace.cs.
 - `XuanYu.Editor.UI/Vm/Selection/UiVm.SelectionValidity.cs` - C# implementation source for UiVm.SelectionValidity.cs.
 - `XuanYu.Editor.UI/Vm/Selection/UiVm.ViewportSelection.cs` - C# implementation source for UiVm.ViewportSelection.cs.
@@ -423,6 +423,7 @@
 - `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionCancel.cs` - C# implementation source for UiVm.InteractionCancel.cs.
 - `XuanYu.Editor.UI/Vm/Transform/UiVm.InteractionPointer.cs` - C# implementation source for UiVm.InteractionPointer.cs.
 - `XuanYu.Editor.UI/Vm/Transform/UiVm.Tool.cs` - C# implementation source for UiVm.Tool.cs.
+- `XuanYu.Editor.UI/Vm/Transform/UiVm.TransformAvailability.cs` - Selection- and mode-aware CanExecute projection for scene transform tools.
 - `XuanYu.Editor.UI/Vm/Transform/UiVm.ViewportAssist.cs` - C# implementation source for UiVm.ViewportAssist.cs.
 - `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` - C# implementation source for EditorTreeNode.cs.
 - `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` - C# implementation source for TreeGuideBuilder.cs.
@@ -432,7 +433,7 @@
 - `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` - C# implementation source for UiVm.Notification.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` - C# implementation source for UiVm.NotificationLifetime.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.RightPanel.cs` - C# implementation source for UiVm.RightPanel.cs.
-- `XuanYu.Editor.UI/Vm/UiVm.cs` - C# implementation source for UiVm.cs.
+- `XuanYu.Editor.UI/Vm/UiVm.cs` - Editor UI command/state composition and canonical selection-facing bindings.
 - `XuanYu.Editor.UI/Vm/Workspace/UiVm.RegionAuthoring.cs` - C# implementation source for UiVm.RegionAuthoring.cs.
 - `XuanYu.Editor.UI/Vm/Workspace/UiVm.Workspace.cs` - C# implementation source for UiVm.Workspace.cs.
 - `XuanYu.Editor.UI/Win/DialogFocusTrap.cs` - C# implementation source for DialogFocusTrap.cs.
@@ -1032,6 +1033,7 @@
 - `XuanYu.World.Tests/UiRuntime/AreaAR6WorkspaceRadioRenderTests.cs` - C# implementation source for AreaAR6WorkspaceRadioRenderTests.cs.
 - `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.R2.cs` - C# implementation source for AreaBLeftWorkspaceRuntimeTests.R2.cs.
 - `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.cs` - C# implementation source for AreaBLeftWorkspaceRuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/TopLeftInteractionR1Tests.cs` - Top menu, Cube hierarchy/selection/Inspector and transform availability regressions.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
@@ -1809,9 +1811,9 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/_Shared/Tokens/XyuiComponentTokens.cs` - C# implementation source for XyuiComponentTokens.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Interaction/XYMenuBar.Interaction.cs` - C# implementation source for XYMenuBar.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Interaction/XYMenuBarItem.Interaction.cs` - C# implementation source for XYMenuBarItem.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Styles/XYMenuBarItem.Style.cs` - C# implementation source for XYMenuBarItem.Style.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/Styles/XYMenuBarItem.Style.cs` - XYUI menu-bar item visual with optional canonical leading icon.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBar.cs` - C# implementation source for XYMenuBar.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - XYUI menu-bar item state, submenu and icon API.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.OverlayResources.cs` - C# implementation source for XYMenu.OverlayResources.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
@@ -1922,7 +1924,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypography.cs` - C# implementation source for XyuiTypography.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypographyTokens.cs` - C# implementation source for XyuiTypographyTokens.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIconMetrics.cs` - C# implementation source for XyuiVectorIconMetrics.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIcons.cs` - C# implementation source for XyuiVectorIcons.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIcons.cs` - XYUI canonical vector registry, including editor file and runtime action icons.
 - `xyui/avalonia/src/XYUI.Avalonia/XY.cs` - C# implementation source for XY.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/XYSize.cs` - C# implementation source for XYSize.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - MSBuild project definition for XYUI.Avalonia.csproj.

@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Metadata;
+using XYUI.Avalonia.Vector;
 
 namespace XYUI.Avalonia.Controls;
 
@@ -13,12 +14,14 @@ public sealed partial class XYMenuBarItem : Border
     public static readonly StyledProperty<bool> IsActiveProperty = AvaloniaProperty.Register<XYMenuBarItem, bool>(nameof(IsActive));
     public static readonly StyledProperty<bool> IsHoveredProperty = AvaloniaProperty.Register<XYMenuBarItem, bool>(nameof(IsHovered));
     public static readonly StyledProperty<bool> ShowChevronProperty = AvaloniaProperty.Register<XYMenuBarItem, bool>(nameof(ShowChevron));
+    public static readonly StyledProperty<XyuiVectorIcon?> IconProperty = AvaloniaProperty.Register<XYMenuBarItem, XyuiVectorIcon?>(nameof(Icon));
 
     public string Label { get => GetValue(LabelProperty); set => SetValue(LabelProperty, value); }
     public string Header { get => Label; set => Label = value; }
     public bool IsActive { get => GetValue(IsActiveProperty); set => SetValue(IsActiveProperty, value); }
     public bool IsHovered { get => GetValue(IsHoveredProperty); set => SetValue(IsHoveredProperty, value); }
     public bool ShowChevron { get => GetValue(ShowChevronProperty); set => SetValue(ShowChevronProperty, value); }
+    public XyuiVectorIcon? Icon { get => GetValue(IconProperty); set => SetValue(IconProperty, value); }
 
     [Content]
     public XYMenu? Menu

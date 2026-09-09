@@ -16,6 +16,8 @@ public sealed partial class XYMenuBarItem
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center
         };
+        if (Icon is XyuiVectorIcon icon)
+            stack.Children.Add(new XYIcon { Icon = icon, Size = XyuiIconSize.Small, Classes = { "xyui-menu-icon" }, VerticalAlignment = VerticalAlignment.Center });
         stack.Children.Add(new TextBlock
         {
             Text = Label,
@@ -36,7 +38,7 @@ public sealed partial class XYMenuBarItem
         var indicator = new Border
         {
             Classes = { "xyui-menu-bar-indicator" },
-            Width = Math.Max(28, (Label?.Length ?? 2) * 14),
+            Width = Math.Max(28, (Label?.Length ?? 2) * 14 + (Icon is null ? 0 : 18)),
             HorizontalAlignment = HorizontalAlignment.Center
         };
         grid.Children.Add(indicator);

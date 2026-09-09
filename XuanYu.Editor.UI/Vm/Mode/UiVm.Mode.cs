@@ -38,6 +38,8 @@ public sealed partial class UiVm
         OnPropertyChanged(nameof(CurrentMode)); OnPropertyChanged(nameof(IsManageMode));
         OnPropertyChanged(nameof(IsEditMode)); OnPropertyChanged(nameof(IsMapEditMode));
         OnPropertyChanged(nameof(CanUseEditTools)); OnPropertyChanged(nameof(CanToggleSnap));
+        OnPropertyChanged(nameof(CanTransformSelectedEntity));
+        (SelectToolCommand as RelayCommand)?.RaiseCanExecuteChanged();
         OnPropertyChanged(nameof(IsRegionEditMode)); OnPropertyChanged(nameof(CurrentEditorModeText));
         OnPropertyChanged(nameof(CurrentRegionAuthoringMode));
         OnPropertyChanged(nameof(IsRegionSurfaceAuthoringMode));
