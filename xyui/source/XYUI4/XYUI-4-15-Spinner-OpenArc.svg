@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="920" viewBox="0 0 1500 920">
+  <title>XYUI-4.15 Spinner · Open Arc</title>
+  <desc>Standalone visual source for the XYUI open arc spinner in Compact and Standard sizes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111920"/><stop offset="1" stop-color="#1D2B33"/></linearGradient>
+  </defs>
+  <rect width="1500" height="920" fill="url(#bg)"/>
+  <text x="54" y="52" fill="#D8E7F2" font-family="Inter,Segoe UI,sans-serif" font-size="25" font-weight="700">XYUI-4.15 · Spinner</text>
+  <text x="54" y="76" fill="#89A0AE" font-family="Inter,Segoe UI,sans-serif" font-size="13">Open Arc · single track + single active arc · transparent center</text>
+
+  <rect x="54" y="112" width="900" height="600" rx="8" fill="#0B1116" stroke="#49606C" stroke-width="2"/>
+  <text x="104" y="174" fill="#D8E7F2" font-family="Inter,Segoe UI,sans-serif" font-size="20" font-weight="700">Geometry</text>
+  <g transform="translate(278 416)">
+    <circle r="112" fill="none" stroke="#35536A" stroke-width="12"/>
+    <path d="M0-112A112 112 0 0 1 97 56" fill="none" stroke="#78A5C9" stroke-width="12" stroke-linecap="round"/>
+    <circle r="75" fill="#0B1116"/>
+  </g>
+  <g transform="translate(620 416)">
+    <circle r="112" fill="none" stroke="#35536A" stroke-width="12"/>
+    <path d="M0-112A112 112 0 0 1 97 56" fill="none" stroke="#78A5C9" stroke-width="12" stroke-linecap="round"/>
+    <circle r="75" fill="#0B1116"/>
+    <path d="M0-145V-124M145 0H124" stroke="#89A0AE" stroke-width="2"/>
+  </g>
+  <text x="278" y="570" text-anchor="middle" fill="#B5C4CC" font-family="Inter,Segoe UI,sans-serif" font-size="15">Standard · 18 × 18 · stroke 2.5</text>
+  <text x="620" y="570" text-anchor="middle" fill="#B5C4CC" font-family="Inter,Segoe UI,sans-serif" font-size="15">Round cap · 800–1200ms rotation</text>
+  <text x="104" y="660" fill="#637784" font-family="Inter,Segoe UI,sans-serif" font-size="13">Track = Accent.Soft · Arc = Accent.Default · no glow · no shadow · no input</text>
+
+  <rect x="54" y="752" width="900" height="112" rx="6" fill="#26343E" stroke="#526873"/>
+  <g transform="translate(106 808)"><circle r="10" fill="none" stroke="#35536A" stroke-width="2"/><path d="M0-10A10 10 0 0 1 9 5" fill="none" stroke="#78A5C9" stroke-width="2" stroke-linecap="round"/></g>
+  <text x="132" y="814" fill="#D8E7F2" font-family="Inter,Segoe UI,sans-serif" font-size="14">Compact · 14 × 14 · used by Area C LoadingIndicator</text>
+
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="1010" y="150" fill="#D8E7F2" font-size="20" font-weight="700">实施约束</text>
+    <text x="1010" y="196" fill="#78A5C9" font-size="14">01</text><text x="1060" y="196" fill="#B5C4CC" font-size="14">完整低对比轨道 + 一段 Accent 弧</text>
+    <text x="1010" y="236" fill="#78A5C9" font-size="14">02</text><text x="1060" y="236" fill="#B5C4CC" font-size="14">圆帽，中心透明，不使用阴影发光</text>
+    <text x="1010" y="276" fill="#78A5C9" font-size="14">03</text><text x="1060" y="276" fill="#B5C4CC" font-size="14">默认不可聚焦、不可交互、不造成布局抖动</text>
+    <text x="1010" y="316" fill="#78A5C9" font-size="14">04</text><text x="1060" y="316" fill="#B5C4CC" font-size="14">不可见或虚拟化时停止动画</text>
+    <text x="1010" y="356" fill="#78A5C9" font-size="14">05</text><text x="1060" y="356" fill="#B5C4CC" font-size="14">Reduced Motion 使用静态弧替代</text>
+    <rect x="1010" y="408" width="360" height="1" fill="#30444F"/>
+    <text x="1010" y="452" fill="#D8E7F2" font-size="20" font-weight="700">Canonical</text>
+    <text x="1010" y="492" fill="#B5C4CC" font-size="14">XYUI-4-4.15 · plan 1 Open Arc</text>
+    <text x="1010" y="526" fill="#B5C4CC" font-size="14">Area C Compact · 作为 4.14 内部基础件</text>
+  </g>
+  <text x="54" y="898" fill="#526873" font-family="Consolas,monospace" font-size="12">SOURCE OF TRUTH · XYUI-4-15-Spinner-OpenArc.svg · saveable standalone SVG</text>
+</svg>

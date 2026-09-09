@@ -19,6 +19,7 @@ public static partial class XyuiComponentStyles
         AddSelectionSemantics(styles);
         AddResultTextSemantics(styles);
         AddXYUI3(styles);
+        AddXYUI4(styles);
         return styles;
     }
 

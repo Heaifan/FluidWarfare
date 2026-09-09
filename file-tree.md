@@ -1715,6 +1715,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Semantic.cs` - C# implementation source for XyuiComponentStyles.Semantic.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Surfaces.cs` - C# implementation source for XyuiComponentStyles.Surfaces.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.Typography.cs` - C# implementation source for XyuiComponentStyles.Typography.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.XYUI4.cs` - XYUI4 runtime styles for spinner theme brushes and loading indicator copy.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/Styles/XyuiComponentStyles.cs` - C# implementation source for XyuiComponentStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI1/_Shared/XyuiStatusStateTokens.cs` - C# implementation source for XyuiStatusStateTokens.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI2/XYUI2-01-Button/XYButton.cs` - C# implementation source for XYButton.cs.
@@ -1893,6 +1894,10 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.BottomNavigation.cs` - C# implementation source for XyuiComponentStyles.BottomNavigation.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Styles/XyuiComponentStyles.XYUI3.cs` - C# implementation source for XyuiComponentStyles.XYUI3.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/_Shared/Tokens/XyuiCompactNavigationTokens.cs` - C# implementation source for XyuiCompactNavigationTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI4/XYUI4-14-LoadingIndicator/XYLoadingIndicator.cs` - XYUI-4.14 inline loading indicator that composes the canonical spinner with status copy.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI4/XYUI4-15-Spinner/XYSpinner.cs` - XYUI-4.15 open-arc spinner lifecycle, size and motion contract.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI4/XYUI4-15-Spinner/XYSpinner.Geometry.cs` - XYUI-4.15 spinner arc geometry and canonical size/stroke metrics.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI4/XYUI4-15-Spinner/XYSpinner.Rendering.cs` - XYUI-4.15 spinner track and rotating accent arc renderer.
 - `xyui/avalonia/src/XYUI.Avalonia/Density/XyuiDensity.cs` - C# implementation source for XyuiDensity.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Density/XyuiDensityScope.cs` - C# implementation source for XyuiDensityScope.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Facade/XY.Foreground.cs` - C# implementation source for XY.Foreground.cs.
@@ -2048,6 +2053,8 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TreeNavigationContractTests.cs` - C# implementation source for XYUI3TreeNavigationContractTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3ViewSwitcherTests.cs` - C# implementation source for XYUI3ViewSwitcherTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - C# implementation source for XYUI3WorkspaceSwitcherTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI4LoadingIndicatorTests.cs` - Runtime contract tests for XYUI-4.14 spinner composition and detail copy.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI4SpinnerTests.cs` - Runtime contract tests for XYUI-4.15 geometry, sizing and reduced motion.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUICompositionReuseTests.cs` - C# implementation source for XYUICompositionReuseTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUIVectorViewportTests.cs` - C# implementation source for XYUIVectorViewportTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiBatchTestHost.cs` - C# implementation source for XyuiBatchTestHost.cs.
@@ -2073,6 +2080,8 @@
 - `xyui/source/XYUI1/XYUI-1.md` - Documentation, specification, or governance record for XYUI-1.md.
 - `xyui/source/XYUI2/XYUI-2.md` - Documentation, specification, or governance record for XYUI-2.md.
 - `xyui/source/XYUI3/XYUI-3.md` - Documentation, specification, or governance record for XYUI-3.md.
+- `xyui/source/XYUI4/XYUI-4-14-LoadingIndicator-AreaC.svg` - Standalone SVG visual source for the Area C corner loading indicator.
+- `xyui/source/XYUI4/XYUI-4-15-Spinner-OpenArc.svg` - Standalone SVG visual source for the XYUI-4.15 open arc spinner.
 - `xyui/source/XYUI4/XYUI-4.md` - Documentation, specification, or governance record for XYUI-4.md.
 - `xyui/source/XYUI5/XYUI-5.md` - Documentation, specification, or governance record for XYUI-5.md.
 - `xyui/source/XYUI6/XYUI-6.md` - Documentation, specification, or governance record for XYUI-6.md.

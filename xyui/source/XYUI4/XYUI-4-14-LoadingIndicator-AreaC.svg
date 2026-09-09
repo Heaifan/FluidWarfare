@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <title>XYUI-4.14 LoadingIndicator · Area C · Corner Activity</title>
+  <desc>Standalone visual source for a compact loading indicator above the viewport scale indicator.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111920"/><stop offset="1" stop-color="#1D2B33"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <text x="48" y="48" fill="#D8E7F2" font-family="Inter,Segoe UI,sans-serif" font-size="25" font-weight="700">XYUI-4.14 · LoadingIndicator</text>
+  <text x="48" y="70" fill="#89A0AE" font-family="Inter,Segoe UI,sans-serif" font-size="13">Corner Activity · Area C · XuanYu Editor Vulkan Viewport</text>
+
+  <rect x="48" y="92" width="1040" height="760" rx="5" fill="#0B1116" stroke="#49606C" stroke-width="2"/>
+  <rect x="72" y="116" width="992" height="712" fill="#121E25"/>
+  <path d="M72 738H1064M72 762H1064" stroke="#20323C"/>
+  <text x="568" y="440" text-anchor="middle" fill="#637784" font-family="Inter,Segoe UI,sans-serif" font-size="34">VULKAN VIEWPORT</text>
+  <text x="568" y="470" text-anchor="middle" fill="#425660" font-family="Inter,Segoe UI,sans-serif" font-size="14">renderer initialization area</text>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="774" width="300" height="42" rx="5" fill="#26343E" stroke="#526873"/>
+    <circle cx="108" cy="795" r="9" fill="none" stroke="#35536A" stroke-width="2"/>
+    <path d="M108 786A9 9 0 0 1 116 799" fill="none" stroke="#78A5C9" stroke-width="2" stroke-linecap="round"/>
+    <text x="128" y="800" fill="#D8E7F2" font-family="Inter,Segoe UI,sans-serif" font-size="14">正在初始化渲染视口…</text>
+  </g>
+  <g>
+    <path d="M84 846h106" stroke="#526873" stroke-width="2"/>
+    <path d="M84 841v10M190 841v10" stroke="#89A0AE"/>
+    <text x="84" y="870" fill="#89A0AE" font-family="Inter,Segoe UI,sans-serif" font-size="12">比例 1:1</text>
+  </g>
+
+  <g font-family="Inter,Segoe UI,sans-serif">
+    <text x="1150" y="134" fill="#D8E7F2" font-size="20" font-weight="700">布局契约</text>
+    <text x="1150" y="172" fill="#78A5C9" font-size="14">位置</text><text x="1240" y="172" fill="#B5C4CC" font-size="14">左下角，Scale Indicator 上方</text>
+    <text x="1150" y="204" fill="#78A5C9" font-size="14">尺寸</text><text x="1240" y="204" fill="#B5C4CC" font-size="14">Compact 14 × 14 · 间距 8</text>
+    <text x="1150" y="236" fill="#78A5C9" font-size="14">背景</text><text x="1240" y="236" fill="#B5C4CC" font-size="14">透明组件；示例卡片仅作宿主分组</text>
+    <text x="1150" y="268" fill="#78A5C9" font-size="14">复用</text><text x="1240" y="268" fill="#B5C4CC" font-size="14">内部直接复用 XYUI-4.15 Spinner</text>
+    <text x="1150" y="300" fill="#78A5C9" font-size="14">状态</text><text x="1240" y="300" fill="#B5C4CC" font-size="14">初始化中；失败转入错误反馈</text>
+    <rect x="1150" y="352" width="350" height="1" fill="#30444F"/>
+    <text x="1150" y="392" fill="#D8E7F2" font-size="20" font-weight="700">视觉规则</text>
+    <text x="1150" y="430" fill="#B5C4CC" font-size="14">· 不伪造进度，不显示百分比</text>
+    <text x="1150" y="458" fill="#B5C4CC" font-size="14">· 不改变视口布局，不抢焦点</text>
+    <text x="1150" y="486" fill="#B5C4CC" font-size="14">· 高对比仅用于状态语义，不发光</text>
+  </g>
+  <text x="48" y="940" fill="#526873" font-family="Consolas,monospace" font-size="12">SOURCE OF TRUTH · XYUI-4-14-LoadingIndicator-AreaC.svg · saveable standalone SVG</text>
+</svg>

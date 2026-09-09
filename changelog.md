@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.42-rz · XYUI4-AREA-C-R1（2026-09-09 20:45:47 +08:00）
+
+- 目标：按已锁定方向实现 XYUI-4.15 Open Arc Spinner，并以其为基础实现 XYUI-4.14 Corner Activity LoadingIndicator，接入 Vulkan Viewport Area C。
+- 变化：新增可复用的 XYSpinner 与 XYLoadingIndicator，支持 Compact/Standard/Large、主题 Accent 轨道与弧段、Reduced Motion 静态弧、不可聚焦/不可交互及不可见时停动；视口初始化层将 LoadingIndicator 放在 Scale Indicator 上方；新增两份可直接保存的完整 SVG 视觉参考。
+- 验证：现有 dotnet 构建命令因当前环境未发现 .NET SDK 未执行；源码静态检查、SVG/XML 结构检查、ARCH-A 与 `git diff --check` 通过；版本四处一致性检查通过；真机 Vulkan airspace 与初始化完成退出状态待用户验收。
+- Hash：起始远端 HEAD `116cc339`。
+- 状态：`XYUI4-AREA-C-R1 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.41-rz · CLOSE-MODAL-AIRSPACE-R1（2026-09-09 17:59:54 +08:00）
 
 - 目标：修复创建立方体后点击关闭，未保存确认弹窗因窗口失焦而无法继续的问题。
