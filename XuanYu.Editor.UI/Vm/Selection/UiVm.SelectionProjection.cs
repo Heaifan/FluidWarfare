@@ -12,7 +12,7 @@ public sealed partial class UiVm
         try
         {
             var key = _editorState.Snapshot.HasSelection ? _editorState.Snapshot.SelectionKey : "";
-            var project = UiText.ProjectTreeItems.FirstOrDefault(item => item.Key == key);
+            var project = ProjectItems.FirstOrDefault(item => item.Key == key);
             var hierarchy = BuildHierarchyItems().FirstOrDefault(item => item.Key == key);
             var projection = hierarchy ?? project;
             SetSelectedNodeKey(key);

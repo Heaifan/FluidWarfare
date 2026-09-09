@@ -5,36 +5,24 @@ namespace XuanYu.World.Tests.World;
 public sealed class UiTreeGuideTests
 {
     [Fact]
-    public void Project_tree_uses_continuous_guides_for_middle_and_last_children()
+    public void Project_tree_contains_only_the_current_document()
     {
-        var nodes = TreeGuideBuilder.Visible(UiText.ProjectTreeItems, new HashSet<string>());
+        var vm = new UiVm(null, () => true, seedInitialScene: false);
+        var node = Assert.Single(vm.ProjectItems);
 
-        var worlds = nodes.Single(node => node.Key == "project:worlds");
-        var main = nodes.Single(node => node.Key == "world:main");
-        var test = nodes.Single(node => node.Key == "world:test");
-        var resources = nodes.Single(node => node.Key == "project:assets");
-        var build = nodes.Single(node => node.Key == "asset:build");
-
-        Assert.Equal(TreeGuideSegmentKind.Tee, worlds.GuideSegments.Single().Kind);
-        Assert.Equal(TreeGuideSegmentKind.Full, main.GuideSegments[0].Kind);
-        Assert.Equal(TreeGuideSegmentKind.Tee, main.GuideSegments[1].Kind);
-        Assert.Equal(TreeGuideSegmentKind.Full, test.GuideSegments[0].Kind);
-        Assert.Equal(TreeGuideSegmentKind.Elbow, test.GuideSegments[1].Kind);
-        Assert.Equal(TreeGuideSegmentKind.Elbow, resources.GuideSegments.Single().Kind);
-        Assert.Equal("构建配置", build.Title);
+        Assert.Equal("scene:current", node.Key);
+        Assert.Equal("未命名场景", node.Title);
+        Assert.False(node.CanToggle);
+        Assert.DoesNotContain(vm.ProjectItems, item => item.Title.Contains("测试"));
     }
 
     [Fact]
-    public void Collapsed_project_branch_recomputes_visible_guides()
+    public void Project_tree_selection_exposes_current_document_fields()
     {
-        var nodes = TreeGuideBuilder.Visible(UiText.ProjectTreeItems,
-            new HashSet<string>(StringComparer.Ordinal) { "project:worlds" });
+        var vm = new UiVm(null, () => true, seedInitialScene: false);
+        vm.SelectedProjectItem = vm.ProjectItems.Single();
 
-        Assert.DoesNotContain(nodes, node => node.Key == "world:main");
-        Assert.DoesNotContain(nodes, node => node.Key == "world:test");
-        Assert.Equal(TreeGuideSegmentKind.Tee,
-            nodes.Single(node => node.Key == "project:worlds").GuideSegments.Single().Kind);
-        Assert.Equal(TreeGuideSegmentKind.Elbow,
-            nodes.Single(node => node.Key == "project:assets").GuideSegments.Single().Kind);
+        Assert.Contains(vm.InspectorFields, field => field.Label == "名称" && field.Value == "未命名场景");
+        Assert.Contains(vm.InspectorFields, field => field.Label == "类型" && field.Value == "场景");
     }
 }

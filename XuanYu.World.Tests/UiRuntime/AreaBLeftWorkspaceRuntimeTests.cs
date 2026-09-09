@@ -1,5 +1,8 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Headless;
+using Avalonia.Input;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using System.Reflection;
@@ -10,7 +13,7 @@ using XYUI.Avalonia.Controls;
 namespace XuanYu.World.Tests.UiRuntime;
 
 [Collection("UiRuntime")]
-public sealed class AreaBLeftWorkspaceRuntimeTests
+public sealed partial class AreaBLeftWorkspaceRuntimeTests
 {
     readonly UiHeadlessFixture _fixture;
     public AreaBLeftWorkspaceRuntimeTests(UiHeadlessFixture fixture) => _fixture = fixture;
@@ -29,17 +32,19 @@ public sealed class AreaBLeftWorkspaceRuntimeTests
             var rail = left.FindControl<XYNavigationRail>("WorkspaceRail")!;
             var map = left.FindControl<MapEditorPanel>("MapWorkspace")!;
             var region = left.FindControl<RegionalAuthoringPanel>("RegionWorkspace")!;
-            rail.NavigationState.Select("map");
+            rail.NavigationState.Select("dataset");
             Dispatcher.UIThread.RunJobs();
             return (rail.LayoutVariant, vm.LeftTabIndex, map.IsVisible, region.IsVisible,
-                left.GetVisualDescendants().OfType<XYTabBar>().Count());
+                map.SelectedTabId, rail.Items.Count, left.Bounds.Width);
         });
 
         Assert.Equal(XyuiNavigationLayoutVariant.Workspace, snapshot.Item1);
         Assert.Equal(2, snapshot.Item2);
         Assert.True(snapshot.Item3);
         Assert.False(snapshot.Item4);
-        Assert.Equal(1, snapshot.Item5);
+        Assert.Equal("dataset", snapshot.Item5);
+        Assert.Equal(3, snapshot.Item6);
+        Assert.Equal(360, snapshot.Item7);
     }
 
     [Fact]
@@ -71,4 +76,5 @@ public sealed class AreaBLeftWorkspaceRuntimeTests
         Assert.Contains(evidence.popup, new[] { "PopupRoot", "HeadlessPopupRootUnavailable" });
         Assert.Equal(3, evidence.items);
     }
+
 }

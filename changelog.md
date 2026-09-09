@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.34-rz · AREA-B-LEFT-R2-FINAL（2026-09-09 11:08:16 +08:00）
+
+- 目标：收敛 Area B Left 的 Top/Left 信息架构、真实数据来源和窄宽视觉，不施工 Area C/D。
+- 变化：管理模式只显示“项目/层级”；地图与区域编辑分别显示已有真实子上下文并与 XYTabBar/VM 状态同步；项目树改为当前文档投影，移除示例项目、测试世界和初始假选中；Rail 约束为 52 DIP，item 为 46×50 DIP，树缩进/图标/文字按紧凑契约收敛。
+- 验证：完整 Engine Build 0W0E；World 1419/1419；XYUI 581/581；Area B 运行时覆盖 220/360 宽度、Rail Bounds、地图/区域鼠标/PointerPressed 导航、真实项目树与 Popup；ARCH-A、5+100 与 `git diff --check` PASS。
+- Hash：`a1421092`。
+- 状态：`AREA-B-LEFT-R2-FINAL READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.33-rz · AREA-B-LEFT-R1 WORKSPACE LEFT CONTEXT（2026-09-09 10:20:35 +08:00）
 
 - 目标：将 Area B Left 收敛为 Workspace Rail + Header + 项目/层级/地图/区域四工作区，保留既有 VM 真源与编辑能力，不施工 Area C/D。

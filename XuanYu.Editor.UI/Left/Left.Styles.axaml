@@ -5,6 +5,22 @@
     <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
     <Setter Property="BorderThickness" Value="1,0,1,0"/>
   </Style>
+  <Style Selector="xy|XYNavigationRail.xyui-navigation-rail-workspace">
+    <Setter Property="Padding" Value="1"/>
+  </Style>
+  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item">
+    <Setter Property="Width" Value="46"/>
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="3"/>
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item /template/ xy|XYIcon.xyui-navigation-icon">
+    <Setter Property="Width" Value="14"/>
+    <Setter Property="Height" Value="14"/>
+  </Style>
+  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item /template/ TextBlock.xyui-navigation-label">
+    <Setter Property="FontSize" Value="11"/>
+  </Style>
   <Style Selector="Border.workspaceMainSurface">
     <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
     <Setter Property="Padding" Value="12,0,0,0"/>
@@ -30,14 +46,14 @@
     <Setter Property="Padding" Value="0"/>
   </Style>
   <Style Selector="ListBox.treeList ListBoxItem">
-    <Setter Property="MinHeight" Value="30"/>
-    <Setter Property="Height" Value="30"/>
+    <Setter Property="MinHeight" Value="28"/>
+    <Setter Property="Height" Value="28"/>
     <Setter Property="Padding" Value="0"/>
     <Setter Property="Margin" Value="0"/>
   </Style>
   <Style Selector="Border.treeRow">
-    <Setter Property="MinHeight" Value="30"/>
-    <Setter Property="Height" Value="30"/>
+    <Setter Property="MinHeight" Value="28"/>
+    <Setter Property="Height" Value="28"/>
     <Setter Property="Padding" Value="0,0,6,0"/>
     <Setter Property="Background" Value="Transparent"/>
   </Style>
@@ -48,12 +64,12 @@
     <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Selected}"/>
   </Style>
   <Style Selector="xy|XYIcon.treeIcon">
-    <Setter Property="Width" Value="16"/>
-    <Setter Property="Height" Value="16"/>
+    <Setter Property="Width" Value="14"/>
+    <Setter Property="Height" Value="14"/>
     <Setter Property="Stroke" Value="{DynamicResource XY.Brush.Text.Secondary}"/>
   </Style>
   <Style Selector="xy|XYTruncatedText.treeText">
-    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="FontSize" Value="12"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Primary}"/>
   </Style>

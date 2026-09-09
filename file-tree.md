@@ -201,6 +201,7 @@
 - `XuanYu.Editor.UI/Left/Left.Styles.axaml` - Avalonia XAML view or style resource for Left.Styles.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml` - Avalonia XAML view or style resource for Left.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml.cs` - C# implementation source for Left.axaml.cs.
+- `XuanYu.Editor.UI/Left/Left.Visuals.cs` - Area B Left workspace header and visibility projection.
 - `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml` - Project workspace tree view using canonical XYUI text and icons.
 - `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml.cs` - Project workspace keyboard and expansion interaction code.
 - `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml` - Hierarchy workspace tree view using canonical XYUI text, icons, and rename field.
@@ -428,6 +429,7 @@
 - `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` - C# implementation source for EditorTreeNode.cs.
 - `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` - C# implementation source for TreeGuideBuilder.cs.
 - `XuanYu.Editor.UI/Vm/Tree/UiVm.TreeCommands.cs` - C# implementation source for UiVm.TreeCommands.cs.
+- `XuanYu.Editor.UI/Vm/Tree/UiVm.ProjectTree.cs` - Current document project-tree projection and inspector fields.
 - `XuanYu.Editor.UI/Vm/UiVm.NativeHostLifecycle.cs` - C# implementation source for UiVm.NativeHostLifecycle.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` - C# implementation source for UiVm.Notification.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` - C# implementation source for UiVm.NotificationLifetime.cs.
@@ -1028,6 +1030,7 @@
 - `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.cs` - Area B Left narrow-layout, workspace navigation, and real XYUI context-popup runtime probes.
+- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.R2.cs` - Area B R2 mode-context, pointer navigation, and compact-bounds runtime probes.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
 - `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - WorkspaceSelector runtime visual-tree regression coverage for Radio ring and dot state.

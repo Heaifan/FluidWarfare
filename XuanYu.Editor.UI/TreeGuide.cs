@@ -18,19 +18,19 @@ public sealed class TreeGuide : Control
     protected override Size MeasureOverride(Size availableSize)
     {
         var count = Math.Max(1, Segments.Count);
-        return new Size(count * 20, 28);
+        return new Size(count * 16, 28);
     }
 
     public override void Render(DrawingContext context)
     {
         base.Render(context);
         var pen = new Pen(new SolidColorBrush(Color.Parse("#C7D7EA")), 1);
-        const double branchExtension = 7; // 穿过 TreeGuide 与 Toggle 列之间的 Grid.ColumnSpacing
+        const double branchExtension = 5; // 穿过 TreeGuide 与 Toggle 列之间的 Grid.ColumnSpacing
         foreach (var segment in Segments)
         {
-            var x = segment.Depth * 20 + 10;
+            var x = segment.Depth * 16 + 8;
             var mid = Bounds.Height / 2;
-            var right = segment.Depth * 20 + 20;
+            var right = segment.Depth * 16 + 16;
             var branchEnd = right + branchExtension;
             switch (segment.Kind)
             {

@@ -35,7 +35,7 @@ public sealed class EditorTreeNode : INotifyPropertyChanged
     }
 
     public Thickness Indent => new(Level * 16, 0, 0, 0);
-    public double GuideWidth => Math.Max(0, Level * 20);
+    public double GuideWidth => Math.Max(0, Level * 16);
     public bool HasConnector => Level > 0;
     public bool IsRoot => Level == 0;
     public bool IsCategory => Type == "分类";

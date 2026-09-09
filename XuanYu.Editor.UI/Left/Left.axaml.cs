@@ -15,6 +15,8 @@ public partial class Left : UserControl
     {
         InitializeComponent();
         DataContextChanged += OnDataContextChanged;
+        MapWorkspace.TabChanged += WorkspacePanel_TabChanged;
+        RegionWorkspace.TabChanged += WorkspacePanel_TabChanged;
     }
 
     void OnDataContextChanged(object? sender, EventArgs e)
@@ -42,39 +44,52 @@ public partial class Left : UserControl
     {
         if (_viewModel is null) return;
         if (_workspaceState is not null) _workspaceState.Changed -= WorkspaceState_Changed;
-        var selected = WorkspaceId(_viewModel.LeftTabIndex);
-        _workspaceState = new XYNavigationState(
-            [new("project", "项目", XyuiVectorIcon.Browse),
-             new("hierarchy", "层级", XyuiVectorIcon.Locate),
-             new("map", "地图", XyuiVectorIcon.Eye, IsEnabled: _viewModel.IsMapEditMode),
-             new("region", "区域", XyuiVectorIcon.Section, IsEnabled: _viewModel.IsRegionEditMode)], selected);
+        IReadOnlyList<XYNavigationEntry> entries = _viewModel.IsManageMode
+            ? [new XYNavigationEntry("project", "项目", XyuiVectorIcon.Browse),
+               new XYNavigationEntry("hierarchy", "层级", XyuiVectorIcon.Locate)]
+            : _viewModel.IsMapEditMode
+                ? [new XYNavigationEntry("map-base", "地图基础", XyuiVectorIcon.Eye),
+                   new XYNavigationEntry("map-environment", "地图环境", XyuiVectorIcon.Eye),
+                   new XYNavigationEntry("dataset", "数据集", XyuiVectorIcon.Browse)]
+                : [new XYNavigationEntry("region", "区域面", XyuiVectorIcon.Section),
+                   new XYNavigationEntry("road", "道路", XyuiVectorIcon.Locate),
+                   new XYNavigationEntry("marker", "地图标记", XyuiVectorIcon.Tag)];
+        WorkspaceRail.NavigationState = new XYNavigationState([]);
+        WorkspaceRail.Items.Clear();
+        _workspaceState = new XYNavigationState(entries, SelectedContextId());
         _workspaceState.Changed += WorkspaceState_Changed;
         WorkspaceRail.NavigationState = _workspaceState;
+        foreach (var item in WorkspaceRail.Items)
+        {
+            item.Width = 46;
+            item.Height = 50;
+        }
     }
+
+    string? SelectedContextId() => _viewModel!.IsManageMode
+        ? _viewModel.LeftTabIndex == 1 ? "hierarchy" : "project"
+        : _viewModel.IsMapEditMode ? MapWorkspace.SelectedTabId switch
+        {
+            "environment" => "map-environment", "dataset" => "dataset", _ => "map-base"
+        } : RegionWorkspace.SelectedTabId;
 
     void WorkspaceState_Changed(object? sender, EventArgs e)
     {
         if (_syncingRail || _viewModel is null || _workspaceState is null) return;
-        _viewModel.LeftTabIndex = IndexOf(_workspaceState.SelectedId);
+        if (_viewModel.IsManageMode)
+            _viewModel.LeftTabIndex = _workspaceState.SelectedId == "hierarchy" ? 1 : 0;
+        else if (_viewModel.IsMapEditMode)
+            MapWorkspace.SelectTab(_workspaceState.SelectedId ?? "base");
+        else
+            RegionWorkspace.SelectTab(_workspaceState.SelectedId ?? "region");
         RefreshWorkspaceVisuals();
     }
 
-    void RefreshWorkspaceVisuals()
+    void WorkspacePanel_TabChanged(string _)
     {
-        if (_viewModel is null) return;
-        var index = _viewModel.LeftTabIndex;
-        _syncingRail = true;
-        try { _workspaceState?.Select(WorkspaceId(index)); }
-        finally { _syncingRail = false; }
-        ProjectWorkspace.IsVisible = index == 0;
-        HierarchyWorkspace.IsVisible = index == 1;
-        MapWorkspace.IsVisible = index == 2 && _viewModel.IsMapEditMode;
-        RegionWorkspace.IsVisible = index == 3 && _viewModel.IsRegionEditMode;
-        WorkspaceTitle.Text = index switch { 0 => "项目", 1 => "层级", 2 => "地图", 3 => "区域", _ => "工作区" };
-        WorkspaceSubtitle.Text = index switch { 0 => "项目资源与场景资产", 1 => "场景对象层级", 2 => "地图编辑工作区", 3 => "区域作者工作区", _ => "编辑工作区" };
-        WorkspaceHeaderIcon.Icon = index switch { 1 => XyuiVectorIcon.Locate, 2 => XyuiVectorIcon.Eye, 3 => XyuiVectorIcon.Section, _ => XyuiVectorIcon.Browse };
+        if (_syncingRail) return;
+        RebuildWorkspaceState();
+        RefreshWorkspaceVisuals();
     }
 
-    static string WorkspaceId(int index) => index switch { 1 => "hierarchy", 2 => "map", 3 => "region", _ => "project" };
-    static int IndexOf(string? id) => id switch { "hierarchy" => 1, "map" => 2, "region" => 3, _ => 0 };
 }

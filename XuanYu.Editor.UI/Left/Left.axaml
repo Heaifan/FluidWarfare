@@ -7,10 +7,11 @@
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Left/Left.Styles.axaml"/>
   </UserControl.Styles>
-  <Grid ColumnDefinitions="64,8,*" Background="{DynamicResource XY.Brush.Surface.PanelAlt}">
+  <Grid ColumnDefinitions="52,8,*" Background="{DynamicResource XY.Brush.Surface.PanelAlt}">
     <Border Grid.Column="0" Classes="workspaceRailSurface">
       <xy:XYNavigationRail x:Name="WorkspaceRail"
                            LayoutVariant="Workspace"
+                           Width="52"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"/>
     </Border>

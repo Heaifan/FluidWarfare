@@ -37,7 +37,7 @@ public sealed class SelectionToolStateUiTests
         Assert.False(vm.HasSelection);
         Assert.Null(vm.SelectedHierarchyItem);
         Assert.False(vm.RenderSnapshot.ShowMoveGizmo);
-        Assert.Contains(vm.InspectorFields, f => f.Label == "名称" && f.Value == "玄域示例项目");
+        Assert.Empty(vm.InspectorFields);
         Assert.Equal("移动", vm.ActiveTool);
     }
 

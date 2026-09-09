@@ -19,12 +19,12 @@ public sealed class UiTreeToggleTests
         var vm = new UiVm(null, () => true);
         var root = vm.ProjectItems[0];
 
-        Assert.True(root.CanToggle);
+        Assert.False(root.CanToggle);
         var before = vm.ProjectItems.Count;
 
         vm.ToggleProjectNode(root);
         Assert.Single(vm.ProjectItems);
-        Assert.Contains(root.Key, CollapsedProjectKeys(vm));
+        Assert.Empty(CollapsedProjectKeys(vm));
 
         vm.ToggleProjectNode(root);
         Assert.Empty(CollapsedProjectKeys(vm));
@@ -32,7 +32,7 @@ public sealed class UiTreeToggleTests
     }
 
     [Fact]
-    public void Selecting_collapsed_project_node_does_not_mutate_items_source()
+    public void Selecting_project_node_does_not_mutate_items_source()
     {
         var vm = new UiVm(null, () => true);
         var root = vm.ProjectItems[0];
@@ -42,7 +42,7 @@ public sealed class UiTreeToggleTests
 
         vm.SelectedProjectItem = root;
         Assert.Single(vm.ProjectItems);
-        Assert.Contains(root.Key, CollapsedProjectKeys(vm));
+        Assert.Empty(CollapsedProjectKeys(vm));
     }
 
     [Fact]

@@ -2,27 +2,6 @@ namespace XuanYu.Editor.UI;
 
 public static class UiText
 {
-    public static readonly EditorTreeNode[] ProjectTreeItems = Guided(
-    [
-        new("project:root", "玄域示例项目", "项目", "玄域示例项目", 0, "project"),
-        new("project:worlds", "世界", "分类", "玄域示例项目/世界", 1, "folder"),
-        new("world:main", "主世界", "世界", "玄域示例项目/世界/主世界", 2, "world"),
-        new("world:test", "测试世界", "世界", "玄域示例项目/世界/测试世界", 2, "world"),
-        new("project:assets", "资源", "分类", "玄域示例项目/资源", 1, "folder"),
-        new("asset:icons", "图标", "资源分类", "玄域示例项目/资源/图标", 2, "asset"),
-        new("asset:materials", "材质", "资源分类", "玄域示例项目/资源/材质", 2, "asset"),
-        new("asset:scripts", "脚本", "资源分类", "玄域示例项目/资源/脚本", 2, "script"),
-        new("asset:build", "构建配置", "资源分类", "玄域示例项目/资源/构建配置", 2, "build")
-    ]);
-
-    public static readonly EditorTreeNode[] HierarchyTreeItems =
-    [
-        new("hierarchy:root", "世界根节点", "场景根", "主世界/世界根节点", 0, "world"),
-        new("hierarchy:camera", "主相机", "相机", "主世界/世界根节点/主相机", 1, "camera"),
-        new("hierarchy:ground", "地面", "地面", "主世界/世界根节点/地面", 1, "ground"),
-        new("EntityId(1)", "基础测试实体", "最小场景实体", "主世界/实体编号(1)", 1, "entity")
-    ];
-
     public static readonly string[] ToolItems =
     [
         "选择工具",
@@ -42,13 +21,6 @@ public static class UiText
         new("静态对象", "否"),
         new("可拾取", "否"),
         new("参与碰撞", "否")
-    ];
-
-    public static readonly InspectorFieldRow[] ProjectInspectorFields =
-    [
-        new("名称", "玄域示例项目"),
-        new("类型", "项目"),
-        new("路径", "玄域示例项目")
     ];
 
     public static readonly string[] EmptyHints =
@@ -82,9 +54,4 @@ public static class UiText
         ["构建"] = "构建任务已加入队列。"
     };
 
-    static EditorTreeNode[] Guided(EditorTreeNode[] nodes)
-    {
-        TreeGuideBuilder.Apply(nodes);
-        return nodes;
-    }
 }

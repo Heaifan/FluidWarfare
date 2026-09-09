@@ -36,5 +36,6 @@ internal static partial class UiDebtBaseline
         list.Add(new("W10", "XuanYu.Editor.UI/Ui.axaml", "Style:TabItem.sideTab", UiRuleKind.CornerRadius, "CornerRadius", "5"));
         list.Add(new("W12", "XuanYu.Editor.UI/Ui.axaml", "Style:ListBoxItem", UiRuleKind.ControlHeight, "MinHeight", "34"));
         list.Add(new("W71-GEN", "XuanYu.Editor.UI/Ui.axaml", "Style:TextBlock.caption", UiRuleKind.FontSize, "FontSize", "12"));
+        list.Add(new("AREA-B-R2", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:xy|XYNavigationItem.xyui-rail-workspace-item", UiRuleKind.ControlHeight, "Height", "50"));
     }
 }
