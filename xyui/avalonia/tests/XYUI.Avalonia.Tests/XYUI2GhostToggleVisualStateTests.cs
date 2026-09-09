@@ -1,9 +1,12 @@
 using Avalonia;
 using Avalonia.Controls.Primitives;
+using Avalonia.Controls.Presenters;
 using Avalonia.Headless;
 using Avalonia.Input;
+using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 using XYUI.Avalonia.Controls;
 using XYUI.Avalonia.Spatial;
 using XYUI.Avalonia.Vector;
@@ -55,5 +58,19 @@ public sealed partial class XYUI2GhostToggleRuntimeTests
         window.MouseMove(new Point(-50, -50)); Dispatcher.UIThread.RunJobs(); toggle.IsEnabled = false;
         Assert.Equal(XyuiBatchTestHost.Token("XY.State.Disabled.Background"), XyuiBatchTestHost.ColorOf(toggle.Background));
         Assert.Equal(XyuiBatchTestHost.Token("XY.State.Disabled.Border"), XyuiBatchTestHost.ColorOf(XyuiBatchTestHost.Edge(toggle).Background)); window.Close();
+    });
+
+    [Fact]
+    public void ToggleButton_composition_can_center_content() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare();
+        var toggle = new XYToggleButton { Content = "项目", Width = 99, Height = 28, Padding = new(0),
+            HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center };
+        var window = XyuiBatchTestHost.Show(toggle);
+        var presenter = toggle.GetVisualDescendants().OfType<ContentPresenter>().Single();
+        Assert.Equal(HorizontalAlignment.Stretch, presenter.HorizontalAlignment);
+        Assert.Equal(HorizontalAlignment.Center, presenter.HorizontalContentAlignment);
+        Assert.Equal(VerticalAlignment.Center, presenter.VerticalContentAlignment);
+        window.Close();
     });
 }

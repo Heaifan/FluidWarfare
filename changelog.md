@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.36-rz · AREA-B-LEFT-P1-INTEGRATED（2026-09-09 15:09:36 +08:00）
+
+- 目标：将已确认的 Area B Left 紧凑项目/文件组合从 Gallery Prototype 接入 XuanYu Engine，修复项目/文件文字实际居中问题。
+- 变化：Left 使用 28 DIP 标题行、项目/文件 `XYToggleButton`、More `XYIconButton` 与真实 `ProjectWorkspace`；XYUI Toggle Presenter 横向撑满，保持默认左对齐语义并支持组合层双向居中；保留项目树真实数据、选择、展开/收起与 Esc 行为。
+- 版本：同步项目版本真源与 `changelog.md`、`run.bat`、`UiWin.axaml`、`UiVm.SceneDocument.cs` 为 v0.2.28.36-rz。
+- 验证：完整 Engine Build 0W0E；XYUI 582/582；World 1419/1419；ARCH-A 与 5+100 PASS；`git diff --check` PASS。未启动 Gallery，未替代用户真机/视觉验收。
+- 状态：`AREA-B-LEFT-P1-INTEGRATED READY FOR USER ENGINE REVIEW`。
+
 ## v0.2.28.35-rz · AREA-B-LEFT-PROTOTYPE-P0（2026-09-09 14:15:58 +08:00）
 
 - 目标：在 XYUI Gallery 中建立 Area B Left 紧凑项目/文件面板的隔离五态原型，不接入 XuanYu Engine Area B。

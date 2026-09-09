@@ -9,7 +9,7 @@
       <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Subtle}" />
       <Setter Property="BorderThickness" Value="1" />
       <Setter Property="CornerRadius" Value="7" />
-      <Setter Property="Padding" Value="10" />
+      <Setter Property="Padding" Value="7" />
     </Style>
     <Style Selector="Border.prototype-row">
       <Setter Property="Height" Value="28" />
@@ -23,14 +23,18 @@
       <Setter Property="Background" Value="{DynamicResource XY.Brush.State.Color.Active}" />
     </Style>
     <Style Selector="c|XYToggleButton.prototype-toggle">
-      <Setter Property="Width" Value="96" />
+      <Setter Property="Width" Value="99" />
       <Setter Property="Height" Value="28" />
       <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
     <Style Selector="c|XYIconButton.prototype-action">
       <Setter Property="Width" Value="22" />
       <Setter Property="Height" Value="22" />
       <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <Style Selector="ListBox.prototype-tree">
       <Setter Property="Background" Value="Transparent" />
@@ -62,7 +66,7 @@
         <StackPanel Spacing="10">
           <TextBlock Text="尺寸" Classes="xyui-text-label" />
           <TextBlock Text="Left Width                 216 DIP" Classes="xyui-text-caption" />
-          <TextBlock Text="Header                         40 DIP" Classes="xyui-text-caption" />
+          <TextBlock Text="Header                         28 DIP" Classes="xyui-text-caption" />
           <TextBlock Text="Local Switch                28 DIP" Classes="xyui-text-caption" />
           <TextBlock Text="Tree Row                      28 DIP" Classes="xyui-text-caption" />
         </StackPanel>

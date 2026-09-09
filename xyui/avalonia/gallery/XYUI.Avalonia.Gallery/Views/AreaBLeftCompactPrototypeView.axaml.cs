@@ -21,7 +21,7 @@ public partial class AreaBLeftCompactPrototypeView : UserControl
 
     Border CreateCard(PrototypeState state)
     {
-        var body = new Grid { RowDefinitions = new RowDefinitions("40,1,28,28,*") };
+        var body = new Grid { RowDefinitions = new RowDefinitions("28,1,28,28,*") };
         body.Children.Add(Header()); body.Children.Add(new XYSeparator { Variant = XyuiSeparatorVariant.Header, [Grid.RowProperty] = 1 }); body.Children.Add(LocalSwitch());
         var content = new StackPanel { Spacing = 8 }; Grid.SetRow(content, 3);
         content.Children.Add(new XYText { Text = "当前场景" }); content.Children.Add(TreeState(state)); body.Children.Add(content);
@@ -31,7 +31,7 @@ public partial class AreaBLeftCompactPrototypeView : UserControl
     Grid Header() => new()
     {
         ColumnDefinitions = new ColumnDefinitions("*,28"),
-        Children = { new XYHeading { Text = "项目", VerticalAlignment = VerticalAlignment.Center }, More() }
+        Children = { new XYHeading { Text = "项目", Variant = XyuiHeadingVariant.PanelTitle, VerticalAlignment = VerticalAlignment.Center }, More() }
     };
 
     XYIconButton More()

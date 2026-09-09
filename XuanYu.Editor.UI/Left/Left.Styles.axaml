@@ -1,24 +1,18 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:xy="using:XYUI.Avalonia.Controls">
-  <Style Selector="Border.projectTreeShell">
-    <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
-    <Setter Property="Padding" Value="8,8,6,6"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
-    <Setter Property="BorderThickness" Value="1"/>
+  <Style Selector="xy|XYToggleButton.left-toggle">
+    <Setter Property="Width" Value="99"/>
+    <Setter Property="Height" Value="28"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
   </Style>
-  <Style Selector="xy|XYHeading">
-    <Setter Property="Margin" Value="2,0,0,6"/>
-  </Style>
-  <Style Selector="xy|XYTabBar">
-    <Setter Property="MinHeight" Value="32"/>
-    <Setter Property="Margin" Value="0,0,0,6"/>
-  </Style>
-  <Style Selector="xy|XYTabBar xy|XYTab">
-    <Setter Property="MinWidth" Value="70"/>
-  </Style>
-  <Style Selector="xy|XYTab.xyui-tab-selected">
-    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Strong}"/>
-    <Setter Property="BorderThickness" Value="1"/>
+  <Style Selector="xy|XYIconButton.left-action">
+    <Setter Property="Width" Value="22"/>
+    <Setter Property="Height" Value="22"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
   </Style>
   <Style Selector="xy|XYText.treeContextLabel">
     <Setter Property="Margin" Value="2,0,0,4"/>

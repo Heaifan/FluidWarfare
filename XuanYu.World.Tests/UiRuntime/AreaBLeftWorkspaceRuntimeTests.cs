@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Headless;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using System.Reflection;
@@ -28,25 +29,27 @@ public sealed partial class AreaBLeftWorkspaceRuntimeTests
             var left = new Left { DataContext = vm };
             host.Show(left, 216, 860);
             left.UpdateLayout();
-            var tabs = left.FindControl<XYTabBar>("ContentTabs")!;
+            var projectToggle = left.FindControl<XYToggleButton>("ProjectToggle")!;
+            var fileToggle = left.FindControl<XYToggleButton>("FileToggle")!;
             var tree = left.FindControl<ProjectWorkspace>("ProjectWorkspace")!;
             var empty = left.FindControl<StackPanel>("FileWorkspace")!;
-            var project = (tabs.Items.Count, tabs.SelectedTabId, tree.IsVisible, empty.IsVisible,
+            var project = (projectToggle.IsChecked, fileToggle.IsChecked, tree.IsVisible, empty.IsVisible,
                 vm.ProjectItems.Count, left.Bounds.Width);
-            tabs.SelectedTabId = "file";
+            fileToggle.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             Dispatcher.UIThread.RunJobs();
-            return (project, tabs.SelectedTabId, tree.IsVisible, empty.IsVisible);
+            return (project, projectToggle.IsChecked, fileToggle.IsChecked, tree.IsVisible, empty.IsVisible);
         });
 
-        Assert.Equal(2, snapshot.project.Item1);
-        Assert.Equal("project", snapshot.project.Item2);
+        Assert.True(snapshot.project.Item1 == true);
+        Assert.False(snapshot.project.Item2 == true);
         Assert.True(snapshot.project.Item3);
         Assert.False(snapshot.project.Item4);
         Assert.Equal(1, snapshot.project.Item5);
         Assert.Equal(216, snapshot.project.Item6);
-        Assert.Equal("file", snapshot.Item2);
-        Assert.False(snapshot.Item3);
-        Assert.True(snapshot.Item4);
+        Assert.False(snapshot.Item2 == true);
+        Assert.True(snapshot.Item3 == true);
+        Assert.False(snapshot.Item4);
+        Assert.True(snapshot.Item5);
     }
 
     [Fact]

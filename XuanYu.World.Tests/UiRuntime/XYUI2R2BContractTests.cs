@@ -13,13 +13,13 @@ public sealed class XYUI2R2BContractTests
     public XYUI2R2BContractTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public void Left_workspace_omits_uncontracted_search_and_uses_local_tabs()
+    public void Left_workspace_omits_uncontracted_search_and_uses_local_toggles()
     {
         var source = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
         Assert.DoesNotContain("XYNavigationRail", source);
-        Assert.Contains("<xy:XYTabBar", source);
-        Assert.Contains("Id=\"project\"", source);
-        Assert.Contains("Id=\"file\"", source);
+        Assert.Equal(2, Count(source, "<xy:XYToggleButton"));
+        Assert.Contains("Content=\"项目\"", source);
+        Assert.Contains("Content=\"文件\"", source);
         Assert.DoesNotContain("XYSearchField", source);
         Assert.DoesNotContain("搜索项目树", source);
     }

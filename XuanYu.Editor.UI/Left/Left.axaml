@@ -7,21 +7,28 @@
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Left/Left.Styles.axaml"/>
   </UserControl.Styles>
-  <Border Classes="projectTreeShell">
-    <Grid RowDefinitions="Auto,Auto,Auto,*">
-      <xy:XYHeading x:Name="ProjectHeading" Text="项目树" Variant="PanelTitle"/>
-      <xy:XYTabBar x:Name="ContentTabs" Grid.Row="1" SelectionChanged="ContentTabs_SelectionChanged">
-        <xy:XYTab Id="project" Label="项目" IsSelected="True" ShowSelectedAccent="False"/>
-        <xy:XYTab Id="file" Label="文件" ShowSelectedAccent="False"/>
-      </xy:XYTabBar>
-      <xy:XYText Grid.Row="2" Text="当前场景" Classes="treeContextLabel"/>
-      <Grid Grid.Row="3" x:Name="ContentHost">
-        <local:ProjectWorkspace x:Name="ProjectWorkspace"/>
-        <StackPanel x:Name="FileWorkspace" IsVisible="False" Classes="emptyWorkspace">
-          <xy:XYText Text="暂无文件" Classes="emptyWorkspaceText"/>
-          <xy:XYText Text="当前没有独立文件列表数据。" Classes="emptyWorkspaceHint"/>
-        </StackPanel>
-      </Grid>
+  <Grid RowDefinitions="28,1,28,28,*">
+    <Grid ColumnDefinitions="*,28">
+      <xy:XYHeading x:Name="ProjectHeading" Text="项目" Variant="PanelTitle" VerticalAlignment="Center"/>
+      <xy:XYIconButton x:Name="ProjectMoreButton" Grid.Column="1" Classes="left-action"
+                       ToolTip.Tip="更多" AutomationProperties.Name="项目更多">
+        <xy:XYIcon Icon="MoreHorizontal" Size="Small"/>
+      </xy:XYIconButton>
     </Grid>
-  </Border>
+    <xy:XYSeparator Grid.Row="1" Variant="Header"/>
+    <StackPanel Grid.Row="2" x:Name="ContentSwitch" Orientation="Horizontal" Spacing="2">
+      <xy:XYToggleButton x:Name="ProjectToggle" Classes="left-toggle" Content="项目"
+                         IsChecked="True" Click="ProjectToggle_Click"/>
+      <xy:XYToggleButton x:Name="FileToggle" Classes="left-toggle" Content="文件"
+                         Click="FileToggle_Click"/>
+    </StackPanel>
+    <xy:XYText Grid.Row="3" Text="当前场景" Classes="treeContextLabel"/>
+    <Grid Grid.Row="4" x:Name="ContentHost">
+      <local:ProjectWorkspace x:Name="ProjectWorkspace"/>
+      <StackPanel x:Name="FileWorkspace" IsVisible="False" Classes="emptyWorkspace">
+        <xy:XYText Text="暂无文件" Classes="emptyWorkspaceText"/>
+        <xy:XYText Text="当前没有独立文件列表数据。" Classes="emptyWorkspaceHint"/>
+      </StackPanel>
+    </Grid>
+  </Grid>
 </UserControl>

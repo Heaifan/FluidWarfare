@@ -26,8 +26,9 @@ public sealed class UiMapLayoutContractTests
         Assert.DoesNotContain("XYNavigationRail", Left);
         Assert.DoesNotContain("WorkspaceRail", Left);
         Assert.Contains("<local:ProjectWorkspace", Left);
-        Assert.Contains("Id=\"project\" Label=\"项目\"", Left);
-        Assert.Contains("Id=\"file\" Label=\"文件\"", Left);
+        Assert.Contains("<xy:XYToggleButton", Left);
+        Assert.Contains("Content=\"项目\"", Left);
+        Assert.Contains("Content=\"文件\"", Left);
         Assert.Contains("暂无文件", Left);
         Assert.DoesNotContain("<local:HierarchyWorkspace", Left);
         Assert.DoesNotContain("<local:MapEditorPanel", Left);
