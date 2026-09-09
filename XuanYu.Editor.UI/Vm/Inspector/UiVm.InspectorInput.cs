@@ -36,6 +36,7 @@ public sealed partial class UiVm
         FooterMessage = $"检查器已提交：{group} {axis} = {FormatNumber(value)}。";
         OnPropertyChanged(nameof(InspectorFields));
         OnPropertyChanged(nameof(DebugObjectItems));
+        RaiseInspectorEntityBindings();
         OnPropertyChanged(nameof(TransformHistoryCount));
         OnPropertyChanged(nameof(TransformRedoCount));
         PublishSceneRenderSnapshot();

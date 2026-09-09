@@ -31,7 +31,7 @@ public sealed partial class UiVm
         if (!ApplyHistory(entry, undo: true)) return;
         FooterMessage = "撤销完成。";
         OnPropertyChanged(nameof(DebugObjectItems));
-        OnPropertyChanged(nameof(InspectorFields));
+        OnPropertyChanged(nameof(InspectorFields)); RefreshInspectorEntityProjection();
         OnPropertyChanged(nameof(TransformHistoryCount));
         OnPropertyChanged(nameof(TransformRedoCount));
         RaiseDocumentChanged();
@@ -61,7 +61,7 @@ public sealed partial class UiVm
         if (!ApplyHistory(entry, undo: false)) return;
         FooterMessage = "重做完成。";
         OnPropertyChanged(nameof(DebugObjectItems));
-        OnPropertyChanged(nameof(InspectorFields));
+        OnPropertyChanged(nameof(InspectorFields)); RefreshInspectorEntityProjection();
         OnPropertyChanged(nameof(TransformHistoryCount));
         OnPropertyChanged(nameof(TransformRedoCount));
         RaiseDocumentChanged();

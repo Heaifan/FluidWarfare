@@ -9,6 +9,9 @@ public sealed class UiD4InspectorContractTests
     static readonly string Panel = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
 
+    static readonly string Entity = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+        "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "EntityInspectorPanel.axaml"));
+
     static readonly string Right = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
 
@@ -45,9 +48,10 @@ public sealed class UiD4InspectorContractTests
     [Fact]
     public void Inspector_group_uses_full_width_header_with_separator()
     {
-        Assert.Contains("基础信息", Panel);
-        Assert.Contains("<xy:XYSeparator Variant=\"Section\"", Panel);
-        Assert.Contains("<xy:XYSectionTitle", Panel);
+        Assert.Contains("基础信息", Entity);
+        Assert.Contains("Transform", Entity);
+        Assert.Contains("技术信息", Entity);
+        Assert.Contains("<xy:XYSectionTitle", Entity);
     }
 
     [Fact]
@@ -62,8 +66,30 @@ public sealed class UiD4InspectorContractTests
     {
         Assert.Contains("未选择对象", Panel);
         Assert.Contains("IsEmptySelection", Panel);
-        Assert.Contains("<xy:XYIcon Icon=\"Empty\"", Panel);
         Assert.Contains("<xy:XYEmptyText", Panel);
-        Assert.Contains("uiMultiline", Panel);                     // 空状态说明为显式多行类
+        Assert.Contains("选择场景对象后显示属性", Panel);
+        Assert.DoesNotContain("uiMultiline", Panel);
     }
+
+    [Fact]
+    public void Entity_inspector_uses_real_xyui_editors_and_section_rails()
+    {
+        Assert.Contains("Classes=\"inspectorRail\"", Entity);
+        Assert.Contains("Classes=\"inspectorRail technicalRail\"", Entity);
+        Assert.Contains("<xy:XYTextField", Entity);
+        Assert.Equal(3, Count(Entity, "<xy:XYVectorProperty"));
+        Assert.Contains("Mode=OneWay", Entity);
+        Assert.DoesNotContain("<TextBox", Entity);
+    }
+
+    [Fact]
+    public void Inspector_input_routing_preserves_textbox_focus()
+    {
+        var shortcuts = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+            "..", "..", "..", "..", "XuanYu.Editor.UI", "Win", "UiWin.Shortcuts.cs"));
+        Assert.Contains("GetFocusedElement() is TextBox", shortcuts);
+    }
+
+    static int Count(string source, string value) =>
+        source.Split(value, StringSplitOptions.None).Length - 1;
 }

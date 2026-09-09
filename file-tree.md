@@ -229,6 +229,8 @@
 - `XuanYu.Editor.UI/Right/EditorLayerDock.axaml.cs` - C# implementation source for EditorLayerDock.axaml.cs.
 - `XuanYu.Editor.UI/Right/EditorRightTabs.axaml` - Avalonia XAML view or style resource for EditorRightTabs.axaml.
 - `XuanYu.Editor.UI/Right/EditorRightTabs.axaml.cs` - C# implementation source for EditorRightTabs.axaml.cs.
+- `XuanYu.Editor.UI/Right/EntityInspectorPanel.axaml` - Avalonia XAML view for the editable Entity Inspector sections.
+- `XuanYu.Editor.UI/Right/EntityInspectorPanel.axaml.cs` - C# interaction routing for Entity Inspector text and vector editors.
 - `XuanYu.Editor.UI/Right/InspectorPanel.axaml` - Avalonia XAML view or style resource for InspectorPanel.axaml.
 - `XuanYu.Editor.UI/Right/InspectorPanel.axaml.cs` - C# implementation source for InspectorPanel.axaml.cs.
 - `XuanYu.Editor.UI/Right/LayerInspectorPanel.axaml` - Avalonia XAML view or style resource for LayerInspectorPanel.axaml.
@@ -310,6 +312,7 @@
 - `XuanYu.Editor.UI/Vm/History/UiVm.History.Entities.cs` - C# implementation source for UiVm.History.Entities.cs.
 - `XuanYu.Editor.UI/Vm/History/UiVm.History.cs` - C# implementation source for UiVm.History.cs.
 - `XuanYu.Editor.UI/Vm/Inspector/InspectorFieldRow.cs` - C# implementation source for InspectorFieldRow.cs.
+- `XuanYu.Editor.UI/Vm/Inspector/UiVm.EntityInspector.cs` - C# Entity Inspector projection and commit adapter.
 - `XuanYu.Editor.UI/Vm/Inspector/UiVm.Inspector.cs` - C# implementation source for UiVm.Inspector.cs.
 - `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.Parse.cs` - C# implementation source for UiVm.InspectorInput.Parse.cs.
 - `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.cs` - C# implementation source for UiVm.InspectorInput.cs.

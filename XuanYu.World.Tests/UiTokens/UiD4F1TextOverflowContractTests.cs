@@ -81,10 +81,10 @@ public sealed class UiD4F1TextOverflowContractTests
     }
 
     [Fact]
-    public void Explicit_multiline_content_has_dedicated_class()
+    public void Explicit_multiline_content_keeps_dedicated_style()
     {
         Assert.Contains("<Style Selector=\"TextBlock.uiMultiline\">", Ui);
-        Assert.Contains("uiMultiline", Inspector);  // 空状态说明
+        Assert.DoesNotContain("uiMultiline", Inspector);  // R1 空状态改为轻量单行提示
         Assert.Contains("<xy:XYErrorText", MapForm); // 地图错误详情（XYUI-1-16）
     }
 }

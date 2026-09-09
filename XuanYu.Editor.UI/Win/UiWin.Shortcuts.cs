@@ -8,6 +8,7 @@ public partial class UiWin
     async void Window_KeyDown(object? sender, KeyEventArgs e)
     {
         if (TryHandleDialogKey(e)) { e.Handled = true; return; }
+        if (TopLevel.GetTopLevel(this)?.FocusManager?.GetFocusedElement() is TextBox) return;
         if (e.Key == Key.Tab && TopLevel.GetTopLevel(this)?.FocusManager?.GetFocusedElement() is not TextBox)
         { (DataContext as UiVm)?.ToggleEditorMode(); e.Handled = true; return; }
         if (HandleEntityShortcut(e)) return;

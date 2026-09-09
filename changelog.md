@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.47-rz · AREA-D-R1（2026-09-09 23:55:28 +08:00）
+- 目标：实现 Right Inspector 的 Section Rail 视觉，并将 Entity 名称与 Position/Rotation/Scale 接入真实 XYUI 编辑控件。
+- 变化：新增轻量 Section Rail、Entity Header 与简化空状态；名称复用 `RenameSelectedEntity`，三组 Vector 复用 `TryCommitInspectorTransformValue` 与现有历史/渲染快照链；窗口快捷键在 TextBox 焦点时让位给 XYUI 正式输入语义；补充名称、数值、无效值、Undo/Redo 与 UI 合同测试。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1436/1436、XYUI 588/588；ARCH-A、5+100、AXAML/XML、版本一致性与 `git diff --check` 通过；Area D 的真实视觉与键盘交互仍待用户验收。
+- Hash：起始远端 HEAD `b4238ccc7f6404b63566e8d4bba45ceeaf79fe85`。
+- 状态：`AREA-D-R1 READY FOR USER VISUAL + INTERACTION ACCEPTANCE`。
+
 ## v0.2.28.46-rz · AREA-C-R2-F1（2026-09-09 22:04:32 +08:00）
 - 目标：在 Area C 接入 4.14/4.15 初始化反馈，并完成已授权的 Toolbar 新建图标与 Left 顶层标题微修复。
 - 变化：Renderer Attach 成功后关闭初始化 Loading 层，保留失败 fallback；NewFile Geometry 统一至 Toolbar 视觉包围盒；Left 删除独立“项目”标题与分隔占位，将 More 操作并入项目/文件 Tab 行，保留 Tab、当前场景和项目树。

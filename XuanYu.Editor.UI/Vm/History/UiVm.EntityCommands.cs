@@ -36,6 +36,8 @@ public sealed partial class UiVm
         if (!_sceneState.RenameEntity(key, requestedName, out var finalName)) return false;
         _historyOwner.PushEntry(new RenameEntityHistoryEntry(key, before.Name, finalName));
         SelectEntity(key, "重命名实体");
+        _inspectorEntityNameText = finalName;
+        OnPropertyChanged(nameof(InspectorEntityNameText));
         FooterMessage = $"实体已重命名为：{finalName}";
         RaiseDocumentChanged();
         return true;

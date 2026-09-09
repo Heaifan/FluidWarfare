@@ -44,6 +44,8 @@ public sealed class UiD4DebtClearedTests
         {
             "XuanYu.Editor.UI/Right/InspectorPanel.axaml",
             "XuanYu.Editor.UI/Right/InspectorPanel.axaml.cs",
+            "XuanYu.Editor.UI/Right/EntityInspectorPanel.axaml",
+            "XuanYu.Editor.UI/Right/EntityInspectorPanel.axaml.cs",
             "XuanYu.Editor.UI/Right/MapPagePanel.axaml",
             "XuanYu.Editor.UI/Right/MapPagePanel.axaml.cs",
             "XuanYu.Editor.UI/Right/MapFormPanel.axaml",
@@ -53,6 +55,7 @@ public sealed class UiD4DebtClearedTests
             "XuanYu.Editor.UI/Right/MapIdDisplayFormat.cs",
             "XuanYu.Editor.UI/Design/UiStyles.D4F1.axaml",
             "XuanYu.Editor.UI/Vm/Inspector/InspectorFieldRow.cs",
+            "XuanYu.Editor.UI/Vm/Inspector/UiVm.EntityInspector.cs",
             "XuanYu.Editor.UI/Vm/Map/UiVm.MapEditor.Display.cs",
         })
             Assert.True(File.ReadAllLines(Path.Combine(RepoRoot, rel)).Length <= 100, $"{rel} 超 100 行");

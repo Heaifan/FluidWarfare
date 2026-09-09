@@ -55,6 +55,7 @@ public sealed partial class UiVm
     void RaiseSelectionChanged()
     {
         SynchronizeSelectionProjection();
+        RefreshInspectorEntityProjection();
         OnPropertyChanged(nameof(SelectionTitle));
         OnPropertyChanged(nameof(SelectionSubtitle));
         OnPropertyChanged(nameof(SelectionPath));
