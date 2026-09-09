@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Media;
 using Avalonia.Styling;
+using XYUI.Avalonia.Typography;
 
 namespace XYUI.Avalonia.Controls;
 

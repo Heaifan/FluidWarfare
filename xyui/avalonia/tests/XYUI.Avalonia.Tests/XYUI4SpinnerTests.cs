@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Threading;
 using XYUI.Avalonia.Controls;
 
 namespace XYUI.Avalonia.Tests;
@@ -17,7 +18,7 @@ public sealed class XYUI4SpinnerTests : IClassFixture<XyuiHeadlessFixture>
         var spinner = new XYSpinner { Size = XyuiSpinnerSize.Compact, IsActive = false };
         var window = XyuiBatchTestHost.Show(spinner);
         Assert.Equal("XYUI-4-4.15", spinner.CanonicalId);
-        Assert.Equal(14, spinner.Bounds.Width); Assert.Equal(14, spinner.Bounds.Height);
+        Assert.Equal(14, spinner.DesiredSize.Width); Assert.Equal(14, spinner.DesiredSize.Height);
         Assert.Equal(2, XYSpinner.StrokeFor(XyuiSpinnerSize.Compact));
         Assert.False(spinner.Focusable); Assert.False(spinner.IsHitTestVisible);
         Assert.IsType<SolidColorBrush>(spinner.Track); Assert.IsType<SolidColorBrush>(spinner.Arc);
@@ -31,7 +32,7 @@ public sealed class XYUI4SpinnerTests : IClassFixture<XyuiHeadlessFixture>
         var spinner = new XYSpinner { IsReducedMotion = true };
         var window = XyuiBatchTestHost.Show(spinner);
         var angle = spinner.CurrentAngleDegrees;
-        Avalonia.Threading.Dispatcher.UIThread.RunJobs();
+        Dispatcher.UIThread.RunJobs();
         Assert.Equal(angle, spinner.CurrentAngleDegrees);
         window.Close();
     });
