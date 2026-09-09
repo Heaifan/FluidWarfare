@@ -59,11 +59,7 @@ public partial class Left : UserControl
         _workspaceState = new XYNavigationState(entries, SelectedContextId());
         _workspaceState.Changed += WorkspaceState_Changed;
         WorkspaceRail.NavigationState = _workspaceState;
-        foreach (var item in WorkspaceRail.Items)
-        {
-            item.Width = 46;
-            item.Height = 50;
-        }
+        ApplyCompactRailBounds();
     }
 
     string? SelectedContextId() => _viewModel!.IsManageMode

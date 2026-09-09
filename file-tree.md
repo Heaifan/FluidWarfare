@@ -199,6 +199,7 @@
 - `XuanYu.Editor.UI/Icons/EditorIcons.axaml` - Avalonia XAML view or style resource for EditorIcons.axaml.
 - `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` - C# implementation source for InlineRenameActivation.cs.
 - `XuanYu.Editor.UI/Left/Left.Styles.axaml` - Avalonia XAML view or style resource for Left.Styles.axaml.
+- `XuanYu.Editor.UI/Left/Left.Compact.cs` - Compact Area B Rail item and icon bounds adapter.
 - `XuanYu.Editor.UI/Left/Left.axaml` - Avalonia XAML view or style resource for Left.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml.cs` - C# implementation source for Left.axaml.cs.
 - `XuanYu.Editor.UI/Left/Left.Visuals.cs` - Area B Left workspace header and visibility projection.

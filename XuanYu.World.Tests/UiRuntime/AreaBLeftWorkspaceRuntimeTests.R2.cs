@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Headless;
 using Avalonia.Input;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 using XuanYu.Editor.UI;
 using XuanYu.Editor.Workspace;
 using XYUI.Avalonia.Controls;
@@ -22,8 +23,9 @@ public sealed partial class AreaBLeftWorkspaceRuntimeTests
             var window = host.Show(left, 220, 860);
             left.UpdateLayout();
             var rail = left.FindControl<XYNavigationRail>("WorkspaceRail")!;
+            var icon = rail.Items.First().GetVisualDescendants().OfType<XYIcon>().Single();
             var management = (rail.Items.Count, rail.Items.All(item => item.IsEnabled), rail.Bounds.Width,
-                rail.Items.First().Bounds.Width, rail.Items.First().Bounds.Height);
+                rail.Items.First().Bounds.Width, rail.Items.First().Bounds.Height, icon.Bounds.Width, icon.Bounds.Height);
 
             vm.ToggleEditorMode(); Dispatcher.UIThread.RunJobs();
             var mapRail = left.FindControl<XYNavigationRail>("WorkspaceRail")!;
@@ -45,6 +47,8 @@ public sealed partial class AreaBLeftWorkspaceRuntimeTests
         Assert.Equal(52, evidence.management.Item3);
         Assert.Equal(46, evidence.management.Item4);
         Assert.Equal(50, evidence.management.Item5);
+        Assert.Equal(14, evidence.management.Item6);
+        Assert.Equal(14, evidence.management.Item7);
         Assert.Equal(3, evidence.mapSelected.Item1);
         Assert.Equal("dataset", evidence.mapSelected.Item2);
         Assert.True(evidence.mapSelected.Item3);
