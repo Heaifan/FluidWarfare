@@ -442,6 +442,7 @@
 - `XuanYu.Editor.UI/Win/UiWin.Accessibility.cs` - C# implementation source for UiWin.Accessibility.cs.
 - `XuanYu.Editor.UI/Win/UiWin.CloseLifecycle.cs` - C# implementation source for UiWin.CloseLifecycle.cs.
 - `XuanYu.Editor.UI/Win/UiWin.CloseProbe.cs` - C# implementation source for UiWin.CloseProbe.cs.
+- `XuanYu.Editor.UI/Win/UiWin.DialogActivation.cs` - C# implementation source for UiWin.DialogActivation.cs.
 - `XuanYu.Editor.UI/Win/UiWin.DialogHost.Danger.cs` - C# implementation source for UiWin.DialogHost.Danger.cs.
 - `XuanYu.Editor.UI/Win/UiWin.DialogHost.Input.cs` - C# implementation source for UiWin.DialogHost.Input.cs.
 - `XuanYu.Editor.UI/Win/UiWin.DialogHost.cs` - C# implementation source for UiWin.DialogHost.cs.

@@ -12,11 +12,13 @@ public partial class UiWin
     void RegisterCloseProbes()
     {
         Closed += (_, _) => CloseProbe("closed", CloseProbeState());
+        Activated += (_, _) => CloseProbe("activated", CloseProbeState());
         Deactivated += (_, _) =>
         {
             CloseProbe("deactivated", CloseProbeState());
             (DataContext as UiVm)?.CancelInteractionFromWindowDeactivated();
             CloseProbe("deactivated-after-cancel", CloseProbeState());
+            QueueCloseDialogActivation("deactivated");
         };
     }
 

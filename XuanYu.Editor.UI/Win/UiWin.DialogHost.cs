@@ -58,6 +58,7 @@ public partial class UiWin
         Dispatcher.UIThread.Post(() =>
         {
             CloseProbe("dialog-focus-before", CloseProbeState());
+            if (_closePromptActive && !IsActive) Activate();
             _dialogDefault?.Focus();
             CloseProbe("dialog-focus-after", CloseProbeState());
         });
