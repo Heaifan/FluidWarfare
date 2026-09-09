@@ -9,6 +9,11 @@
         Background="{DynamicResource XY.Brush.Surface.App}">
   <DockPanel Margin="20">
     <DockPanel DockPanel.Dock="Top" Margin="0,0,0,12">
+      <Button x:Name="PrototypeButton" DockPanel.Dock="Right" Content="Area B Left Prototype"
+              Padding="10,4" Background="{DynamicResource XY.Brush.Surface.PanelAlt}"
+              Foreground="{DynamicResource XY.Brush.Text.Primary}"
+              BorderBrush="{DynamicResource XY.Brush.Border.Color.Subtle}"
+              BorderThickness="1" Click="OnPrototypeClick" />
       <Button x:Name="ThemeSwitchButton" DockPanel.Dock="Right" Content="切换 Dark"
               Padding="10,4" Background="{DynamicResource XY.Brush.Surface.PanelAlt}"
               Foreground="{DynamicResource XY.Brush.Text.Primary}"
@@ -19,6 +24,9 @@
         <TextBlock x:Name="ThemeStateText" Text="Theme：Light" Classes="xyui-text-caption" />
       </StackPanel>
     </DockPanel>
-    <views:XYUI1DocumentationView x:Name="DocumentationView" />
+    <Grid>
+      <views:XYUI1DocumentationView x:Name="DocumentationView" />
+      <views:AreaBLeftCompactPrototypeView x:Name="PrototypeView" IsVisible="False" />
+    </Grid>
   </DockPanel>
 </Window>

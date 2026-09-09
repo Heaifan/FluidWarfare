@@ -1370,6 +1370,8 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/TypographyViewModel.cs` - C# implementation source for TypographyViewModel.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AccessibilityView.axaml` - Avalonia XAML view or style resource for AccessibilityView.axaml.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AccessibilityView.axaml.cs` - C# implementation source for AccessibilityView.axaml.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AreaBLeftCompactPrototypeView.axaml` - Avalonia XAML view for the isolated five-state Area B Left prototype board.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/AreaBLeftCompactPrototypeView.axaml.cs` - C# composition source for the isolated Area B Left prototype states and existing XYUI controls.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/CatalogView.axaml` - Avalonia XAML view or style resource for CatalogView.axaml.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/CatalogView.axaml.cs` - C# implementation source for CatalogView.axaml.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/ComponentSamplesView.axaml` - Avalonia XAML view or style resource for ComponentSamplesView.axaml.

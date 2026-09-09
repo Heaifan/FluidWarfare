@@ -59,6 +59,14 @@ public partial class MainWindow : Window
             ? ThemeVariant.Light : ThemeVariant.Dark;
     }
 
+    void OnPrototypeClick(object? sender, RoutedEventArgs e)
+    {
+        var showPrototype = !PrototypeView.IsVisible;
+        PrototypeView.IsVisible = showPrototype;
+        DocumentationView.IsVisible = !showPrototype;
+        PrototypeButton.Content = showPrototype ? "返回组件文档" : "Area B Left Prototype";
+    }
+
     void UpdateThemeSwitch()
     {
         var dark = Application.Current?.ActualThemeVariant == ThemeVariant.Dark;

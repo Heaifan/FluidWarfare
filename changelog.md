@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.35-rz · AREA-B-LEFT-PROTOTYPE-P0（2026-09-09 14:15:58 +08:00）
+
+- 目标：在 XYUI Gallery 中建立 Area B Left 紧凑项目/文件面板的隔离五态原型，不接入 XuanYu Engine Area B。
+- 变化：新增五列 216 DIP 状态板，覆盖默认、Hover、Selected、Rename、ContextMenu；项目/文件改用现有 `XYToggleButton`，树行使用现有 `XYHeading`、`XYIconButton`、`XYText`、`XYIcon`、`XYTruncatedText`、`XYTextField`、`XYContextMenu`、`XYMenuItem`、`XYSeparator` 与 ListBox waiver；未新增 XYUI 控件、API、属性或 variant。
+- 隔离：Engine Area B 文件未修改；`xyui/` 源控件未修改；仅修改 Gallery 主窗口入口并新增 Gallery 原型视图。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1419/1419；ARCH-A 与 5+100 PASS；`git diff --check` PASS；Gallery 已完成原型板运行与视觉检查，用户视觉验收未执行。
+- 状态：`AREA-B-LEFT-PROTOTYPE-P0 READY FOR USER PROTOTYPE REVIEW`。
+
 ## v0.2.28.35-rz · AREA-B-LEFT-R2（2026-09-09 12:19:35 +08:00）
 
 - 目标：按新的 Area B 架构冻结 Left 为紧凑项目/文件树，不施工 Area C/D。
