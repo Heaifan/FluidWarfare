@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="XuanYu.Editor.UI.UnsavedChangesConfirmationWindow"
+        Title="未保存的场景" Width="460" Height="235"
+        CanResize="False" ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource Color.Bg.Application}"
+        KeyDown="Window_KeyDown">
+  <Border Background="{StaticResource Color.Bg.Control}"
+          BorderBrush="{StaticResource Color.Border.Default}"
+          BorderThickness="1" CornerRadius="6" Padding="22">
+    <StackPanel Spacing="12">
+      <TextBlock Text="未保存的场景" FontSize="18" FontWeight="SemiBold"
+                 Foreground="{StaticResource Color.Text.Primary}"/>
+      <TextBlock Text="当前场景有未保存修改。继续关闭前请选择保存、放弃修改或取消。"
+                 TextWrapping="Wrap" Foreground="{StaticResource Color.Text.Secondary}"/>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+        <Button x:Name="SaveButton" Content="保存" Click="Save_Click" Classes="legacyControl"/>
+        <Button x:Name="DiscardButton" Content="不保存" Click="Discard_Click" Classes="legacyControl uiDanger"/>
+        <Button x:Name="CancelButton" Content="取消" Click="Cancel_Click" Classes="legacyControl"/>
+      </StackPanel>
+    </StackPanel>
+  </Border>
+</Window>

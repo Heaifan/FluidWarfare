@@ -16,6 +16,9 @@ public sealed class UiD5UnsavedDialogTests
     static string DialogHostInput() => File.ReadAllText(Path.Combine(
         AppContext.BaseDirectory, "..", "..", "..", "..",
         "XuanYu.Editor.UI", "Win", "UiWin.DialogHost.Input.cs"));
+    static string SceneCloseDialog() => File.ReadAllText(Path.Combine(
+        AppContext.BaseDirectory, "..", "..", "..", "..",
+        "XuanYu.Editor.UI", "Win", "UnsavedChangesConfirmationWindow.axaml"));
 
     static string ConfirmNewMapMethod(string scene)
     {
@@ -27,10 +30,10 @@ public sealed class UiD5UnsavedDialogTests
     [Fact]
     public void Dialog_text_has_no_internal_governance_ids()
     {
-        // 用户可见文案 = 地图弹窗 ShowDialogCore 调用段（标题/正文/按钮）
-        var text = UnsavedDialog();
-        var start = text.LastIndexOf("ShowDialogCore", StringComparison.Ordinal);
-        var userText = text.Substring(start);
+        // 用户可见文案 = 独立关闭确认窗与地图确认调用段（不含内部治理编号）
+        var map = UnsavedDialog();
+        var userText = SceneCloseDialog() + map.Substring(
+            map.LastIndexOf("ShowDialogCore", StringComparison.Ordinal));
         Assert.DoesNotContain("D5", userText);
         Assert.DoesNotContain("D6", userText);
         Assert.DoesNotContain("MAP-A", userText);
@@ -43,6 +46,9 @@ public sealed class UiD5UnsavedDialogTests
         var d = UnsavedDialog();
         Assert.Contains("未保存的地图修改", d);
         Assert.Contains("当前地图有未保存的修改。当前版本暂不支持保存地图后新建。请选择取消，或不保存并新建。", d);
+        var scene = SceneCloseDialog();
+        Assert.Contains("未保存的场景", scene);
+        Assert.Contains("当前场景有未保存修改。继续关闭前请选择保存、放弃修改或取消。", scene);
     }
 
     [Fact]

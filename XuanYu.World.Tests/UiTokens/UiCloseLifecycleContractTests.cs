@@ -44,9 +44,10 @@ public sealed class UiCloseLifecycleContractTests
         Assert.Contains("close-before-final", close);
         Assert.Contains("closed", probe);
         Assert.Contains("activated", probe);
-        Assert.Contains("QueueCloseDialogActivation(\"deactivated\")", probe);
-        var activation = Read("Win/UiWin.DialogActivation.cs");
-        Assert.Contains("if (!IsActive) Activate();", activation);
-        Assert.Contains("_dialogDefault?.Focus();", activation);
+        var modal = Read("Win/UnsavedChangesConfirmationWindow.axaml.cs");
+        Assert.Contains("ShowDialog<string>(owner)", modal);
+        Assert.Contains("SaveButton.Focus();", modal);
+        Assert.Contains("Key.Escape", modal);
+        Assert.Contains("Complete(\"discard\")", modal);
     }
 }

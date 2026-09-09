@@ -1,11 +1,11 @@
 # changelog
 
-## v0.2.28.40-rz · CLOSE-DIALOG-ACTIVATION-R1（2026-09-09 17:36:26 +08:00）
+## v0.2.28.41-rz · CLOSE-MODAL-AIRSPACE-R1（2026-09-09 17:59:54 +08:00）
 
 - 目标：修复创建立方体后点击关闭，未保存确认弹窗因窗口失焦而无法继续的问题。
-- 变化：关闭确认弹窗处于等待状态时，窗口 `Deactivated` 会排队恢复主窗口激活并将焦点回置默认按钮；增加 `Activated` 探针验证恢复结果；普通失焦和非关闭弹窗不抢回焦点。
-- 验证：本轮编译、测试、架构门禁与真实终端复现待执行。
-- 状态：`CLOSE-DIALOG-ACTIVATION-R1 IMPLEMENTED`。
+- 变化：关闭确认改用 Owner 模态窗口，绕过 Vulkan `NativeControlHost` airspace，提供保存/不保存/取消按钮、保存默认焦点和 Esc 取消；保留终端探针记录模态窗口打开、选择和关闭。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 582/582；ARCH-A、AXAML/XML（128/128）与 `git diff --check` PASS；新版终端启动成功，用户真机关闭复现待确认。
+- 状态：`CLOSE-MODAL-AIRSPACE-R1 READY FOR USER VISUAL ACCEPTANCE`。
 
 ## v0.2.28.39-rz · CLOSE-PROBE-R1（2026-09-09 17:16:10 +08:00）
 

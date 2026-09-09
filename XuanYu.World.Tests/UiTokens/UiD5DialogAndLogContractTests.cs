@@ -8,6 +8,7 @@ public sealed class UiD5DialogAndLogContractTests
 {
     static readonly string Win = Read("Win/UiWin.axaml");
     static readonly string Dialog = Read("Win/UiWin.DialogHost.cs");
+    static readonly string UnsavedModal = Read("Win/UnsavedChangesConfirmationWindow.axaml");
     static readonly string DialogInput = Read("Win/UiWin.DialogHost.Input.cs");
     static readonly string Shortcuts = Read("Win/UiWin.Shortcuts.cs");
     static readonly string Unsaved = Read("Win/UiWin.UnsavedDialog.cs");
@@ -44,11 +45,13 @@ public sealed class UiD5DialogAndLogContractTests
     }
 
     [Fact]
-    public void Unsaved_dialog_uses_host_with_save_as_default_and_discard_dangerous()
+    public void Unsaved_scene_dialog_uses_owned_modal_with_save_as_default_and_discard_dangerous()
     {
-        Assert.Contains("[(\"保存\", false, \"save\"), (\"不保存\", true, \"discard\"), (\"取消\", false, \"cancel\")], \"save\")", Unsaved);
-        Assert.DoesNotContain("new Window", Unsaved);   // 代码构建 Window 已移除
-        Assert.DoesNotContain("Brush.Parse", Unsaved);  // 代码颜色已移除
+        Assert.Contains("x:Class=\"XuanYu.Editor.UI.UnsavedChangesConfirmationWindow\"", UnsavedModal);
+        Assert.Contains("Content=\"保存\"", UnsavedModal);
+        Assert.Contains("Content=\"不保存\"", UnsavedModal);
+        Assert.Contains("Content=\"取消\"", UnsavedModal);
+        Assert.Contains("UnsavedChangesConfirmationWindow.ShowAsync(this)", Unsaved);
     }
 
     [Fact]

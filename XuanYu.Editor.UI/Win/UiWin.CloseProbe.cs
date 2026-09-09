@@ -18,7 +18,6 @@ public partial class UiWin
             CloseProbe("deactivated", CloseProbeState());
             (DataContext as UiVm)?.CancelInteractionFromWindowDeactivated();
             CloseProbe("deactivated-after-cancel", CloseProbeState());
-            QueueCloseDialogActivation("deactivated");
         };
     }
 
