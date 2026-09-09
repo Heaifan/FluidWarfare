@@ -14,20 +14,5 @@ internal static partial class UiDebtBaseline
         list.Add(new("W62", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Path:ROOT/UserControl/Border:1", UiRuleKind.HexColor, "BorderBrush", "#d9e2ee"));
         list.Add(new("W62", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Path:ROOT/UserControl/Border/Grid/Grid/TextBlock:1", UiRuleKind.HexColor, "Foreground", "#243246"));
         list.Add(new("W62", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Path:ROOT/UserControl/Border/Grid/Grid/ScrollViewer/StackPanel/Border:1", UiRuleKind.HexColor, "Background", "#edf4ff"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab", UiRuleKind.HexColor, "Foreground", "#6b7688"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab:selected", UiRuleKind.HexColor, "Background", "#edf4ff"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab:selected", UiRuleKind.HexColor, "Foreground", "#185aa6"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab:selected", UiRuleKind.HexColor, "BorderBrush", "#8cb2e2"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.searchBox", UiRuleKind.HexColor, "Background", "#f5f8fc"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.searchBox", UiRuleKind.HexColor, "BorderBrush", "#d7e1ee"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.treeRow:pointerover", UiRuleKind.HexColor, "Background", "#f1f7ff"));
-        list.Add(new("W34", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.treeRow.selected", UiRuleKind.HexColor, "Background", "#e7f1ff"));
-        list.Add(new("W33", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Path.treeIcon", UiRuleKind.HexColor, "Stroke", "#2F80C9"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:MenuItem", UiRuleKind.HexColor, "Foreground", "#2f3d52"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:MenuItem:pointerover", UiRuleKind.HexColor, "Background", "#edf3fb"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TextBlock.treeText", UiRuleKind.HexColor, "Foreground", "#27354a"));
-        list.Add(new("W35", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TextBlock.selectedText", UiRuleKind.HexColor, "Foreground", "#165ca8"));
-        list.Add(new("W30", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TextBlock.emptyTitle", UiRuleKind.HexColor, "Foreground", "#334155"));
-        list.Add(new("W36", "XuanYu.Editor.UI/Left/Left.axaml", "Path:Name:HierarchyList/ListBox/ContextMenu/MenuItem:3", UiRuleKind.HexColor, "Foreground", "#9b2f2f"));
     }
 }

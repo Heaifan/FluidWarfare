@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.33-rz · AREA-B-LEFT-R1 WORKSPACE LEFT CONTEXT（2026-09-09 10:20:35 +08:00）
+
+- 目标：将 Area B Left 收敛为 Workspace Rail + Header + 项目/层级/地图/区域四工作区，保留既有 VM 真源与编辑能力，不施工 Area C/D。
+- 变化：接入 `XYNavigationRail LayoutVariant="Workspace"`、`XYHeading`/`XYCaption`/`XYIcon`、真实 `XYTabBar` 二级页签、XYUI 树图标/截断文本/重命名输入框，以及层级 `XYContextMenu` 命令路由；移除旧 Left 原生菜单与搜索占位。
+- 验证：Area B 定向合同与真实运行时探针 31/31 PASS；Headless Popup 探针确认真实 Popup `IsOpen`、Child 与 XYUI 菜单项，PopupRoot 由 Headless 后端不暴露，未将其记为视觉 PASS；Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1418/1418、XYUI 581/581；ARCH-A、5+100 与 `git diff --check` PASS。
+- Hash：待本轮实现提交后回填。
+- 状态：`AREA-B-LEFT-R1 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.32-rz · XYUI3-07 WORKSPACE STACKED NAVIGATION RAIL（2026-09-09 09:44:15 +08:00）
 
 - 目标：补齐现有 `XYNavigationRail` / `XYNavigationItem` 的 Workspace / Stacked 变体，供编辑器一级工作区使用；本轮不施工 Area B Left。

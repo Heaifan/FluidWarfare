@@ -17,15 +17,6 @@ internal static partial class UiDebtBaseline
         list.Add(new("W71-GEN", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Style:TextBlock.detailLabel", UiRuleKind.FontSize, "FontSize", "12"));
         list.Add(new("W60", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Style:TextBox.detailBody", UiRuleKind.ControlHeight, "MinHeight", "42"));
         list.Add(new("W61", "XuanYu.Editor.UI/Foot/LogDetailPanel.axaml", "Path:ROOT/UserControl/Border/Grid/Grid/ScrollViewer/StackPanel/Border:1", UiRuleKind.CornerRadius, "CornerRadius", "5"));
-        list.Add(new("W29", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab", UiRuleKind.FontSize, "FontSize", "15"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab", UiRuleKind.ControlHeight, "MinHeight", "28"));
-        list.Add(new("W31", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TabItem.leftTab", UiRuleKind.CornerRadius, "CornerRadius", "5"));
-        list.Add(new("W31", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.searchBox", UiRuleKind.CornerRadius, "CornerRadius", "6"));
-        list.Add(new("W31", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Border.treeRow", UiRuleKind.CornerRadius, "CornerRadius", "5"));
-        list.Add(new("W32", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:Path.treeIcon", UiRuleKind.StrokeThickness, "StrokeThickness", "2.2"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:ListBox.treeList ListBoxItem", UiRuleKind.ControlHeight, "MinHeight", "28"));
-        list.Add(new("W71-GEN", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:MenuItem", UiRuleKind.ControlHeight, "MinHeight", "32"));
-        list.Add(new("W29", "XuanYu.Editor.UI/Left/Left.Styles.axaml", "Style:TextBlock.treeText", UiRuleKind.FontSize, "FontSize", "13"));
         list.Add(new("W51", "XuanYu.Editor.UI/Right/LayerPanel.axaml", "Style:Border.activeMark", UiRuleKind.CornerRadius, "CornerRadius", "1.5"));
         list.Add(new("W51", "XuanYu.Editor.UI/Right/LayerPanel.axaml", "Style:Border.dropLine", UiRuleKind.CornerRadius, "CornerRadius", "1"));
         list.Add(new("W22", "XuanYu.Editor.UI/Top/Top.axaml", "Style:Border.commandRail", UiRuleKind.CornerRadius, "CornerRadius", "9"));

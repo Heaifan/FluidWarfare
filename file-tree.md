@@ -198,10 +198,15 @@
 - `XuanYu.Editor.UI/Foot/NotificationBar.axaml.cs` - C# implementation source for NotificationBar.axaml.cs.
 - `XuanYu.Editor.UI/Icons/EditorIcons.axaml` - Avalonia XAML view or style resource for EditorIcons.axaml.
 - `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` - C# implementation source for InlineRenameActivation.cs.
-- `XuanYu.Editor.UI/Left/Left.EntityCommands.cs` - C# implementation source for Left.EntityCommands.cs.
 - `XuanYu.Editor.UI/Left/Left.Styles.axaml` - Avalonia XAML view or style resource for Left.Styles.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml` - Avalonia XAML view or style resource for Left.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml.cs` - C# implementation source for Left.axaml.cs.
+- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml` - Project workspace tree view using canonical XYUI text and icons.
+- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml.cs` - Project workspace keyboard and expansion interaction code.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml` - Hierarchy workspace tree view using canonical XYUI text, icons, and rename field.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml.cs` - Hierarchy workspace selection, expansion, and escape interaction code.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Context.cs` - Hierarchy workspace real XYUI context-menu wiring and command routing.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Rename.cs` - Hierarchy workspace inline rename focus and commit interaction code.
 - `XuanYu.Editor.UI/Left/MarkerPanel.axaml` - Avalonia XAML view or style resource for MarkerPanel.axaml.
 - `XuanYu.Editor.UI/Left/MarkerPanel.axaml.cs` - C# implementation source for MarkerPanel.axaml.cs.
 - `XuanYu.Editor.UI/Left/RegionPanel.axaml` - Avalonia XAML view or style resource for RegionPanel.axaml.
@@ -1022,6 +1027,7 @@
 - `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` - C# implementation source for UiTreeGuideTests.cs.
 - `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.cs` - Area B Left narrow-layout, workspace navigation, and real XYUI context-popup runtime probes.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
 - `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
 - `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - WorkspaceSelector runtime visual-tree regression coverage for Radio ring and dot state.

@@ -7,14 +7,16 @@ public sealed class UiMapManifestNavigationTests
 {
     static readonly string MapEditor = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "MapEditorPanel.axaml"));
+    static readonly string DatasetPanel = File.ReadAllText(Path.Combine(AppContext.BaseDirectory,
+        "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "DatasetPanel.axaml"));
 
     [Fact]
     public void Navigator_has_base_environment_and_dataset_entries()
     {
-        Assert.Contains("Header=\"地图基础\"", MapEditor);
-        Assert.Contains("Header=\"地图环境\"", MapEditor);
-        Assert.Contains("Header=\"数据集\"", MapEditor);
-        Assert.Contains("DatasetEmptyState", MapEditor);
+        Assert.Contains("Id=\"base\" Label=\"地图基础\"", MapEditor);
+        Assert.Contains("Id=\"environment\" Label=\"地图环境\"", MapEditor);
+        Assert.Contains("Id=\"dataset\" Label=\"数据集\"", MapEditor);
+        Assert.Contains("DatasetEmptyState", DatasetPanel);
     }
 
     [Fact]

@@ -36,14 +36,17 @@ public sealed class EditorModeUiCompositionTests
     [Fact]
     public void Project_and_inspector_remain_global_shell_panels()
     {
-        Assert.Contains("Header=\"项目\"", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        var left = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
+        Assert.Contains("LayoutVariant=\"Workspace\"", left);
+        Assert.Contains("<local:ProjectWorkspace", left);
+        Assert.Contains("<local:HierarchyWorkspace", left);
         Assert.Contains("Header=\"检查器\"", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
     }
 
     [Fact]
     public void Map_context_moves_to_left_and_inspector()
     {
-        Assert.Contains("Header=\"地图\"", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        Assert.Contains("<local:MapEditorPanel", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
         Assert.Contains("MapFormPanel", Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
     }
 

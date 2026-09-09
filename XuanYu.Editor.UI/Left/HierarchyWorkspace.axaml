@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
+             x:Class="XuanYu.Editor.UI.HierarchyWorkspace"
+             x:DataType="local:UiVm">
+  <ListBox x:Name="HierarchyList"
+           Classes="treeList"
+           ItemsSource="{Binding HierarchyItems}"
+           SelectedItem="{Binding SelectedHierarchyItem, Mode=TwoWay}"
+           KeyDown="SelectionList_KeyDown">
+    <ListBox.ItemTemplate>
+      <DataTemplate>
+        <Border Classes="treeRow" PointerPressed="HierarchyRow_Pressed">
+          <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
+            <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
+            <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="HierarchyToggle_Pressed">
+              <xy:XYIcon Icon="ChevronDown" Size="Small" Classes="treeIcon"/>
+            </Border>
+            <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="HierarchyToggle_Pressed">
+              <xy:XYIcon Icon="ChevronRight" Size="Small" Classes="treeIcon"/>
+            </Border>
+            <xy:XYIcon Grid.Column="2" Icon="Locate" Classes="treeIcon" IsVisible="{Binding IsRoot}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Eye" Classes="treeIcon" IsVisible="{Binding IsCamera}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Section" Classes="treeIcon" IsVisible="{Binding IsGround}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Locate" Classes="treeIcon" IsVisible="{Binding IsRegion}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Tag" Classes="treeIcon" IsVisible="{Binding IsEntity}"/>
+            <xy:XYTruncatedText Grid.Column="3"
+                                Classes="treeText"
+                                Text="{Binding Title}"
+                                Mode="End"
+                                ToolTip.Tip="{Binding Title}"
+                                IsVisible="{Binding !IsRenaming}"/>
+            <xy:XYTextField Grid.Column="3"
+                            Classes="treeRename"
+                            Text="{Binding RenameText, Mode=TwoWay}"
+                            IsVisible="{Binding IsRenaming}"
+                            AttachedToVisualTree="RenameTextField_AttachedToVisualTree"
+                            DetachedFromVisualTree="RenameTextField_DetachedFromVisualTree"
+                            KeyDown="RenameTextField_KeyDown"
+                            LostFocus="RenameTextField_LostFocus"/>
+          </Grid>
+        </Border>
+      </DataTemplate>
+    </ListBox.ItemTemplate>
+  </ListBox>
+</UserControl>

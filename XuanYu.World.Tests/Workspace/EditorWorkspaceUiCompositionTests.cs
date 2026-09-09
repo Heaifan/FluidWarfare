@@ -38,7 +38,9 @@ public sealed class EditorWorkspaceUiCompositionTests
     [Fact]
     public void Map_context_remains_accessible_through_existing_left_and_inspector()
     {
-        Assert.Contains("Header=\"地图\"", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        Assert.Contains("<xy:XYNavigationRail", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        Assert.Contains("LayoutVariant=\"Workspace\"", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        Assert.Contains("<local:MapEditorPanel", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
         Assert.Contains("<local:MapFormPanel", Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
     }
 

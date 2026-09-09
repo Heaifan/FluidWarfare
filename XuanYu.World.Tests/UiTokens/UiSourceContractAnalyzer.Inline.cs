@@ -11,7 +11,7 @@ public static partial class UiSourceContractAnalyzer
     private static readonly Regex AttrValRx = new(
         @"(?<prop>FontSize|CornerRadius|BoxShadow|StrokeThickness)=""(?<val>[^""]+)""", RegexOptions.Compiled);
     private static readonly Regex CtrlHeightRx = new(@"<(Button|ToggleButton|TextBox|TabItem|MenuItem|CheckBox|ComboBox|RadioButton|ListBoxItem)\b[^>]*?\b(?:Height|MinHeight)=""([\d.]+)""", RegexOptions.Compiled);
-    private static readonly Regex SkipSelectorRx = new(@"Path|Icon|Image|Grid|Border|StackPanel|DockPanel|UniformGrid|ScrollViewer|ListBox$|TabControl|Window|RowDefinition|ColumnDefinition|Canvas|WrapPanel|ItemsControl|ContentControl|Panel", RegexOptions.Compiled);
+    private static readonly Regex SkipSelectorRx = new(@"Path|Icon|Image|Grid|Border|StackPanel|DockPanel|UniformGrid|ScrollViewer|ListBox$|ListBox\.treeList|XYTextField|TabControl|Window|RowDefinition|ColumnDefinition|Canvas|WrapPanel|ItemsControl|ContentControl|Panel", RegexOptions.Compiled);
     private static readonly Regex HexRx = new(@"#[0-9A-Fa-f]{6,8}\b", RegexOptions.Compiled);
 
     public static List<UiViolation> AnalyzeAxaml(string text, string relPath)

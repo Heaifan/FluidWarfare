@@ -1,15 +1,70 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Style Selector="TabControl.leftTabs"><Setter Property="Padding" Value="0"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
-  <Style Selector="TabItem.leftTab"><Setter Property="FontSize" Value="15"/><Setter Property="MinHeight" Value="28"/><Setter Property="Padding" Value="10,4"/><Setter Property="Margin" Value="0,0,4,0"/><Setter Property="CornerRadius" Value="5"/><Setter Property="Foreground" Value="#6b7688"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/></Style>
-  <Style Selector="TabItem.leftTab:selected"><Setter Property="Background" Value="#edf4ff"/><Setter Property="Foreground" Value="#185aa6"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="BorderBrush" Value="#8cb2e2"/><Setter Property="BorderThickness" Value="0,0,0,2"/></Style>
-  <Style Selector="Border.treeRow"><Setter Property="CornerRadius" Value="5"/><Setter Property="MinHeight" Value="28"/><Setter Property="Padding" Value="0,0,5,0"/></Style>
-  <Style Selector="Border.treeRow:pointerover"><Setter Property="Background" Value="#f1f7ff"/></Style>
-  <Style Selector="Border.treeRow.selected"><Setter Property="Background" Value="#e7f1ff"/></Style>
-  <Style Selector="Path.treeIcon"><Setter Property="Width" Value="16"/><Setter Property="Height" Value="16"/><Setter Property="Stretch" Value="Uniform"/><Setter Property="Stroke" Value="#2F80C9"/><Setter Property="StrokeThickness" Value="2.2"/><Setter Property="StrokeLineCap" Value="Round"/><Setter Property="StrokeJoin" Value="Round"/></Style>
-  <Style Selector="ListBox.treeList ListBoxItem"><Setter Property="MinHeight" Value="28"/><Setter Property="Padding" Value="0"/><Setter Property="Margin" Value="0"/></Style>
-  <Style Selector="MenuItem"><Setter Property="MinHeight" Value="32"/><Setter Property="Padding" Value="11,5"/><Setter Property="Foreground" Value="#2f3d52"/></Style><Style Selector="MenuItem:pointerover"><Setter Property="Background" Value="#edf3fb"/></Style>
-  <Style Selector="TextBlock.treeText"><Setter Property="FontSize" Value="13"/><Setter Property="VerticalAlignment" Value="Center"/><Setter Property="TextTrimming" Value="CharacterEllipsis"/><Setter Property="Foreground" Value="#27354a"/></Style>
-  <Style Selector="TextBlock.selectedText"><Setter Property="Foreground" Value="#165ca8"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
-  <Style Selector="TextBlock.emptyTitle"><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Foreground" Value="#334155"/><Setter Property="HorizontalAlignment" Value="Center"/></Style>
+        xmlns:xy="using:XYUI.Avalonia.Controls">
+  <Style Selector="Border.workspaceRailSurface">
+    <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
+    <Setter Property="BorderThickness" Value="1,0,1,0"/>
+  </Style>
+  <Style Selector="Border.workspaceMainSurface">
+    <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
+    <Setter Property="Padding" Value="12,0,0,0"/>
+  </Style>
+  <Style Selector="Border.workspaceHeader">
+    <Setter Property="MinHeight" Value="54"/>
+    <Setter Property="Margin" Value="0,0,12,0"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+  </Style>
+  <Style Selector="xy|XYIcon.workspaceHeaderIcon">
+    <Setter Property="Width" Value="18"/>
+    <Setter Property="Height" Value="18"/>
+    <Setter Property="Margin" Value="8,0,4,0"/>
+    <Setter Property="Stroke" Value="{DynamicResource XY.Brush.Text.Tertiary}"/>
+  </Style>
+  <Style Selector="Grid.workspaceContent">
+    <Setter Property="Margin" Value="0,8,12,8"/>
+  </Style>
+  <Style Selector="ListBox.treeList">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="0"/>
+  </Style>
+  <Style Selector="ListBox.treeList ListBoxItem">
+    <Setter Property="MinHeight" Value="30"/>
+    <Setter Property="Height" Value="30"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="Margin" Value="0"/>
+  </Style>
+  <Style Selector="Border.treeRow">
+    <Setter Property="MinHeight" Value="30"/>
+    <Setter Property="Height" Value="30"/>
+    <Setter Property="Padding" Value="0,0,6,0"/>
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="ListBox.treeList ListBoxItem:pointerover Border.treeRow">
+    <Setter Property="Background" Value="{DynamicResource XY.Brush.State.Color.Hover}"/>
+  </Style>
+  <Style Selector="ListBox.treeList ListBoxItem:selected Border.treeRow">
+    <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Selected}"/>
+  </Style>
+  <Style Selector="xy|XYIcon.treeIcon">
+    <Setter Property="Width" Value="16"/>
+    <Setter Property="Height" Value="16"/>
+    <Setter Property="Stroke" Value="{DynamicResource XY.Brush.Text.Secondary}"/>
+  </Style>
+  <Style Selector="xy|XYTruncatedText.treeText">
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Primary}"/>
+  </Style>
+  <Style Selector="xy|XYTextField.treeRename">
+    <Setter Property="Height" Value="22"/>
+    <Setter Property="MinHeight" Value="22"/>
+    <Setter Property="Padding" Value="6,0"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="xy|XYTab.xyui-tab-selected">
+    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Strong}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+  </Style>
 </Styles>

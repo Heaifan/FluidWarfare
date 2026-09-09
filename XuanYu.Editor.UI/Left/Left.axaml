@@ -4,91 +4,38 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.Left"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Left/Left.Styles.axaml"/>
   </UserControl.Styles>
-
-  <TabControl Classes="leftTabs" SelectedIndex="{Binding LeftTabIndex}">
-    <TabItem Classes="leftTab" Header="项目">
-      <StackPanel Spacing="8" Margin="0,6,0,0">
-        <xy:XYSearchField Placeholder="搜索项目树..."/>
-        <ListBox x:Name="ProjectList" Classes="treeList" ItemsSource="{Binding ProjectItems}"
-                 SelectedItem="{Binding SelectedProjectItem, Mode=TwoWay}"
-                 Background="Transparent" BorderThickness="0"
-                 KeyDown="SelectionList_KeyDown">
-          <ListBox.ItemTemplate>
-            <DataTemplate>
-              <Border Classes="treeRow" PointerPressed="ProjectRow_Pressed">
-                <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
-                  <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
-                  <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="ProjectToggle_Pressed">
-                    <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
-                  </Border>
-                  <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="ProjectToggle_Pressed">
-                    <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
-                  </Border>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource ProjectIcon}" IsVisible="{Binding IsRoot}"/>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource FolderIcon}" IsVisible="{Binding IsFolder}"/>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource WorldIcon}" IsVisible="{Binding IsWorld}"/>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource MaterialIcon}" IsVisible="{Binding IsAsset}"/>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource ScriptIcon}" IsVisible="{Binding IsScript}"/>
-                  <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource BuildIcon}" IsVisible="{Binding IsBuild}"/>
-                  <xy:XYTruncatedText Grid.Column="3" Text="{Binding Title}" Mode="End"
-                                      ToolTip.Tip="{Binding Title}" VerticalAlignment="Center"/>
-                </Grid>
-              </Border>
-            </DataTemplate>
-          </ListBox.ItemTemplate>
-        </ListBox>
-      </StackPanel>
-    </TabItem>
-    <TabItem Classes="leftTab" Header="层级">
-      <ListBox x:Name="HierarchyList" Classes="treeList" Margin="0,8,0,0" MinHeight="220"
-               ItemsSource="{Binding HierarchyItems}"
-               SelectedItem="{Binding SelectedHierarchyItem, Mode=TwoWay}"
-               Background="Transparent" BorderThickness="0"
-               KeyDown="SelectionList_KeyDown">
-        <ListBox.ContextMenu><ContextMenu><MenuItem Header="添加立方体" Click="AddCube_Click"/><Separator/>
-          <MenuItem Header="重命名" Click="Rename_Click"/><MenuItem Header="删除" Foreground="#9b2f2f" Click="Delete_Click"/>
-        </ContextMenu></ListBox.ContextMenu>
-        <ListBox.ItemTemplate><DataTemplate>
-            <Border Classes="treeRow" PointerPressed="HierarchyRow_Pressed">
-              <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
-                <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
-                <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="HierarchyToggle_Pressed">
-                  <Path Classes="treeIcon" Data="{StaticResource ChevronDownIcon}"/>
-                </Border>
-                <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="HierarchyToggle_Pressed">
-                  <Path Classes="treeIcon" Data="{StaticResource ChevronRightIcon}"/>
-                </Border>
-                <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource WorldIcon}" IsVisible="{Binding IsRoot}"/>
-                <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource CameraIcon}" IsVisible="{Binding IsCamera}"/>
-                <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource GroundIcon}" IsVisible="{Binding IsGround}"/>
-                <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource RegionIcon}" IsVisible="{Binding IsRegion}"/>
-                <Path Grid.Column="2" Classes="treeIcon" Data="{StaticResource EntityIcon}" IsVisible="{Binding IsEntity}"/>
-                <xy:XYTruncatedText Grid.Column="3" Text="{Binding Title}" Mode="End"
-                                    ToolTip.Tip="{Binding Title}" VerticalAlignment="Center"
-                                    IsVisible="{Binding !IsRenaming}"/>
-                <TextBox Classes="legacyControl" Grid.Column="3" Text="{Binding RenameText, Mode=TwoWay}" IsVisible="{Binding IsRenaming}"
-                         AttachedToVisualTree="RenameTextBox_AttachedToVisualTree" DetachedFromVisualTree="RenameTextBox_DetachedFromVisualTree"
-                         KeyDown="RenameTextBox_KeyDown" LostFocus="RenameTextBox_LostFocus"/>
-              </Grid>
-            </Border>
-          </DataTemplate></ListBox.ItemTemplate>
-      </ListBox>
-    </TabItem>
-    <TabItem Classes="leftTab" Header="地图" IsVisible="{Binding IsMapEditMode}">
-      <local:MapEditorPanel/>
-    </TabItem>
-    <TabItem Classes="leftTab" Header="区域" IsVisible="{Binding IsRegionEditMode}">
-      <local:RegionalAuthoringPanel/>
-    </TabItem>
-  </TabControl>
+  <Grid ColumnDefinitions="64,8,*" Background="{DynamicResource XY.Brush.Surface.PanelAlt}">
+    <Border Grid.Column="0" Classes="workspaceRailSurface">
+      <xy:XYNavigationRail x:Name="WorkspaceRail"
+                           LayoutVariant="Workspace"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"/>
+    </Border>
+    <Border Grid.Column="2" Classes="workspaceMainSurface">
+      <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0" Classes="workspaceHeader">
+          <Grid ColumnDefinitions="*,Auto">
+            <StackPanel Spacing="1">
+              <xy:XYHeading x:Name="WorkspaceTitle" Variant="PanelTitle"/>
+              <xy:XYCaption x:Name="WorkspaceSubtitle"/>
+            </StackPanel>
+            <xy:XYIcon x:Name="WorkspaceHeaderIcon"
+                       Grid.Column="1"
+                       Icon="Browse"
+                       Size="Small"
+                       Classes="workspaceHeaderIcon"/>
+          </Grid>
+        </Border>
+        <Grid Grid.Row="1" x:Name="WorkspaceContent" Classes="workspaceContent">
+          <local:ProjectWorkspace x:Name="ProjectWorkspace"/>
+          <local:HierarchyWorkspace x:Name="HierarchyWorkspace"/>
+          <local:MapEditorPanel x:Name="MapWorkspace"/>
+          <local:RegionalAuthoringPanel x:Name="RegionWorkspace"/>
+        </Grid>
+      </Grid>
+    </Border>
+  </Grid>
 </UserControl>

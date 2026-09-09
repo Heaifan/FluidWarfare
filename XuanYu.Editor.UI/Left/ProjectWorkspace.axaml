@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:XuanYu.Editor.UI"
+             xmlns:xy="using:XYUI.Avalonia.Controls"
+             x:Class="XuanYu.Editor.UI.ProjectWorkspace"
+             x:DataType="local:UiVm">
+  <ListBox x:Name="ProjectList"
+           Classes="treeList"
+           ItemsSource="{Binding ProjectItems}"
+           SelectedItem="{Binding SelectedProjectItem, Mode=TwoWay}"
+           KeyDown="SelectionList_KeyDown">
+    <ListBox.ItemTemplate>
+      <DataTemplate>
+        <Border Classes="treeRow" PointerPressed="ProjectRow_Pressed">
+          <Grid ColumnDefinitions="Auto,16,16,*" ColumnSpacing="7">
+            <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
+            <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="ProjectToggle_Pressed">
+              <xy:XYIcon Icon="ChevronDown" Size="Small" Classes="treeIcon"/>
+            </Border>
+            <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsCollapsed}" PointerPressed="ProjectToggle_Pressed">
+              <xy:XYIcon Icon="ChevronRight" Size="Small" Classes="treeIcon"/>
+            </Border>
+            <xy:XYIcon Grid.Column="2" Icon="Browse" Classes="treeIcon" IsVisible="{Binding IsRoot}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Browse" Classes="treeIcon" IsVisible="{Binding IsFolder}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Locate" Classes="treeIcon" IsVisible="{Binding IsWorld}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Code" Classes="treeIcon" IsVisible="{Binding IsAsset}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Code" Classes="treeIcon" IsVisible="{Binding IsScript}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Section" Classes="treeIcon" IsVisible="{Binding IsBuild}"/>
+            <xy:XYTruncatedText Grid.Column="3"
+                                Classes="treeText"
+                                Text="{Binding Title}"
+                                Mode="End"
+                                ToolTip.Tip="{Binding Title}"/>
+          </Grid>
+        </Border>
+      </DataTemplate>
+    </ListBox.ItemTemplate>
+  </ListBox>
+</UserControl>

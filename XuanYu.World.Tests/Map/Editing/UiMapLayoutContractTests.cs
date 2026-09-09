@@ -23,18 +23,21 @@ public sealed class UiMapLayoutContractTests
     [Fact]
     public void Left_keeps_global_tabs_and_edit_context_tab()
     {
-        Assert.Contains("Header=\"项目\"", Left);
-        Assert.Contains("Header=\"层级\"", Left);
-        Assert.Contains("Header=\"地图\"", Left);
+        Assert.Contains("<xy:XYNavigationRail", Left);
+        Assert.Contains("LayoutVariant=\"Workspace\"", Left);
+        Assert.Contains("<local:ProjectWorkspace", Left);
+        Assert.Contains("<local:HierarchyWorkspace", Left);
+        Assert.Contains("<local:MapEditorPanel", Left);
         Assert.DoesNotContain("LayerPanel", Left);
     }
 
     [Fact]
     public void Map_editor_has_frozen_content_navigation_tabs()
     {
-        Assert.Contains("Header=\"地图基础\"", MapEditor);
-        Assert.Contains("Header=\"地图环境\"", MapEditor);
-        Assert.Contains("Header=\"数据集\"", MapEditor);
+        Assert.Contains("<xy:XYTabBar", MapEditor);
+        Assert.Contains("Id=\"base\" Label=\"地图基础\"", MapEditor);
+        Assert.Contains("Id=\"environment\" Label=\"地图环境\"", MapEditor);
+        Assert.Contains("Id=\"dataset\" Label=\"数据集\"", MapEditor);
     }
 
     [Fact]

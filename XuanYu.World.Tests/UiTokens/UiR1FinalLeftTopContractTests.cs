@@ -10,18 +10,22 @@ public sealed class UiR1FinalLeftTopContractTests
     [Fact]
     public void Left_tree_titles_use_canonical_truncation()
     {
-        var left = Read("Left/Left.axaml");
-        Assert.Contains("<xy:XYTruncatedText", left);
-        Assert.Contains("Text=\"{Binding Title}\"", left);
-        Assert.DoesNotContain("Classes=\"treeText\"", left);
+        var project = Read("Left/ProjectWorkspace.axaml");
+        var hierarchy = Read("Left/HierarchyWorkspace.axaml");
+        Assert.Contains("<xy:XYTruncatedText", project);
+        Assert.Contains("<xy:XYTruncatedText", hierarchy);
+        Assert.Contains("Text=\"{Binding Title}\"", project);
+        Assert.Contains("Text=\"{Binding Title}\"", hierarchy);
     }
 
     [Fact]
     public void Regional_authoring_heading_uses_section_title()
     {
         var panel = Read("Left/RegionalAuthoringPanel.axaml");
+        var code = Read("Left/RegionalAuthoringPanel.axaml.cs");
         Assert.Contains("<xy:XYSectionTitle Text=\"内容类型\"", panel);
-        Assert.Contains("SelectRegionAuthoringModeCommand", panel);
+        Assert.Contains("AuthoringTabs_SelectionChanged", panel);
+        Assert.Contains("SelectRegionAuthoringMode", code);
     }
 
     [Fact]

@@ -13,12 +13,13 @@ public sealed class XYUI2R2BContractTests
     public XYUI2R2BContractTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public void Left_search_is_real_xyui2_control()
+    public void Left_workspace_omits_uncontracted_search_and_uses_workspace_rail()
     {
         var source = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
-        Assert.Contains("<xy:XYSearchField", source);
-        Assert.DoesNotContain("<TextBox Grid.Column=\"1\"", source);
-        Assert.Contains("Placeholder=\"搜索项目树...\"", source);
+        Assert.Contains("<xy:XYNavigationRail", source);
+        Assert.Contains("LayoutVariant=\"Workspace\"", source);
+        Assert.DoesNotContain("XYSearchField", source);
+        Assert.DoesNotContain("搜索项目树", source);
     }
 
     [Fact]
