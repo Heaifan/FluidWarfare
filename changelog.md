@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.43-rz · RUN-DOTNET-GALLERY-R1（2026-09-09 21:11:03 +08:00）
+
+- 目标：修复不同电脑的 .NET SDK 路径差异，并将 XYUI-4.14/4.15 接入 XYUI Gallery，提供可直接验收的文档与实时示例。
+- 变化：`run.bat` 优先读取机器级 `XUANYU_DOTNET`，否则使用 PATH 中的 dotnet，并拒绝无 SDK 的 runtime host；Gallery 新增 XYUI-4 状态与反馈导航、LoadingIndicator/Spinner 文档、尺寸示例、活动状态与 Reduced Motion 操作示例。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 587/587；ARCH-A、AXAML/XML、SVG/XML、5+100、版本一致性与 `git diff --check` 通过；真机启动待用户使用 `XUANYU_DOTNET` 验收。
+- Hash：起始远端 HEAD `7910eea3`。
+- 状态：`RUN-DOTNET-GALLERY-R1 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.42-rz · XYUI4-AREA-C-R1（2026-09-09 20:45:47 +08:00）
 
 - 目标：按已锁定方向实现 XYUI-4.15 Open Arc Spinner，并以其为基础实现 XYUI-4.14 Corner Activity LoadingIndicator，接入 Vulkan Viewport Area C。

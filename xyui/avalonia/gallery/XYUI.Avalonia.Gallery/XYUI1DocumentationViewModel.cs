@@ -64,7 +64,7 @@ public sealed partial class XYUI1DocumentationViewModel : INotifyPropertyChanged
         Items = new[] { new XYUI1NavigationItem("XYUI-1", "模块概览", "Text & Information", null) }.Concat(documents).ToArray();
         _selectedItem = Items[0];
         SelectedDocument = new XYUI1ModuleOverviewView { DataContext = this };
-        BootstrapXYUI2(); BootstrapXYUI3();
+        BootstrapXYUI2(); BootstrapXYUI3(); BootstrapXYUI4();
     }
 
     public void Select(string id)
@@ -76,13 +76,15 @@ public sealed partial class XYUI1DocumentationViewModel : INotifyPropertyChanged
             IsXYUI2Expanded = false;
             IsXYUI3Expanded = false;
             _selectedXYUI2 = null;
-            _selectedXYUI3 = null;
+            _selectedXYUI3 = null; _selectedXYUI4 = null;
             PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI2Item)));
             PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI3Item)));
+            PropertyChanged?.Invoke(this, new(nameof(SelectedXYUI4Item)));
             SelectedItem = item;
         }
         else if (XYUI2Items.Any(x => x.Id == id)) SelectXYUI2(id);
         else if (XYUI3Items.Any(x => x.Id == id)) SelectXYUI3(id);
+        else if (XYUI4Items.Any(x => x.Id == id)) SelectXYUI4(id);
         else if (FoundationItems.Any(x => x.Id == id)) SelectFoundation(id);
     }
 }

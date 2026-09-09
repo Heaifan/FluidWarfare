@@ -57,6 +57,13 @@
             <TextBlock Grid.Column="1" Text="XYUI-3 · 导航与切换" Classes="xyui-text-section" VerticalAlignment="Center" /><TextBlock Grid.Column="2" Text="{Binding XYUI3CountText}" Classes="xyui-text-caption" VerticalAlignment="Center" />
           </Grid>
           <ListBox Classes="nav-tree" IsVisible="{Binding IsXYUI3Expanded}" ItemsSource="{Binding XYUI3Items}" SelectedItem="{Binding SelectedXYUI3Item}" ItemTemplate="{StaticResource NavItemTemplate}" />
+          <Grid Classes="nav-section-header" Tapped="OnToggleXyui4">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="16" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <Path Grid.Column="0" Classes="nav-chevron" Data="M4 2 L9 7 L4 12" x:CompileBindings="False" IsVisible="{Binding !IsXYUI4Expanded}" />
+            <Path Grid.Column="0" Classes="nav-chevron" Data="M2 4 L7 9 L12 4" x:CompileBindings="False" IsVisible="{Binding IsXYUI4Expanded}" />
+            <TextBlock Grid.Column="1" Text="XYUI-4 · 状态与反馈" Classes="xyui-text-section" VerticalAlignment="Center" /><TextBlock Grid.Column="2" Text="{Binding XYUI4CountText}" Classes="xyui-text-caption" VerticalAlignment="Center" />
+          </Grid>
+          <ListBox Classes="nav-tree" IsVisible="{Binding IsXYUI4Expanded}" ItemsSource="{Binding XYUI4Items}" SelectedItem="{Binding SelectedXYUI4Item}" ItemTemplate="{StaticResource NavItemTemplate}" />
         </StackPanel>
       </ScrollViewer>
     </Border>

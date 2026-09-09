@@ -1559,8 +1559,11 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.Foundation.cs` - C# implementation source for XYUI1DocumentationViewModel.Foundation.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.XYUI2.cs` - C# implementation source for XYUI1DocumentationViewModel.XYUI2.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.XYUI3.cs` - C# implementation source for XYUI1DocumentationViewModel.XYUI3.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.XYUI4.cs` - XYUI4 Gallery navigation state, collapse state and document selection routing.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationViewModel.cs` - C# implementation source for XYUI1DocumentationViewModel.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1GalleryCatalog.cs` - C# implementation source for XYUI1GalleryCatalog.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI4DocumentationCatalog.cs` - XYUI4 Gallery documentation metadata for LoadingIndicator and Spinner.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI4GalleryCatalog.cs` - XYUI4 Gallery previews and live activity/motion examples.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1A.Caption.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1A.Caption.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1B.Icons.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1B.Icons.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1LiveExamplesFactory.Phase1B.Status.cs` - C# implementation source for XYUI1LiveExamplesFactory.Phase1B.Status.cs.
@@ -2054,6 +2057,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3ViewSwitcherTests.cs` - C# implementation source for XYUI3ViewSwitcherTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - C# implementation source for XYUI3WorkspaceSwitcherTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI4LoadingIndicatorTests.cs` - Runtime contract tests for XYUI-4.14 spinner composition and detail copy.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI4GalleryTests.cs` - Gallery registration and XYUI4 navigation routing tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI4SpinnerTests.cs` - Runtime contract tests for XYUI-4.15 geometry, sizing and reduced motion.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUICompositionReuseTests.cs` - C# implementation source for XYUICompositionReuseTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUIVectorViewportTests.cs` - C# implementation source for XYUIVectorViewportTests.cs.
