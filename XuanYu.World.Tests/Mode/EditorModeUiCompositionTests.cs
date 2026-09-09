@@ -37,27 +37,27 @@ public sealed class EditorModeUiCompositionTests
     public void Project_and_inspector_remain_global_shell_panels()
     {
         var left = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
-        Assert.Contains("LayoutVariant=\"Workspace\"", left);
         Assert.Contains("<local:ProjectWorkspace", left);
-        Assert.Contains("<local:HierarchyWorkspace", left);
+        Assert.DoesNotContain("XYNavigationRail", left);
+        Assert.Contains("<local:HierarchyWorkspace", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
         Assert.Contains("Header=\"检查器\"", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
     }
 
     [Fact]
     public void Map_context_moves_to_left_and_inspector()
     {
-        Assert.Contains("<local:MapEditorPanel", Read("XuanYu.Editor.UI", "Left", "Left.axaml"));
+        Assert.Contains("<local:MapEditorPanel", Read("XuanYu.Editor.UI", "Right", "Right.axaml"));
         Assert.Contains("MapFormPanel", Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
     }
 
     [Fact]
     public void Region_context_shows_the_current_drawing_target_and_old_right_map_tab_is_retired()
     {
-        var left = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
+        var rightShell = Read("XuanYu.Editor.UI", "Right", "Right.axaml");
         var region = Read("XuanYu.Editor.UI", "Left", "RegionPanel.axaml");
         var right = Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml");
-        Assert.Contains("RegionalAuthoringPanel", left);
-        Assert.Contains("RegionPanel", Read("XuanYu.Editor.UI", "Left", "RegionalAuthoringPanel.axaml"));
+        Assert.Contains("RegionalAuthoringPanel", rightShell);
+        Assert.Contains("RegionPanel", Read("XuanYu.Editor.UI", "Right", "RegionalAuthoringPanel.axaml"));
         Assert.Contains("当前绘制目标", region);
         Assert.Contains("RegionDrawingTargetName", region);
         Assert.Contains("RegionDrawingTargetStatus", region);

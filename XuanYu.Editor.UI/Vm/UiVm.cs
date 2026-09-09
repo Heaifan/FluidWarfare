@@ -19,7 +19,7 @@ public sealed partial class UiVm : INotifyPropertyChanged, XuanYu.Core.Scene.ISc
     readonly Dictionary<string, EditorTreeNode> _hierarchyNodeCache = new();
     readonly HashSet<string> _collapsedProjectKeys = new(StringComparer.Ordinal);
     readonly HashSet<string> _collapsedHierarchyKeys = new(StringComparer.Ordinal);
-    int _leftTabIndex; EditorTreeNode? _selectedProjectItem, _selectedHierarchyItem;
+    EditorTreeNode? _selectedProjectItem, _selectedHierarchyItem;
     string _selectedNodeKey = EditorSelectionSnapshot.Initial.SelectionKey;
     string _footerMessage = "已就绪。当前为空白未命名场景。", _footerState = "状态：就绪";
     bool _isLogOpen;
@@ -61,8 +61,8 @@ public sealed partial class UiVm : INotifyPropertyChanged, XuanYu.Core.Scene.ISc
     public IReadOnlyList<EditorTreeNode> HierarchyItems => BuildHierarchyItems();
     public IReadOnlyList<InspectorFieldRow> InspectorFields => BuildInspectorFields();
     public IReadOnlyList<string> EmptyHints => UiText.EmptyHints; public IReadOnlyList<string> DebugItems => UiText.DebugItems;
-    public IReadOnlyList<string> ToolItems => UiText.ToolItems; public IReadOnlyList<InspectorFieldRow> DebugContextItems => DebugText.ContextItems; public IReadOnlyList<InspectorFieldRow> DebugObjectItems => BuildDebugObjectItems();
-    public IReadOnlyList<InspectorFieldRow> DebugToolItems => DebugText.ToolItems; public IReadOnlyList<InspectorFieldRow> DebugInputItems => BuildDebugInputItems();
+    public IReadOnlyList<string> ToolItems => UiText.ToolItems; public IReadOnlyList<InspectorFieldRow> DebugContextItems => BuildDebugContextItems(); public IReadOnlyList<InspectorFieldRow> DebugObjectItems => BuildDebugObjectItems();
+    public IReadOnlyList<InspectorFieldRow> DebugToolItems => BuildDebugToolItems(); public IReadOnlyList<InspectorFieldRow> DebugInputItems => BuildDebugInputItems();
     public string ActiveTool => _editorState.ToolSnapshot.ActiveToolText;
     public bool IsSelectTool => IsTool(EditorToolId.Select);
     public bool IsMoveTool => IsTool(EditorToolId.Move);
@@ -83,7 +83,6 @@ public sealed partial class UiVm : INotifyPropertyChanged, XuanYu.Core.Scene.ISc
     public bool HasSelection => _editorState.Snapshot.HasSelection;
     public bool IsLogOpen { get => _isLogOpen; set => Set(ref _isLogOpen, value); }
     public bool IsEmptySelection => !HasSelection;
-    public int LeftTabIndex { get => _leftTabIndex; set => Set(ref _leftTabIndex, value); }
     public EditorTreeNode? SelectedProjectItem { get => _selectedProjectItem; set => SetProjectSelection(value); }
     public EditorTreeNode? SelectedHierarchyItem { get => _selectedHierarchyItem; set => SetHierarchySelection(value); }
     void Run(string name)

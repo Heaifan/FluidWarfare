@@ -21,13 +21,16 @@ public sealed class UiMapLayoutContractTests
         "..", "..", "..", "..", "XuanYu.Editor.UI", "Top", "Top.axaml"));
 
     [Fact]
-    public void Left_keeps_global_tabs_and_edit_context_tab()
+    public void Left_is_only_local_project_file_content()
     {
-        Assert.Contains("<xy:XYNavigationRail", Left);
-        Assert.Contains("LayoutVariant=\"Workspace\"", Left);
+        Assert.DoesNotContain("XYNavigationRail", Left);
+        Assert.DoesNotContain("WorkspaceRail", Left);
         Assert.Contains("<local:ProjectWorkspace", Left);
-        Assert.Contains("<local:HierarchyWorkspace", Left);
-        Assert.Contains("<local:MapEditorPanel", Left);
+        Assert.Contains("Id=\"project\" Label=\"项目\"", Left);
+        Assert.Contains("Id=\"file\" Label=\"文件\"", Left);
+        Assert.Contains("暂无文件", Left);
+        Assert.DoesNotContain("<local:HierarchyWorkspace", Left);
+        Assert.DoesNotContain("<local:MapEditorPanel", Left);
         Assert.DoesNotContain("LayerPanel", Left);
     }
 
@@ -65,11 +68,14 @@ public sealed class UiMapLayoutContractTests
 
     // EDITOR-A-R3：右侧顶层仅保留全局检查器与调试，地图 Context 不再替换整块右栏。
     [Fact]
-    public void Right_keeps_only_global_top_tabs()
+    public void Right_keeps_global_tabs_and_rehomes_edit_contexts()
     {
         Assert.Contains("Header=\"检查器\"", Right);
-        Assert.DoesNotContain("Header=\"地图编辑器\"", Right);
         Assert.Contains("Header=\"调试\"", Right);
+        var rightShell = File.ReadAllText(Path.Combine(
+            AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "Right.axaml"));
+        Assert.Contains("<local:MapEditorPanel", rightShell);
+        Assert.Contains("<local:RegionalAuthoringPanel", rightShell);
         Assert.DoesNotContain("Header=\"偏好\"", Right);
         Assert.DoesNotContain("Header=\"模式\"", Right);
         Assert.DoesNotContain("PropertyItems", Right);

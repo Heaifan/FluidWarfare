@@ -13,11 +13,13 @@ public sealed class XYUI2R2BContractTests
     public XYUI2R2BContractTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public void Left_workspace_omits_uncontracted_search_and_uses_workspace_rail()
+    public void Left_workspace_omits_uncontracted_search_and_uses_local_tabs()
     {
         var source = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
-        Assert.Contains("<xy:XYNavigationRail", source);
-        Assert.Contains("LayoutVariant=\"Workspace\"", source);
+        Assert.DoesNotContain("XYNavigationRail", source);
+        Assert.Contains("<xy:XYTabBar", source);
+        Assert.Contains("Id=\"project\"", source);
+        Assert.Contains("Id=\"file\"", source);
         Assert.DoesNotContain("XYSearchField", source);
         Assert.DoesNotContain("搜索项目树", source);
     }
@@ -54,7 +56,7 @@ public sealed class XYUI2R2BContractTests
         using var host = new UiRuntimeTestHost(_fixture);
         var counts = host.Run(() =>
         {
-            var vm = new UiVm(null, seedInitialScene: false) { RightTabIndex = 1 };
+            var vm = new UiVm(null, seedInitialScene: false) { RightTabIndex = 2 };
             var page = new MapPagePanel { DataContext = vm };
             var tabs = new EditorRightTabs { DataContext = vm };
             var root = new StackPanel { Children = { page, tabs } };

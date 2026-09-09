@@ -30,7 +30,7 @@ public sealed class UiTopTabStripContractTests
     public void Root_layout_matches_min_panel_and_viewport_contract()
     {
         var axaml = Read("XuanYu.Editor.UI/Root/UiRoot.axaml");
-        Assert.Contains("MinWidth=\"220\"", axaml);   // W19：左侧层级树最小 220
+        Assert.Contains("MinWidth=\"210\"", axaml);   // Area B：左侧项目树最小 210
         Assert.Contains("MinWidth=\"300\"", axaml);   // W20：右侧面板最小 300
         Assert.Contains("MinWidth=\"480\"", axaml);   // 视口最小可用区域 480
         Assert.Contains("MinHeight=\"320\"", axaml);  // 视口高度维 320
@@ -48,7 +48,7 @@ public sealed class UiTopTabStripContractTests
     {
         var cs = Read("XuanYu.Editor.UI/Root/UiRoot.axaml.cs");
         Assert.Contains("RootMargin = 12", cs);
-        Assert.Contains("(LeftColumn, 270, 220, 420)", cs);
+        Assert.Contains("(LeftColumn, 216, 210, 220)", cs);
         Assert.Contains("(RightColumn, 340, 300, 480)", cs);
         Assert.Contains("LogRowFloor = 120", cs); // 展开态最小 120（规范 §7.1）
     }
@@ -83,6 +83,6 @@ public sealed class UiTopTabStripContractTests
         Assert.Contains("x:Name=\"SideTabs\"", right);
         var headers = Regex.Matches(right, "<TabItem[^>]*Header=\"([^\"]+)\"")
             .Select(m => m.Groups[1].Value).ToArray();
-        Assert.Equal(["检查器", "调试"], headers); // Map Context 已由 EDITOR-A-R3 迁入左侧与 Inspector。
+        Assert.Equal(["检查器", "层级", "调试"], headers);
     }
 }

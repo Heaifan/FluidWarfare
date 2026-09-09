@@ -79,7 +79,7 @@ public sealed class R2BPropertyEditorVisualContractTests
     public void Left_panel_stays_within_compact_width_contract()
     {
         var shell = Read("XuanYu.Editor.UI", "Root", "UiRoot.axaml");
-        Assert.Contains("Width=\"220\" MinWidth=\"220\" MaxWidth=\"320\"", shell);
+        Assert.Contains("Width=\"216\" MinWidth=\"210\" MaxWidth=\"220\"", shell);
         Assert.DoesNotContain("Width=\"270\"", shell);
         Assert.DoesNotContain("MaxWidth=\"420\"", shell);
     }

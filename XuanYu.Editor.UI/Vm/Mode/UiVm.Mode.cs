@@ -26,7 +26,6 @@ public sealed partial class UiVm
         var transition = _modeManager.Toggle();
         if (!transition.Changed) return false;
         SelectTool("选择", logTool: false);
-        LeftTabIndex = IsManageMode ? 0 : IsMapWorkspace ? 2 : 3;
         RaiseModeBindings();
         _logBus.Info(EditorLogSource.Editor, EditorLogCategory.Command,
             $"已切换为：{CurrentEditorModeText}", "保留 World、Camera、Selection、Assets 与唯一 Main Viewport。");

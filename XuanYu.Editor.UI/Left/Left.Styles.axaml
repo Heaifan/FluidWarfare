@@ -1,44 +1,29 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:xy="using:XYUI.Avalonia.Controls">
-  <Style Selector="Border.workspaceRailSurface">
+  <Style Selector="Border.projectTreeShell">
     <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
+    <Setter Property="Padding" Value="8,8,6,6"/>
     <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
-    <Setter Property="BorderThickness" Value="1,0,1,0"/>
+    <Setter Property="BorderThickness" Value="1"/>
   </Style>
-  <Style Selector="xy|XYNavigationRail.xyui-navigation-rail-workspace">
-    <Setter Property="Padding" Value="1"/>
+  <Style Selector="xy|XYHeading">
+    <Setter Property="Margin" Value="2,0,0,6"/>
   </Style>
-  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item">
-    <Setter Property="Width" Value="46"/>
-    <Setter Property="Height" Value="50"/>
-    <Setter Property="CornerRadius" Value="3"/>
-    <Setter Property="Padding" Value="0"/>
+  <Style Selector="xy|XYTabBar">
+    <Setter Property="MinHeight" Value="32"/>
+    <Setter Property="Margin" Value="0,0,0,6"/>
   </Style>
-  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item xy|XYIcon.xyui-navigation-icon">
-    <Setter Property="Width" Value="14"/>
-    <Setter Property="Height" Value="14"/>
+  <Style Selector="xy|XYTabBar xy|XYTab">
+    <Setter Property="MinWidth" Value="70"/>
   </Style>
-  <Style Selector="xy|XYNavigationItem.xyui-rail-workspace-item TextBlock.xyui-navigation-label">
+  <Style Selector="xy|XYTab.xyui-tab-selected">
+    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Strong}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+  </Style>
+  <Style Selector="xy|XYText.treeContextLabel">
+    <Setter Property="Margin" Value="2,0,0,4"/>
     <Setter Property="FontSize" Value="11"/>
-  </Style>
-  <Style Selector="Border.workspaceMainSurface">
-    <Setter Property="Background" Value="{DynamicResource XY.Brush.Surface.Panel}"/>
-    <Setter Property="Padding" Value="12,0,0,0"/>
-  </Style>
-  <Style Selector="Border.workspaceHeader">
-    <Setter Property="MinHeight" Value="54"/>
-    <Setter Property="Margin" Value="0,0,12,0"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Default}"/>
-    <Setter Property="BorderThickness" Value="0,0,0,1"/>
-  </Style>
-  <Style Selector="xy|XYIcon.workspaceHeaderIcon">
-    <Setter Property="Width" Value="18"/>
-    <Setter Property="Height" Value="18"/>
-    <Setter Property="Margin" Value="8,0,4,0"/>
-    <Setter Property="Stroke" Value="{DynamicResource XY.Brush.Text.Tertiary}"/>
-  </Style>
-  <Style Selector="Grid.workspaceContent">
-    <Setter Property="Margin" Value="0,8,12,8"/>
+    <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Tertiary}"/>
   </Style>
   <Style Selector="ListBox.treeList">
     <Setter Property="Background" Value="Transparent"/>
@@ -73,14 +58,20 @@
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Primary}"/>
   </Style>
-  <Style Selector="xy|XYTextField.treeRename">
-    <Setter Property="Height" Value="22"/>
-    <Setter Property="MinHeight" Value="22"/>
-    <Setter Property="Padding" Value="6,0"/>
+  <Style Selector="StackPanel.emptyWorkspace">
+    <Setter Property="HorizontalAlignment" Value="Center"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Spacing" Value="4"/>
+    <Setter Property="MaxWidth" Value="180"/>
   </Style>
-  <Style Selector="xy|XYTab.xyui-tab-selected">
-    <Setter Property="BorderBrush" Value="{DynamicResource XY.Brush.Border.Color.Strong}"/>
-    <Setter Property="BorderThickness" Value="1"/>
+  <Style Selector="xy|XYText.emptyWorkspaceText">
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Secondary}"/>
+  </Style>
+  <Style Selector="xy|XYText.emptyWorkspaceHint">
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="TextWrapping" Value="Wrap"/>
+    <Setter Property="TextAlignment" Value="Center"/>
+    <Setter Property="Foreground" Value="{DynamicResource XY.Brush.Text.Tertiary}"/>
   </Style>
 </Styles>

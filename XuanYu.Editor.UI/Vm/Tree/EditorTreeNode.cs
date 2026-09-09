@@ -34,8 +34,8 @@ public sealed class EditorTreeNode : INotifyPropertyChanged
         Icon = icon;
     }
 
-    public Thickness Indent => new(Level * 16, 0, 0, 0);
-    public double GuideWidth => Math.Max(0, Level * 16);
+    public Thickness Indent => new(Level * 18, 0, 0, 0);
+    public double GuideWidth => Math.Max(0, Level * 18);
     public bool HasConnector => Level > 0;
     public bool IsRoot => Level == 0;
     public bool IsCategory => Type == "分类";

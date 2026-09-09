@@ -27,13 +27,13 @@
 
     <Grid x:Name="MainLayoutGrid" Grid.Row="1" Margin="0,6,0,0">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="220" MinWidth="220" MaxWidth="320"/>
+        <ColumnDefinition Width="216" MinWidth="210" MaxWidth="220"/>
         <ColumnDefinition Width="6"/>
         <ColumnDefinition Width="*" MinWidth="480"/>
         <ColumnDefinition Width="6"/>
         <ColumnDefinition Width="340" MinWidth="300" MaxWidth="480"/>
       </Grid.ColumnDefinitions>
-      <Border Classes="panel" Padding="14" MinWidth="220" MaxWidth="320">
+      <Border Classes="panel" Padding="6" MinWidth="210" MaxWidth="220">
         <local:Left />
       </Border>
 

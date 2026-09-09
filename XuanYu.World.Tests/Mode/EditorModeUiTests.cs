@@ -31,7 +31,6 @@ public sealed class EditorModeUiTests
         var vm = Create(); vm.SwitchWorkspaceCommand.Execute(EditorWorkspaceId.RegionEditor);
         vm.ToggleEditorMode();
         Assert.True(vm.IsRegionEditMode); Assert.Equal("区域编辑", vm.CurrentEditorModeText);
-        Assert.Equal(3, vm.LeftTabIndex);
     }
 
     [Fact]

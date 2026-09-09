@@ -24,16 +24,8 @@ public sealed partial class UiVm
                     projection.Title,
                     projection.Type,
                     projection.Path));
-            if (Set(ref _selectedProjectItem, project, nameof(SelectedProjectItem))
-                && project is not null)
-            {
-                LeftTabIndex = 0;
-            }
-            if (Set(ref _selectedHierarchyItem, hierarchy, nameof(SelectedHierarchyItem))
-                && hierarchy is not null)
-            {
-                LeftTabIndex = 1;
-            }
+            Set(ref _selectedProjectItem, project, nameof(SelectedProjectItem));
+            Set(ref _selectedHierarchyItem, hierarchy, nameof(SelectedHierarchyItem));
             if (changed is not null)
             {
                 OnPropertyChanged(nameof(SelectionTitle));

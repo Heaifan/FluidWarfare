@@ -17,7 +17,7 @@ public sealed class UiR1VisualContractTests
         using var host = new UiRuntimeTestHost(_fixture);
         var state = host.Run(() =>
         {
-            var vm = new UiVm(null, seedInitialScene: false) { RightTabIndex = 1 };
+            var vm = new UiVm(null, seedInitialScene: false) { RightTabIndex = 2 };
             var tabs = new EditorRightTabs { DataContext = vm };
             host.Show(tabs, 640, 700); tabs.UpdateLayout();
             var titles = UiRuntimeTestHost.Descendants<XYSectionTitle>(tabs).ToArray();

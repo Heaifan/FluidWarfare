@@ -7,36 +7,21 @@
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Left/Left.Styles.axaml"/>
   </UserControl.Styles>
-  <Grid ColumnDefinitions="52,8,*" Background="{DynamicResource XY.Brush.Surface.PanelAlt}">
-    <Border Grid.Column="0" Classes="workspaceRailSurface">
-      <xy:XYNavigationRail x:Name="WorkspaceRail"
-                           LayoutVariant="Workspace"
-                           Width="52"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch"/>
-    </Border>
-    <Border Grid.Column="2" Classes="workspaceMainSurface">
-      <Grid RowDefinitions="Auto,*">
-        <Border Grid.Row="0" Classes="workspaceHeader">
-          <Grid ColumnDefinitions="*,Auto">
-            <StackPanel Spacing="1">
-              <xy:XYHeading x:Name="WorkspaceTitle" Variant="PanelTitle"/>
-              <xy:XYCaption x:Name="WorkspaceSubtitle"/>
-            </StackPanel>
-            <xy:XYIcon x:Name="WorkspaceHeaderIcon"
-                       Grid.Column="1"
-                       Icon="Browse"
-                       Size="Small"
-                       Classes="workspaceHeaderIcon"/>
-          </Grid>
-        </Border>
-        <Grid Grid.Row="1" x:Name="WorkspaceContent" Classes="workspaceContent">
-          <local:ProjectWorkspace x:Name="ProjectWorkspace"/>
-          <local:HierarchyWorkspace x:Name="HierarchyWorkspace"/>
-          <local:MapEditorPanel x:Name="MapWorkspace"/>
-          <local:RegionalAuthoringPanel x:Name="RegionWorkspace"/>
-        </Grid>
+  <Border Classes="projectTreeShell">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+      <xy:XYHeading x:Name="ProjectHeading" Text="项目树" Variant="PanelTitle"/>
+      <xy:XYTabBar x:Name="ContentTabs" Grid.Row="1" SelectionChanged="ContentTabs_SelectionChanged">
+        <xy:XYTab Id="project" Label="项目" IsSelected="True" ShowSelectedAccent="False"/>
+        <xy:XYTab Id="file" Label="文件" ShowSelectedAccent="False"/>
+      </xy:XYTabBar>
+      <xy:XYText Grid.Row="2" Text="当前场景" Classes="treeContextLabel"/>
+      <Grid Grid.Row="3" x:Name="ContentHost">
+        <local:ProjectWorkspace x:Name="ProjectWorkspace"/>
+        <StackPanel x:Name="FileWorkspace" IsVisible="False" Classes="emptyWorkspace">
+          <xy:XYText Text="暂无文件" Classes="emptyWorkspaceText"/>
+          <xy:XYText Text="当前没有独立文件列表数据。" Classes="emptyWorkspaceHint"/>
+        </StackPanel>
       </Grid>
-    </Border>
-  </Grid>
+    </Grid>
+  </Border>
 </UserControl>

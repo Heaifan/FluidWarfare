@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.35-rz · AREA-B-LEFT-R2（2026-09-09 12:19:35 +08:00）
+
+- 目标：按新的 Area B 架构冻结 Left 为紧凑项目/文件树，不施工 Area C/D。
+- 变化：移除 Left 的 Workspace Rail 和全局地图/区域/层级导航；保留 Top 作为唯一全局工作区来源；Left 使用 XYHeading、XYTabBar/XYTab、XYIcon、XYTruncatedText 和真实当前场景投影，File 页在无独立文件契约时显示诚实空状态；地图、区域、层级、检查器和图层编辑能力重挂 Right；调试上下文改为实时状态，移除示例种子文本；Left 目标宽度 210–220 DIP，树行 28 DIP、缩进 18 DIP。
+- 验证：完整 Engine Build 0W0E；Core、WarCore、World、XYUI 全量测试及 Area B 定向测试、ARCH-A、5+100、AXAML/XML、`git diff --check` 结果待本轮门禁完成后回填。
+- Hash：待提交。
+- 状态：`AREA-B-LEFT-R2 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.34-rz · AREA-B-LEFT-R2-FINAL（2026-09-09 11:08:16 +08:00）
 
 - 目标：收敛 Area B Left 的 Top/Left 信息架构、真实数据来源和窄宽视觉，不施工 Area C/D。

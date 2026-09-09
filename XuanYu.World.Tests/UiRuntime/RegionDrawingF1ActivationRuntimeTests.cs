@@ -34,12 +34,12 @@ public sealed class RegionDrawingF1ActivationRuntimeTests : IDisposable
         Assert.Equal("选择", vm.ActiveTool);
 
         using var host = new UiRuntimeTestHost(_fixture);
-        Left left = null!;
+        Right right = null!;
         var enabled = host.Run(() =>
         {
-            left = new Left { DataContext = vm };
-            host.Show(left, 360, 620);
-            var button = UiRuntimeTestHost.Descendants<Button>(left).Single(item =>
+            right = new Right { DataContext = vm };
+            host.Show(right, 360, 620);
+            var button = UiRuntimeTestHost.Descendants<Button>(right).Single(item =>
                 UiRuntimeTestHost.Descendants<TextBlock>(item).Any(text => text.Text == "绘制区域"));
             var state = button.IsVisible && button.IsEnabled;
             button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -50,8 +50,8 @@ public sealed class RegionDrawingF1ActivationRuntimeTests : IDisposable
         for (var i = 0; i < 80 && !host.Run(() => vm.IsRegionDrawingTool); i++) await Task.Delay(25);
         var result = host.Run(() =>
         {
-            left.UpdateLayout();
-            var button = UiRuntimeTestHost.Descendants<Button>(left).Single(item =>
+            right.UpdateLayout();
+            var button = UiRuntimeTestHost.Descendants<Button>(right).Single(item =>
                 UiRuntimeTestHost.Descendants<TextBlock>(item).Any(text => text.Text == "绘制区域"));
             var viewport = new ViewportState(0, 0, 800, 600, 800, 600, 1, 1);
             var hit = FindHit(vm, viewport);

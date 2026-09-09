@@ -46,7 +46,7 @@ public partial class UiRoot : UserControl
     {
         if (_clamping) return;
         _clamping = true;
-        ClampColumn(LeftColumn, 270, 220, 420);
+        ClampColumn(LeftColumn, 216, 210, 220);
         ClampColumn(RightColumn, 340, 300, 480);
         ClampLogRow();
         _clamping = false;

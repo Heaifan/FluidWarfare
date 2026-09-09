@@ -12,7 +12,7 @@
     <ListBox.ItemTemplate>
       <DataTemplate>
         <Border Classes="treeRow" PointerPressed="ProjectRow_Pressed">
-          <Grid ColumnDefinitions="Auto,16,14,*" ColumnSpacing="5">
+          <Grid ColumnDefinitions="Auto,16,14,*" ColumnSpacing="4">
             <local:TreeGuide Width="{Binding GuideWidth}" Segments="{Binding GuideSegments}"/>
             <Border Grid.Column="1" Width="16" Height="16" Background="Transparent" IsVisible="{Binding IsExpanded}" PointerPressed="ProjectToggle_Pressed">
               <xy:XYIcon Icon="ChevronDown" Size="Small" Classes="treeIcon"/>

@@ -19,32 +19,34 @@ public sealed partial class AreaBLeftWorkspaceRuntimeTests
     public AreaBLeftWorkspaceRuntimeTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
     [Fact]
-    public void Narrow_left_materializes_rail_header_and_real_workspace_tabs()
+    public void Narrow_left_materializes_project_file_tabs_and_real_scene_tree()
     {
         using var host = new UiRuntimeTestHost(_fixture);
         var snapshot = host.Run(() =>
         {
             var vm = new UiVm(null, seedInitialScene: false);
-            vm.ToggleEditorMode();
             var left = new Left { DataContext = vm };
-            host.Show(left, 360, 860);
+            host.Show(left, 216, 860);
             left.UpdateLayout();
-            var rail = left.FindControl<XYNavigationRail>("WorkspaceRail")!;
-            var map = left.FindControl<MapEditorPanel>("MapWorkspace")!;
-            var region = left.FindControl<RegionalAuthoringPanel>("RegionWorkspace")!;
-            rail.NavigationState.Select("dataset");
+            var tabs = left.FindControl<XYTabBar>("ContentTabs")!;
+            var tree = left.FindControl<ProjectWorkspace>("ProjectWorkspace")!;
+            var empty = left.FindControl<StackPanel>("FileWorkspace")!;
+            var project = (tabs.Items.Count, tabs.SelectedTabId, tree.IsVisible, empty.IsVisible,
+                vm.ProjectItems.Count, left.Bounds.Width);
+            tabs.SelectedTabId = "file";
             Dispatcher.UIThread.RunJobs();
-            return (rail.LayoutVariant, vm.LeftTabIndex, map.IsVisible, region.IsVisible,
-                map.SelectedTabId, rail.Items.Count, left.Bounds.Width);
+            return (project, tabs.SelectedTabId, tree.IsVisible, empty.IsVisible);
         });
 
-        Assert.Equal(XyuiNavigationLayoutVariant.Workspace, snapshot.Item1);
-        Assert.Equal(2, snapshot.Item2);
-        Assert.True(snapshot.Item3);
-        Assert.False(snapshot.Item4);
-        Assert.Equal("dataset", snapshot.Item5);
-        Assert.Equal(3, snapshot.Item6);
-        Assert.Equal(360, snapshot.Item7);
+        Assert.Equal(2, snapshot.project.Item1);
+        Assert.Equal("project", snapshot.project.Item2);
+        Assert.True(snapshot.project.Item3);
+        Assert.False(snapshot.project.Item4);
+        Assert.Equal(1, snapshot.project.Item5);
+        Assert.Equal(216, snapshot.project.Item6);
+        Assert.Equal("file", snapshot.Item2);
+        Assert.False(snapshot.Item3);
+        Assert.True(snapshot.Item4);
     }
 
     [Fact]

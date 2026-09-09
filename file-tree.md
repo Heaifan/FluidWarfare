@@ -77,7 +77,7 @@
 - `XuanYu.Core.Tests/Spatial/RayAabbIntersectionTests.cs` - C# implementation source for RayAabbIntersectionTests.cs.
 - `XuanYu.Core.Tests/Spatial/SpatialBoundsTests.cs` - C# implementation source for SpatialBoundsTests.cs.
 - `XuanYu.Core.Tests/Spatial/SpatialTestData.cs` - C# implementation source for SpatialTestData.cs.
-- `XuanYu.Core.Tests/XuanYu.Core.Tests.csproj` - .NET project definition for XuanYu.Core.Tests.csproj.
+- `XuanYu.Core.Tests/XuanYu.Core.Tests.csproj` - MSBuild project definition for XuanYu.Core.Tests.csproj.
 - `XuanYu.Core/.gitkeep` - Tracked repository file .gitkeep.
 - `XuanYu.Core/Diagnostics/CoreSelfTest.cs` - C# implementation source for CoreSelfTest.cs.
 - `XuanYu.Core/Gizmo/Common/ScreenPoint.cs` - C# implementation source for ScreenPoint.cs.
@@ -146,10 +146,10 @@
 - `XuanYu.Core/Time/TimeStep.cs` - C# implementation source for TimeStep.cs.
 - `XuanYu.Core/Transform/PreviewTransform.cs` - C# implementation source for PreviewTransform.cs.
 - `XuanYu.Core/Transform/TransformStartSnapshot.cs` - C# implementation source for TransformStartSnapshot.cs.
-- `XuanYu.Core/XuanYu.Core.csproj` - .NET project definition for XuanYu.Core.csproj.
+- `XuanYu.Core/XuanYu.Core.csproj` - MSBuild project definition for XuanYu.Core.csproj.
 - `XuanYu.Editor.App/EditorCompositionRoot.cs` - C# implementation source for EditorCompositionRoot.cs.
 - `XuanYu.Editor.App/Program.cs` - C# implementation source for Program.cs.
-- `XuanYu.Editor.App/XuanYu.Editor.App.csproj` - .NET project definition for XuanYu.Editor.App.csproj.
+- `XuanYu.Editor.App/XuanYu.Editor.App.csproj` - MSBuild project definition for XuanYu.Editor.App.csproj.
 - `XuanYu.Editor.UI/Accessibility/UiAutomationNamer.cs` - C# implementation source for UiAutomationNamer.cs.
 - `XuanYu.Editor.UI/Accessibility/UiDpiContract.cs` - C# implementation source for UiDpiContract.cs.
 - `XuanYu.Editor.UI/Accessibility/UiMotionPreference.cs` - C# implementation source for UiMotionPreference.cs.
@@ -158,7 +158,7 @@
 - `XuanYu.Editor.UI/Bootstrap/Program.cs` - C# implementation source for Program.cs.
 - `XuanYu.Editor.UI/Design/UiStyles.D4F1.axaml` - Avalonia XAML view or style resource for UiStyles.D4F1.axaml.
 - `XuanYu.Editor.UI/Design/UiStyles.D5.axaml` - Avalonia XAML view or style resource for UiStyles.D5.axaml.
-- `XuanYu.Editor.UI/Design/UiTokenManifest.json` - Structured registry or configuration data for UiTokenManifest.json.
+- `XuanYu.Editor.UI/Design/UiTokenManifest.json` - JSON configuration or contract data for UiTokenManifest.json.
 - `XuanYu.Editor.UI/Design/UiTokens.Colors.Components.axaml` - Avalonia XAML view or style resource for UiTokens.Colors.Components.axaml.
 - `XuanYu.Editor.UI/Design/UiTokens.Colors.Core.axaml` - Avalonia XAML view or style resource for UiTokens.Colors.Core.axaml.
 - `XuanYu.Editor.UI/Design/UiTokens.Controls.axaml` - Avalonia XAML view or style resource for UiTokens.Controls.axaml.
@@ -197,24 +197,20 @@
 - `XuanYu.Editor.UI/Foot/NotificationBar.axaml` - Avalonia XAML view or style resource for NotificationBar.axaml.
 - `XuanYu.Editor.UI/Foot/NotificationBar.axaml.cs` - C# implementation source for NotificationBar.axaml.cs.
 - `XuanYu.Editor.UI/Icons/EditorIcons.axaml` - Avalonia XAML view or style resource for EditorIcons.axaml.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Context.cs` - C# implementation source for HierarchyWorkspace.Context.cs.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Rename.cs` - C# implementation source for HierarchyWorkspace.Rename.cs.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml` - Avalonia XAML view or style resource for HierarchyWorkspace.axaml.
+- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml.cs` - C# implementation source for HierarchyWorkspace.axaml.cs.
 - `XuanYu.Editor.UI/Left/InlineRenameActivation.cs` - C# implementation source for InlineRenameActivation.cs.
 - `XuanYu.Editor.UI/Left/Left.Styles.axaml` - Avalonia XAML view or style resource for Left.Styles.axaml.
-- `XuanYu.Editor.UI/Left/Left.Compact.cs` - Compact Area B Rail item and icon bounds adapter.
 - `XuanYu.Editor.UI/Left/Left.axaml` - Avalonia XAML view or style resource for Left.axaml.
 - `XuanYu.Editor.UI/Left/Left.axaml.cs` - C# implementation source for Left.axaml.cs.
-- `XuanYu.Editor.UI/Left/Left.Visuals.cs` - Area B Left workspace header and visibility projection.
-- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml` - Project workspace tree view using canonical XYUI text and icons.
-- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml.cs` - Project workspace keyboard and expansion interaction code.
-- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml` - Hierarchy workspace tree view using canonical XYUI text, icons, and rename field.
-- `XuanYu.Editor.UI/Left/HierarchyWorkspace.axaml.cs` - Hierarchy workspace selection, expansion, and escape interaction code.
-- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Context.cs` - Hierarchy workspace real XYUI context-menu wiring and command routing.
-- `XuanYu.Editor.UI/Left/HierarchyWorkspace.Rename.cs` - Hierarchy workspace inline rename focus and commit interaction code.
 - `XuanYu.Editor.UI/Left/MarkerPanel.axaml` - Avalonia XAML view or style resource for MarkerPanel.axaml.
 - `XuanYu.Editor.UI/Left/MarkerPanel.axaml.cs` - C# implementation source for MarkerPanel.axaml.cs.
+- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml` - Avalonia XAML view or style resource for ProjectWorkspace.axaml.
+- `XuanYu.Editor.UI/Left/ProjectWorkspace.axaml.cs` - C# implementation source for ProjectWorkspace.axaml.cs.
 - `XuanYu.Editor.UI/Left/RegionPanel.axaml` - Avalonia XAML view or style resource for RegionPanel.axaml.
 - `XuanYu.Editor.UI/Left/RegionPanel.axaml.cs` - C# implementation source for RegionPanel.axaml.cs.
-- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml` - Avalonia XAML view or style resource for RegionalAuthoringPanel.axaml.
-- `XuanYu.Editor.UI/Left/RegionalAuthoringPanel.axaml.cs` - C# implementation source for RegionalAuthoringPanel.axaml.cs.
 - `XuanYu.Editor.UI/Left/RoadPanel.axaml` - Avalonia XAML view or style resource for RoadPanel.axaml.
 - `XuanYu.Editor.UI/Left/RoadPanel.axaml.cs` - C# implementation source for RoadPanel.axaml.cs.
 - `XuanYu.Editor.UI/Main/Main.axaml` - Avalonia XAML view or style resource for Main.axaml.
@@ -250,6 +246,8 @@
 - `XuanYu.Editor.UI/Right/MapIdDisplayFormat.cs` - C# implementation source for MapIdDisplayFormat.cs.
 - `XuanYu.Editor.UI/Right/MapPagePanel.axaml` - Avalonia XAML view or style resource for MapPagePanel.axaml.
 - `XuanYu.Editor.UI/Right/MapPagePanel.axaml.cs` - C# implementation source for MapPagePanel.axaml.cs.
+- `XuanYu.Editor.UI/Right/RegionalAuthoringPanel.axaml` - Avalonia XAML view or style resource for RegionalAuthoringPanel.axaml.
+- `XuanYu.Editor.UI/Right/RegionalAuthoringPanel.axaml.cs` - C# implementation source for RegionalAuthoringPanel.axaml.cs.
 - `XuanYu.Editor.UI/Right/Right.axaml` - Avalonia XAML view or style resource for Right.axaml.
 - `XuanYu.Editor.UI/Right/Right.axaml.cs` - C# implementation source for Right.axaml.cs.
 - `XuanYu.Editor.UI/Right/TopTabStripController.AllTabs.cs` - C# implementation source for TopTabStripController.AllTabs.cs.
@@ -260,18 +258,18 @@
 - `XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml` - Avalonia XAML view or style resource for TopTabStripTemplate.axaml.
 - `XuanYu.Editor.UI/Root/UiRoot.axaml` - Avalonia XAML view or style resource for UiRoot.axaml.
 - `XuanYu.Editor.UI/Root/UiRoot.axaml.cs` - C# implementation source for UiRoot.axaml.cs.
-- `XuanYu.Editor.UI/Top/EditToolsModule.axaml` - Area A edit-tools module view using XYUI tool controls.
-- `XuanYu.Editor.UI/Top/EditToolsModule.axaml.cs` - Code-behind for the Area A edit-tools module.
-- `XuanYu.Editor.UI/Top/FileModule.axaml` - Area A file-command module view using XYUI buttons and menus.
-- `XuanYu.Editor.UI/Top/FileModule.axaml.cs` - Code-behind for the Area A file-command module.
-- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml` - Area A runtime and document-status module view.
-- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml.cs` - Code-behind for the Area A runtime-status module.
-- `XuanYu.Editor.UI/Top/SnapModule.axaml` - Area A snap-toggle module view.
-- `XuanYu.Editor.UI/Top/SnapModule.axaml.cs` - Code-behind for the Area A snap module.
+- `XuanYu.Editor.UI/Top/EditToolsModule.axaml` - Avalonia XAML view or style resource for EditToolsModule.axaml.
+- `XuanYu.Editor.UI/Top/EditToolsModule.axaml.cs` - C# implementation source for EditToolsModule.axaml.cs.
+- `XuanYu.Editor.UI/Top/FileModule.axaml` - Avalonia XAML view or style resource for FileModule.axaml.
+- `XuanYu.Editor.UI/Top/FileModule.axaml.cs` - C# implementation source for FileModule.axaml.cs.
+- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml` - Avalonia XAML view or style resource for RuntimeStatusModule.axaml.
+- `XuanYu.Editor.UI/Top/RuntimeStatusModule.axaml.cs` - C# implementation source for RuntimeStatusModule.axaml.cs.
+- `XuanYu.Editor.UI/Top/SnapModule.axaml` - Avalonia XAML view or style resource for SnapModule.axaml.
+- `XuanYu.Editor.UI/Top/SnapModule.axaml.cs` - C# implementation source for SnapModule.axaml.cs.
 - `XuanYu.Editor.UI/Top/Top.axaml` - Avalonia XAML view or style resource for Top.axaml.
 - `XuanYu.Editor.UI/Top/Top.axaml.cs` - C# implementation source for Top.axaml.cs.
-- `XuanYu.Editor.UI/Top/ViewModule.axaml` - Area A view-command module view using XYUI buttons and menus.
-- `XuanYu.Editor.UI/Top/ViewModule.axaml.cs` - Code-behind for the Area A view module.
+- `XuanYu.Editor.UI/Top/ViewModule.axaml` - Avalonia XAML view or style resource for ViewModule.axaml.
+- `XuanYu.Editor.UI/Top/ViewModule.axaml.cs` - C# implementation source for ViewModule.axaml.cs.
 - `XuanYu.Editor.UI/TreeGuide.cs` - C# implementation source for TreeGuide.cs.
 - `XuanYu.Editor.UI/TreeGuideSegment.cs` - C# implementation source for TreeGuideSegment.cs.
 - `XuanYu.Editor.UI/Ui.axaml` - Avalonia XAML view or style resource for Ui.axaml.
@@ -317,7 +315,6 @@
 - `XuanYu.Editor.UI/Vm/Inspector/UiVm.InspectorInput.cs` - C# implementation source for UiVm.InspectorInput.cs.
 - `XuanYu.Editor.UI/Vm/Layer/EditorLayerProviderAdapter.cs` - C# implementation source for EditorLayerProviderAdapter.cs.
 - `XuanYu.Editor.UI/Vm/Layer/UiVm.LayerContext.cs` - C# implementation source for UiVm.LayerContext.cs.
-- `XuanYu.Editor.UI/Vm/Logging/DebugText.cs` - C# implementation source for DebugText.cs.
 - `XuanYu.Editor.UI/Vm/Logging/EditorDisplayText.cs` - C# implementation source for EditorDisplayText.cs.
 - `XuanYu.Editor.UI/Vm/Logging/EditorLogBuffer.cs` - C# implementation source for EditorLogBuffer.cs.
 - `XuanYu.Editor.UI/Vm/Logging/EditorLogBus.cs` - C# implementation source for EditorLogBus.cs.
@@ -331,8 +328,8 @@
 - `XuanYu.Editor.UI/Vm/Logging/EditorLogSource.cs` - C# implementation source for EditorLogSource.cs.
 - `XuanYu.Editor.UI/Vm/Logging/EditorLogSummary.cs` - C# implementation source for EditorLogSummary.cs.
 - `XuanYu.Editor.UI/Vm/Logging/LogEntry.cs` - C# implementation source for LogEntry.cs.
-- `XuanYu.Editor.UI/Vm/Logging/SampleLogEntries.cs` - C# implementation source for SampleLogEntries.cs.
 - `XuanYu.Editor.UI/Vm/Logging/UiText.cs` - C# implementation source for UiText.cs.
+- `XuanYu.Editor.UI/Vm/Logging/UiVm.DebugProjection.cs` - C# implementation source for UiVm.DebugProjection.cs.
 - `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.Refresh.cs` - C# implementation source for UiVm.Logging.Refresh.cs.
 - `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.State.cs` - C# implementation source for UiVm.Logging.State.cs.
 - `XuanYu.Editor.UI/Vm/Logging/UiVm.Logging.cs` - C# implementation source for UiVm.Logging.cs.
@@ -429,8 +426,8 @@
 - `XuanYu.Editor.UI/Vm/Transform/UiVm.ViewportAssist.cs` - C# implementation source for UiVm.ViewportAssist.cs.
 - `XuanYu.Editor.UI/Vm/Tree/EditorTreeNode.cs` - C# implementation source for EditorTreeNode.cs.
 - `XuanYu.Editor.UI/Vm/Tree/TreeGuideBuilder.cs` - C# implementation source for TreeGuideBuilder.cs.
+- `XuanYu.Editor.UI/Vm/Tree/UiVm.ProjectTree.cs` - C# implementation source for UiVm.ProjectTree.cs.
 - `XuanYu.Editor.UI/Vm/Tree/UiVm.TreeCommands.cs` - C# implementation source for UiVm.TreeCommands.cs.
-- `XuanYu.Editor.UI/Vm/Tree/UiVm.ProjectTree.cs` - Current document project-tree projection and inspector fields.
 - `XuanYu.Editor.UI/Vm/UiVm.NativeHostLifecycle.cs` - C# implementation source for UiVm.NativeHostLifecycle.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.Notification.cs` - C# implementation source for UiVm.Notification.cs.
 - `XuanYu.Editor.UI/Vm/UiVm.NotificationLifetime.cs` - C# implementation source for UiVm.NotificationLifetime.cs.
@@ -455,10 +452,10 @@
 - `XuanYu.Editor.UI/Win/UiWin.axaml.cs` - C# implementation source for UiWin.axaml.cs.
 - `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml` - Avalonia XAML view or style resource for WorkspaceSelector.axaml.
 - `XuanYu.Editor.UI/Workspace/WorkspaceSelector.axaml.cs` - C# implementation source for WorkspaceSelector.axaml.cs.
-- `XuanYu.Editor.UI/XuanYu.Editor.UI.csproj` - .NET project definition for XuanYu.Editor.UI.csproj.
+- `XuanYu.Editor.UI/XuanYu.Editor.UI.csproj` - MSBuild project definition for XuanYu.Editor.UI.csproj.
 - `XuanYu.Editor.UI/app.manifest` - Tracked repository file app.manifest.
 - `XuanYu.Editor.Win/MainForm.cs` - C# implementation source for MainForm.cs.
-- `XuanYu.Editor.Win/XuanYu.Editor.Win.csproj` - .NET project definition for XuanYu.Editor.Win.csproj.
+- `XuanYu.Editor.Win/XuanYu.Editor.Win.csproj` - MSBuild project definition for XuanYu.Editor.Win.csproj.
 - `XuanYu.Editor/Assets/Catalog/SceneStaticModelCatalog.cs` - C# implementation source for SceneStaticModelCatalog.cs.
 - `XuanYu.Editor/Assets/Hosting/HostedSceneAsset.cs` - C# implementation source for HostedSceneAsset.cs.
 - `XuanYu.Editor/Assets/Hosting/ModelAssetRuntimeState.cs` - C# implementation source for ModelAssetRuntimeState.cs.
@@ -635,8 +632,8 @@
 - `XuanYu.Editor/Workspace/EditorWorkspaceTool.cs` - C# implementation source for EditorWorkspaceTool.cs.
 - `XuanYu.Editor/Workspace/EditorWorkspaceTransition.cs` - C# implementation source for EditorWorkspaceTransition.cs.
 - `XuanYu.Editor/Workspace/RegionAuthoringMode.cs` - C# implementation source for RegionAuthoringMode.cs.
-- `XuanYu.Editor/XuanYu.Editor.csproj` - .NET project definition for XuanYu.Editor.csproj.
-- `XuanYu.Engine.slnx` - .NET solution definition for XuanYu.Engine.slnx.
+- `XuanYu.Editor/XuanYu.Editor.csproj` - MSBuild project definition for XuanYu.Editor.csproj.
+- `XuanYu.Engine.slnx` - Tracked repository file XuanYu.Engine.slnx.
 - `XuanYu.Render.Abstractions/EditorViewPlaneGridKind.cs` - C# implementation source for EditorViewPlaneGridKind.cs.
 - `XuanYu.Render.Abstractions/EditorViewportAssistState.cs` - C# implementation source for EditorViewportAssistState.cs.
 - `XuanYu.Render.Abstractions/FrameExecutionPolicy.cs` - C# implementation source for FrameExecutionPolicy.cs.
@@ -679,7 +676,7 @@
 - `XuanYu.Render.Abstractions/ViewportMetricScale.cs` - C# implementation source for ViewportMetricScale.cs.
 - `XuanYu.Render.Abstractions/ViewportOverlayAnchor.cs` - C# implementation source for ViewportOverlayAnchor.cs.
 - `XuanYu.Render.Abstractions/ViewportOverlayLayoutResolver.cs` - C# implementation source for ViewportOverlayLayoutResolver.cs.
-- `XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj` - .NET project definition for XuanYu.Render.Abstractions.csproj.
+- `XuanYu.Render.Abstractions/XuanYu.Render.Abstractions.csproj` - MSBuild project definition for XuanYu.Render.Abstractions.csproj.
 - `XuanYu.Render.Vulkan/Bridge/VulkanBridgeDeviceAttachStep.cs` - C# implementation source for VulkanBridgeDeviceAttachStep.cs.
 - `XuanYu.Render.Vulkan/Bridge/VulkanBridgePhysicalDeviceAttachStep.cs` - C# implementation source for VulkanBridgePhysicalDeviceAttachStep.cs.
 - `XuanYu.Render.Vulkan/Bridge/VulkanBridgeRenderSessionAttachStep.cs` - C# implementation source for VulkanBridgeRenderSessionAttachStep.cs.
@@ -795,18 +792,18 @@
 - `XuanYu.Render.Vulkan/VulkanSurfaceLogFormatter.cs` - C# implementation source for VulkanSurfaceLogFormatter.cs.
 - `XuanYu.Render.Vulkan/VulkanSurfaceOwner.cs` - C# implementation source for VulkanSurfaceOwner.cs.
 - `XuanYu.Render.Vulkan/VulkanSurfaceResult.cs` - C# implementation source for VulkanSurfaceResult.cs.
-- `XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj` - .NET project definition for XuanYu.Render.Vulkan.csproj.
+- `XuanYu.Render.Vulkan/XuanYu.Render.Vulkan.csproj` - MSBuild project definition for XuanYu.Render.Vulkan.csproj.
 - `XuanYu.WarCore.Tests/Identity/MilitaryIdentityTests.cs` - C# implementation source for MilitaryIdentityTests.cs.
 - `XuanYu.WarCore.Tests/State/SoldierStateTests.cs` - C# implementation source for SoldierStateTests.cs.
 - `XuanYu.WarCore.Tests/WarCoreDependencyTests.cs` - C# implementation source for WarCoreDependencyTests.cs.
-- `XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj` - .NET project definition for XuanYu.WarCore.Tests.csproj.
+- `XuanYu.WarCore.Tests/XuanYu.WarCore.Tests.csproj` - MSBuild project definition for XuanYu.WarCore.Tests.csproj.
 - `XuanYu.WarCore/Identity/FactionId.cs` - C# implementation source for FactionId.cs.
 - `XuanYu.WarCore/Identity/MilitaryIdentity.cs` - C# implementation source for MilitaryIdentity.cs.
 - `XuanYu.WarCore/Identity/OrganizationId.cs` - C# implementation source for OrganizationId.cs.
 - `XuanYu.WarCore/Identity/UnitId.cs` - C# implementation source for UnitId.cs.
 - `XuanYu.WarCore/Identity/UnitKind.cs` - C# implementation source for UnitKind.cs.
 - `XuanYu.WarCore/State/SoldierState.cs` - C# implementation source for SoldierState.cs.
-- `XuanYu.WarCore/XuanYu.WarCore.csproj` - .NET project definition for XuanYu.WarCore.csproj.
+- `XuanYu.WarCore/XuanYu.WarCore.csproj` - MSBuild project definition for XuanYu.WarCore.csproj.
 - `XuanYu.World.Tests/Assets/AssetContractTests.cs` - C# implementation source for AssetContractTests.cs.
 - `XuanYu.World.Tests/Assets/AssetDialogTests.cs` - C# implementation source for AssetDialogTests.cs.
 - `XuanYu.World.Tests/Assets/GlbFactory.cs` - C# implementation source for GlbFactory.cs.
@@ -959,7 +956,7 @@
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapResolverTests.cs` - C# implementation source for RegionVertexSnapResolverTests.cs.
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapScaleTests.cs` - C# implementation source for RegionVertexSnapScaleTests.cs.
 - `XuanYu.World.Tests/MapEditing/RegionVertexSnapStateTests.cs` - C# implementation source for RegionVertexSnapStateTests.cs.
-- `XuanYu.World.Tests/Mode/AreaAR2AvailabilityContractTests.cs` - Area A C+D 第二轮模式可用性与不可变契约测试。
+- `XuanYu.World.Tests/Mode/AreaAR2AvailabilityContractTests.cs` - C# implementation source for AreaAR2AvailabilityContractTests.cs.
 - `XuanYu.World.Tests/Mode/EditorModeManagerTests.cs` - C# implementation source for EditorModeManagerTests.cs.
 - `XuanYu.World.Tests/Mode/EditorModeUiCompositionTests.cs` - C# implementation source for EditorModeUiCompositionTests.cs.
 - `XuanYu.World.Tests/Mode/EditorModeUiTests.cs` - C# implementation source for EditorModeUiTests.cs.
@@ -1029,13 +1026,13 @@
 - `XuanYu.World.Tests/Tree/UiHierarchyConnectorTests.cs` - C# implementation source for UiHierarchyConnectorTests.cs.
 - `XuanYu.World.Tests/Tree/UiTreeGuideTests.cs` - C# implementation source for UiTreeGuideTests.cs.
 - `XuanYu.World.Tests/Tree/UiTreeToggleTests.cs` - C# implementation source for UiTreeToggleTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - C# implementation source for AreaAR4MenuRuntimeTests.Contracts.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - C# implementation source for AreaAR4MenuRuntimeTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - C# implementation source for AreaAR5MenuRadioVisualTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaAR6WorkspaceRadioRenderTests.cs` - C# implementation source for AreaAR6WorkspaceRadioRenderTests.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.R2.cs` - C# implementation source for AreaBLeftWorkspaceRuntimeTests.R2.cs.
+- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.cs` - C# implementation source for AreaBLeftWorkspaceRuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
-- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.cs` - Area B Left narrow-layout, workspace navigation, and real XYUI context-popup runtime probes.
-- `XuanYu.World.Tests/UiRuntime/AreaBLeftWorkspaceRuntimeTests.R2.cs` - Area B R2 mode-context, pointer navigation, and compact-bounds runtime probes.
-- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.Contracts.cs` - Menu MVVM, keyboard, focus, and state-authority runtime contracts for Area A.
-- `XuanYu.World.Tests/UiRuntime/AreaAR4MenuRuntimeTests.cs` - Area A menu command, workspace, and environment runtime integration tests.
-- `XuanYu.World.Tests/UiRuntime/AreaAR5MenuRadioVisualTests.cs` - WorkspaceSelector runtime visual-tree regression coverage for Radio ring and dot state.
-- `XuanYu.World.Tests/UiRuntime/AreaAR6WorkspaceRadioRenderTests.cs` - Real WorkspaceSelector Popup style-order and Radio state regression coverage.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
@@ -1071,7 +1068,7 @@
 - `XuanYu.World.Tests/UiRuntime/WorkspaceSelectorR2ContractTests.cs` - C# implementation source for WorkspaceSelectorR2ContractTests.cs.
 - `XuanYu.World.Tests/UiRuntime/XYUI2R2BContractTests.cs` - C# implementation source for XYUI2R2BContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/LayerAUiCompositionTests.cs` - C# implementation source for LayerAUiCompositionTests.cs.
-- `XuanYu.World.Tests/UiTokens/UiCanonicalVersionContractTests.cs` - C# contract tests verifying project canonical version consistency across runtime and UI.
+- `XuanYu.World.Tests/UiTokens/UiCanonicalVersionContractTests.cs` - C# implementation source for UiCanonicalVersionContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiCsColorRulesTests.cs` - C# implementation source for UiCsColorRulesTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolActivationContractTests.cs` - C# implementation source for UiD2F1RegionToolActivationContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD2F1RegionToolContractTests.cs` - C# implementation source for UiD2F1RegionToolContractTests.cs.
@@ -1102,7 +1099,6 @@
 - `XuanYu.World.Tests/UiTokens/UiD6DpiContractTests.cs` - C# implementation source for UiD6DpiContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD6LogPerformanceTests.cs` - C# implementation source for UiD6LogPerformanceTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD6MotionContractTests.cs` - C# implementation source for UiD6MotionContractTests.cs.
-- `XuanYu.World.Tests/UiTokens/UiR1FinalLeftTopContractTests.cs` - C# contract tests for the XYUI-1 Left and Top final sweep.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml1.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml1.cs.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Axaml2.cs` - C# implementation source for UiDebtBaseline.Colors.Axaml2.cs.
 - `XuanYu.World.Tests/UiTokens/UiDebtBaseline.Colors.Cs.cs` - C# implementation source for UiDebtBaseline.Colors.Cs.cs.
@@ -1113,6 +1109,7 @@
 - `XuanYu.World.Tests/UiTokens/UiDebtBaselineTests.cs` - C# implementation source for UiDebtBaselineTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiF3LayerRowContractTests.cs` - C# implementation source for UiF3LayerRowContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiLayerDeleteDialogContractTests.cs` - C# implementation source for UiLayerDeleteDialogContractTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiR1FinalLeftTopContractTests.cs` - C# implementation source for UiR1FinalLeftTopContractTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.CsRules.cs` - C# implementation source for UiSourceContractAnalyzer.CsRules.cs.
 - `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Icon.cs` - C# implementation source for UiSourceContractAnalyzer.Icon.cs.
 - `XuanYu.World.Tests/UiTokens/UiSourceContractAnalyzer.Inline.cs` - C# implementation source for UiSourceContractAnalyzer.Inline.cs.
@@ -1136,7 +1133,7 @@
 - `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.PartitionStrategy.cs` - C# implementation source for WorldPartitionTests.PartitionStrategy.cs.
 - `XuanYu.World.Tests/WorldPartition/WorldPartitionTests.cs` - C# implementation source for WorldPartitionTests.cs.
 - `XuanYu.World.Tests/WorldPartition/WorldPartitionUiTests.cs` - C# implementation source for WorldPartitionUiTests.cs.
-- `XuanYu.World.Tests/XuanYu.World.Tests.csproj` - .NET project definition for XuanYu.World.Tests.csproj.
+- `XuanYu.World.Tests/XuanYu.World.Tests.csproj` - MSBuild project definition for XuanYu.World.Tests.csproj.
 - `XuanYu.World/EntityRegistry.Authoring.cs` - C# implementation source for EntityRegistry.Authoring.cs.
 - `XuanYu.World/EntityRegistry.Replace.cs` - C# implementation source for EntityRegistry.Replace.cs.
 - `XuanYu.World/EntityRegistry.cs` - C# implementation source for EntityRegistry.cs.
@@ -1200,7 +1197,7 @@
 - `XuanYu.World/WorldPartitionEntry.cs` - C# implementation source for WorldPartitionEntry.cs.
 - `XuanYu.World/WorldPartitionMembership.cs` - C# implementation source for WorldPartitionMembership.cs.
 - `XuanYu.World/WorldQuery.cs` - C# implementation source for WorldQuery.cs.
-- `XuanYu.World/XuanYu.World.csproj` - .NET project definition for XuanYu.World.csproj.
+- `XuanYu.World/XuanYu.World.csproj` - MSBuild project definition for XuanYu.World.csproj.
 - `changelog.md` - Documentation, specification, or governance record for changelog.md.
 - `docs/CODE_CONSTITUTION.md` - Documentation, specification, or governance record for CODE_CONSTITUTION.md.
 - `docs/architecture/ENGINE_ARCHITECTURE.md` - Documentation, specification, or governance record for ENGINE_ARCHITECTURE.md.
@@ -1219,7 +1216,7 @@
 - `docs/governance/naming-XuanYu-Engine.md` - Documentation, specification, or governance record for naming-XuanYu-Engine.md.
 - `docs/governance/ui-spec.md` - Documentation, specification, or governance record for ui-spec.md.
 - `docs/governance/xyui/README.md` - Documentation, specification, or governance record for README.md.
-- `docs/governance/xyui/XYUI3_Menu_Developer_QuickStart.md` - Copyable XYUI Menu MVVM, state, and component-selection guide.
+- `docs/governance/xyui/XYUI3_Menu_Developer_QuickStart.md` - Documentation, specification, or governance record for XYUI3_Menu_Developer_QuickStart.md.
 - `"docs/governance/xyui/XYUI_Codex_Gemini\345\217\214Agent\345\274\200\345\217\221\344\270\216\344\273\243\347\240\201\345\260\201\350\243\205\350\247\204\350\214\203_v1.0.md"` - Tracked repository file 203_v1.0.md".
 - `"docs/governance/\347\211\210\346\234\254\345\217\267\350\247\204\350\214\203\344\270\216\345\216\206\345\217\262\346\230\240\345\260\204.md"` - Tracked repository file 204.md".
 - `docs/knowledge/README.md` - Documentation, specification, or governance record for README.md.
@@ -1247,9 +1244,9 @@
 - `docs/milestones/current/EDITOR-A/EDITOR-A-R3-F1-shell-compact.md` - Documentation, specification, or governance record for EDITOR-A-R3-F1-shell-compact.md.
 - `docs/milestones/current/EDITOR-A/EDITOR-A-R3-mode-shell.md` - Documentation, specification, or governance record for EDITOR-A-R3-mode-shell.md.
 - `docs/milestones/current/EDITOR-A/XYUI-backlog.md` - Documentation, specification, or governance record for XYUI-backlog.md.
-- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` - Vector asset for editor-a-r1-workspace-contract.svg.
-- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` - Vector asset for editor-a-r2-workspace-switch.svg.
-- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` - Vector asset for editor-a-r3-mode-shell.svg.
+- `docs/milestones/current/EDITOR-A/editor-a-r1-workspace-contract.svg` - SVG design or architecture artifact for editor-a-r1-workspace-contract.svg.
+- `docs/milestones/current/EDITOR-A/editor-a-r2-workspace-switch.svg` - SVG design or architecture artifact for editor-a-r2-workspace-switch.svg.
+- `docs/milestones/current/EDITOR-A/editor-a-r3-mode-shell.svg` - SVG design or architecture artifact for editor-a-r3-mode-shell.svg.
 - `docs/milestones/current/LAYER-A/LAYER-A-R1-layer-shell.md` - Documentation, specification, or governance record for LAYER-A-R1-layer-shell.md.
 - `docs/milestones/current/MAP-A/MAP-A-CLOSE-plan.md` - Documentation, specification, or governance record for MAP-A-CLOSE-plan.md.
 - `docs/milestones/current/MAP-A/MAP-A-strategic-closeout.md` - Documentation, specification, or governance record for MAP-A-strategic-closeout.md.
@@ -1258,7 +1255,7 @@
 - `docs/milestones/current/MAP-A/R3-backlog.md` - Documentation, specification, or governance record for R3-backlog.md.
 - `docs/milestones/current/MAP-A/map-contract.md` - Documentation, specification, or governance record for map-contract.md.
 - `docs/milestones/current/MAP-A/viewport-overlay-development-plan.md` - Documentation, specification, or governance record for viewport-overlay-development-plan.md.
-- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` - Vector asset for viewport-overlay-roadmap.svg.
+- `docs/milestones/current/MAP-A/viewport-overlay-roadmap.svg` - SVG design or architecture artifact for viewport-overlay-roadmap.svg.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F1-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F1-acceptance.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F2-acceptance.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R1-F3-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R1-F3-acceptance.md.
@@ -1273,7 +1270,7 @@
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-plan.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-region-pointer-safety-acceptance.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F2-region-pointer-safety-plan.md.
-- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` - Vector asset for MAP-DATA-A-R2-F2-region-pointer-safety.svg.
+- `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F2-region-pointer-safety.svg` - SVG design or architecture artifact for MAP-DATA-A-R2-F2-region-pointer-safety.svg.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-A-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-A-plan.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-acceptance.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-B-acceptance.md.
 - `docs/milestones/current/MAP-DATA-A/MAP-DATA-A-R2-F3-B-plan.md` - Documentation, specification, or governance record for MAP-DATA-A-R2-F3-B-plan.md.
@@ -1307,9 +1304,9 @@
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-closeout.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-closeout.md.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R2-plan.md` - Documentation, specification, or governance record for MAP-DOC-A-R2-plan.md.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F2-acceptance.md.
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` - Vector asset for MAP-DOC-A-R3-F2-ui-closeout.svg.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F2-ui-closeout.svg` - SVG design or architecture artifact for MAP-DOC-A-R3-F2-ui-closeout.svg.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F3-acceptance.md.
-- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` - Vector asset for MAP-DOC-A-R3-F3-ui-spec-rework.svg.
+- `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F3-ui-spec-rework.svg` - SVG design or architecture artifact for MAP-DOC-A-R3-F3-ui-spec-rework.svg.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-F4-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-F4-acceptance.md.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-acceptance.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-acceptance.md.
 - `docs/milestones/current/MAP-DOC-A/MAP-DOC-A-R3-plan.md` - Documentation, specification, or governance record for MAP-DOC-A-R3-plan.md.
@@ -1323,20 +1320,20 @@
 - `"docs/ui/\347\216\204\345\237\237\345\274\225\346\223\216_\346\227\247UI\345\256\241\350\256\241\347\237\251\351\230\265.md"` - Tracked repository file 265.md".
 - `"docs/\347\216\204\345\237\237\345\274\225\346\223\216_AI\345\274\200\345\217\221\345\256\252\346\263\225.md"` - Tracked repository file 225.md".
 - `file-tree.md` - Documentation, specification, or governance record for file-tree.md.
-- `run.bat` - Windows launcher or workflow script for run.bat.
+- `run.bat` - Windows launch or build script for run.bat.
 - `samples/world-c-r1-ten-triangles.xyscene` - Tracked repository file world-c-r1-ten-triangles.xyscene.
-- `scripts/arch-a-guard-editor.ps1` - PowerShell validation or workflow script for arch-a-guard-editor.ps1.
-- `scripts/arch-a-guard-render.ps1` - PowerShell validation or workflow script for arch-a-guard-render.ps1.
-- `scripts/arch-a-guard-warcore.ps1` - PowerShell validation or workflow script for arch-a-guard-warcore.ps1.
-- `scripts/arch-a-guard-world.ps1` - PowerShell validation or workflow script for arch-a-guard-world.ps1.
-- `scripts/arch-a-guard.ps1` - PowerShell validation or workflow script for arch-a-guard.ps1.
+- `scripts/arch-a-guard-editor.ps1` - Tracked repository file arch-a-guard-editor.ps1.
+- `scripts/arch-a-guard-render.ps1` - Tracked repository file arch-a-guard-render.ps1.
+- `scripts/arch-a-guard-warcore.ps1` - Tracked repository file arch-a-guard-warcore.ps1.
+- `scripts/arch-a-guard-world.ps1` - Tracked repository file arch-a-guard-world.ps1.
+- `scripts/arch-a-guard.ps1` - Tracked repository file arch-a-guard.ps1.
 - `scripts/generate-ui-tokens.py` - Tracked repository file generate-ui-tokens.py.
-- `xyui.bat` - Windows launcher or workflow script for xyui.bat.
+- `xyui.bat` - Windows launch or build script for xyui.bat.
 - `xyui/audit/GALLERY-UNIFY-01-layout-audit.md` - Documentation, specification, or governance record for GALLERY-UNIFY-01-layout-audit.md.
 - `xyui/audit/GALLERY-UNIFY-02-shell-navigation-audit.md` - Documentation, specification, or governance record for GALLERY-UNIFY-02-shell-navigation-audit.md.
-- `xyui/audit/XYUI0/decision-classification.json` - Structured registry or configuration data for decision-classification.json.
+- `xyui/audit/XYUI0/decision-classification.json` - JSON configuration or contract data for decision-classification.json.
 - `xyui/audit/XYUI0/decision-classification.md` - Documentation, specification, or governance record for decision-classification.md.
-- `xyui/audit/XYUI0/evidence-index.json` - Structured registry or configuration data for evidence-index.json.
+- `xyui/audit/XYUI0/evidence-index.json` - JSON configuration or contract data for evidence-index.json.
 - `xyui/audit/XYUI0/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
 - `xyui/audit/XYUI0/text-input-interaction-audit.md` - Documentation, specification, or governance record for text-input-interaction-audit.md.
 - `xyui/audit/XYUI1/R5-F4-fidelity-matrix.md` - Documentation, specification, or governance record for R5-F4-fidelity-matrix.md.
@@ -1356,7 +1353,7 @@
 - `xyui/audit/XYUI8/reconciliation.md` - Documentation, specification, or governance record for reconciliation.md.
 - `xyui/audit/XYUI8/source-audit.md` - Documentation, specification, or governance record for source-audit.md.
 - `xyui/audit/cross-audit.md` - Documentation, specification, or governance record for cross-audit.md.
-- `xyui/avalonia/XYUI.Avalonia.slnx` - .NET solution definition for XYUI.Avalonia.slnx.
+- `xyui/avalonia/XYUI.Avalonia.slnx` - Tracked repository file XYUI.Avalonia.slnx.
 - `xyui/avalonia/gallery/CATALOG-COVERAGE.md` - Documentation, specification, or governance record for CATALOG-COVERAGE.md.
 - `xyui/avalonia/gallery/README.md` - Documentation, specification, or governance record for README.md.
 - `xyui/avalonia/gallery/XYUI-1-COMPONENT-INVENTORY.md` - Documentation, specification, or governance record for XYUI-1-COMPONENT-INVENTORY.md.
@@ -1523,14 +1520,14 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3QuickStartSection.axaml.cs` - C# implementation source for XYUI3QuickStartSection.axaml.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml` - Avalonia XAML view or style resource for XYUI3VariantsStatesSection.axaml.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUI3VariantsStatesSection.axaml.cs` - C# implementation source for XYUI3VariantsStatesSection.axaml.cs.
-- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml` - Declarative XYUI Menu Gallery sample for commands and bound states.
-- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml.cs` - Runtime host for the XYUI Menu Gallery sample view.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml` - Avalonia XAML view or style resource for XYUIMenuLiveSampleView.axaml.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/Views/XYUIMenuLiveSampleView.axaml.cs` - C# implementation source for XYUIMenuLiveSampleView.axaml.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYBadgePreviewFactory.cs` - C# implementation source for XYBadgePreviewFactory.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYIconButtonNamingExtensions.cs` - C# implementation source for XYIconButtonNamingExtensions.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYMonoPreviewFactory.cs` - C# implementation source for XYMonoPreviewFactory.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYSelectableTextPreviewFactory.cs` - C# implementation source for XYSelectableTextPreviewFactory.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYSubMenuHierarchyDebugPreview.cs` - C# implementation source for XYSubMenuHierarchyDebugPreview.cs.
-- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - .NET project definition for XYUI.Avalonia.Gallery.csproj.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI.Avalonia.Gallery.csproj` - MSBuild project definition for XYUI.Avalonia.Gallery.csproj.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Api.cs` - C# implementation source for XYUI1DocumentationCatalog.Api.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Content.cs` - C# implementation source for XYUI1DocumentationCatalog.Content.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI1DocumentationCatalog.Phase1A.Anatomy.cs` - C# implementation source for XYUI1DocumentationCatalog.Phase1A.Anatomy.cs.
@@ -1648,7 +1645,6 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.MenuBar.cs` - C# implementation source for XYUI3LiveExamplesFactory.MenuBar.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationDrawer.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationDrawer.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationMenu.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationMenu.cs.
-- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUIMenuSampleViewModel.cs` - View-model truth source for the interactive XYUI Menu Gallery sample.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.NavigationRail.cs` - C# implementation source for XYUI3LiveExamplesFactory.NavigationRail.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Pagination.cs` - C# implementation source for XYUI3LiveExamplesFactory.Pagination.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.Sidebar.cs` - C# implementation source for XYUI3LiveExamplesFactory.Sidebar.cs.
@@ -1663,6 +1659,7 @@
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.ViewSwitcher.cs` - C# implementation source for XYUI3LiveExamplesFactory.ViewSwitcher.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.WorkspaceSwitcher.cs` - C# implementation source for XYUI3LiveExamplesFactory.WorkspaceSwitcher.cs.
 - `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUI3LiveExamplesFactory.cs` - C# implementation source for XYUI3LiveExamplesFactory.cs.
+- `xyui/avalonia/gallery/XYUI.Avalonia.Gallery/XYUIMenuSampleViewModel.cs` - C# implementation source for XYUIMenuSampleViewModel.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogEntry.cs` - C# implementation source for XyuiCatalogEntry.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogPaths.cs` - C# implementation source for XyuiCatalogPaths.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Catalog/XyuiCatalogSource.cs` - C# implementation source for XyuiCatalogSource.cs.
@@ -1814,9 +1811,9 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBar.cs` - C# implementation source for XYMenuBar.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-01-MenuBar/XYMenuBarItem.cs` - C# implementation source for XYMenuBarItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.Interaction.cs` - C# implementation source for XYMenu.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.OverlayResources.cs` - PopupRoot 资源桥接与菜单附着后样式刷新生命周期。
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenu.OverlayResources.cs` - C# implementation source for XYMenu.OverlayResources.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Interaction/XYMenuItem.Interaction.cs` - C# implementation source for XYMenuItem.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - Canonical XYUI menu row visual composition and refreshable check/radio indicators for workspace and regular menu items.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/Styles/XYMenuItem.Visual.cs` - C# implementation source for XYMenuItem.Visual.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenu.cs` - C# implementation source for XYMenu.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-02-Menu/XYMenuItem.cs` - C# implementation source for XYMenuItem.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-03-ContextMenu/Interaction/XYContextMenu.Interaction.cs` - C# implementation source for XYContextMenu.Interaction.cs.
@@ -1834,8 +1831,8 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYSidebar.cs` - C# implementation source for XYSidebar.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-06-Sidebar/UI/XYUI3SidebarStyles.cs` - C# implementation source for XYUI3SidebarStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/Interaction/XYNavigationRail.Interaction.cs` - C# implementation source for XYNavigationRail.Interaction.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XyuiNavigationLayoutVariant.cs` - Public layout variant enum for default and Workspace NavigationRail presentation.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XYNavigationRail.cs` - C# implementation source for XYNavigationRail.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-07-NavigationRail/UI/XyuiNavigationLayoutVariant.cs` - C# implementation source for XyuiNavigationLayoutVariant.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTab.Interaction.cs` - C# implementation source for XYTab.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/Interaction/XYTabs.Selection.cs` - C# implementation source for XYTabs.Selection.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-08-Tabs/UI/XYTab.cs` - C# implementation source for XYTab.cs.
@@ -1873,7 +1870,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Interaction.cs` - C# implementation source for XYBackForwardNavigation.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/Interaction/XYBackForwardNavigation.Lifecycle.cs` - C# implementation source for XYBackForwardNavigation.Lifecycle.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-19-BackForwardNavigation/UI/XYBackForwardNavigation.cs` - C# implementation source for XYBackForwardNavigation.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Interaction.cs` - Workspace popup state projection and Radio selection synchronization.
+- `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Interaction.cs` - C# implementation source for XYWorkspaceSwitcher.Interaction.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/Interaction/XYWorkspaceSwitcher.Lifecycle.cs` - C# implementation source for XYWorkspaceSwitcher.Lifecycle.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-20-WorkspaceSwitcher/UI/XYWorkspaceSwitcher.cs` - C# implementation source for XYWorkspaceSwitcher.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Controls/XYUI3/XYUI3-21-ViewSwitcher/XYViewSwitcher.cs` - C# implementation source for XYViewSwitcher.cs.
@@ -1916,9 +1913,9 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiShapeStyles.cs` - C# implementation source for XyuiShapeStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiSpatial.cs` - C# implementation source for XyuiSpatial.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Spatial/XyuiSpatialTokens.cs` - C# implementation source for XyuiSpatialTokens.cs.
+- `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiOverlayResourceBridge.cs` - C# implementation source for XyuiOverlayResourceBridge.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiSectionTitleResources.cs` - C# implementation source for XyuiSectionTitleResources.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiTheme.cs` - C# implementation source for XyuiTheme.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/Theme/XyuiOverlayResourceBridge.cs` - Popup overlay 的 canonical 主题资源注入与 PopupRoot 主题变体同步。
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTextStyles.cs` - C# implementation source for XyuiTextStyles.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypography.cs` - C# implementation source for XyuiTypography.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/Typography/XyuiTypographyTokens.cs` - C# implementation source for XyuiTypographyTokens.cs.
@@ -1926,7 +1923,7 @@
 - `xyui/avalonia/src/XYUI.Avalonia/Vector/XyuiVectorIcons.cs` - C# implementation source for XyuiVectorIcons.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/XY.cs` - C# implementation source for XY.cs.
 - `xyui/avalonia/src/XYUI.Avalonia/XYSize.cs` - C# implementation source for XYSize.cs.
-- `xyui/avalonia/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - .NET project definition for XYUI.Avalonia.csproj.
+- `xyui/avalonia/src/XYUI.Avalonia/XYUI.Avalonia.csproj` - MSBuild project definition for XYUI.Avalonia.csproj.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/AdaptiveLayoutRuntimeTests.cs` - C# implementation source for AdaptiveLayoutRuntimeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/BadgeRuntimeTests.cs` - C# implementation source for BadgeRuntimeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/BrushRuntimeTests.cs` - C# implementation source for BrushRuntimeTests.cs.
@@ -1971,7 +1968,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/TypographyTokenTests.cs` - C# implementation source for TypographyTokenTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYFoundationRuntimeTests.cs` - C# implementation source for XYFoundationRuntimeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYSubMenuHierarchyTests.cs` - C# implementation source for XYSubMenuHierarchyTests.cs.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - .NET project definition for XYUI.Avalonia.Tests.csproj.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI.Avalonia.Tests.csproj` - MSBuild project definition for XYUI.Avalonia.Tests.csproj.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI08ShapeContractTests.cs` - C# implementation source for XYUI08ShapeContractTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI10StateResolverTests.cs` - C# implementation source for XYUI10StateResolverTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI1CoverageTests.cs` - C# implementation source for XYUI1CoverageTests.cs.
@@ -2019,19 +2016,19 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3BackForwardNavigationTests.cs` - C# implementation source for XYUI3BackForwardNavigationTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch04StructureTests.cs` - C# implementation source for XYUI3Batch04StructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Batch05StructureTests.cs` - C# implementation source for XYUI3Batch05StructureTests.cs.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - XYMenu ICommand, parameter, state, and declarative composition tests.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - XYUI Menu Radio/Check visual-tree lifecycle and runtime state regression tests.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceTests.cs` - Workspace NavigationRail stacked layout, selection, hover, keyboard, disabled, and default regression tests.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceStateTests.cs` - Workspace NavigationRail canonical focus and disabled navigation state regression test.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3OverlayResourceBridgeTests.cs` - Popup overlay 主题资源、动态画刷与重开生命周期回归测试。
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CommandPaletteTests.cs` - C# implementation source for XYUI3CommandPaletteTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactInteractionTests.cs` - C# implementation source for XYUI3CompactInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationInteractionTests.cs` - C# implementation source for XYUI3CompactNavigationInteractionTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3CompactNavigationStructureTests.cs` - C# implementation source for XYUI3CompactNavigationStructureTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3FinalNavigationTests.cs` - C# implementation source for XYUI3FinalNavigationTests.cs.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuGalleryCloseoutTests.cs` - Gallery Menu and MenuBar closeout metadata and sample-state tests.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3GalleryNavigationTests.cs` - C# implementation source for XYUI3GalleryNavigationTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3InteractionTests.cs` - C# implementation source for XYUI3InteractionTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuCapabilityTests.cs` - C# implementation source for XYUI3MenuCapabilityTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuGalleryCloseoutTests.cs` - C# implementation source for XYUI3MenuGalleryCloseoutTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3MenuRadioVisualTests.cs` - C# implementation source for XYUI3MenuRadioVisualTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceStateTests.cs` - C# implementation source for XYUI3NavigationRailWorkspaceStateTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3NavigationRailWorkspaceTests.cs` - C# implementation source for XYUI3NavigationRailWorkspaceTests.cs.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3OverlayResourceBridgeTests.cs` - C# implementation source for XYUI3OverlayResourceBridgeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round1RuntimeTests.cs` - C# implementation source for XYUI3Round1RuntimeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round2RuntimeTests.cs` - C# implementation source for XYUI3Round2RuntimeTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3Round3FixTests.cs` - C# implementation source for XYUI3Round3FixTests.cs.
@@ -2041,7 +2038,7 @@
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TableOfContentsTests.cs` - C# implementation source for XYUI3TableOfContentsTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3TreeNavigationContractTests.cs` - C# implementation source for XYUI3TreeNavigationContractTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3ViewSwitcherTests.cs` - C# implementation source for XYUI3ViewSwitcherTests.cs.
-- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - Workspace popup layout, selection, and Radio ring/dot visual regression tests.
+- `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUI3WorkspaceSwitcherTests.cs` - C# implementation source for XYUI3WorkspaceSwitcherTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUICompositionReuseTests.cs` - C# implementation source for XYUICompositionReuseTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XYUIVectorViewportTests.cs` - C# implementation source for XYUIVectorViewportTests.cs.
 - `xyui/avalonia/tests/XYUI.Avalonia.Tests/XyuiBatchTestHost.cs` - C# implementation source for XyuiBatchTestHost.cs.
@@ -2052,17 +2049,17 @@
 - `xyui/governance/amendments.md` - Documentation, specification, or governance record for amendments.md.
 - `xyui/packs/core-0.1/AGENT-GUIDE.md` - Documentation, specification, or governance record for AGENT-GUIDE.md.
 - `xyui/packs/core-0.1/README.md` - Documentation, specification, or governance record for README.md.
-- `xyui/packs/core-0.1/gaps.json` - Structured registry or configuration data for gaps.json.
-- `xyui/packs/core-0.1/manifest.json` - Structured registry or configuration data for manifest.json.
-- `xyui/registry/examples/foundation-registry.example.json` - Structured registry or configuration data for foundation-registry.example.json.
+- `xyui/packs/core-0.1/gaps.json` - JSON configuration or contract data for gaps.json.
+- `xyui/packs/core-0.1/manifest.json` - JSON configuration or contract data for manifest.json.
+- `xyui/registry/examples/foundation-registry.example.json` - JSON configuration or contract data for foundation-registry.example.json.
 - `xyui/registry/foundation/README.md` - Documentation, specification, or governance record for README.md.
-- `xyui/registry/foundation/foundation-registry.json` - Structured registry or configuration data for foundation-registry.json.
-- `xyui/registry/foundation/foundation-registry.manifest.json` - Structured registry or configuration data for foundation-registry.manifest.json.
-- `xyui/registry/foundation/identity-map.json` - Structured registry or configuration data for identity-map.json.
-- `xyui/registry/foundation/relationship-map.json` - Structured registry or configuration data for relationship-map.json.
+- `xyui/registry/foundation/foundation-registry.json` - JSON configuration or contract data for foundation-registry.json.
+- `xyui/registry/foundation/foundation-registry.manifest.json` - JSON configuration or contract data for foundation-registry.manifest.json.
+- `xyui/registry/foundation/identity-map.json` - JSON configuration or contract data for identity-map.json.
+- `xyui/registry/foundation/relationship-map.json` - JSON configuration or contract data for relationship-map.json.
 - `xyui/registry/foundation/validation-report.md` - Documentation, specification, or governance record for validation-report.md.
 - `xyui/registry/schema/README.md` - Documentation, specification, or governance record for README.md.
-- `xyui/registry/schema/foundation-registry.schema.json` - Structured registry or configuration data for foundation-registry.schema.json.
+- `xyui/registry/schema/foundation-registry.schema.json` - JSON configuration or contract data for foundation-registry.schema.json.
 - `xyui/source/XYUI0/XYUI-0.md` - Documentation, specification, or governance record for XYUI-0.md.
 - `xyui/source/XYUI1/XYUI-1.md` - Documentation, specification, or governance record for XYUI-1.md.
 - `xyui/source/XYUI2/XYUI-2.md` - Documentation, specification, or governance record for XYUI-2.md.
@@ -2086,38 +2083,38 @@
 - `xyui/specs/XYUI0/XYUI-foundation-documentation-traceability-0.01-0.07.md` - Documentation, specification, or governance record for XYUI-foundation-documentation-traceability-0.01-0.07.md.
 - `xyui/specs/XYUI0/XYUI-public-consumer-api-standard.md` - Documentation, specification, or governance record for XYUI-public-consumer-api-standard.md.
 - `xyui/specs/XYUI1/XYUI-1.canonical.md` - Documentation, specification, or governance record for XYUI-1.canonical.md.
-- `xyui/specs/XYUI1/XYUI-1.gaps.json` - Structured registry or configuration data for XYUI-1.gaps.json.
-- `xyui/specs/XYUI1/XYUI-1.identity.json` - Structured registry or configuration data for XYUI-1.identity.json.
-- `xyui/specs/XYUI1/XYUI-1.mapping.json` - Structured registry or configuration data for XYUI-1.mapping.json.
+- `xyui/specs/XYUI1/XYUI-1.gaps.json` - JSON configuration or contract data for XYUI-1.gaps.json.
+- `xyui/specs/XYUI1/XYUI-1.identity.json` - JSON configuration or contract data for XYUI-1.identity.json.
+- `xyui/specs/XYUI1/XYUI-1.mapping.json` - JSON configuration or contract data for XYUI-1.mapping.json.
 - `xyui/specs/XYUI2/XYUI-2.canonical.md` - Documentation, specification, or governance record for XYUI-2.canonical.md.
-- `xyui/specs/XYUI2/XYUI-2.gaps.json` - Structured registry or configuration data for XYUI-2.gaps.json.
-- `xyui/specs/XYUI2/XYUI-2.identity.json` - Structured registry or configuration data for XYUI-2.identity.json.
-- `xyui/specs/XYUI2/XYUI-2.mapping.json` - Structured registry or configuration data for XYUI-2.mapping.json.
+- `xyui/specs/XYUI2/XYUI-2.gaps.json` - JSON configuration or contract data for XYUI-2.gaps.json.
+- `xyui/specs/XYUI2/XYUI-2.identity.json` - JSON configuration or contract data for XYUI-2.identity.json.
+- `xyui/specs/XYUI2/XYUI-2.mapping.json` - JSON configuration or contract data for XYUI-2.mapping.json.
 - `xyui/specs/XYUI3/XYUI-3-01-06-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-01-06-runtime-contract.md.
 - `xyui/specs/XYUI3/XYUI-3-07-12-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-07-12-runtime-contract.md.
 - `xyui/specs/XYUI3/XYUI-3-13-18-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-13-18-runtime-contract.md.
 - `xyui/specs/XYUI3/XYUI-3-19-24-runtime-contract.md` - Documentation, specification, or governance record for XYUI-3-19-24-runtime-contract.md.
 - `xyui/specs/XYUI3/XYUI-3.canonical.md` - Documentation, specification, or governance record for XYUI-3.canonical.md.
-- `xyui/specs/XYUI3/XYUI-3.gaps.json` - Structured registry or configuration data for XYUI-3.gaps.json.
-- `xyui/specs/XYUI3/XYUI-3.mapping.json` - Structured registry or configuration data for XYUI-3.mapping.json.
+- `xyui/specs/XYUI3/XYUI-3.gaps.json` - JSON configuration or contract data for XYUI-3.gaps.json.
+- `xyui/specs/XYUI3/XYUI-3.mapping.json` - JSON configuration or contract data for XYUI-3.mapping.json.
 - `xyui/specs/XYUI4/XYUI-4.canonical.md` - Documentation, specification, or governance record for XYUI-4.canonical.md.
-- `xyui/specs/XYUI4/XYUI-4.gaps.json` - Structured registry or configuration data for XYUI-4.gaps.json.
-- `xyui/specs/XYUI4/XYUI-4.mapping.json` - Structured registry or configuration data for XYUI-4.mapping.json.
+- `xyui/specs/XYUI4/XYUI-4.gaps.json` - JSON configuration or contract data for XYUI-4.gaps.json.
+- `xyui/specs/XYUI4/XYUI-4.mapping.json` - JSON configuration or contract data for XYUI-4.mapping.json.
 - `xyui/specs/XYUI5/XYUI-5.canonical.md` - Documentation, specification, or governance record for XYUI-5.canonical.md.
-- `xyui/specs/XYUI5/XYUI-5.gaps.json` - Structured registry or configuration data for XYUI-5.gaps.json.
-- `xyui/specs/XYUI5/XYUI-5.mapping.json` - Structured registry or configuration data for XYUI-5.mapping.json.
+- `xyui/specs/XYUI5/XYUI-5.gaps.json` - JSON configuration or contract data for XYUI-5.gaps.json.
+- `xyui/specs/XYUI5/XYUI-5.mapping.json` - JSON configuration or contract data for XYUI-5.mapping.json.
 - `xyui/specs/XYUI6/XYUI-6.canonical.md` - Documentation, specification, or governance record for XYUI-6.canonical.md.
-- `xyui/specs/XYUI6/XYUI-6.gaps.json` - Structured registry or configuration data for XYUI-6.gaps.json.
-- `xyui/specs/XYUI6/XYUI-6.mapping.json` - Structured registry or configuration data for XYUI-6.mapping.json.
+- `xyui/specs/XYUI6/XYUI-6.gaps.json` - JSON configuration or contract data for XYUI-6.gaps.json.
+- `xyui/specs/XYUI6/XYUI-6.mapping.json` - JSON configuration or contract data for XYUI-6.mapping.json.
 - `xyui/specs/XYUI7/XYUI-7.canonical.md` - Documentation, specification, or governance record for XYUI-7.canonical.md.
-- `xyui/specs/XYUI7/XYUI-7.gaps.json` - Structured registry or configuration data for XYUI-7.gaps.json.
-- `xyui/specs/XYUI7/XYUI-7.mapping.json` - Structured registry or configuration data for XYUI-7.mapping.json.
+- `xyui/specs/XYUI7/XYUI-7.gaps.json` - JSON configuration or contract data for XYUI-7.gaps.json.
+- `xyui/specs/XYUI7/XYUI-7.mapping.json` - JSON configuration or contract data for XYUI-7.mapping.json.
 - `xyui/specs/XYUI8/XYUI-8.canonical.md` - Documentation, specification, or governance record for XYUI-8.canonical.md.
-- `xyui/specs/XYUI8/XYUI-8.gaps.json` - Structured registry or configuration data for XYUI-8.gaps.json.
-- `xyui/specs/XYUI8/XYUI-8.mapping.json` - Structured registry or configuration data for XYUI-8.mapping.json.
-- `xyui/tokens/architecture/token-architecture.json` - Structured registry or configuration data for token-architecture.json.
+- `xyui/specs/XYUI8/XYUI-8.gaps.json` - JSON configuration or contract data for XYUI-8.gaps.json.
+- `xyui/specs/XYUI8/XYUI-8.mapping.json` - JSON configuration or contract data for XYUI-8.mapping.json.
+- `xyui/tokens/architecture/token-architecture.json` - JSON configuration or contract data for token-architecture.json.
 - `xyui/tokens/architecture/token-architecture.md` - Documentation, specification, or governance record for token-architecture.md.
-- `xyui/tokens/architecture/token-canonical-map.json` - Structured registry or configuration data for token-canonical-map.json.
+- `xyui/tokens/architecture/token-canonical-map.json` - JSON configuration or contract data for token-canonical-map.json.
 - `xyui/tokens/audit/token-audit.md` - Documentation, specification, or governance record for token-audit.md.
-- `xyui/tokens/audit/token-collision-matrix.json` - Structured registry or configuration data for token-collision-matrix.json.
-- `xyui/tokens/audit/token-occurrences.json` - Structured registry or configuration data for token-occurrences.json.
+- `xyui/tokens/audit/token-collision-matrix.json` - JSON configuration or contract data for token-collision-matrix.json.
+- `xyui/tokens/audit/token-occurrences.json` - JSON configuration or contract data for token-occurrences.json.

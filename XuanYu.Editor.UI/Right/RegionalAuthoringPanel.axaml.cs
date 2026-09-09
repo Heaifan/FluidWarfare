@@ -35,8 +35,7 @@ public partial class RegionalAuthoringPanel : UserControl
 
     void AuthoringTabs_SelectionChanged(object? sender, XYTab tab)
     {
-        if (_syncing || _viewModel is null) return;
-        SelectTab(tab.Id);
+        if (!_syncing && _viewModel is not null) SelectTab(tab.Id);
     }
 
     public string SelectedTabId => AuthoringTabs.SelectedTabId ?? "region";
@@ -54,7 +53,12 @@ public partial class RegionalAuthoringPanel : UserControl
         _syncing = true;
         try
         {
-            var id = _viewModel.CurrentRegionAuthoringMode switch { RegionAuthoringMode.Road => "road", RegionAuthoringMode.Marker => "marker", _ => "region" };
+            var id = _viewModel.CurrentRegionAuthoringMode switch
+            {
+                RegionAuthoringMode.Road => "road",
+                RegionAuthoringMode.Marker => "marker",
+                _ => "region"
+            };
             var changed = SelectedTabId != id;
             AuthoringTabs.SelectedTabId = id;
             if (changed) TabChanged?.Invoke(id);

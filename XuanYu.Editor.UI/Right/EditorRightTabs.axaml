@@ -19,6 +19,7 @@
   </UserControl.Styles>
   <TabControl x:Name="SideTabs" Classes="sideTabs" SelectedIndex="{Binding RightTabIndex, Mode=TwoWay}">
     <TabItem Classes="sideTab" Header="检查器"><local:InspectorPanel/></TabItem>
+    <TabItem Classes="sideTab" Header="层级"><local:HierarchyWorkspace/></TabItem>
     <TabItem Classes="sideTab" Header="调试">
       <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Spacing="10" Margin="0,6,0,0">

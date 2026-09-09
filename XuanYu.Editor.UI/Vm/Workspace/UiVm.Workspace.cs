@@ -20,7 +20,7 @@ public sealed partial class UiVm
         if (!transition.Changed) return;
         ClearLayerSelection();
         if (IsRegionWorkspace) SyncRegionAuthoringModeFromDatasetSelection();
-        if (IsEditMode) { SelectTool("选择", logTool: false); LeftTabIndex = IsMapWorkspace ? 2 : 3; }
+        if (IsEditMode) SelectTool("选择", logTool: false);
         OnPropertyChanged(nameof(CurrentWorkspace));
         OnPropertyChanged(nameof(CurrentWorkspaceDisplayName));
         OnPropertyChanged(nameof(IsMapWorkspace));
