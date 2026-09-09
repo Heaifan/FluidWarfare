@@ -31,10 +31,10 @@ public sealed partial class VulkanNativeHostSurfaceBridge : INativeHostSurfaceBr
         if (_projectionSource is not null) _projectionSource.RenderProjectionChanged += OnRenderProjectionChanged;
     }
 
-    public void Attach(NativeHostSurfaceHandle handle)
+    public bool Attach(NativeHostSurfaceHandle handle)
     {
         if (_disposed) throw new ObjectDisposedException(nameof(VulkanNativeHostSurfaceBridge));
-        if (_instanceOwner is not null && _surfaceOwner is not null && !_failed) return;
+        if (_instanceOwner is not null && _surfaceOwner is not null && !_failed) return true;
         var ownedVk = _vk is null;
         var vk = _vk ?? Vk.GetApi();
         VulkanInstanceOwner? instance = null;
@@ -55,11 +55,13 @@ public sealed partial class VulkanNativeHostSurfaceBridge : INativeHostSurfaceBr
                 ?? throw new InvalidOperationException("RenderSession 创建失败");
             CommitAttach(ownedVk, vk, instance, surface, device, swapchain, session);
             Emit(VulkanBridgeLogFormatter.Attached(handle.Hwnd));
+            return true;
         }
         catch (Exception ex)
         {
             RollbackAttach(ownedVk, vk, session, swapchain, device, surface, instance);
             Emit(VulkanBridgeLogFormatter.AttachFailed(ex.Message));
+            return false;
         }
     }
 

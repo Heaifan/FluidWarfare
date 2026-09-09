@@ -39,7 +39,7 @@ public static class XyuiVectorIcons
             [XyuiVectorIcon.Add] = "M12 5 V19 M5 12 H19",
             [XyuiVectorIcon.DragGrip] = "M8 7 A1 1 0 1 0 8 9 A1 1 0 1 0 8 7 M16 7 A1 1 0 1 0 16 9 A1 1 0 1 0 16 7 M8 15 A1 1 0 1 0 8 17 A1 1 0 1 0 8 15 M16 15 A1 1 0 1 0 16 17 A1 1 0 1 0 16 15",
             [XyuiVectorIcon.File] = "M3 3H13L17 7V21H3ZM13 3V7H17M6 11H14M6 15H14",
-            [XyuiVectorIcon.NewFile] = "M3 3H9L13 7V14H3ZM9 3V7H13M8 9V12M6.5 10.5H9.5",
+            [XyuiVectorIcon.NewFile] = "M3 3H15L21 9V21H3ZM15 3V9H21M12 13V18M9.5 15.5H14.5",
             [XyuiVectorIcon.Open] = "M2 6H6L8 4H21V19H2ZM2 6V19H18L21 4",
             [XyuiVectorIcon.Save] = "M3 3H21V21H3ZM6 3V9H18V3M7 14H17V19H7Z",
             [XyuiVectorIcon.Undo] = "M6 5L3 8L6 11M3 8H12C16 8 18 10 18 14V17",

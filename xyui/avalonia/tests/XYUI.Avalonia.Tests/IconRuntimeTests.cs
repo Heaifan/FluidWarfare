@@ -47,6 +47,15 @@ public sealed class IconRuntimeTests : IClassFixture<XyuiHeadlessFixture>
     });
 
     [Fact]
+    public void New_file_geometry_matches_the_toolbar_visual_box() => _fx.Run(() =>
+    {
+        var newFile = XyuiVectorIcons.Create(XyuiVectorIcon.NewFile).Bounds;
+        var save = XyuiVectorIcons.Create(XyuiVectorIcon.Save).Bounds;
+        Assert.Equal(save.Width, newFile.Width); Assert.Equal(save.Height, newFile.Height);
+        Assert.Equal(18d, newFile.Width); Assert.Equal(18d, newFile.Height);
+    });
+
+    [Fact]
     public void Disabled_icon_uses_disabled_stroke_token() => _fx.Run(() =>
     {
         XyuiBatchTestHost.Prepare(); var icon = new XYIcon { Icon = XyuiVectorIcon.Search, IsEnabled = false };

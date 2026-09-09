@@ -20,7 +20,7 @@
         <Border HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,52"
                 Padding="12,7" Background="{DynamicResource XY.Brush.Surface.Overlay}"
                 BorderBrush="{DynamicResource XY.Brush.Border.Color.Default}" BorderThickness="1">
-          <xy:XYLoadingIndicator Text="正在初始化渲染视口…" Size="Compact"/>
+          <xy:XYLoadingIndicator Text="正在初始化渲染视口…" Size="Compact" IsHitTestVisible="False"/>
         </Border>
       </Grid>
     </Border>

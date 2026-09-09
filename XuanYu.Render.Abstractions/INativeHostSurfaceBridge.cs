@@ -7,7 +7,7 @@ namespace XuanYu.Render.Abstractions;
 // VK3-A 阶段只定义，不创建 Surface、不引用 Silk.NET。
 public interface INativeHostSurfaceBridge : IDisposable
 {
-    void Attach(NativeHostSurfaceHandle handle);
+    bool Attach(NativeHostSurfaceHandle handle);
     void Resize(int width, int height);
     void Detach();
 }

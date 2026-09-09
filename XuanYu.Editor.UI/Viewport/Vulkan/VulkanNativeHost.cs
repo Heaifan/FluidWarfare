@@ -13,6 +13,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
     bool _createdReported;
     bool _layoutSyncHooked;
     nint _hwnd;
+    internal event EventHandler? RendererReady;
     public VulkanNativeHost()
     {
         Focusable = false;
@@ -34,7 +35,7 @@ public sealed partial class VulkanNativeHost : NativeControlHost
         }
         var snap = Report(NativeHostLifecycleState.Attached, _hwnd, (int)Bounds.Width, (int)Bounds.Height, GetDpiScale(), _hwnd != 0);
         _bridge ??= CreateBridge();
-        _bridge.Attach(NativeHostSurfaceContract.ToSurfaceHandle(snap));
+        if (_bridge.Attach(NativeHostSurfaceContract.ToSurfaceHandle(snap))) RendererReady?.Invoke(this, EventArgs.Empty);
     }
     protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
     {

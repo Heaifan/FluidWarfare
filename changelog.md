@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.46-rz · AREA-C-R2-F1（2026-09-09 21:51:32 +08:00）
+- 目标：在 Area C 接入 4.14/4.15 初始化反馈，并完成已授权的 Toolbar 新建图标与 Left 顶层标题微修复。
+- 变化：Renderer Attach 成功后关闭初始化 Loading 层，保留失败 fallback；NewFile Geometry 统一至 Toolbar 视觉包围盒；Left 删除独立“项目”标题与分隔占位，将 More 操作并入项目/文件 Tab 行，保留 Tab、当前场景和项目树。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 588/588；ARCH-A、AXAML/XML、SVG/XML、5+100、版本一致性与 `git diff --check` 通过；Area C Renderer Ready、Native airspace 和真机视觉待用户验收。
+- Hash：起始远端 HEAD `0f845ded`。
+- 状态：`AREA-C-R2-F1 READY FOR BUILD GATE`。
+
 ## v0.2.28.45-rz · RUN-DOTNET-DISCOVERY-R2（2026-09-09 21:28:06 +08:00）
 - 目标：让个人机 D 盘与工作机 E 盘的约定式便携 SDK 都能被 `run.bat` 自动找到。
 - 变化：在环境变量、仓库旁便携目录和 PATH 候选之外，新增 A:–Z: 盘符探测 `\MyApp\sdk-dotnet\dotnet.exe`；每个候选仍必须通过 `--list-sdks` 才会被选用。
