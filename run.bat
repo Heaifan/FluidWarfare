@@ -1,6 +1,6 @@
 @echo off
 setlocal
-title XuanYu Engine Editor v0.2.28.44-rz
+title XuanYu Engine Editor v0.2.28.45-rz
 
 cd /d "%~dp0"
 if errorlevel 1 (
@@ -15,6 +15,8 @@ set "DOTNET_EXE="
 if defined XUANYU_DOTNET call :try_dotnet "%XUANYU_DOTNET%"
 if not defined DOTNET_EXE call :try_dotnet "%~dp0sdk-dotnet\dotnet.exe"
 if not defined DOTNET_EXE call :try_dotnet "%~dp0.dotnet\dotnet.exe"
+rem Probe the portable MyApp SDK layout without assuming D: or E:.
+if not defined DOTNET_EXE for %%R in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do if not defined DOTNET_EXE call :try_dotnet "%%R:\MyApp\sdk-dotnet\dotnet.exe"
 if not defined DOTNET_EXE for /f "delims=" %%D in ('where dotnet 2^>nul') do if not defined DOTNET_EXE call :try_dotnet "%%D"
 if not defined DOTNET_EXE (
     echo [ERROR] .NET SDK not found.

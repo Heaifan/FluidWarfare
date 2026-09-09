@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.45-rz · RUN-DOTNET-DISCOVERY-R2（2026-09-09 21:28:06 +08:00）
+- 目标：让个人机 D 盘与工作机 E 盘的约定式便携 SDK 都能被 `run.bat` 自动找到。
+- 变化：在环境变量、仓库旁便携目录和 PATH 候选之外，新增 A:–Z: 盘符探测 `\MyApp\sdk-dotnet\dotnet.exe`；每个候选仍必须通过 `--list-sdks` 才会被选用。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 587/587；ARCH-A、AXAML/XML、SVG/XML、5+100、版本一致性与 `git diff --check` 通过。
+- Hash：起始提交 `5ca80c34`。
+- 状态：`RUN-DOTNET-DISCOVERY-R2 READY FOR USER MACHINE ACCEPTANCE`。
+
 ## v0.2.28.44-rz · RUN-DOTNET-DISCOVERY-R1（2026-09-09 21:20:27 +08:00）
 - 目标：让启动脚本在不同电脑上自动选择真正包含 SDK 的 dotnet，而不是被 PATH 中的 Runtime Host 截断。
 - 变化：`run.bat` 现在依次验证 `XUANYU_DOTNET`、仓库旁 `sdk-dotnet`/`.dotnet` 便携目录以及 PATH 中的全部 dotnet 候选；只有 `--list-sdks` 成功的候选才会用于 restore/build/run。
