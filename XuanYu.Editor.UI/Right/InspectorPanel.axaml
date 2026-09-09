@@ -9,6 +9,8 @@
     <Style Selector="Grid.fieldRow"><Setter Property="MinHeight" Value="28"/><Setter Property="Margin" Value="0,2"/></Style>
   </UserControl.Styles>
 
+  <Grid RowDefinitions="*">
+  <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
   <StackPanel Spacing="8" Margin="0,6,0,0">
     <Grid ColumnDefinitions="20,*" ColumnSpacing="8">
       <xy:XYIcon Icon="Browse" Size="Small" VerticalAlignment="Center"/>
@@ -73,4 +75,6 @@
       </Grid>
     </Grid>
   </StackPanel>
+  </ScrollViewer>
+  </Grid>
 </UserControl>

@@ -1044,6 +1044,7 @@
 - `XuanYu.World.Tests/UiRuntime/DatasetLayerPanelRuntimeLayoutTests.cs` - C# implementation source for DatasetLayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericMarkerSnapIntegrationTests.cs` - C# implementation source for GenericMarkerSnapIntegrationTests.cs.
 - `XuanYu.World.Tests/UiRuntime/GenericRoadSnapIntegrationTests.cs` - C# implementation source for GenericRoadSnapIntegrationTests.cs.
+- `XuanYu.World.Tests/UiRuntime/InspectorSectionRailScrollRuntimeTests.cs` - Headless runtime regression coverage for inspector-only vertical scrolling and fixed tab headers.
 - `XuanYu.World.Tests/UiRuntime/LayerARuntimeTests.cs` - C# implementation source for LayerARuntimeTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeLayoutTests.cs` - C# implementation source for LayerPanelRuntimeLayoutTests.cs.
 - `XuanYu.World.Tests/UiRuntime/LayerPanelRuntimeStateTests.cs` - C# implementation source for LayerPanelRuntimeStateTests.cs.

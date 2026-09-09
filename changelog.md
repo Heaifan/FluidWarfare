@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.48-rz · AREA-D-R1-FIX1（2026-09-10 00:20:55 +08:00）
+- 目标：让 Right Inspector 的实体 Section Rail 内容在 300–480 DIP 内可纵向滚动，同时保持右侧 Tab Header 固定。
+- 变化：Inspector 内容根改为唯一的纵向 `ScrollViewer`（垂直 Auto、水平 Disabled）；保留现有 Section Rail、`XYTextField`、`XYVectorProperty` 与编辑提交链；新增 Headless 运行时回归覆盖 300/360/480 DIP 滚动、固定 Tab Header 和空状态内容适配。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1440/1440、XYUI 588/588；新增 Headless 回归覆盖 300/360/480 DIP、固定 Tab Header 与空状态适配；ARCH-A、5+100、AXAML/XML、版本四处一致性与 `git diff --check` 通过。
+- Hash：起始远端 HEAD `435a7f069e821e69060a85c891b0a19fcd64d191`。
+- 状态：`AREA-D-R1-FIX1 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.47-rz · AREA-D-R1（2026-09-09 23:55:28 +08:00）
 - 目标：实现 Right Inspector 的 Section Rail 视觉，并将 Entity 名称与 Position/Rotation/Scale 接入真实 XYUI 编辑控件。
 - 变化：新增轻量 Section Rail、Entity Header 与简化空状态；名称复用 `RenameSelectedEntity`，三组 Vector 复用 `TryCommitInspectorTransformValue` 与现有历史/渲染快照链；窗口快捷键在 TextBox 焦点时让位给 XYUI 正式输入语义；补充名称、数值、无效值、Undo/Redo 与 UI 合同测试。
