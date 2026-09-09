@@ -32,6 +32,7 @@ public sealed class EditorWorkspaceUiTests
     public void Repeating_current_workspace_is_a_no_op()
     {
         var vm = Create(); vm.ToggleEditorMode();
+        vm.SelectedHierarchyItem = vm.HierarchyItems.First(item => item.IsEntity);
         vm.SelectToolCommand.Execute("移动");
         var camera = vm.NavigationCamera; var logs = vm.LogItems.Count;
         vm.SwitchWorkspaceCommand.Execute(EditorWorkspaceId.MapEditor);

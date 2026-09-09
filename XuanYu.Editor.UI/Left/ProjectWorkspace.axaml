@@ -26,6 +26,7 @@
             <xy:XYIcon Grid.Column="2" Icon="Code" Classes="treeIcon" IsVisible="{Binding IsAsset}"/>
             <xy:XYIcon Grid.Column="2" Icon="Code" Classes="treeIcon" IsVisible="{Binding IsScript}"/>
             <xy:XYIcon Grid.Column="2" Icon="Section" Classes="treeIcon" IsVisible="{Binding IsBuild}"/>
+            <xy:XYIcon Grid.Column="2" Icon="Tag" Classes="treeIcon" IsVisible="{Binding IsEntity}"/>
             <xy:XYTruncatedText Grid.Column="3"
                                 Classes="treeText"
                                 Text="{Binding Title}"

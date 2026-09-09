@@ -89,9 +89,9 @@ public sealed class UiR1FinalLeftTopContractTests
         Assert.Contains("<xy:XYMenuBar", workspace); Assert.Contains("<xy:XYMenuItem", workspace);
         Assert.Contains("<xy:XYMenuBar", view); Assert.Contains("<xy:XYMenuItem", view);
         Assert.Contains("Text=\"工作区\"", workspace); Assert.Contains("Label=\"文件\" Icon=\"File\"", file);
-        Assert.Contains("Text=\"编辑工具\"", tools); Assert.Contains("Text=\"视图\"", view);
+        Assert.Contains("Text=\"编辑\"", tools); Assert.Contains("Text=\"视图\"", view);
         Assert.Contains("Text=\"吸附\"", snap); Assert.Contains("Text=\"运行\"", runtime);
-        Assert.Contains("Text=\"状态\"", runtime);
+        Assert.Contains("Text=\"状态\"", runtime); Assert.Contains("Text=\"菜单\"", file);
         Assert.DoesNotContain("WORKSPACE", top); Assert.DoesNotContain("EDIT TOOLS", tools);
         Assert.DoesNotContain("statePill", top);
     }

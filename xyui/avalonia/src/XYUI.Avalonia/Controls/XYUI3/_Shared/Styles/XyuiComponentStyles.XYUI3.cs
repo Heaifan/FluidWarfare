@@ -25,6 +25,13 @@ public static partial class XyuiComponentStyles
         styles.Add(compact);
         var item = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-menu-bar-item"));
         item.Setters.Add(new Setter(Border.HeightProperty, XyuiCompactNavigationTokens.MenuBarItemHeight)); item.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(10, 0))); item.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3))); item.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent)); styles.Add(item);
+        var toolbarItem = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-toolbar-menu-item"));
+        Brush(toolbarItem, Border.BackgroundProperty, "XY.Brush.Surface.Raised"); Brush(toolbarItem, Border.BorderBrushProperty, "XY.Brush.Border.Color.Default");
+        toolbarItem.Setters.Add(new Setter(Border.HeightProperty, 34d)); toolbarItem.Setters.Add(new Setter(Border.PaddingProperty, new Thickness(8, 0)));
+        toolbarItem.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(1))); toolbarItem.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3))); styles.Add(toolbarItem);
+        var toolbarHover = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-toolbar-menu-item").Class(":pointerover")); Brush(toolbarHover, Border.BackgroundProperty, "XY.Brush.State.Color.Hover"); Brush(toolbarHover, Border.BorderBrushProperty, "XY.Brush.Border.Color.Strong"); styles.Add(toolbarHover);
+        var toolbarFocus = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-toolbar-menu-item").Class(":focus")); Brush(toolbarFocus, Border.BorderBrushProperty, "XY.Brush.Border.Color.Focus"); styles.Add(toolbarFocus);
+        var toolbarLabel = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-toolbar-menu-item").Descendant().OfType<TextBlock>().Class("xyui-menu-bar-label")); toolbarLabel.Setters.Add(new Setter(TextBlock.FontWeightProperty, FontWeight.Medium)); styles.Add(toolbarLabel);
         State(styles, typeof(XYMenuBarItem), "xyui-menu-hover", "XY.Brush.State.Color.Hover");
         var active = new Style(x => x.OfType<XYMenuBarItem>().Class("xyui-menu-active")); active.Setters.Add(new Setter(Border.BackgroundProperty, Brushes.Transparent)); styles.Add(active);
         TextStyle(styles, "xyui-menu-bar-label", XyuiTypographyTokens.FontSizeBody, XyuiTypographyTokens.WeightRegular, "XY.Brush.Text.Primary");
@@ -59,6 +66,7 @@ public static partial class XyuiComponentStyles
     {
         TextStyle(styles, "xyui-menu-label", XyuiTypographyTokens.FontSizeAuxiliary, XyuiTypographyTokens.WeightRegular, "XY.Brush.Text.Primary"); TextStyle(styles, "xyui-menu-shortcut", XyuiTypographyTokens.FontSizeCaption, XyuiTypographyTokens.WeightRegular, "XY.Brush.Text.Secondary");
         var icon = new Style(x => x.OfType<XYIcon>().Class("xyui-menu-icon")); icon.Setters.Add(new Setter(Control.WidthProperty, 14d)); icon.Setters.Add(new Setter(Control.HeightProperty, 14d)); Brush(icon, XYIcon.StrokeProperty, "XY.Brush.Text.Secondary"); styles.Add(icon);
+        var mediumIcon = new Style(x => x.OfType<XYIcon>().Class("xyui-menu-icon-medium")); mediumIcon.Setters.Add(new Setter(Control.WidthProperty, 16d)); mediumIcon.Setters.Add(new Setter(Control.HeightProperty, 16d)); styles.Add(mediumIcon);
         var chevron = new Style(x => x.OfType<XYIcon>().Class("xyui-menu-chevron")); Brush(chevron, XYIcon.StrokeProperty, "XY.Brush.Text.Secondary"); styles.Add(chevron);
         var check = new Style(x => x.OfType<Grid>().Class("xyui-menu-check")); check.Setters.Add(new Setter(Control.WidthProperty, 14d)); check.Setters.Add(new Setter(Control.HeightProperty, 14d)); styles.Add(check);
         var checkLine = new Style(x => x.OfType<Line>().Class("xyui-menu-check-line")); Brush(checkLine, Shape.StrokeProperty, "XY.Brush.Accent.Default"); checkLine.Setters.Add(new Setter(Shape.StrokeThicknessProperty, 2d)); styles.Add(checkLine);

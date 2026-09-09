@@ -1,10 +1,18 @@
 # changelog
 
+## v0.2.28.38-rz · TOP-LEFT-CLOSEOUT-R2（2026-09-09 16:58:03 +08:00）
+
+- 目标：收口 Left 场景对象投影、编辑工具可用性、Top 菜单一致性与窗口关闭假死。
+- 变化：项目树在当前场景下投影真实 Scene Object；“编辑工具”改为“编辑”，选中对象后变换入口可用并自动进入编辑模式；“菜单/文件/新建/打开/保存/撤销/重做”统一为 34 DIP XYUI 工具按钮，文件/新建图标统一为 16 DIP；关闭确认改为关闭事件返回后调度，并固定弹层层级，避免遮罩吞输入。
+- 交互：项目树与层级树共享规范选择，Left/Viewport/Inspector/Transform 双向同步；清空选择后 Inspector 与变换入口同步回空态。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1426/1426、XYUI 582/582；ARCH-A、5+100、AXAML/XML 与 `git diff --check` PASS；Gallery 未启动，未替代用户真机/视觉验收。
+- 状态：`TOP-LEFT-CLOSEOUT-R2 READY FOR USER VISUAL ACCEPTANCE`。
+
 ## v0.2.28.37-rz · TOP-LEFT-INTERACTION-R1（2026-09-09 15:47:23 +08:00）
 
 - 目标：收口 Top 创建入口、Left 项目/文件语义与 Scene Hierarchy/Shared Selection/Inspector/Transform 真实交互链。
 - 变化：删除独立“添加”入口，将现有新建场景与添加立方体命令置于 XYUI“新建”菜单；Top 文件、菜单、动作和运行/停止统一使用 XYUI 图标；补齐 Selection 变更到 Inspector 的绑定通知，并让变换工具按编辑模式与可变换实体选择状态真实可用。
-- 语义：Left 继续只展示 Project/File 数据；Cube 作为 Scene Instance 仅投影到 Right“层级”，不进入 Left 项目树。
+- 语义：Left 项目页投影当前场景下真实 Scene Object；Cube 仍是 Scene Instance，不作为文件进入 File 页。
 - 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1422/1422、XYUI 582/582；定向回归 20/20；ARCH-A、5+100、AXAML/XML 与 `git diff --check` PASS；未启动 Gallery，未替代用户真机/视觉验收。
 - 状态：`TOP-LEFT-INTERACTION-R1 READY FOR USER VISUAL ACCEPTANCE`。
 

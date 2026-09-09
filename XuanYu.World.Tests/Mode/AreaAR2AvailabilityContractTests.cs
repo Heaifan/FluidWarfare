@@ -15,6 +15,7 @@ public sealed class AreaAR2AvailabilityContractTests
         Assert.False(vm.CanUseEditTools);
         Assert.True(vm.IsSelectTool);
         vm.ToggleEditorModeCommand.Execute(null);
+        vm.SelectedHierarchyItem = vm.HierarchyItems.First(item => item.IsEntity);
         vm.SelectToolCommand.Execute("移动");
         Assert.True(vm.IsMoveTool);
         vm.SwitchWorkspaceCommand.Execute(EditorWorkspaceId.RegionEditor);
@@ -46,6 +47,7 @@ public sealed class AreaAR2AvailabilityContractTests
     public void Box_select_command_keeps_the_active_tool()
     {
         var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
+        vm.SelectedHierarchyItem = vm.HierarchyItems.First(item => item.IsEntity);
         vm.SelectToolCommand.Execute("移动");
         vm.SelectToolCommand.Execute("框选");
 

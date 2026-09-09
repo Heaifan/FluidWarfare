@@ -59,6 +59,7 @@ public sealed class SelectionToolStateUiTests
     public void Implemented_rotate_and_scale_switch_active_tool_box_select_keeps_current()
     {
         var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
+        vm.SelectedHierarchyItem = EntityNode(vm, 1);
 
         // 旋转已实装：切换进入旋转工具
         vm.SelectToolCommand.Execute("旋转");

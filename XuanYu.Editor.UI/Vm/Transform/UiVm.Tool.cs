@@ -4,10 +4,12 @@ public sealed partial class UiVm
 {
     void TrySelectTool(object? value)
     {
-        if (!CanUseEditTools) return;
         var name = value?.ToString() ?? string.Empty;
         var tool = EditorToolText.FromText(name);
-        if (!IsMapEditMode && tool is EditorToolId.Move or EditorToolId.Rotate or EditorToolId.Scale) return;
+        if (!CanSelectTool(value)) return;
+        if (!IsEditMode && tool is (EditorToolId.Move or EditorToolId.Rotate or EditorToolId.Scale))
+            ToggleEditorMode();
+        if (!CanUseEditTools) return;
         SelectTool(name);
     }
 

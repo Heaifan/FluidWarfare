@@ -37,17 +37,20 @@ public sealed partial class UiVm
         if (_selectedProjectItem is not null || _selectedHierarchyItem is not null) return;
         ApplySelectionCommand(new ClearEditorSelectionCommand(), "树节点清空");
     }
-
     void SetProjectSelection(EditorTreeNode? value)
     {
         if (HasBlockingInput && !_isSynchronizingSelectionProjection) return;
         var already = _selectedProjectItem == value;
         if (!Set(ref _selectedProjectItem, value, nameof(SelectedProjectItem)) && !already) return;
         SetSelectedNodeKey(value?.Key ?? "");
-        if (value is null) { ApplyClearSelection(); return; }
-        // Expansion is owned by the arrow pointer handler. Do not mutate the
-        // ItemsSource while Avalonia is committing a ListBox selection.
-        _selectedHierarchyItem = null; OnPropertyChanged(nameof(SelectedHierarchyItem));
+        if (value is null)
+        {
+            _selectedHierarchyItem = null;
+            OnPropertyChanged(nameof(SelectedHierarchyItem));
+            ApplyClearSelection();
+            return;
+        }
+        // Selection projection mirrors both trees after the canonical commit.
         ApplySelection("项目树", value);
     }
 
@@ -62,10 +65,14 @@ public sealed partial class UiVm
             if (!Set(ref _selectedHierarchyItem, value, nameof(SelectedHierarchyItem)) && !already) return;
             SetSelectedNodeKey(value?.Key ?? "");
             if (_isSynchronizingSelectionProjection) return;
-            if (value is null) { ApplyClearSelection(); return; }
-            // Expansion is owned by the arrow pointer handler. Changing the
-            // ItemsSource here reenters Avalonia SelectionModel with stale indexes.
-            _selectedProjectItem = null; OnPropertyChanged(nameof(SelectedProjectItem));
+            if (value is null)
+            {
+                _selectedProjectItem = null;
+                OnPropertyChanged(nameof(SelectedProjectItem));
+                ApplyClearSelection();
+                return;
+            }
+            // Selection projection mirrors both trees after the canonical commit.
             ApplySelection("层级树", value);
         }
         finally

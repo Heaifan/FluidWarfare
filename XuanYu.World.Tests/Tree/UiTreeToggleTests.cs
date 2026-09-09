@@ -16,7 +16,7 @@ public sealed class UiTreeToggleTests
     [Fact]
     public void ToggleProjectNode_twice_restores_original_visibility()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true, seedInitialScene: false);
         var root = vm.ProjectItems[0];
 
         Assert.False(root.CanToggle);
@@ -34,7 +34,7 @@ public sealed class UiTreeToggleTests
     [Fact]
     public void Selecting_project_node_does_not_mutate_items_source()
     {
-        var vm = new UiVm(null, () => true);
+        var vm = new UiVm(null, () => true, seedInitialScene: false);
         var root = vm.ProjectItems[0];
 
         vm.ToggleProjectNode(root);

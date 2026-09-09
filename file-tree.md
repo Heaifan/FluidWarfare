@@ -1095,6 +1095,7 @@
 - `XuanYu.World.Tests/UiTokens/UiD5MapStatusTests.cs` - C# implementation source for UiD5MapStatusTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD5NotificationTests.cs` - C# implementation source for UiD5NotificationTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogBehaviorTests.cs` - C# implementation source for UiD5UnsavedDialogBehaviorTests.cs.
+- `XuanYu.World.Tests/UiTokens/UiCloseLifecycleContractTests.cs` - Close confirmation deferral and dialog z-order regression contracts.
 - `XuanYu.World.Tests/UiTokens/UiD5UnsavedDialogTests.cs` - C# implementation source for UiD5UnsavedDialogTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD5UnsavedFlowTests.cs` - C# implementation source for UiD5UnsavedFlowTests.cs.
 - `XuanYu.World.Tests/UiTokens/UiD6AccessibilityContractTests.cs` - C# implementation source for UiD6AccessibilityContractTests.cs.

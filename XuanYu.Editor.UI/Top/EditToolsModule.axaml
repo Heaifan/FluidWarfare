@@ -12,7 +12,7 @@
     <StackPanel Orientation="Horizontal"
                 Spacing="4"
                 VerticalAlignment="Center">
-      <xy:XYCaption Text="编辑工具"
+      <xy:XYCaption Text="编辑"
                     VerticalAlignment="Center"/>
       <xy:XYToggleButton MinHeight="34"
                          IsEnabled="{Binding IsEditMode}"

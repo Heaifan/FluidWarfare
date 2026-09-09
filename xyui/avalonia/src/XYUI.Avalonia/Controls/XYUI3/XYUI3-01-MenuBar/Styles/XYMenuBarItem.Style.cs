@@ -17,7 +17,7 @@ public sealed partial class XYMenuBarItem
             VerticalAlignment = VerticalAlignment.Center
         };
         if (Icon is XyuiVectorIcon icon)
-            stack.Children.Add(new XYIcon { Icon = icon, Size = XyuiIconSize.Small, Classes = { "xyui-menu-icon" }, VerticalAlignment = VerticalAlignment.Center });
+            stack.Children.Add(new XYIcon { Icon = icon, Size = IconSize, Classes = { "xyui-menu-icon", $"xyui-menu-icon-{IconSize.ToString().ToLowerInvariant()}" }, VerticalAlignment = VerticalAlignment.Center });
         stack.Children.Add(new TextBlock
         {
             Text = Label,

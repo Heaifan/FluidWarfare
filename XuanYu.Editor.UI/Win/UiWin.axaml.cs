@@ -5,13 +5,14 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
+using Avalonia.Threading;
 
 namespace XuanYu.Editor.UI;
 
 public partial class UiWin : Window
 {
     UiVm? _attachedVm;
-    bool _allowClosing;
+    bool _allowClosing, _closePromptActive;
 
     public UiWin()
     {
@@ -21,7 +22,7 @@ public partial class UiWin : Window
         Deactivated += (_, _) => (DataContext as UiVm)?.CancelInteractionFromWindowDeactivated();
     }
 
-    protected override async void OnClosing(WindowClosingEventArgs e)
+    protected override void OnClosing(WindowClosingEventArgs e)
     {
         if (_allowClosing || DataContext is not UiVm vm || !vm.IsSceneDirty)
         {
@@ -30,11 +31,29 @@ public partial class UiWin : Window
             return;
         }
         e.Cancel = true;
-        var proceed = await ConfirmUnsavedBeforeContinue(vm);
-        if (!proceed) return;
-        vm.CancelInteractionFromWindowClosing();
-        _allowClosing = true;
-        Close();
+        if (_closePromptActive) return;
+        _closePromptActive = true;
+        Dispatcher.UIThread.Post(() => { _ = ConfirmCloseAsync(vm); });
+    }
+
+    async Task ConfirmCloseAsync(UiVm vm)
+    {
+        try
+        {
+            if (!await ConfirmUnsavedBeforeContinue(vm)) return;
+            vm.CancelInteractionFromWindowClosing();
+            _allowClosing = true;
+            Close();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"[WindowClose] confirmation failed: {ex}");
+            CompleteDialog("cancel");
+        }
+        finally
+        {
+            _closePromptActive = false;
+        }
     }
 
     async Task<bool> CopySelectedLogs(UiVm vm)

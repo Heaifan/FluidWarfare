@@ -22,7 +22,8 @@ public sealed class CommandSmokeTests
     [Fact]
     public void Toolbar_and_environment_commands_remain_callable_without_dirtying_scene()
     {
-        var vm = new UiVm(null, () => true, seedInitialScene: false); vm.ToggleEditorMode();
+        var vm = new UiVm(null, () => true); vm.ToggleEditorMode();
+        vm.SelectedHierarchyItem = vm.HierarchyItems.First(item => item.IsEntity);
         vm.SelectToolCommand.Execute("选择");
         vm.SelectToolCommand.Execute("移动");
         vm.SelectToolCommand.Execute("旋转");
