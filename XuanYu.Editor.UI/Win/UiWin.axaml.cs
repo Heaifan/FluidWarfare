@@ -19,41 +19,8 @@ public partial class UiWin : Window
         InitializeComponent();
         AddHandler(KeyDownEvent, Window_KeyDown, RoutingStrategies.Tunnel);
         DataContextChanged += (_, _) => AttachVm();
-        Deactivated += (_, _) => (DataContext as UiVm)?.CancelInteractionFromWindowDeactivated();
-    }
-
-    protected override void OnClosing(WindowClosingEventArgs e)
-    {
-        if (_allowClosing || DataContext is not UiVm vm || !vm.IsSceneDirty)
-        {
-            (DataContext as UiVm)?.CancelInteractionFromWindowClosing();
-            base.OnClosing(e);
-            return;
-        }
-        e.Cancel = true;
-        if (_closePromptActive) return;
-        _closePromptActive = true;
-        Dispatcher.UIThread.Post(() => { _ = ConfirmCloseAsync(vm); });
-    }
-
-    async Task ConfirmCloseAsync(UiVm vm)
-    {
-        try
-        {
-            if (!await ConfirmUnsavedBeforeContinue(vm)) return;
-            vm.CancelInteractionFromWindowClosing();
-            _allowClosing = true;
-            Close();
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"[WindowClose] confirmation failed: {ex}");
-            CompleteDialog("cancel");
-        }
-        finally
-        {
-            _closePromptActive = false;
-        }
+        RegisterCloseProbes();
+        CloseProbe("constructed", CloseProbeState());
     }
 
     async Task<bool> CopySelectedLogs(UiVm vm)
@@ -74,6 +41,7 @@ public partial class UiWin : Window
             _attachedVm.DangerousCommandConfirmRequested -= OnDangerousCommandRequested;
         }
         _attachedVm = DataContext as UiVm;
+        CloseProbe("datacontext-attached", $"hasVm={_attachedVm is not null} {CloseProbeState()}");
         if (_attachedVm is null) return;
         _attachedVm.FileCommandRequested += OnFileCommandRequested;
         _attachedVm.DangerousCommandConfirmRequested += OnDangerousCommandRequested;

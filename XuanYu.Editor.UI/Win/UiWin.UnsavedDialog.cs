@@ -8,11 +8,15 @@ public partial class UiWin
 {
     async Task<bool> ConfirmUnsavedBeforeContinue(UiVm vm)
     {
+        CloseProbe("unsaved-check", $"dirty={vm.IsSceneDirty} {CloseProbeState()}");
         if (!vm.IsSceneDirty) return true;
         var choice = await ShowUnsavedDialog();
+        CloseProbe("unsaved-choice", $"choice={choice} {CloseProbeState()}");
         if (choice == "cancel") return false;
         if (choice == "discard") return true;
-        return await SaveExistingOrPick(vm);
+        var saved = await SaveExistingOrPick(vm);
+        CloseProbe("unsaved-save-result", $"saved={saved} {CloseProbeState()}");
+        return saved;
     }
 
     Task<string> ShowUnsavedDialog() =>

@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.39-rz · CLOSE-PROBE-R1（2026-09-09 17:16:10 +08:00）
+
+- 目标：定位创建立方体后关闭窗口出现未响应的真实关闭生命周期断点。
+- 变化：为窗口关闭、Dispatcher 调度、未保存确认、弹层显示/输入/完成、最终 Close、Closed、Deactivated 接入 `[CLOSE-PROBE]` 终端探针；每条记录输出时间、序号、线程、UI 线程判定、Dirty、关闭标志、弹层、遮罩和焦点状态，并立即 Flush。
+- 验证：完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1427/1427、XYUI 582/582；ARCH-A、5+100、AXAML/XML（127/127）与 `git diff --check` PASS；终端端到端关闭复现待用户按步骤触发后记录。
+- 状态：`CLOSE-PROBE-R1 READY FOR TERMINAL REPRODUCTION`；本轮不依据猜测修改关闭业务逻辑。
+
 ## v0.2.28.38-rz · TOP-LEFT-CLOSEOUT-R2（2026-09-09 16:58:03 +08:00）
 
 - 目标：收口 Left 场景对象投影、编辑工具可用性、Top 菜单一致性与窗口关闭假死。
