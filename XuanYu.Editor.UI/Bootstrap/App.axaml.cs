@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using XuanYu.Render.Abstractions;
@@ -36,6 +37,7 @@ public sealed class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            desktop.ShutdownMode = ShutdownMode.OnMainWindowClose;
             var window = new UiWin();
             var vm = new UiVm(_surfaceBridgeFactory, seedInitialScene: false, dialogService: window);
             window.DataContext = vm;

@@ -1,10 +1,11 @@
 # changelog
 
-## v0.2.28.50-rz · AREA-D-R1-FIX3-BACKEND（2026-09-10 09:35:00 +08:00）
-- 目标：修复 XYVectorProperty Inline 在 300 DIP 时内部文本被裁切的问题，并实现 Compact Vector 视觉密度；解决 Technical Information 布局重叠问题。
-- 变化：为 XYNumberField 补齐 XY.Size/XY.Density Compact 状态监听响应能力；缩减 Compact 模式下的 Padding、Stepper 与 Suffix 空间占用，释放足够宽度确保常用数值完整显示；重构 EntityInspectorPanel 的 Technical Information 布局；为 VectorProperty 添加空间拥挤时自动施加 Compact Size 的能力。
-- 验证：XYUI 定向测试（Compact size / layout constraints / value visibility）通过；World UI Contract Test（Technical Info No Overlap）通过；完整 Engine Build 0W0E；所有 Tests 全部通过（Core 339, WarCore 22, World 1444, XYUI 596）；ARCH-A, 5+100, AXAML/XML, 版本四处一致性检查及 git diff --check 均通过。
-- Hash：起始远端 HEAD `0c8c1f9b`。
+## v0.2.28.50-rz · AREA-D-R1-FIX3 + EDITOR-LIFECYCLE-FIX（2026-09-10 10:05:00 +08:00）
+- 目标：修复 XYVectorProperty Inline 在 300 DIP 时内部文本被裁切的问题，并实现 Compact Vector 视觉密度；解决 Technical Information 布局重叠；确保关闭主窗口后编辑器进程同步退出。
+- 变化：为 XYNumberField 补齐 XY.Size/XY.Density Compact 状态监听能力；缩减 Compact 模式下的 Padding、Stepper 与 Suffix 空间占用；重构 EntityInspectorPanel 的 Technical Information 布局；为 VectorProperty 添加空间拥挤时自动施加 Compact Size 的能力；显式设置 Avalonia 桌面生命周期为 `OnMainWindowClose`；同步 `XuanYu.Editor.App.csproj` 版本并补充生命周期回归合同测试；`run.bat` 使用可静态审计的版本标题。
+- 根因：编辑器仅调用 `StartWithClassicDesktopLifetime(args)`，依赖默认 `OnLastWindowClose`，没有把退出条件明确绑定到主窗口关闭；在当前 NativeHost/Vulkan 生命周期组合下，窗口消失后桌面生命周期仍可能存活，导致 `XuanYu.Editor.App.exe` 残留。现改为 `OnMainWindowClose`，主窗口关闭即请求应用退出；未保存内容确认仍保留取消关闭语义。
+- 验证：TDD 生命周期回归测试先失败后通过（1/1）；真实启动并关闭主窗口烟测 PID 29720，关闭消息发送成功、进程退出、ExitCode=0；完整 Engine Build 0W0E；Core 339/339、WarCore 22/22、World 1445/1445、XYUI 596/596；ARCH-A、5+100、版本四处一致性及 `git diff --check` 通过。无新增文件，`file-tree.md` 无需结构更新。
+- Hash：起始远端 HEAD `9379c693`。
 - 状态：`AREA-D-R1-FIX3 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
 
 ## v0.2.28.49-rz · XYUI2-22-R1 + AREA-D-R1-FIX2（2026-09-10 00:49:46 +08:00）

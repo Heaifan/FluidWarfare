@@ -8,6 +8,9 @@ public sealed class UiCloseLifecycleContractTests
     static string Read(string rel) => File.ReadAllText(Path.Combine(
         AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", rel));
 
+    static string ReadApp(string rel) => File.ReadAllText(Path.Combine(
+        AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", rel));
+
     [Fact]
     public void Close_confirmation_is_deferred_until_window_close_event_returns()
     {
@@ -49,5 +52,12 @@ public sealed class UiCloseLifecycleContractTests
         Assert.Contains("SaveButton.Focus();", modal);
         Assert.Contains("Key.Escape", modal);
         Assert.Contains("Complete(\"discard\")", modal);
+    }
+
+    [Fact]
+    public void Editor_lifetime_exits_when_main_window_closes()
+    {
+        var app = ReadApp("Bootstrap/App.axaml.cs");
+        Assert.Contains("desktop.ShutdownMode = ShutdownMode.OnMainWindowClose;", app);
     }
 }
