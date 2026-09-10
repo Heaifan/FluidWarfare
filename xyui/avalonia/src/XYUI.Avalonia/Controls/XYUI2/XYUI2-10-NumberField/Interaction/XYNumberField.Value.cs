@@ -23,6 +23,7 @@ public partial class XYNumberField
         base.OnPropertyChanged(change);
         if (change.Property == ValueProperty || change.Property == DecimalPlacesProperty) SyncText();
         if (change.Property == MinimumProperty || change.Property == MaximumProperty) Value = Math.Clamp(Value, Minimum, Maximum);
+        if (change.Property == XY.SizeProperty || change.Property == XY.DensityProperty) UpdateSizeState();
     }
     void OnTextChanged(object? sender, TextChangedEventArgs e)
     {

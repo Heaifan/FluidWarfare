@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 using XYUI.Avalonia.Controls;
 
 namespace XYUI.Avalonia.Tests;
@@ -60,4 +61,26 @@ public sealed class XYUI2VectorPropertyLayoutStrategyTests : IClassFixture<XyuiH
         Assert.All(hosts, host => Assert.Equal(hosts[0].Bounds.Y, host.Bounds.Y));
         Assert.True(hosts.Zip(hosts.Skip(1)).All(pair => pair.First.Bounds.Right <= pair.Second.Bounds.X));
     }
+
+    [Fact]
+    public void Compact_vector_fields_consume_compact_size() => _fx.Run(() =>
+    {
+        var vector = Show(300, XYVectorDimension.Vector3, XYVectorPropertyLayout.Inline);
+        Assert.All(vector.AxisFields, f => Assert.Equal(XYSize.Compact, XY.GetSize(f)));
+    });
+
+    [Fact]
+    public void Compact_number_field_preserves_text_visibility() => _fx.Run(() =>
+    {
+        XyuiBatchTestHost.Prepare(); var field = new XYNumberField { Width = 71 }; // 71 DIP is the available width for Inline Vector3 at 300 DIP
+        XY.SetSize(field, XYSize.Compact);
+        XyuiBatchTestHost.Show(field);
+
+        var presenter = field.GetVisualDescendants().OfType<TextBlock>().FirstOrDefault()
+            ?? field.GetVisualDescendants().OfType<global::Avalonia.Controls.Presenters.TextPresenter>().FirstOrDefault() as Control;
+
+        // ValueHost has small padding (4) and Stepper has small width (16). Suffix 0. (4+16=20). 71 - 20 = 51.
+        // It must have enough width to show value (at least 20 DIP).
+        Assert.True(field.ValueHost?.Bounds.Width >= 20);
+    });
 }

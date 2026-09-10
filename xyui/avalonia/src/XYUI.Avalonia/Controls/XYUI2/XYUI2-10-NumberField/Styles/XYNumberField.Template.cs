@@ -29,8 +29,9 @@ public partial class XYNumberField
         Grid.SetRow(down, 1);
         var stepper = new Border { Name = "PART_StepperCell", Width = 32, Opacity = 0, IsHitTestVisible = false, Background = Brushes.Transparent, Child = zones };
         scope?.Register("PART_StepperCell", stepper);
-        var content = new Grid { ColumnDefinitions = { new ColumnDefinition(1, GridUnitType.Star), new ColumnDefinition(GridLength.Auto), new ColumnDefinition(new GridLength(32)) }, Children = { valueHost, suffixHost, stepper } };
+        var content = new Grid { Name = "PART_ContentGrid", ColumnDefinitions = { new ColumnDefinition(1, GridUnitType.Star), new ColumnDefinition(GridLength.Auto), new ColumnDefinition(new GridLength(32)) }, Children = { valueHost, suffixHost, stepper } };
         Grid.SetColumn(suffixHost, 1); Grid.SetColumn(stepper, 2);
+        scope?.Register("PART_ContentGrid", content);
         var border = new Border { Child = content }; border[!Border.BackgroundProperty] = control[!TemplatedControl.BackgroundProperty]; border[!Border.BorderBrushProperty] = control[!TemplatedControl.BorderBrushProperty];
         border[!Border.BorderThicknessProperty] = control[!TemplatedControl.BorderThicknessProperty]; border[!Border.CornerRadiusProperty] = control[!TemplatedControl.CornerRadiusProperty];
         var edge = new Border { Name = "PART_FocusEdge", Height = 3, VerticalAlignment = VerticalAlignment.Bottom, IsHitTestVisible = false }; scope?.Register("PART_FocusEdge", edge);

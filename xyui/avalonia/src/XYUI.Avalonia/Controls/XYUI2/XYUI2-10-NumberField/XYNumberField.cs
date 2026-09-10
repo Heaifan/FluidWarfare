@@ -33,6 +33,8 @@ public partial class XYNumberField : XYTextField
     double _editStartValue;
     Control? _stepper;
     internal Control? ValueHost { get; set; }
+    internal Grid? ContentGridPart { get; set; }
+    internal Border? SuffixHostPart { get; set; }
     public XYNumberField()
     {
         Classes.Add("xyui-number-field"); TextChanged += OnTextChanged; KeyDown += OnNumberKeyDown;
@@ -44,7 +46,25 @@ public partial class XYNumberField : XYTextField
     protected override void OnPointerMoved(PointerEventArgs e) { base.OnPointerMoved(e); OnNumberPointerMoved(this, e); }
     protected override void OnPointerReleased(PointerReleasedEventArgs e) { base.OnPointerReleased(e); OnNumberPointerReleased(this, e); }
     protected override void OnGotFocus(FocusChangedEventArgs e) { _editStartValue = Value; SetStepperVisibility(true); base.OnGotFocus(e); }
-    protected override void OnApplyTemplate(TemplateAppliedEventArgs e) { base.OnApplyTemplate(e); _stepper = e.NameScope.Find<Control>("PART_StepperCell"); ValueHost = e.NameScope.Find<Control>("PART_ValueHost") ?? this.GetVisualDescendants().OfType<Control>().FirstOrDefault(x => x.Name == "PART_ValueHost"); SyncText(); SetStepperVisibility(IsFocused); }
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+        _stepper = e.NameScope.Find<Control>("PART_StepperCell");
+        ValueHost = e.NameScope.Find<Border>("PART_ValueHost") ?? this.GetVisualDescendants().OfType<Border>().FirstOrDefault(x => x.Name == "PART_ValueHost");
+        SuffixHostPart = e.NameScope.Find<Border>("PART_SuffixHost");
+        ContentGridPart = e.NameScope.Find<Grid>("PART_ContentGrid");
+        SyncText(); SetStepperVisibility(IsFocused); UpdateSizeState();
+    }
+    // OnPropertyChanged moved to XYNumberField.Value.cs
+    internal void UpdateSizeState()
+    {
+        var isCompact = XY.GetSize(this) == XYSize.Compact || XY.GetDensity(this) == XYDensity.Compact;
+        if (ValueHost is Border b) b.Padding = isCompact ? new Thickness(2, 0) : new Thickness(8, 0);
+        if (SuffixHostPart is Border s) s.MinWidth = isCompact ? 0 : 24;
+        if (_stepper is Border st) st.Width = isCompact ? 16 : 32;
+        if (ContentGridPart != null && ContentGridPart.ColumnDefinitions.Count == 3)
+            ContentGridPart.ColumnDefinitions[2].Width = new GridLength(isCompact ? 16 : 32);
+    }
     void SetStepperVisibility(bool visible)
     {
         _stepper ??= this.GetVisualDescendants().OfType<Control>().FirstOrDefault(x => x.Name == "PART_StepperCell");

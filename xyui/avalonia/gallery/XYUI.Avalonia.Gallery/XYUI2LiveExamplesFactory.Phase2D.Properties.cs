@@ -1,6 +1,7 @@
-﻿using Avalonia.Controls;
+using Avalonia.Controls;
 using Avalonia.Layout;
 using XYUI.Avalonia.Controls;
+using XYUI.Avalonia;
 
 namespace XYUI.Avalonia.Gallery;
 
@@ -32,9 +33,12 @@ public static partial class XYUI2LiveExamplesFactory
 
         var col2 = new StackPanel { Spacing = 8, Width = 640, HorizontalAlignment = HorizontalAlignment.Left };
         col2.Children.Add(new XYVectorProperty { Width = 620, Label = "Stacked · 宽屏 Vector3", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Stacked, X = 1, Y = 0, Z = 0, Step = .1, DecimalPlaces = 2 });
-        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Position", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = -1.42, Z = 0, Step = .1, DecimalPlaces = 2 });
-        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Rotation", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = 0, Z = 0, Step = .1, DecimalPlaces = 2 });
-        col2.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Scale", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 1, Y = 1, Z = 1, Step = .1, DecimalPlaces = 2 });
+        var areaDGroup = new StackPanel { Spacing = 8 };
+        XY.SetDensity(areaDGroup, XYDensity.Compact);
+        areaDGroup.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Position", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = -1.42, Z = 0, Step = .1, DecimalPlaces = 2 });
+        areaDGroup.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Rotation", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 0, Y = 0, Z = 0, Step = .1, DecimalPlaces = 2 });
+        areaDGroup.Children.Add(new XYVectorProperty { Width = 300, Label = "Area D · Scale", Dimension = XYVectorDimension.Vector3, Layout = XYVectorPropertyLayout.Inline, X = 1, Y = 1, Z = 1, Step = .1, DecimalPlaces = 2 });
+        col2.Children.Add(areaDGroup);
 
         return SceneHost(
             Scene("布局策略 · Auto / Inline (各轴独立复用 XYNumberField，独立编辑与 Scrub)", col1),

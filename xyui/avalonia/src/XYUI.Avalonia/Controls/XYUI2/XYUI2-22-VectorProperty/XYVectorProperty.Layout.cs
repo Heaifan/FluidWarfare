@@ -18,6 +18,12 @@ public partial class XYVectorProperty
         Classes.Set("xyui-vector-wide", wide); Classes.Set("xyui-vector-medium", !wide && !compact); Classes.Set("xyui-vector-compact", compact);
         if (wide) { AxisPanelPart.Margin = new Thickness(0); XYPropertyLayoutMetrics.ConfigureRow(RowPart, LabelPart!, AxisPanelPart, width); } else ConfigureStackedRow();
         ConfigureAxisGrid(dimension, compact);
+
+        var fieldCompact = autoCompact && !compact;
+        foreach (var field in AxisFields)
+        {
+            XY.SetSize(field, fieldCompact ? XYSize.Compact : XYSize.Default);
+        }
     }
 
     static double RequiredAxisWidth(int dimension) => dimension * 128 + (dimension - 1) * 6;

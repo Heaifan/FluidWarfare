@@ -90,6 +90,10 @@ public sealed class UiD4InspectorContractTests
         Assert.Contains("GetFocusedElement() is TextBox", shortcuts);
     }
 
-    static int Count(string source, string value) =>
-        source.Split(value, StringSplitOptions.None).Length - 1;
+    [Fact]
+    public void Technical_info_prevents_overlap_with_auto_rows()
+    {
+        Assert.Contains("RowDefinitions=\"Auto,Auto,Auto\"", Entity); Assert.Contains("Variant=\"Technical\"", Entity); Assert.Contains("<xy:XYSelectableText", Entity);
+    }
+    static int Count(string source, string value) => source.Split(value, StringSplitOptions.None).Length - 1;
 }

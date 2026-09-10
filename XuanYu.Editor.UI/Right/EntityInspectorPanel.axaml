@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:XuanYu.Editor.UI"
              xmlns:xy="using:XYUI.Avalonia.Controls"
+             xmlns:xycore="using:XYUI.Avalonia"
              x:Class="XuanYu.Editor.UI.EntityInspectorPanel"
              x:DataType="local:UiVm">
   <UserControl.Styles>
@@ -24,11 +25,11 @@
       <xy:XYText Grid.Row="1" Grid.Column="1" Text="Entity"/>
     </Grid>
     <Border Classes="inspectorRail"><xy:XYSectionTitle Text="Transform"/></Border>
-    <xy:XYVectorProperty x:Name="PositionProperty" Label="位置" Layout="Inline" X="{Binding InspectorPositionX, Mode=OneWay}" Y="{Binding InspectorPositionY, Mode=OneWay}" Z="{Binding InspectorPositionZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1"/>
-    <xy:XYVectorProperty x:Name="RotationProperty" Label="旋转" Layout="Inline" X="{Binding InspectorRotationX, Mode=OneWay}" Y="{Binding InspectorRotationY, Mode=OneWay}" Z="{Binding InspectorRotationZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1"/>
-    <xy:XYVectorProperty x:Name="ScaleProperty" Label="缩放" Layout="Inline" X="{Binding InspectorScaleX, Mode=OneWay}" Y="{Binding InspectorScaleY, Mode=OneWay}" Z="{Binding InspectorScaleZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1" Minimum="0.000001"/>
+    <xy:XYVectorProperty x:Name="PositionProperty" Label="位置" Layout="Inline" xycore:XY.Density="Compact" X="{Binding InspectorPositionX, Mode=OneWay}" Y="{Binding InspectorPositionY, Mode=OneWay}" Z="{Binding InspectorPositionZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1"/>
+    <xy:XYVectorProperty x:Name="RotationProperty" Label="旋转" Layout="Inline" xycore:XY.Density="Compact" X="{Binding InspectorRotationX, Mode=OneWay}" Y="{Binding InspectorRotationY, Mode=OneWay}" Z="{Binding InspectorRotationZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1"/>
+    <xy:XYVectorProperty x:Name="ScaleProperty" Label="缩放" Layout="Inline" xycore:XY.Density="Compact" X="{Binding InspectorScaleX, Mode=OneWay}" Y="{Binding InspectorScaleY, Mode=OneWay}" Z="{Binding InspectorScaleZ, Mode=OneWay}" DecimalPlaces="2" Step="0.1" Minimum="0.000001"/>
     <Border Classes="inspectorRail technicalRail"><xy:XYSectionTitle Text="技术信息"/></Border>
-    <Grid ColumnDefinitions="80,*" ColumnSpacing="8">
+    <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8">
       <xy:XYLabel Text="ID"/><xy:XYSelectableText Grid.Column="1" Text="{Binding SelectionKey}" Variant="Technical" ToolTip.Tip="{Binding SelectionKey}"/>
       <xy:XYLabel Grid.Row="1" Text="场景"/><xy:XYSelectableText Grid.Row="1" Grid.Column="1" Text="{Binding DocumentFileName}" Variant="Technical" ToolTip.Tip="{Binding DocumentFileName}"/>
       <xy:XYLabel Grid.Row="2" Text="路径"/><xy:XYSelectableText Grid.Row="2" Grid.Column="1" Text="{Binding SelectionPath}" Variant="Technical" ToolTip.Tip="{Binding SelectionPath}"/>
