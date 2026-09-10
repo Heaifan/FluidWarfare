@@ -5,62 +5,64 @@
              xmlns:xycore="using:XYUI.Avalonia"
              x:Class="XuanYu.Editor.UI.MapFormPanel"
              x:DataType="local:UiVm">
-  <StackPanel x:Name="Root" Spacing="{StaticResource Space.4}"
-              xycore:XY.Size="Compact" xycore:XY.Density="Compact">
+  <UserControl.Styles>
+    <Style Selector="Border.inspectorRail">
+      <Setter Property="BorderBrush" Value="{StaticResource Color.Border.Default}"/>
+      <Setter Property="BorderThickness" Value="2,0,0,0"/>
+      <Setter Property="Padding" Value="8,0,0,0"/>
+    </Style>
+  </UserControl.Styles>
+  <StackPanel x:Name="Root" Spacing="8" xycore:XY.Size="Compact" xycore:XY.Density="Compact">
     <xy:XYSectionTitle Text="地图属性"/>
-    <xy:XYSeparator Variant="Section"/>
-    <!-- Engine Property Grid：固定标签列 96 / 左标签右输入，不按侧栏宽度切换为上下表单。
-         D5 纠偏：每个输入框只绑定自身字段错误（MapWidthError/MapDepthError/MapBaseHeightError）；
-         失焦触发单字段校验；FirstInvalidField 变化自动聚焦第一处错误。 -->
+    
+    <Border Classes="inspectorRail"><xy:XYSectionTitle Text="基础设置"/></Border>
     <Grid x:Name="PropsWide" ColumnDefinitions="96,*"
           RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="{StaticResource Space.4}">
       <xy:XYLabel Text="宽度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="WidthBoxWide" Grid.Column="1" Text="{Binding MapWidthText}"
+          xycore:XY.Size="Compact"
+          Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
+          AutomationProperties.Name="地图宽度"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
           HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapWidthError}" LostFocus="Field_LostFocus"
-          AutomationProperties.Name="地图宽度"/>
+          Padding="{StaticResource Padding.Compact}"/>
+      
       <xy:XYLabel Grid.Row="1" Text="深度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="DepthBoxWide" Grid.Row="1" Grid.Column="1" Text="{Binding MapDepthText}"
+          xycore:XY.Size="Compact"
+          Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
+          AutomationProperties.Name="地图深度"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
           HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapDepthError}" LostFocus="Field_LostFocus"
-          AutomationProperties.Name="地图深度"/>
+          Padding="{StaticResource Padding.Compact}"/>
+      
       <xy:XYLabel Grid.Row="2" Text="基础高度（米）" VerticalAlignment="Center"/>
       <xy:XYTextField x:Name="HeightBoxWide" Grid.Row="2" Grid.Column="1" Text="{Binding MapBaseHeightText}"
+          xycore:XY.Size="Compact"
+          Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
+          AutomationProperties.Name="基础高度"
           Width="{StaticResource Size.Width.128}" Height="{StaticResource Control.Height.Compact}"
           HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Right"
-          Padding="{StaticResource Padding.Compact}" xycore:XY.Size="Compact"
-          Classes.error="{Binding MapBaseHeightError}" LostFocus="Field_LostFocus"
-          AutomationProperties.Name="基础高度"/>
+          Padding="{StaticResource Padding.Compact}"/>
+      
       <xy:XYLabel Grid.Row="3" Text="地表类型" VerticalAlignment="Center"/>
-      <xy:XYText Grid.Row="3" Grid.Column="1" Text="Flat（只读）" VerticalAlignment="Center"/>
+      <xy:XYText Grid.Row="3" Grid.Column="1" Text="{Binding MapSurfaceTypeText, FallbackValue='Flat'}" VerticalAlignment="Center"/>
     </Grid>
-    <!-- 地图属性操作按钮（纠偏 v2）：应用修改跨两列第一行；撤销/重做第二行等宽 -->
-    <Grid x:Name="PropsButtons" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto"
-          ColumnSpacing="{StaticResource Space.4}" RowSpacing="{StaticResource Space.4}">
-      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.ColumnSpan="2"
-          Content="应用修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
-          Command="{Binding RunCommand}" CommandParameter="应用地图属性"
-          AutomationProperties.Name="应用地图属性"/>
-      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1"
-          Content="撤销地图修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
+
+    <xy:XYButton Variant="Secondary" Content="应用修改"
+        HorizontalAlignment="Left" MinWidth="0"
+        Command="{Binding RunCommand}" CommandParameter="应用地图属性"
+        AutomationProperties.Name="应用地图属性"/>
+
+    <Grid x:Name="PropsButtons" ColumnDefinitions="Auto,Auto" ColumnSpacing="8">
+      <xy:XYButton Variant="Secondary" Content="撤销地图修改" MinWidth="0"
           Command="{Binding RunCommand}" CommandParameter="撤销地图修改"
           IsEnabled="{Binding CanUndo}" AutomationProperties.Name="撤销地图修改"/>
-      <xy:XYButton Classes="uiTextButton" Variant="Secondary" Grid.Row="1" Grid.Column="1"
-          Content="重做地图修改" Width="{StaticResource Size.Width.96}"
-          Height="{StaticResource Control.Height.Compact}" MinHeight="0" MinWidth="0"
-          HorizontalAlignment="Left" Padding="{StaticResource Padding.Compact}"
+      <xy:XYButton Variant="Secondary" Grid.Column="1" Content="重做地图修改" MinWidth="0"
           Command="{Binding RunCommand}" CommandParameter="重做地图修改"
           IsEnabled="{Binding CanRedo}" AutomationProperties.Name="重做地图修改"/>
     </Grid>
-    <!-- 表单错误反馈（D5：非仅颜色——图标 + 文字 + 输入框错误边框；FormErrorSummary 汇总行） -->
+
     <xy:XYErrorText IsVisible="{Binding IsMapFormError}" Text="{Binding FormErrorSummary}" VerticalAlignment="Center"/>
   </StackPanel>
 </UserControl>

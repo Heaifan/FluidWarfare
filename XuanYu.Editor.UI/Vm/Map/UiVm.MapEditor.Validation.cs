@@ -61,4 +61,5 @@ public sealed partial class UiVm
         SetFieldError(field, "");
         return "";
     }
+    public string MapSurfaceTypeText => "Flat";
 }

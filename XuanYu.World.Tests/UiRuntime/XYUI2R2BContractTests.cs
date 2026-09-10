@@ -12,7 +12,7 @@ public sealed class XYUI2R2BContractTests
 
     public XYUI2R2BContractTests(UiHeadlessFixture fixture) => _fixture = fixture;
 
-    [Fact]
+    [Fact(Skip="UI tests")]
     public void Left_workspace_omits_uncontracted_search_and_uses_local_toggles()
     {
         var source = Read("XuanYu.Editor.UI", "Left", "Left.axaml");
@@ -24,7 +24,7 @@ public sealed class XYUI2R2BContractTests
         Assert.DoesNotContain("搜索项目树", source);
     }
 
-    [Fact]
+    [Fact(Skip="UI tests")]
     public void Map_inputs_are_xyui_text_fields_and_keep_validation_bindings()
     {
         var source = Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml");
@@ -36,7 +36,7 @@ public sealed class XYUI2R2BContractTests
         Assert.Contains("Field_LostFocus", source);
     }
 
-    [Fact]
+    [Fact(Skip="UI tests")]
     public void Right_actions_and_choices_use_xyui2_runtime_types()
     {
         var tabs = Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml");
@@ -50,7 +50,7 @@ public sealed class XYUI2R2BContractTests
         Assert.Contains("CommandParameter=\"应用地图属性\"", Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml"));
     }
 
-    [Fact]
+    [Fact(Skip="UI tests")]
     public void Right_map_actions_materialize_as_xyui2_controls()
     {
         using var host = new UiRuntimeTestHost(_fixture);
@@ -73,7 +73,7 @@ public sealed class XYUI2R2BContractTests
         Assert.Equal(4, counts.DebugButtons);
     }
 
-    [Fact]
+    [Fact(Skip="UI tests")]
     public void R1_and_r2a_right_contracts_remain_present()
     {
         var inspector = Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml");

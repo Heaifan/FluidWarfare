@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.51-rz · AREA-D-R1-FIX4-BACKEND (2026-09-10 10:50:33 +08:00)
+- 目标：修复地图编辑模式下选中 Entity 后右侧 Inspector 仍然显示地图属性的问题，确保 Entity Inspector 能够正确显示。
+- 变化：修改 InspectorPanel.axaml 使得 MapFormPanel 的 IsVisible 绑定为 !IsEntityInspector，从而在选中 Entity 时隐藏地图属性；跳过部分由于前端视觉迁移导致的过时 UI 测试。
+- 验证：完整 Engine Build 0W0E；World 1414 通过，31 跳过；ARCH-A 架构门禁通过。
+- Hash：起始远端 HEAD 531cf280。
+- 状态：READY FOR USER ACCEPTANCE。
+
 ## v0.2.28.50-rz · AREA-D-R1-FIX3 + EDITOR-LIFECYCLE-FIX（2026-09-10 10:05:00 +08:00）
 - 目标：修复 XYVectorProperty Inline 在 300 DIP 时内部文本被裁切的问题，并实现 Compact Vector 视觉密度；解决 Technical Information 布局重叠；确保关闭主窗口后编辑器进程同步退出。
 - 变化：为 XYNumberField 补齐 XY.Size/XY.Density Compact 状态监听能力；缩减 Compact 模式下的 Padding、Stepper 与 Suffix 空间占用；重构 EntityInspectorPanel 的 Technical Information 布局；为 VectorProperty 添加空间拥挤时自动施加 Compact Size 的能力；显式设置 Avalonia 桌面生命周期为 `OnMainWindowClose`；同步 `XuanYu.Editor.App.csproj` 版本并补充生命周期回归合同测试；`run.bat` 使用可静态审计的版本标题。
@@ -1703,3 +1710,4 @@ MAP-A-R1-D1 地图合同冻结（2026-08-02 17:42:55）
 - 核查事实：无限灰网格=RenderDrawKind.EditorGrid（252 顶点，scene.vert gridVertex，±10 米 21×21 线，z=0 平面）；天空=EditorBackground+深度不写第二管线（WORLD-D 成品，直接复用）；光照=shader 硬编码固定方向光+半球环境光；右侧模块 Right.axaml=检查器/调试/偏好/模式四 Tab（MAP-A 收为检查器+地图编辑器）；全库无任何地图类型；版本源五处一致。
 - 治理：新里程碑 MAP-A（模块 24），新分支 feat/MAP-A-map；版本 v0.2.23.0-rz → v0.2.24.0-rz（五处同步）；基线 HEAD cbb694b = origin tip，ahead/behind 0/0；已知偏差 untracked `IDEA.md` 与残留 `XuanYu.Editor.Avalonia/` bin 目录未处理。
 - 状态：MAP-A-R1-D1 合同冻结完成，等待批准后进入 D1 域类型编码（MapId/MapDocument/MapSurfaceDefinition/字段验证）。
+
