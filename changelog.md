@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.50-rz · AREA-D-R1-FIX3-BACKEND（2026-09-10 09:35:00 +08:00）
+- 目标：修复 XYVectorProperty Inline 在 300 DIP 时内部文本被裁切的问题，并实现 Compact Vector 视觉密度；解决 Technical Information 布局重叠问题。
+- 变化：为 XYNumberField 补齐 XY.Size/XY.Density Compact 状态监听响应能力；缩减 Compact 模式下的 Padding、Stepper 与 Suffix 空间占用，释放足够宽度确保常用数值完整显示；重构 EntityInspectorPanel 的 Technical Information 布局；为 VectorProperty 添加空间拥挤时自动施加 Compact Size 的能力。
+- 验证：XYUI 定向测试（Compact size / layout constraints / value visibility）通过；World UI Contract Test（Technical Info No Overlap）通过；完整 Engine Build 0W0E；所有 Tests 全部通过（Core 339, WarCore 22, World 1444, XYUI 596）；ARCH-A, 5+100, AXAML/XML, 版本四处一致性检查及 git diff --check 均通过。
+- Hash：起始远端 HEAD `0c8c1f9b`。
+- 状态：`AREA-D-R1-FIX3 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.49-rz · XYUI2-22-R1 + AREA-D-R1-FIX2（2026-09-10 00:49:46 +08:00）
 - 目标：为 `XYVectorProperty` 补齐正式布局策略，并在 Area D Inspector 消费紧凑横排能力，完成基础信息与实体上下文布局收口。
 - 变化：新增默认向后兼容的 `Layout=Auto|Inline|Stacked`；Inline/Stacked 继续复用 `XYNumberField`；Gallery 补充三种策略和 Area D Transform 示例；Inspector 修复基础信息两行 Grid、上下文副标题，并令 Position/Rotation/Scale 使用 `Layout="Inline"`。
