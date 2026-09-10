@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.53-rz · AREA-D-R1-FIX5（2026-09-10 12:46:41 +08:00）
+- 目标：建立 Right 下方工作区内容的单一所有权，实体检查器由 `EditorRightTabs → InspectorPanel → EntityInspectorPanel` 唯一承载。
+- 变化：移除 Right 直接挂载的重复 `EntityInspectorPanel`；地图、区域、图层工作区统一受 `!IsEntityInspector` 宿主控制；保留既有 `IsEntityInspector` 数据集与实体选择判定及 Manage→Move 自动进入 Edit 链。
+- 验证：TDD 定向回归先失败（5/7），修复后通过（7/7，跳过 0）；完整方案 Build 0W0E；Core 339/339、WarCore 22/22、World 1455/1456、XYUI 596/596；ARCH-A、AXAML/XML、版本四处一致性、`git diff --check` 通过；`run.bat` 启动、窗口关闭消息与 wrapper 正常退出烟测通过。未声明 CLOSED，仍需用户视觉与交互验收。
+- Hash：起始提交 `c01986d1`。
+- 状态：`AREA-D-R1-FIX5 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.52-rz · AREA-D-R1-FIX4-CORRECTION（2026-09-10 11:05:01 +08:00）
 - 目标：在 Map Edit 中按 canonical Entity selection 正确路由 Inspector，实体选择时隐藏地图属性，未选择实体时保留地图表单。
 - 变化：为 MapFormPanel 增加 `!IsEntityInspector` 可见性绑定；新增 4 项 Headless 回归测试覆盖实体优先、地图回退、模式切换保留选择和既有 XYUI 草稿绑定；补齐 Editor.App 版本四处一致性。保留 `XYTextField + *Text` 业务输入链，不跳过或削弱既有 UI 合同测试。

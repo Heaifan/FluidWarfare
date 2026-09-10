@@ -22,10 +22,10 @@ public sealed class LayerARuntimeTests
             host.Show(right, 900, 700);
             right.UpdateLayout();
             var dock = UiRuntimeTestHost.Descendants<EditorLayerDock>(right).Single();
-            var manageDockHidden = dock.GetVisualParent() is Grid manageGrid && !manageGrid.IsVisible;
+            var manageDockHidden = !dock.IsEffectivelyVisible;
             vm.ToggleEditorMode();
             right.UpdateLayout();
-            var map = dock.GetVisualParent() is Grid editGrid && editGrid.IsVisible
+            var map = dock.IsEffectivelyVisible
                 && vm.CurrentLayerItems.Count == 0;
             vm.SwitchWorkspaceCommand.Execute(EditorWorkspaceId.RegionEditor);
             right.UpdateLayout();

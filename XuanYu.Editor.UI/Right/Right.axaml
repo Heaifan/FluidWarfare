@@ -5,15 +5,19 @@
              x:DataType="local:UiVm">
   <Grid>
     <local:EditorRightTabs IsVisible="{Binding !IsEditMode}"/>
-    <Grid IsVisible="{Binding IsEditMode}" RowDefinitions="3*,Auto,2*,Auto,2*">
+    <Grid IsVisible="{Binding IsEditMode}" RowDefinitions="3*,Auto,*">
       <local:EditorRightTabs Grid.Row="0"/>
       <GridSplitter Grid.Row="1" Height="4" Background="{StaticResource Color.Border.Default}" HorizontalAlignment="Stretch" VerticalAlignment="Center" ResizeDirection="Rows"/>
       <Grid Grid.Row="2">
-        <local:MapEditorPanel x:Name="MapWorkspace" IsVisible="{Binding IsMapEditMode}"/>
-        <local:RegionalAuthoringPanel x:Name="RegionWorkspace" IsVisible="{Binding IsRegionEditMode}"/>
+        <Grid RowDefinitions="2*,Auto,2*" IsVisible="{Binding !IsEntityInspector}">
+          <Grid Grid.Row="0">
+            <local:MapEditorPanel x:Name="MapWorkspace" IsVisible="{Binding IsMapEditMode}"/>
+            <local:RegionalAuthoringPanel x:Name="RegionWorkspace" IsVisible="{Binding IsRegionEditMode}"/>
+          </Grid>
+          <GridSplitter Grid.Row="1" Height="4" Background="{StaticResource Color.Border.Default}" HorizontalAlignment="Stretch" VerticalAlignment="Center" ResizeDirection="Rows"/>
+          <local:EditorLayerDock x:Name="LayerWorkspace" Grid.Row="2"/>
+        </Grid>
       </Grid>
-      <GridSplitter Grid.Row="3" Height="4" Background="{StaticResource Color.Border.Default}" HorizontalAlignment="Stretch" VerticalAlignment="Center" ResizeDirection="Rows"/>
-      <local:EditorLayerDock x:Name="LayerWorkspace" Grid.Row="4"/>
     </Grid>
   </Grid>
 </UserControl>
