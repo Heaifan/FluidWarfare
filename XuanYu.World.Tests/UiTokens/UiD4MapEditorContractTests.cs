@@ -13,7 +13,7 @@ public sealed class UiD4MapEditorContractTests
     static string Read(string rel) => File.ReadAllText(Path.Combine(
         AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", rel));
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Readonly_summary_uses_compact_72_column()
     {
         Assert.Contains("ColumnDefinitions=\"72,*\"", Page);   // 只读摘要标签列 72（组件级例外 72~80）
@@ -21,7 +21,7 @@ public sealed class UiD4MapEditorContractTests
         Assert.Contains("MinHeight\" Value=\"24\"", Page);     // 单行高 24（24~28 合同）
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_id_shows_compressed_display_with_full_tooltip_and_copy()
     {
         Assert.Contains("MapIdDisplay", Page);                 // 前 8…后 6 显示
@@ -30,7 +30,7 @@ public sealed class UiD4MapEditorContractTests
         Assert.Contains("复制完整 MapId", Page);               // Tooltip 说明
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_id_never_wraps()
     {
         // MapId 使用 XYUI-1-21 Technical，保留技术文本语义并由组件负责展示策略。
@@ -40,12 +40,12 @@ public sealed class UiD4MapEditorContractTests
         Assert.DoesNotContain("TextTrimming=\"CharacterEllipsis\"", Page);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Empty_path_shows_dash_placeholder()
     {
         Assert.Contains("MapPathDisplay", Page);               // VM 提供 — 占位
     }
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Property_form_uses_fixed_96_column_single_line_rows()
     {
         Assert.Contains("PropsWide", Form);
@@ -55,7 +55,7 @@ public sealed class UiD4MapEditorContractTests
         Assert.Equal(5, Count(Form, "Grid.Column=\"1\""));
         Assert.Contains("VerticalAlignment=\"Center\"", Form);
     }
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Button_group_uses_compact_spacing_and_critical_actions()
     {
         Assert.Contains("ColumnSpacing=\"{StaticResource Space.4}\"", Form);
@@ -67,21 +67,21 @@ public sealed class UiD4MapEditorContractTests
     }
 
     static int Count(string text, string value) => text.Split(value).Length - 1;
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Each_page_has_single_vertical_scroll_container()
     {
         Assert.Contains("VerticalScrollBarVisibility=\"Auto\"", Editor);
         Assert.DoesNotContain("<ScrollViewer", Page);          // 页面内部不嵌套纵向滚动
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_editor_errors_use_error_token()
     {
         Assert.Contains("<xy:XYErrorText", Form);              // W47：错误提示组件化（XYUI-1-16）
         Assert.DoesNotContain("#C0392B", Form);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_id_copy_writes_full_untruncated_id()
     {
         var cs = Read("Right/MapPagePanel.axaml.cs");
@@ -89,7 +89,7 @@ public sealed class UiD4MapEditorContractTests
         Assert.Contains("复制完整 MapId", Page);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void No_forbidden_legacy_values_in_map_pages()
     {
         foreach (var forbidden in new[] { "infoPanel", "#f7faff", "#185aa6", "#edf4ff", "#8cb2e2", "CornerRadius\" Value=\"5\"" })

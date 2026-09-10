@@ -1,0 +1,75 @@
+using System.IO;
+using XuanYu.Editor.UI;
+
+namespace XuanYu.World.Tests.UiRuntime;
+
+[Collection("UiRuntime")]
+public sealed class AreaDR1Fix4InspectorRoutingTests
+{
+    readonly UiHeadlessFixture _fixture;
+
+    public AreaDR1Fix4InspectorRoutingTests(UiHeadlessFixture fixture) => _fixture = fixture;
+
+    [Fact]
+    public void Map_edit_entity_selection_shows_entity_inspector_only()
+    {
+        using var host = new UiRuntimeTestHost(_fixture);
+        var visible = host.Run(() =>
+        {
+            var vm = new UiVm(null, seedInitialScene: false);
+            vm.AddCubeEntity(); vm.ToggleEditorMode();
+            var panel = new InspectorPanel { DataContext = vm };
+            host.Show(panel, 480, 720); panel.UpdateLayout();
+            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(panel).Single().IsEffectivelyVisible,
+                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(panel).Single().IsEffectivelyVisible);
+        });
+
+        Assert.False(visible.Map);
+        Assert.True(visible.Entity);
+    }
+
+    [Fact]
+    public void Map_edit_without_entity_selection_keeps_map_form_route()
+    {
+        using var host = new UiRuntimeTestHost(_fixture);
+        var visible = host.Run(() =>
+        {
+            var vm = new UiVm(null, seedInitialScene: false); vm.ToggleEditorMode();
+            var panel = new InspectorPanel { DataContext = vm };
+            host.Show(panel, 480, 720); panel.UpdateLayout();
+            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(panel).Single().IsEffectivelyVisible,
+                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(panel).Single().IsEffectivelyVisible);
+        });
+
+        Assert.True(visible.Map);
+        Assert.False(visible.Entity);
+    }
+
+    [Fact]
+    public void Entity_selection_survives_manage_edit_mode_switch()
+    {
+        var vm = new UiVm(null, seedInitialScene: false);
+        vm.AddCubeEntity();
+        Assert.True(vm.IsEntityInspector);
+
+        vm.ToggleEditorMode();
+        vm.ToggleEditorMode();
+
+        Assert.True(vm.IsEntityInspector);
+    }
+
+    [Fact]
+    public void Map_form_keeps_existing_xyui_draft_bindings()
+    {
+        var source = Read("XuanYu.Editor.UI", "Right", "MapFormPanel.axaml");
+        Assert.Equal(3, Count(source, "<xy:XYTextField"));
+        Assert.DoesNotContain("<xy:XYNumberField", source);
+        foreach (var property in new[] { "MapWidthText", "MapDepthText", "MapBaseHeightText" })
+            Assert.Contains(property, source);
+    }
+
+    static string Read(params string[] path) => File.ReadAllText(Path.Combine(
+        AppContext.BaseDirectory, "..", "..", "..", "..", Path.Combine(path)));
+
+    static int Count(string source, string value) => source.Split(value).Length - 1;
+}

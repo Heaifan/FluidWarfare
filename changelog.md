@@ -1,5 +1,12 @@
 # changelog
 
+## v0.2.28.52-rz · AREA-D-R1-FIX4-CORRECTION（2026-09-10 11:05:01 +08:00）
+- 目标：在 Map Edit 中按 canonical Entity selection 正确路由 Inspector，实体选择时隐藏地图属性，未选择实体时保留地图表单。
+- 变化：为 MapFormPanel 增加 `!IsEntityInspector` 可见性绑定；新增 4 项 Headless 回归测试覆盖实体优先、地图回退、模式切换保留选择和既有 XYUI 草稿绑定；补齐 Editor.App 版本四处一致性。保留 `XYTextField + *Text` 业务输入链，不跳过或削弱既有 UI 合同测试。
+- 验证：受影响测试 35/35；完整方案 Build 0W0E；Core 339/339、WarCore 22/22、World 1449/1449、XYUI 596/596；ARCH-A、AXAML/XML、版本四处一致性、`git diff --check` 及 `run.bat` 启动/关闭烟测通过（窗口标题 `v0.2.28.52-rz`，关闭消息成功，App 与 wrapper 均退出）。未声明 CLOSED，仍需用户视觉与交互验收。
+- Hash：起始提交 `f371f972`。
+- 状态：`AREA-D-R1-FIX4 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.51-rz · AREA-D-R1-FIX4-BACKEND (2026-09-10 10:50:33 +08:00)
 - 目标：修复地图编辑模式下选中 Entity 后右侧 Inspector 仍然显示地图属性的问题，确保 Entity Inspector 能够正确显示。
 - 变化：修改 InspectorPanel.axaml 使得 MapFormPanel 的 IsVisible 绑定为 !IsEntityInspector，从而在选中 Entity 时隐藏地图属性；跳过部分由于前端视觉迁移导致的过时 UI 测试。

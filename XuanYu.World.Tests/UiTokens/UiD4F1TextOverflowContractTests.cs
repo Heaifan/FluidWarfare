@@ -16,7 +16,7 @@ public sealed class UiD4F1TextOverflowContractTests
     static string Read(string rel) => File.ReadAllText(Path.Combine(
         AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", rel));
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Ui_value_style_implements_display_default()
     {
         Assert.Contains("<Style Selector=\"TextBlock.uiValue\">", Ui);
@@ -25,7 +25,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.Contains("MaxLines\" Value=\"1\"", Ui);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Inspector_dynamic_values_single_line_with_full_tooltip()
     {
         Assert.Contains("<xy:XYText", Inspector);
@@ -36,7 +36,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.DoesNotContain("NarrowFields", Inspector);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Debug_rows_share_one_grid_row_and_never_wrap()
     {
         // 当前上下文/当前对象/输入状态：标签与值在同一 Grid 行（96 列）
@@ -48,7 +48,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.DoesNotContain("TextWrapping=\"Wrap\"", Right);    // 调试页值不换行（走 uiValue）
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_summary_values_single_line_with_tooltips()
     {
         Assert.Contains("<xy:XYSectionTitle Text=\"地图资产\"", MapPage);
@@ -64,7 +64,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.DoesNotContain("Classes=\"value\"", MapPage);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Map_id_compression_copy_and_tooltip_kept()
     {
         Assert.Contains("MapIdDisplay", MapPage);
@@ -72,7 +72,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.Contains("CopyMapId_Click", MapPage);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Layer_name_single_line_with_full_tooltip()
     {
         Assert.Contains("<xy:XYTruncatedText", LayerPanel);
@@ -80,7 +80,7 @@ public sealed class UiD4F1TextOverflowContractTests
         Assert.Contains("ToolTip.Tip=\"{Binding LayerInspectorKindText}\"", LayerInspector);
     }
 
-    [Fact(Skip="Skipping UI tests")]
+    [Fact]
     public void Explicit_multiline_content_keeps_dedicated_style()
     {
         Assert.Contains("<Style Selector=\"TextBlock.uiMultiline\">", Ui);

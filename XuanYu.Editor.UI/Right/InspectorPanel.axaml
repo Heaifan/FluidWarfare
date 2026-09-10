@@ -22,7 +22,9 @@
 
     <StackPanel IsVisible="{Binding IsMapEditMode}" Spacing="6">
       <StackPanel IsVisible="{Binding !HasCurrentLayerSelection}">
-      <StackPanel IsVisible="{Binding !HasSelectedDataset}"><local:MapFormPanel/></StackPanel>
+      <StackPanel IsVisible="{Binding !HasSelectedDataset}">
+        <local:MapFormPanel IsVisible="{Binding !IsEntityInspector}"/>
+      </StackPanel>
       </StackPanel>
     </StackPanel>
 
