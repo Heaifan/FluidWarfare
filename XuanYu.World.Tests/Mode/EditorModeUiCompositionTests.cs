@@ -40,14 +40,15 @@ public sealed class EditorModeUiCompositionTests
         Assert.Contains("<local:ProjectWorkspace", left);
         Assert.DoesNotContain("XYNavigationRail", left);
         Assert.Contains("<local:HierarchyWorkspace", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
-        Assert.Contains("Header=\"检查器\"", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
+        Assert.Contains("<xy:XYTabs", Read("XuanYu.Editor.UI", "Right", "EditorRightTabs.axaml"));
     }
 
     [Fact]
     public void Map_context_moves_to_left_and_inspector()
     {
         Assert.Contains("<local:MapEditorPanel", Read("XuanYu.Editor.UI", "Right", "Right.axaml"));
-        Assert.Contains("MapFormPanel", Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
+        Assert.Contains("MapPagePanel", Read("XuanYu.Editor.UI", "Right", "MapPagePanel.axaml"));
+        Assert.DoesNotContain("<local:MapFormPanel", Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml"));
     }
 
     [Fact]

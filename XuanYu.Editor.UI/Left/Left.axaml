@@ -7,14 +7,12 @@
   <UserControl.Styles>
     <StyleInclude Source="avares://XuanYu.Editor.UI/Left/Left.Styles.axaml"/>
   </UserControl.Styles>
-  <Grid RowDefinitions="28,28,*">
+  <Grid RowDefinitions="34,28,*">
     <Grid Grid.Row="0" ColumnDefinitions="*,28">
-      <StackPanel Grid.Column="0" x:Name="ContentSwitch" Orientation="Horizontal" Spacing="2">
-        <xy:XYToggleButton x:Name="ProjectToggle" Classes="left-toggle" Content="项目"
-                           IsChecked="True" Click="ProjectToggle_Click"/>
-        <xy:XYToggleButton x:Name="FileToggle" Classes="left-toggle" Content="文件"
-                           Click="FileToggle_Click"/>
-      </StackPanel>
+      <xy:XYTabs x:Name="ContentTabs" Grid.Column="0" SelectionChanged="ContentTabs_SelectionChanged">
+        <xy:XYTab Id="project" Label="项目" IsClosable="False"/>
+        <xy:XYTab Id="file" Label="文件" IsClosable="False"/>
+      </xy:XYTabs>
       <xy:XYIconButton x:Name="ProjectMoreButton" Grid.Column="1" Classes="left-action"
                        ToolTip.Tip="更多" AutomationProperties.Name="项目更多">
         <xy:XYIcon Icon="MoreHorizontal" Size="Small"/>

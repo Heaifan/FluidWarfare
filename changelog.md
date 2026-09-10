@@ -1,5 +1,13 @@
 # changelog
 
+## v0.2.28.54-rz · AREA-D-R2（2026-09-10 13:34:11 +08:00）
+- 目标：统一 Area D 左右面板导航到真实 `XYTabs/XYTab`，并消除 Map context 的重复地图属性、Map Asset 与 LayerDock 投影。
+- 变化：Left 项目/文件与 Right 检查器/层级/调试改用 canonical XYTabs；补充通用 XYTabs 的 Left/Right/Home/End 键盘导航；保留右侧“全部页签”为独立 XYUI Action；MapFormPanel 仅由 MapPagePanel 宿主承载。地图数值字段继续保持 `XYTextField` 与现有草稿/校验/Apply 链。
+- XYUI GAP：Draft-preserving numeric editor semantics 延期；当前 `XYNumberField` 的失焦归一化不满足非法草稿保留语义，Area D R2 不改业务链。
+- 验证：R2 定向回归 30/30，跳过 0；World 新增导航/Map context/选择保持回归；本轮新增失败 0。完整门禁结果与既有延期的 World 未保存弹窗失败分开记录，未声明 CLOSED。
+- Hash：起始提交 `8eba85ca`。
+- 状态：`AREA-D-R2 READY FOR USER VISUAL + INTERACTION ACCEPTANCE / NOT CLOSED`。
+
 ## v0.2.28.53-rz · AREA-D-R1-FIX5（2026-09-10 12:46:41 +08:00）
 - 目标：建立 Right 下方工作区内容的单一所有权，实体检查器由 `EditorRightTabs → InspectorPanel → EntityInspectorPanel` 唯一承载。
 - 变化：移除 Right 直接挂载的重复 `EntityInspectorPanel`；地图、区域、图层工作区统一受 `!IsEntityInspector` 宿主控制；保留既有 `IsEntityInspector` 数据集与实体选择判定及 Manage→Move 自动进入 Edit 链。

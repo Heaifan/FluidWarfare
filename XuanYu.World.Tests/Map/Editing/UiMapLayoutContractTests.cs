@@ -26,9 +26,9 @@ public sealed class UiMapLayoutContractTests
         Assert.DoesNotContain("XYNavigationRail", Left);
         Assert.DoesNotContain("WorkspaceRail", Left);
         Assert.Contains("<local:ProjectWorkspace", Left);
-        Assert.Contains("<xy:XYToggleButton", Left);
-        Assert.Contains("Content=\"项目\"", Left);
-        Assert.Contains("Content=\"文件\"", Left);
+        Assert.Contains("<xy:XYTabs", Left);
+        Assert.Contains("Label=\"项目\"", Left);
+        Assert.Contains("Label=\"文件\"", Left);
         Assert.Contains("暂无文件", Left);
         Assert.DoesNotContain("<local:HierarchyWorkspace", Left);
         Assert.DoesNotContain("<local:MapEditorPanel", Left);
@@ -71,8 +71,8 @@ public sealed class UiMapLayoutContractTests
     [Fact]
     public void Right_keeps_global_tabs_and_rehomes_edit_contexts()
     {
-        Assert.Contains("Header=\"检查器\"", Right);
-        Assert.Contains("Header=\"调试\"", Right);
+        Assert.Contains("Label=\"检查器\"", Right);
+        Assert.Contains("Label=\"调试\"", Right);
         var rightShell = File.ReadAllText(Path.Combine(
             AppContext.BaseDirectory, "..", "..", "..", "..", "XuanYu.Editor.UI", "Right", "Right.axaml"));
         Assert.Contains("<local:MapEditorPanel", rightShell);

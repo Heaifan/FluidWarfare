@@ -18,14 +18,14 @@ public sealed class AreaDR1Fix4InspectorRoutingTests
         {
             var vm = new UiVm(null, seedInitialScene: false);
             vm.AddCubeEntity(); vm.ToggleEditorMode();
-            var panel = new InspectorPanel { DataContext = vm };
-            host.Show(panel, 480, 720); panel.UpdateLayout();
-            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(panel).Single().IsEffectivelyVisible,
-                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(panel).Single().IsEffectivelyVisible);
+            var right = new Right { DataContext = vm };
+            host.Show(right, 480, 720); right.UpdateLayout();
+            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(right).Any(x => x.IsEffectivelyVisible),
+                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(right).Count(x => x.IsEffectivelyVisible));
         });
 
         Assert.False(visible.Map);
-        Assert.True(visible.Entity);
+        Assert.Equal(1, visible.Entity);
     }
 
     [Fact]
@@ -35,14 +35,14 @@ public sealed class AreaDR1Fix4InspectorRoutingTests
         var visible = host.Run(() =>
         {
             var vm = new UiVm(null, seedInitialScene: false); vm.ToggleEditorMode();
-            var panel = new InspectorPanel { DataContext = vm };
-            host.Show(panel, 480, 720); panel.UpdateLayout();
-            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(panel).Single().IsEffectivelyVisible,
-                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(panel).Single().IsEffectivelyVisible);
+            var right = new Right { DataContext = vm };
+            host.Show(right, 480, 720); right.UpdateLayout();
+            return (Map: UiRuntimeTestHost.Descendants<MapFormPanel>(right).Count(x => x.IsEffectivelyVisible),
+                Entity: UiRuntimeTestHost.Descendants<EntityInspectorPanel>(right).Count(x => x.IsEffectivelyVisible));
         });
 
-        Assert.True(visible.Map);
-        Assert.False(visible.Entity);
+        Assert.Equal(1, visible.Map);
+        Assert.Equal(0, visible.Entity);
     }
 
     [Fact]

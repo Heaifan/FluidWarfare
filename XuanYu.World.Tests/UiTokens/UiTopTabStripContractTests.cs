@@ -75,13 +75,13 @@ public sealed class UiTopTabStripContractTests
     }
 
     [Fact]
-    public void Right_panel_hosts_template_and_exact_real_tab_set()
+    public void Right_panel_hosts_canonical_xy_tabs_and_exact_real_tab_set()
     {
         var right = Read("XuanYu.Editor.UI/Right/EditorRightTabs.axaml");
-        Assert.Contains("Right/TopTabStripTemplate.axaml", right);
-        Assert.Contains("TopTabStripTemplate", right);                    // Template Setter 引用
-        Assert.Contains("x:Name=\"SideTabs\"", right);
-        var headers = Regex.Matches(right, "<TabItem[^>]*Header=\"([^\"]+)\"")
+        Assert.Contains("<xy:XYTabs", right);
+        Assert.DoesNotContain("<TabControl", right);
+        Assert.DoesNotContain("<TabItem", right);
+        var headers = Regex.Matches(right, "<xy:XYTab[^>]*Label=\"([^\"]+)\"")
             .Select(m => m.Groups[1].Value).ToArray();
         Assert.Equal(["检查器", "层级", "调试"], headers);
     }

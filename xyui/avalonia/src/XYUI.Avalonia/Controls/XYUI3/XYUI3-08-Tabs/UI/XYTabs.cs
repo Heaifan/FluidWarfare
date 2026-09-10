@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Layout;
 using Avalonia.Metadata;
 
@@ -18,7 +19,7 @@ public sealed partial class XYTabs : Border
     public XYTab? SelectedItem => Items.FirstOrDefault(x => x.Id == _selectedTabId);
     public event EventHandler<XYTab>? TabClosed;
     public event EventHandler<XYTab>? SelectionChanged;
-    public XYTabs() { Classes.Add("xyui-tabs"); Child = _panel; Items.CollectionChanged += OnItemsChanged; }
+    public XYTabs() { Classes.Add("xyui-tabs"); Focusable = true; KeyDown += OnKeyDown; Child = _panel; Items.CollectionChanged += OnItemsChanged; }
     public XYTabs(params XYTab[] items) : this() { foreach (var item in items) Items.Add(item); NormalizeSelection(); }
     public void Build()
     {

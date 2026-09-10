@@ -4,24 +4,25 @@
              xmlns:xy="using:XYUI.Avalonia.Controls"
              x:Class="XuanYu.Editor.UI.EditorRightTabs"
              x:DataType="local:UiVm">
-  <UserControl.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Icons/EditorIcons.axaml"/>
-        <ResourceInclude Source="avares://XuanYu.Editor.UI/Right/TopTabStripTemplate.axaml"/>
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </UserControl.Resources>
   <UserControl.Styles>
-    <Style Selector="TabControl.sideTabs"><Setter Property="Template" Value="{StaticResource TopTabStripTemplate}"/></Style>
     <Style Selector="Grid.debugRow"><Setter Property="MinHeight" Value="26"/><Setter Property="Margin" Value="0,1"/></Style>
     <Style Selector="ItemsControl.debugList"><Setter Property="Margin" Value="0"/></Style>
   </UserControl.Styles>
-  <TabControl x:Name="SideTabs" Classes="sideTabs" SelectedIndex="{Binding RightTabIndex, Mode=TwoWay}">
-    <TabItem Classes="sideTab" Header="检查器"><local:InspectorPanel/></TabItem>
-    <TabItem Classes="sideTab" Header="层级"><local:HierarchyWorkspace/></TabItem>
-    <TabItem Classes="sideTab" Header="调试">
-      <ScrollViewer VerticalScrollBarVisibility="Auto">
+  <Grid RowDefinitions="Auto,*">
+    <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+      <xy:XYTabs x:Name="SideTabs" Grid.Column="0" SelectionChanged="SideTabs_SelectionChanged">
+        <xy:XYTab Id="inspector" Label="检查器" IsClosable="False"/>
+        <xy:XYTab Id="hierarchy" Label="层级" IsClosable="False"/>
+        <xy:XYTab Id="debug" Label="调试" IsClosable="False"/>
+      </xy:XYTabs>
+      <xy:XYIconButton x:Name="AllTabsButton" Grid.Column="1" Classes="right-tab-action"
+                       Icon="ChevronDown" Click="AllTabsButton_Click" ToolTip.Tip="全部页签"
+                       AutomationProperties.Name="全部页签"/>
+    </Grid>
+    <Grid Grid.Row="1">
+      <local:InspectorPanel x:Name="InspectorWorkspace"/>
+      <local:HierarchyWorkspace x:Name="HierarchyWorkspace" IsVisible="False"/>
+      <ScrollViewer x:Name="DebugWorkspace" IsVisible="False" VerticalScrollBarVisibility="Auto">
         <StackPanel Spacing="10" Margin="0,6,0,0">
           <StackPanel Spacing="4">
             <xy:XYSectionTitle Text="当前上下文"/>
@@ -81,6 +82,6 @@
           </StackPanel>
         </StackPanel>
       </ScrollViewer>
-    </TabItem>
-  </TabControl>
+    </Grid>
+  </Grid>
 </UserControl>

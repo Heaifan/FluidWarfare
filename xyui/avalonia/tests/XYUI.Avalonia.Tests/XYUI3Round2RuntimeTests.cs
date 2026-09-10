@@ -1,3 +1,4 @@
+using Avalonia.Input;
 using Avalonia.VisualTree;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -17,6 +18,16 @@ public sealed class XYUI3Round2RuntimeTests : IClassFixture<XyuiHeadlessFixture>
     [Fact] public void NavigationRail_ExpandTriggerIsReal() => _fx.Run(() => { var rail = new XYNavigationRail(new XYNavigationState([new("map", "地图", XyuiVectorIcon.Locate)]), new Dictionary<string, IReadOnlyList<XYNavigationEntry>>(), showExpandButton: true); var requested = 0; rail.ExpandRequested += (_, _) => requested++; Assert.Contains(rail.GetVisualDescendants().OfType<XYIconButton>(), x => x.Classes.Contains("xyui-rail-expand")); rail.GetVisualDescendants().OfType<XYIconButton>().Single(x => x.Classes.Contains("xyui-rail-expand")).RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Assert.Equal(1, requested); });
     [Fact] public void Tabs_CanonicalSelectionAndStableModifiedSlot() => _fx.Run(() => { var tabs = new XYTabs(new XYTab { Id = "a", Label = "A" }, new XYTab { Id = "b", Label = "B", IsModified = true }); tabs.Select("b"); Assert.Equal("b", tabs.SelectedTabId); Assert.Same(tabs.Items[1], tabs.SelectedItem); Assert.Contains(tabs.Items[1].GetVisualDescendants().OfType<XYIcon>(), x => !x.IsVisible); });
     [Fact] public void Tabs_DisabledCannotBecomeSelected() => _fx.Run(() => { var tabs = new XYTabs(new XYTab { Id = "a", Label = "A" }, new XYTab { Id = "b", Label = "B", IsEnabled = false }); tabs.Select("b"); Assert.Equal("a", tabs.SelectedTabId); });
+    [Fact] public void Tabs_keyboard_navigation_uses_only_enabled_items() => _fx.Run(() =>
+    {
+        var tabs = new XYTabs(new XYTab { Id = "a", Label = "A" }, new XYTab { Id = "b", Label = "B", IsEnabled = false }, new XYTab { Id = "c", Label = "C" });
+        tabs.RaiseEvent(new KeyEventArgs { RoutedEvent = InputElement.KeyDownEvent, Key = Key.Right });
+        Assert.Equal("c", tabs.SelectedTabId);
+        tabs.RaiseEvent(new KeyEventArgs { RoutedEvent = InputElement.KeyDownEvent, Key = Key.Home });
+        Assert.Equal("a", tabs.SelectedTabId);
+        tabs.RaiseEvent(new KeyEventArgs { RoutedEvent = InputElement.KeyDownEvent, Key = Key.End });
+        Assert.Equal("c", tabs.SelectedTabId);
+    });
     [Fact] public void TabBar_DefaultCollectionAndSelectionContract() => _fx.Run(() => { var bar = new XYTabBar(); bar.Items.Add(new XYTab { Id = "a", Label = "A" }); bar.Items.Add(new XYTab { Id = "b", Label = "B" }); bar.SelectedTabId = "b"; Assert.Equal("b", bar.SelectedTabId); Assert.Same(bar.Items, bar.Tabs.Items); });
     [Fact] public void DockTabs_ActiveIdCloseReorderAndHandoff() => _fx.Run(() => { var first = new XYDockTab(new XYTab { Id = "a", Label = "A", IsSelected = true }); var second = new XYDockTab(new XYTab { Id = "b", Label = "B" }); var dock = new XYDockTabs(first, second); XYDockHandoffRequest? handoff = null; dock.DockHandoffRequested += (_, request) => handoff = request; dock.Select("b"); Assert.Equal("b", dock.ActiveTabId); dock.Move(second, 0); Assert.Same(second, dock.Items[0]); Assert.Equal("b", handoff!.TabId); dock.Close(second); Assert.Single(dock.Items); Assert.Equal("a", dock.ActiveTabId); });
     [Fact] public void Breadcrumb_CurrentDoesNotNavigateToItself() => _fx.Run(() => { var current = new XYBreadcrumbItem { Label = "当前", IsCurrent = true }; var breadcrumb = new XYBreadcrumb(new XYBreadcrumbItem { Label = "祖先" }, current); var requested = 0; breadcrumb.NavigationRequested += (_, _) => requested++; breadcrumb.Navigate(current); Assert.Equal(0, requested); breadcrumb.Navigate(breadcrumb.Items[0]); Assert.Equal(1, requested); });

@@ -1,12 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:xy="using:XYUI.Avalonia.Controls">
-  <Style Selector="xy|XYToggleButton.left-toggle">
-    <Setter Property="Width" Value="99"/>
-    <Setter Property="Height" Value="28"/>
-    <Setter Property="Padding" Value="0"/>
-    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-    <Setter Property="VerticalContentAlignment" Value="Center"/>
-  </Style>
   <Style Selector="xy|XYIconButton.left-action">
     <Setter Property="Width" Value="22"/>
     <Setter Property="Height" Value="22"/>

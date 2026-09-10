@@ -52,7 +52,9 @@ public sealed class UiMapDatasetF3ContractTests
     public void Dataset_selection_hides_map_form_and_names_dataset_inspector()
     {
         var panel = Read("XuanYu.Editor.UI", "Right", "InspectorPanel.axaml");
-        Assert.Contains("IsVisible=\"{Binding !HasSelectedDataset}\"", panel);
+        var mapPage = Read("XuanYu.Editor.UI", "Right", "MapPagePanel.axaml");
+        Assert.Contains("<local:MapFormPanel", mapPage);
+        Assert.DoesNotContain("<local:MapFormPanel", panel);
         Assert.Contains("Text=\"{Binding InspectorSectionTitle}\"", panel);
         var vm = new UiVm(null, () => true, seedInitialScene: false);
         Assert.Equal("基础信息", vm.InspectorSectionTitle);

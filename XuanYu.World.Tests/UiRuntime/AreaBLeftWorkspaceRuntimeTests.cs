@@ -29,27 +29,24 @@ public sealed partial class AreaBLeftWorkspaceRuntimeTests
             var left = new Left { DataContext = vm };
             host.Show(left, 216, 860);
             left.UpdateLayout();
-            var projectToggle = left.FindControl<XYToggleButton>("ProjectToggle")!;
-            var fileToggle = left.FindControl<XYToggleButton>("FileToggle")!;
+            var tabs = UiRuntimeTestHost.Descendants<XYTabs>(left).Single();
             var tree = left.FindControl<ProjectWorkspace>("ProjectWorkspace")!;
             var empty = left.FindControl<StackPanel>("FileWorkspace")!;
-            var project = (projectToggle.IsChecked, fileToggle.IsChecked, tree.IsVisible, empty.IsVisible,
+            var project = (tabs.SelectedTabId, tree.IsVisible, empty.IsVisible,
                 vm.ProjectItems.Count, left.Bounds.Width);
-            fileToggle.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            tabs.Select("file");
             Dispatcher.UIThread.RunJobs();
-            return (project, projectToggle.IsChecked, fileToggle.IsChecked, tree.IsVisible, empty.IsVisible);
+            return (project, tabs.SelectedTabId, tree.IsVisible, empty.IsVisible);
         });
 
-        Assert.True(snapshot.project.Item1 == true);
-        Assert.False(snapshot.project.Item2 == true);
-        Assert.True(snapshot.project.Item3);
-        Assert.False(snapshot.project.Item4);
-        Assert.Equal(1, snapshot.project.Item5);
-        Assert.Equal(216, snapshot.project.Item6);
-        Assert.False(snapshot.Item2 == true);
-        Assert.True(snapshot.Item3 == true);
-        Assert.False(snapshot.Item4);
-        Assert.True(snapshot.Item5);
+        Assert.Equal("project", snapshot.project.Item1);
+        Assert.True(snapshot.project.Item2);
+        Assert.False(snapshot.project.Item3);
+        Assert.Equal(1, snapshot.project.Item4);
+        Assert.Equal(216, snapshot.project.Item5);
+        Assert.Equal("file", snapshot.Item2);
+        Assert.False(snapshot.Item3);
+        Assert.True(snapshot.Item4);
     }
 
     [Fact]

@@ -20,14 +20,6 @@
       </StackPanel>
     </Grid>
 
-    <StackPanel IsVisible="{Binding IsMapEditMode}" Spacing="6">
-      <StackPanel IsVisible="{Binding !HasCurrentLayerSelection}">
-      <StackPanel IsVisible="{Binding !HasSelectedDataset}">
-        <local:MapFormPanel IsVisible="{Binding !IsEntityInspector}"/>
-      </StackPanel>
-      </StackPanel>
-    </StackPanel>
-
     <local:LayerInspectorPanel IsVisible="{Binding HasCurrentLayerSelection}"/>
 
     <StackPanel IsVisible="{Binding IsRegionEditMode}" Spacing="6">

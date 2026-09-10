@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using XuanYu.Editor.UI;
+using XYUI.Avalonia.Controls;
 
 namespace XuanYu.World.Tests.UiRuntime;
 
@@ -25,11 +26,11 @@ public sealed class InspectorSectionRailScrollRuntimeTests
             vm.AddCubeEntity();
             var tabs = new EditorRightTabs { DataContext = vm };
             host.Show(tabs, width, 260); tabs.UpdateLayout();
-            var scroll = UiRuntimeTestHost.Descendants<ScrollViewer>(tabs).Single(x =>
+            var inspector = tabs.FindControl<InspectorPanel>("InspectorWorkspace")!;
+            var scroll = UiRuntimeTestHost.Descendants<ScrollViewer>(inspector).Single(x =>
                 x.VerticalScrollBarVisibility == ScrollBarVisibility.Auto &&
                 x.HorizontalScrollBarVisibility == ScrollBarVisibility.Disabled);
-            var header = UiRuntimeTestHost.Descendants<TabItem>(tabs)
-                .Single(x => Equals(x.Header, "检查器"));
+            var header = tabs.FindControl<XYTabs>("SideTabs")!.SelectedItem!;
             var before = header.Bounds;
             scroll.Offset = new Vector(0, scroll.Extent.Height - scroll.Viewport.Height);
             tabs.UpdateLayout();
@@ -49,7 +50,8 @@ public sealed class InspectorSectionRailScrollRuntimeTests
         {
             var tabs = new EditorRightTabs { DataContext = new UiVm(null, seedInitialScene: false) };
             host.Show(tabs, 300, 420); tabs.UpdateLayout();
-            var scroll = UiRuntimeTestHost.Descendants<ScrollViewer>(tabs).Single(x =>
+            var inspector = tabs.FindControl<InspectorPanel>("InspectorWorkspace")!;
+            var scroll = UiRuntimeTestHost.Descendants<ScrollViewer>(inspector).Single(x =>
                 x.VerticalScrollBarVisibility == ScrollBarVisibility.Auto &&
                 x.HorizontalScrollBarVisibility == ScrollBarVisibility.Disabled);
             return (scroll.Extent, scroll.Viewport);
